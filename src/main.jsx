@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import './App.css' // MUDANÇA IMPORTANTE: Corrigido de index.css para App.css
+import './App.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
+) // <-- O PARÊNTESE EM FALTA FOI ADICIONADO AQUI
