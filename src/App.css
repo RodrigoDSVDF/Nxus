@@ -28,11 +28,12 @@
   }
  
   .dark {
-    /* As variáveis dark já estão definidas como padrão, mas pode adicionar overrides aqui se necessário */
+    /* As variáveis dark já estão definidas como padrão. */
   }
 
   * {
-    @apply border-border;
+    /* Correção: Usar a variável CSS diretamente em vez de @apply */
+    border-color: var(--border);
   }
   body {
     @apply bg-background text-foreground;
