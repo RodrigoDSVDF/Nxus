@@ -18,12 +18,13 @@ import testimonial1Img from './assets/1000396866.jpg'
 import testimonial2Img from './assets/1000396868.jpg'
 import testimonial3Img from './assets/1000396870.jpg'
 
-// --- ADICIONANDO IMPORTS PARA AS NOVAS IMAGENS ---
+// --- IMPORTS DAS NOVAS IMAGENS (NOMES PADRONIZADOS) ---
+// Verifique se os nomes dos seus arquivos na pasta /src/assets são IDÊNTICOS a estes
 import cerebroDigitalImg from './assets/cerebro-digital.jpg'
 import produtividadeImg from './assets/produtividade.jpg'
-import servicosIaImg from './assets/servicos-ia.jpg' // Notebook
-import conexoesPlexusImg from './assets/conexoes-plexus.jpg' // Abstrata 1
-import redeNeuralAbstrataImg from './assets/rede-neural-abstrata.jpg' // Abstrata 2
+import servicosIaImg from './assets/servicos-ia.jpg' // NOTE: sem 'ç'
+import conexoesPlexusImg from './assets/conexoes-plexus.jpg' 
+import redeNeuralAbstrataImg from './assets/rede-neural-abstrata.jpg'
 
 function App() {
   const [isVisible, setIsVisible] = useState(false)
