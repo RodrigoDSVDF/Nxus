@@ -150,12 +150,11 @@ function App() {
       </section>
 
       {/* Seção de Ferramentas Práticas */}
-      <section className="py-32 px-4 relative"> {/* Alteração: Adicionado 'relative' */}
-        {/* Alteração: Adicionada imagem de fundo */}
+      <section className="py-32 px-4 relative">
         <div className="absolute inset-0 opacity-10">
           <img src={servicosIaImg} alt="Notebook com ferramentas de IA" className="w-full h-full object-cover" />
         </div>
-        <div className="max-w-6xl mx-auto relative z-10"> {/* Alteração: Adicionado 'relative z-10' */}
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
               <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">Ferramentas Práticas</span> que Transformam
@@ -166,7 +165,7 @@ function App() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-12 mb-16">
-            <div className="group bg-gradient-to-br from-blue-900/30 to-slate-800/30 p-8 rounded-3xl border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
+            <div className="group bg-gradient-to-br from-blue-900/30 to-slate-800/30 p-8 rounded-3xl border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden backdrop-blur-sm">
               <div className="absolute inset-0 opacity-20">
                 <img src={dataAnalysisImg} alt="Ferramentas Digitais" className="w-full h-full object-cover" />
               </div>
@@ -179,7 +178,7 @@ function App() {
               </div>
             </div>
             
-            <div className="group bg-gradient-to-br from-emerald-900/30 to-slate-800/30 p-8 rounded-3xl border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
+            <div className="group bg-gradient-to-br from-emerald-900/30 to-slate-800/30 p-8 rounded-3xl border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden backdrop-blur-sm">
               <div className="absolute inset-0 opacity-20">
                 <img src={dataAnalysisImg} alt="Análise de Dado" className="w-full h-full object-cover" />
               </div>
@@ -192,7 +191,7 @@ function App() {
               </div>
             </div>
             
-            <div className="group bg-gradient-to-br from-blue-900/30 to-emerald-900/30 p-8 rounded-3xl border border-blue-500/20 hover:border-emerald-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
+            <div className="group bg-gradient-to-br from-blue-900/30 to-emerald-900/30 p-8 rounded-3xl border border-blue-500/20 hover:border-emerald-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden backdrop-blur-sm">
               <div className="absolute inset-0 opacity-20">
                 <img src={brainAIImg} alt="IA Cognitiva" className="w-full h-full object-cover" />
               </div>
@@ -218,7 +217,6 @@ function App() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {/* Alteração: Card "Produtividade Exponencial" com nova imagem */}
             <div className="group bg-gradient-to-br from-blue-900/30 to-slate-800/30 p-10 rounded-3xl border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 hover:transform hover:scale-105">
               <img src={cerebroDigitalImg} alt="Cérebro digital simbolizando produtividade" className="w-full h-48 object-cover rounded-2xl mb-8 shadow-lg" />
               <div className="relative z-10">
@@ -264,7 +262,6 @@ function App() {
               <p className="text-gray-300 text-lg">Resultados reais comprovados</p>
             </div>
             
-            {/* Alteração: Card "Vantagem Competitiva" com nova imagem */}
             <div className="group bg-gradient-to-br from-blue-900/30 to-slate-800/30 p-10 rounded-3xl border border-blue-500/20 hover:border-emerald-400/40 transition-all duration-300 hover:transform hover:scale-105">
               <img src={produtividadeImg} alt="Gráfico de produtividade" className="w-full h-48 object-cover rounded-2xl mb-8 shadow-lg" />
               <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
@@ -279,7 +276,6 @@ function App() {
 
       {/* Seção de Prova/Autoridade */}
       <section className="py-32 px-4 bg-gradient-to-r from-blue-900/20 to-emerald-900/20 relative">
-        {/* Alteração: Imagem abstrata de fundo adicionada */}
         <div className="absolute inset-0 opacity-10">
           <img src={conexoesPlexusImg} alt="Conexões abstratas" className="w-full h-full object-cover" />
         </div>
@@ -320,7 +316,6 @@ function App() {
 
       {/* Nova Seção de Conclusão */}
       <section className="py-32 px-4 bg-gradient-to-br from-slate-900 to-blue-900 relative">
-        {/* Alteração: Imagem abstrata de fundo adicionada */}
         <div className="absolute inset-0 opacity-10">
           <img src={redeNeuralAbstrataImg} alt="Rede neural abstrata de fundo" className="w-full h-full object-cover" />
         </div>
