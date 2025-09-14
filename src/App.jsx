@@ -10,18 +10,20 @@ import neuralNetworkImg from './assets/1000393264.jpg'
 import laptopNeuralImg from './assets/1000393263.jpg'
 import nexusLogoImg from './assets/1000393277.png'
 import brainAIImg from './assets/1000393262.jpg'
-
-// Importando as novas imagens
 import platosCaveImg from './assets/1000396070.jpg'
-import digitalToolsImg from './assets/1000395915.jpg'
 import dataAnalysisImg from './assets/1000395918.jpg'
 import ebookImg from './assets/1000393237.png'
-
-// Importando as imagens mais recentes
 import newProductImg from './assets/1000396691.jpg'
 import testimonial1Img from './assets/1000396866.jpg'
 import testimonial2Img from './assets/1000396868.jpg'
 import testimonial3Img from './assets/1000396870.jpg'
+
+// --- ADICIONANDO IMPORTS PARA AS NOVAS IMAGENS ---
+import cerebroDigitalImg from './assets/cerebro-digital.jpg'
+import produtividadeImg from './assets/produtividade.jpg'
+import servicosIaImg from './assets/servicos-ia.jpg' // Notebook
+import conexoesPlexusImg from './assets/conexoes-plexus.jpg' // Abstrata 1
+import redeNeuralAbstrataImg from './assets/rede-neural-abstrata.jpg' // Abstrata 2
 
 function App() {
   const [isVisible, setIsVisible] = useState(false)
@@ -30,7 +32,6 @@ function App() {
     setIsVisible(true)
   }, [])
 
-  // Esta função não é mais necessária nos botões com link externo
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -82,7 +83,7 @@ function App() {
             <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer">
               <Button  
                 size="md"  
-                className="h-auto whitespace-normal text-center bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-900 px-4 sm:px-6 py-3 text-sm sm:text-base font-bold rounded-xl shadow-2xl hover:shadow-cyan-400/30 transition-all duration-300 transform hover:scale-105 border-2 border-cyan-300/50" // <-- CORREÇÃO AQUI
+                className="h-auto whitespace-normal text-center bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-900 px-4 sm:px-6 py-3 text-sm sm:text-base font-bold rounded-xl shadow-2xl hover:shadow-cyan-400/30 transition-all duration-300 transform hover:scale-105 border-2 border-cyan-300/50"
               >
                 <BookOpen className="w-5 h-5 mr-2" />
                 Quero meu Manual de Alta Performance
@@ -149,8 +150,12 @@ function App() {
       </section>
 
       {/* Seção de Ferramentas Práticas */}
-      <section className="py-32 px-4">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-32 px-4 relative"> {/* Alteração: Adicionado 'relative' */}
+        {/* Alteração: Adicionada imagem de fundo */}
+        <div className="absolute inset-0 opacity-10">
+          <img src={servicosIaImg} alt="Notebook com ferramentas de IA" className="w-full h-full object-cover" />
+        </div>
+        <div className="max-w-6xl mx-auto relative z-10"> {/* Alteração: Adicionado 'relative z-10' */}
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
               <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">Ferramentas Práticas</span> que Transformam
@@ -163,7 +168,7 @@ function App() {
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             <div className="group bg-gradient-to-br from-blue-900/30 to-slate-800/30 p-8 rounded-3xl border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
               <div className="absolute inset-0 opacity-20">
-                <img src={digitalToolsImg} alt="Ferramentas Digitais" className="w-full h-full object-cover" />
+                <img src={dataAnalysisImg} alt="Ferramentas Digitais" className="w-full h-full object-cover" />
               </div>
               <div className="relative z-10 text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
@@ -213,10 +218,9 @@ function App() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <div className="group bg-gradient-to-br from-blue-900/30 to-slate-800/30 p-10 rounded-3xl border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
-              <div className="absolute inset-0 opacity-10">
-                <img src={neuralNetworkImg} alt="Neural Network" className="w-full h-full object-cover" />
-              </div>
+            {/* Alteração: Card "Produtividade Exponencial" com nova imagem */}
+            <div className="group bg-gradient-to-br from-blue-900/30 to-slate-800/30 p-10 rounded-3xl border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 hover:transform hover:scale-105">
+              <img src={cerebroDigitalImg} alt="Cérebro digital simbolizando produtividade" className="w-full h-48 object-cover rounded-2xl mb-8 shadow-lg" />
               <div className="relative z-10">
                 <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
                   <Rocket className="w-10 h-10 text-white" />
@@ -260,7 +264,9 @@ function App() {
               <p className="text-gray-300 text-lg">Resultados reais comprovados</p>
             </div>
             
+            {/* Alteração: Card "Vantagem Competitiva" com nova imagem */}
             <div className="group bg-gradient-to-br from-blue-900/30 to-slate-800/30 p-10 rounded-3xl border border-blue-500/20 hover:border-emerald-400/40 transition-all duration-300 hover:transform hover:scale-105">
+              <img src={produtividadeImg} alt="Gráfico de produtividade" className="w-full h-48 object-cover rounded-2xl mb-8 shadow-lg" />
               <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
                 <Key className="w-10 h-10 text-white" />
               </div>
@@ -273,8 +279,9 @@ function App() {
 
       {/* Seção de Prova/Autoridade */}
       <section className="py-32 px-4 bg-gradient-to-r from-blue-900/20 to-emerald-900/20 relative">
-        <div className="absolute inset-0 opacity-5">
-          <img src={brainNetworkImg} alt="Brain Network" className="w-full h-full object-cover" />
+        {/* Alteração: Imagem abstrata de fundo adicionada */}
+        <div className="absolute inset-0 opacity-10">
+          <img src={conexoesPlexusImg} alt="Conexões abstratas" className="w-full h-full object-cover" />
         </div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
@@ -300,7 +307,7 @@ function App() {
             <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer">
               <Button  
                 size="md"  
-                className="h-auto whitespace-normal text-center bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-900 px-4 sm:px-6 py-3 text-sm sm:text-base font-bold rounded-xl shadow-2xl hover:shadow-cyan-400/30 transition-all duration-300 transform hover:scale-105 border-2 border-cyan-300/50" // <-- CORREÇÃO AQUI
+                className="h-auto whitespace-normal text-center bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-900 px-4 sm:px-6 py-3 text-sm sm:text-base font-bold rounded-xl shadow-2xl hover:shadow-cyan-400/30 transition-all duration-300 transform hover:scale-105 border-2 border-cyan-300/50"
               >
                 <BookOpen className="w-5 h-5 mr-2" />
                 Quero agora meu Manual de Alta Performance com IA
@@ -313,8 +320,9 @@ function App() {
 
       {/* Nova Seção de Conclusão */}
       <section className="py-32 px-4 bg-gradient-to-br from-slate-900 to-blue-900 relative">
-        <div className="absolute inset-0 opacity-5">
-          <img src={brainAIImg} alt="Brain AI" className="w-full h-full object-cover" />
+        {/* Alteração: Imagem abstrata de fundo adicionada */}
+        <div className="absolute inset-0 opacity-10">
+          <img src={redeNeuralAbstrataImg} alt="Rede neural abstrata de fundo" className="w-full h-full object-cover" />
         </div>
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
@@ -330,7 +338,6 @@ function App() {
               O NEXUS é o atalho para acelerar seus resultados com Inteligência Artificial e alcançar um nível de performance que poucos ousam.
             </p>
             
-            {/* 3 Bullets dos principais ganhos */}
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
@@ -359,7 +366,6 @@ function App() {
             </div>
           </div>
           
-          {/* CTA Final Forte */}
           <div className="text-center mb-12">
             <p className="text-2xl text-cyan-300 mb-8 font-medium">
               👉 Toque agora e conheça o NEXUS — sua jornada para a alta performance começa hoje.
@@ -377,7 +383,6 @@ function App() {
             </a>
           </div>
           
-          {/* Imagem do Produto */}
           <div className="flex justify-center mt-16">
             <div className="relative group w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl">
               <img  
@@ -404,7 +409,6 @@ function App() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-12">
-            {/* Depoimento 1 - Laptop */}
             <div className="group bg-gradient-to-br from-slate-800/60 to-blue-900/40 p-8 rounded-3xl border border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
               <div className="relative w-full aspect-video mb-6 rounded-2xl overflow-hidden shadow-lg">
                 <img  
@@ -426,7 +430,6 @@ function App() {
               </div>
             </div>
             
-            {/* Depoimento 2 - Mobile */}
             <div className="group bg-gradient-to-br from-emerald-900/40 to-slate-800/60 p-8 rounded-3xl border border-emerald-500/30 hover:border-emerald-400/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
               <div className="relative w-full aspect-video mb-6 rounded-2xl overflow-hidden shadow-lg">
                 <img  
@@ -448,7 +451,6 @@ function App() {
               </div>
             </div>
             
-            {/* Depoimento 3 - Tablet */}
             <div className="group bg-gradient-to-br from-blue-900/40 to-emerald-900/40 p-8 rounded-3xl border border-blue-500/30 hover:border-emerald-400/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
               <div className="relative w-full aspect-video mb-6 rounded-2xl overflow-hidden shadow-lg">
                 <img  
@@ -471,7 +473,6 @@ function App() {
             </div>
           </div>
           
-          {/* CTA adicional na seção de depoimentos */}
           <div className="text-center mt-16">
             <p className="text-xl text-gray-300 mb-8">
               Junte-se a milhares de profissionais que já transformaram sua performance
@@ -479,7 +480,7 @@ function App() {
             <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer">
               <Button  
                 size="md"  
-                className="h-auto whitespace-normal text-center bg-gradient-to-r from-emerald-400 to-blue-500 hover:from-emerald-300 hover:to-blue-400 text-slate-900 px-4 sm:px-6 py-3 text-sm sm:text-base font-bold rounded-xl shadow-2xl hover:shadow-emerald-400/30 transition-all duration-300 transform hover:scale-105 border-2 border-emerald-300/50" // <-- CORREÇÃO AQUI
+                className="h-auto whitespace-normal text-center bg-gradient-to-r from-emerald-400 to-blue-500 hover:from-emerald-300 hover:to-blue-400 text-slate-900 px-4 sm:px-6 py-3 text-sm sm:text-base font-bold rounded-xl shadow-2xl hover:shadow-emerald-400/30 transition-all duration-300 transform hover:scale-105 border-2 border-emerald-300/50"
               >
                 <Rocket className="w-5 h-5 mr-2" />
                 Começar Minha Transformação Agora
