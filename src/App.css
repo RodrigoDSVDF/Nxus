@@ -1,6 +1,5 @@
-@import "tailwindcss/theme";
-@import "tailwindcss/utilities";
-@import "tailwindcss-animate";
+@import "tailwindcss";
+@import "tw-animate-css";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @custom-variant dark (&:is(.dark *));
@@ -123,6 +122,7 @@
     letter-spacing: -0.01em;
   }
   
+  /* Melhorias de tipografia */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
@@ -135,16 +135,78 @@
     line-height: 1.7;
     letter-spacing: -0.005em;
   }
-
+  
+  /* Espaçamento aprimorado para mobile */
+  @media (max-width: 768px) {
+    .hero-section {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+    
+    .section-spacing {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+    
+    .container-mobile {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    .text-mobile-center {
+      text-align: center;
+    }
+    
+    .button-mobile {
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+  }
+  
+  /* Animações suaves */
+  .smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Efeitos de hover aprimorados */
+  .hover-glow:hover {
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
+  }
+  
+  /* Gradientes personalizados */
+  .gradient-text-cyan {
+    background: linear-gradient(135deg, #22d3ee, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .gradient-text-emerald {
+    background: linear-gradient(135deg, #10b981, #059669);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Melhorias de acessibilidade */
+  .focus-visible:focus-visible {
+    outline: 2px solid #22d3ee;
+    outline-offset: 2px;
+  }
+  
+  /* Scroll suave */
   html {
     scroll-behavior: smooth;
   }
-
+  
+  /* Otimizações de performance */
   img {
     will-change: transform;
   }
-
+  
   .animate-element {
     will-change: transform, opacity;
   }
-  }
+}
+
