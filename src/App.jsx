@@ -3,27 +3,28 @@ import { Button } from '@/components/ui/button.jsx'
 import { ArrowRight, Zap, Target, Globe, Key, Rocket, BookOpen, Brain, TrendingUp, CheckCircle, Sparkles } from 'lucide-react'
 import './App.css'
 
-// Importando as imagens existentes
-import brainNetworkImg from './assets/1000393266.jpg'
-import neuronImg from './assets/1000393265.jpg'
-import neuralNetworkImg from './assets/1000393264.jpg'
-import laptopNeuralImg from './assets/1000393263.jpg'
-import nexusLogoImg from './assets/1000393277.png'
-import brainAIImg from './assets/1000393262.jpg'
-import platosCaveImg from './assets/1000396070.jpg'
-import digitalToolsImg from './assets/1000395915.jpg'
-import dataAnalysisImg from './assets/1000395918.jpg'
-import ebookImg from './assets/1000393237.png'
-import newProductImg from './assets/1000396691.jpg'
-import testimonial1Img from './assets/1000396866.jpg'
-import testimonial2Img from './assets/1000396868.jpg'
-import testimonial3Img from './assets/1000396870.jpg'
-import servicosIAImg from './assets/servicos-ia.jpg';
-import produtividadeImg from './assets/produtividade.jpg';
-import redeNeuralAbstrataImg from './assets/rede-neural-abstrata.jpg';
+// Importando as imagens com o caminho correto
+import brainNetworkImg from '../assets/1000393266.jpg'
+import neuronImg from '../assets/1000393265.jpg'
+import neuralNetworkImg from '../assets/1000393264.jpg'
+import laptopNeuralImg from '../assets/1000393263.jpg'
+import nexusLogoImg from '../assets/1000393277.png'
+import brainAIImg from '../assets/1000393262.jpg'
+import platosCaveImg from '../assets/1000396070.jpg'
+import digitalToolsImg from '../assets/1000395915.jpg'
+import dataAnalysisImg from '../assets/1000395918.jpg'
+import ebookImg from '../assets/1000393237.png'
+import newProductImg from '../assets/1000396691.jpg'
+import testimonial1Img from '../assets/1000396866.jpg'
+import testimonial2Img from '../assets/1000396868.jpg'
+import testimonial3Img from '../assets/1000396870.jpg'
+import servicosIAImg from '../assets/servicos-ia.jpg';
+import produtividadeImg from '../assets/produtividade.jpg';
+import redeNeuralAbstrataImg from '../assets/rede-neural-abstrata.jpg';
 
-// --- NOVA IMAGEM IMPORTADA ---
-import xadrezStrategiaImg from './assets/xadrez-strategia.jpg';
+// --- CORREÇÃO AQUI: Ajustando o nome do arquivo ---
+import xadrezStrategiaImg from '../assets/xadrez-estrategia.jpg';
+
 
 function App() {
   const [isVisible, setIsVisible] = useState(false)
@@ -227,7 +228,6 @@ function App() {
               </div>
             </div>
             
-            {/* --- CARD ATUALIZADO COM A NOVA IMAGEM --- */}
             <div className="group bg-gradient-to-br from-emerald-900/30 to-slate-800/30 p-10 rounded-3xl border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
               <div className="absolute inset-0 opacity-10">
                 <img src={xadrezStrategiaImg} alt="Estratégia e Clareza" className="w-full h-full object-cover" />
