@@ -20,9 +20,10 @@ import testimonial2Img from './assets/1000396868.jpg'
 import testimonial3Img from './assets/1000396870.jpg'
 import servicosIAImg from './assets/servicos-ia.jpg';
 import produtividadeImg from './assets/produtividade.jpg';
+import redeNeuralAbstrataImg from './assets/rede-neural-abstrata.jpg';
 
 // --- NOVA IMAGEM IMPORTADA ---
-import redeNeuralAbstrataImg from './assets/rede-neural-abstrata.jpg';
+import xadrezStrategiaImg from './assets/xadrez-strategia.jpg';
 
 function App() {
   const [isVisible, setIsVisible] = useState(false)
@@ -148,7 +149,7 @@ function App() {
         </div>
       </section>
 
-      {/* Seção de Ferramentas Práticas (IMAGEM DE FUNDO REMOVIDA DAQUI) */}
+      {/* Seção de Ferramentas Práticas */}
       <section className="py-32 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
@@ -226,9 +227,10 @@ function App() {
               </div>
             </div>
             
+            {/* --- CARD ATUALIZADO COM A NOVA IMAGEM --- */}
             <div className="group bg-gradient-to-br from-emerald-900/30 to-slate-800/30 p-10 rounded-3xl border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
               <div className="absolute inset-0 opacity-10">
-                <img src={laptopNeuralImg} alt="Laptop Neural" className="w-full h-full object-cover" />
+                <img src={xadrezStrategiaImg} alt="Estratégia e Clareza" className="w-full h-full object-cover" />
               </div>
               <div className="relative z-10">
                 <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
@@ -252,7 +254,6 @@ function App() {
               </div>
             </div>
 
-            {/* --- CARD ATUALIZADO COM A IMAGEM movida PARA CÁ --- */}
             <div className="group bg-gradient-to-br from-emerald-900/30 to-blue-900/30 p-10 rounded-3xl border border-emerald-500/20 hover:border-blue-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                <div className="absolute inset-0 opacity-10">
                 <img src={servicosIAImg} alt="Ferramentas Práticas de IA" className="w-full h-full object-cover" />
@@ -322,7 +323,7 @@ function App() {
         </div>
       </section>
 
-      {/* Nova Seção de Conclusão (IMAGEM DE FUNDO ATUALIZADA AQUI) */}
+      {/* Nova Seção de Conclusão */}
       <section className="py-32 px-4 bg-gradient-to-br from-slate-900 to-blue-900 relative">
         <div className="absolute inset-0 opacity-5">
           <img src={redeNeuralAbstrataImg} alt="Rede Neural Abstrata" className="w-full h-full object-cover" />
@@ -423,7 +424,7 @@ function App() {
               <div className="text-center">
                 <h3 className="text-xl font-semibold text-white mb-3">Ambiente Profissional</h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
-                  "O NEXUS transformou minha rotina de trabalho. Agora consigo processar informações 3x mais rápido e tomar decisões estratégicas com muito más precisão."
+                  "O NEXUS transformou minha rotina de trabalho. Agora consigo processar informações 3x mais rápido e tomar decisões estratégicas com muito mais precisão."
                 </p>
                 <div className="mt-4 flex justify-center">
                   <div className="flex text-cyan-400">
