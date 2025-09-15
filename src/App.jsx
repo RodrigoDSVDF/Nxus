@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button.jsx';
-import { ArrowRight, Zap, Target, Globe, Key, Rocket, BookOpen, Brain, TrendingUp, CheckCircle, Sparkles } from 'lucide-react';
+// Ícones importados da biblioteca lucide-react (verifique se ela está instalada)
+import { ArrowRight, Zap, Target, Rocket, Brain, Sparkles, TrendingUp } from 'lucide-react';
 import './App.css';
 
-// --- IMAGENS IMPORTADAS ---
+/* LEMBRETE: Verifique se os nomes dos arquivos de imagem na sua pasta 'src/assets'
+  são EXATAMENTE os mesmos que estão listados abaixo.
+*/
 
 // Imagens existentes
 import brainNetworkImg from './assets/1000393266.jpg';
@@ -21,7 +23,7 @@ import testimonial1Img from './assets/1000396866.jpg';
 import testimonial2Img from './assets/1000396868.jpg';
 import testimonial3Img from './assets/1000396870.jpg';
 
-// --- NOVAS IMAGENS ADICIONADAS AQUI ---
+// Novas imagens adicionadas
 import servicosIaImg from './assets/servicos-ia.jpg';
 import produtividadeImg from './assets/produtividade.jpg';
 
@@ -50,27 +52,26 @@ function App() {
           <p className="max-w-2xl mx-auto text-lg text-slate-300 mb-8">
             Soluções inovadoras para otimizar seus processos, aumentar a produtividade e gerar vantagem competitiva para o seu negócio.
           </p>
-          <div className="flex justify-center gap-4">
-            <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            {/* Botão padrão HTML */}
+            <button className="flex items-center justify-center w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
               Começar Agora <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-slate-400 hover:bg-slate-700">
+            </button>
+            {/* Botão padrão HTML (estilo outline) */}
+            <button className="flex items-center justify-center w-full sm:w-auto border border-slate-400 bg-transparent hover:bg-slate-800/50 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
               Fale Conosco
-            </Button>
+            </button>
           </div>
         </div>
       </section>
 
-      {/* --- NOVA SEÇÃO: Ferramentas Práticas (com imagem de fundo) --- */}
+      {/* --- Seção: Ferramentas Práticas (com imagem de fundo) --- */}
       <section 
         id="ferramentas" 
         className="relative py-20 px-4 text-center bg-no-repeat bg-cover bg-center"
         style={{ backgroundImage: `url(${servicosIaImg})` }}
       >
-        {/* Overlay escuro para melhorar a legibilidade do texto */}
         <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-sm"></div>
-
-        {/* Conteúdo da seção */}
         <div className="relative z-10 container mx-auto">
           <Sparkles className="mx-auto h-12 w-12 text-emerald-400 mb-4" />
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -79,29 +80,25 @@ function App() {
           <p className="max-w-3xl mx-auto text-lg text-slate-300 mb-12">
             Nossas soluções de IA são projetadas para se integrar perfeitamente ao seu fluxo de trabalho, fornecendo insights acionáveis e automação inteligente para impulsionar seu sucesso.
           </p>
-          {/* Você pode adicionar cards de features aqui se desejar */}
         </div>
       </section>
 
-      {/* --- NOVA SEÇÃO: Vantagem Competitiva (com imagem ao lado do texto) --- */}
+      {/* --- Seção: Vantagem Competitiva (com imagem ao lado do texto) --- */}
       <section id="vantagem" className="py-20 px-4 bg-slate-800">
         <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
-          
-          {/* Coluna de Texto */}
           <div className="text-center md:text-left">
             <Rocket className="h-12 w-12 text-emerald-400 mb-4 inline-block"/>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Obtenha Vantagem Competitiva
             </h2>
-            <p className="text-lg text-slate-300 mb-6">
+            <p className="text-lg text-slate-300 mb-8">
               Em um mercado em constante mudança, a agilidade é tudo. Aumente a produtividade da sua equipe, otimize operações e tome decisões mais inteligentes baseadas em dados para se manter sempre à frente da concorrência.
             </p>
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+            {/* Botão padrão HTML */}
+            <button className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
               Descubra Como <TrendingUp className="ml-2 h-5 w-5" />
-            </Button>
+            </button>
           </div>
-
-          {/* Coluna da Imagem */}
           <div className="flex justify-center">
             <img 
               src={produtividadeImg} 
@@ -112,24 +109,23 @@ function App() {
         </div>
       </section>
       
-      {/* --- OUTRAS SEÇÕES (Exemplos) --- */}
+      {/* --- Seção de Features/Soluções --- */}
       <section id="features" className="py-20 px-4">
           <div className="container mx-auto text-center">
               <h2 className="text-4xl font-bold mb-12">Nossas Soluções</h2>
-              {/* Adicione aqui os seus cards de features */}
               <div className="grid md:grid-cols-3 gap-8">
-                  <div className="bg-slate-800 p-6 rounded-lg">
-                      <Brain className="h-8 w-8 mb-2 text-emerald-400"/>
+                  <div className="bg-slate-800 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300">
+                      <Brain className="h-10 w-10 mb-4 mx-auto text-emerald-400"/>
                       <h3 className="font-bold text-xl mb-2">Análise Preditiva</h3>
                       <p className="text-slate-400">Antecipe tendências e tome decisões proativas.</p>
                   </div>
-                  <div className="bg-slate-800 p-6 rounded-lg">
-                      <Zap className="h-8 w-8 mb-2 text-emerald-400"/>
+                  <div className="bg-slate-800 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300">
+                      <Zap className="h-10 w-10 mb-4 mx-auto text-emerald-400"/>
                       <h3 className="font-bold text-xl mb-2">Automação de Processos</h3>
                       <p className="text-slate-400">Reduza tarefas manuais e foque no que importa.</p>
                   </div>
-                  <div className="bg-slate-800 p-6 rounded-lg">
-                      <Target className="h-8 w-8 mb-2 text-emerald-400"/>
+                  <div className="bg-slate-800 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300">
+                      <Target className="h-10 w-10 mb-4 mx-auto text-emerald-400"/>
                       <h3 className="font-bold text-xl mb-2">Personalização</h3>
                       <p className="text-slate-400">Ofereça experiências únicas para cada cliente.</p>
                   </div>
@@ -137,7 +133,7 @@ function App() {
           </div>
       </section>
 
-      {/* --- Footer (Exemplo) --- */}
+      {/* --- Footer --- */}
       <footer className="bg-slate-900 py-8 px-4 border-t border-slate-700">
         <div className="container mx-auto text-center text-slate-400">
           <p>&copy; {new Date().getFullYear()} Nexus AI. Todos os direitos reservados.</p>
