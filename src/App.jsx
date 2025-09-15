@@ -18,10 +18,11 @@ import newProductImg from './assets/1000396691.jpg'
 import testimonial1Img from './assets/1000396866.jpg'
 import testimonial2Img from './assets/1000396868.jpg'
 import testimonial3Img from './assets/1000396870.jpg'
-
-// --- NOVAS IMAGENS IMPORTADAS ---
 import servicosIAImg from './assets/servicos-ia.jpg';
 import produtividadeImg from './assets/produtividade.jpg';
+
+// --- NOVA IMAGEM IMPORTADA ---
+import redeNeuralAbstrataImg from './assets/rede-neural-abstrata.jpg';
 
 function App() {
   const [isVisible, setIsVisible] = useState(false)
@@ -147,18 +148,9 @@ function App() {
         </div>
       </section>
 
-      {/* Seção de Ferramentas Práticas */}
-      <section className="py-32 px-4 relative">
-        {/* --- NOVA IMAGEM DE FUNDO ADICIONADA AQUI --- */}
-        <div className="absolute inset-0 opacity-5">
-          <img 
-            src={servicosIAImg} 
-            alt="Serviços de IA" 
-            className="w-full h-full object-cover" 
-          />
-        </div>
-
-        <div className="max-w-6xl mx-auto relative z-10">
+      {/* Seção de Ferramentas Práticas (IMAGEM DE FUNDO REMOVIDA DAQUI) */}
+      <section className="py-32 px-4">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
               <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">Ferramentas Práticas</span> que Transformam
@@ -259,16 +251,21 @@ function App() {
                 <p className="text-gray-300 text-lg">Conhecimento em ação concreta</p>
               </div>
             </div>
-            
-            <div className="group bg-gradient-to-br from-emerald-900/30 to-blue-900/30 p-10 rounded-3xl border border-emerald-500/20 hover:border-blue-400/40 transition-all duration-300 hover:transform hover:scale-105">
-              <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                <Zap className="w-10 h-10 text-white" />
+
+            {/* --- CARD ATUALIZADO COM A IMAGEM movida PARA CÁ --- */}
+            <div className="group bg-gradient-to-br from-emerald-900/30 to-blue-900/30 p-10 rounded-3xl border border-emerald-500/20 hover:border-blue-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
+               <div className="absolute inset-0 opacity-10">
+                <img src={servicosIAImg} alt="Ferramentas Práticas de IA" className="w-full h-full object-cover" />
               </div>
-              <h3 className="text-2xl font-semibold text-white mb-4">Ferramentas Práticas</h3>
-              <p className="text-gray-300 text-lg">Resultados reais comprovados</p>
+              <div className="relative z-10">
+                <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                  <Zap className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-semibold text-white mb-4">Ferramentas Práticas</h3>
+                <p className="text-gray-300 text-lg">Resultados reais comprovados</p>
+              </div>
             </div>
             
-            {/* --- CARD "VANTAGEM COMPETITIVA" ATUALIZADO COM A IMAGEM --- */}
             <div className="group bg-gradient-to-br from-blue-900/30 to-slate-800/30 p-10 rounded-3xl border border-blue-500/20 hover:border-emerald-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
               <div className="absolute inset-0 opacity-10">
                 <img src={produtividadeImg} alt="Vantagem Competitiva" className="w-full h-full object-cover" />
@@ -325,10 +322,10 @@ function App() {
         </div>
       </section>
 
-      {/* Nova Seção de Conclusão */}
+      {/* Nova Seção de Conclusão (IMAGEM DE FUNDO ATUALIZADA AQUI) */}
       <section className="py-32 px-4 bg-gradient-to-br from-slate-900 to-blue-900 relative">
         <div className="absolute inset-0 opacity-5">
-          <img src={brainAIImg} alt="Brain AI" className="w-full h-full object-cover" />
+          <img src={redeNeuralAbstrataImg} alt="Rede Neural Abstrata" className="w-full h-full object-cover" />
         </div>
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
@@ -426,7 +423,7 @@ function App() {
               <div className="text-center">
                 <h3 className="text-xl font-semibold text-white mb-3">Ambiente Profissional</h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
-                  "O NEXUS transformou minha rotina de trabalho. Agora consigo processar informações 3x mais rápido e tomar decisões estratégicas com muito mais precisão."
+                  "O NEXUS transformou minha rotina de trabalho. Agora consigo processar informações 3x mais rápido e tomar decisões estratégicas com muito más precisão."
                 </p>
                 <div className="mt-4 flex justify-center">
                   <div className="flex text-cyan-400">
