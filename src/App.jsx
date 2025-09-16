@@ -132,7 +132,7 @@ function App() {
                 <div>
                   <h3 className="text-2xl font-semibold text-white mb-3">Saia da Caverna Digital</h3>
                   <p className="text-gray-200 text-lg leading-relaxed">
-                    Como na alegoria de Platão, muitos vivem presos às sombras da desinformação digital. O NEXUS é sua saída para a luz do conhecimento real.
+                    Como na alegoria de Platão, muitos vivem presos às sombras da desinformação digital. O NEXUS é sua saída para a luz do conhecimento de valor real.
                   </p>
                 </div>
               </div>
