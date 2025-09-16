@@ -223,7 +223,7 @@ function App() {
                   <Rocket className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-semibold text-white mb-4">Produtividade Exponencial</h3>
-                <p className="text-gray-300 text-lg">Multiplique seus resultados com IA</p>
+                <p className="text-gray-300 text-lg">Elimine a sobrecarga digital e a sensação de estar sempre atrasado. Descubra como a IA pode ser sua assistente pessoal 24/7, trazendo foco, organização e resultados tangíveis todos os dias</p>
               </div>
             </div>
             
@@ -237,7 +237,7 @@ function App() {
                   <Target className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-semibold text-white mb-4">Clareza Estratégica</h3>
-                <p className="text-gray-300 text-lg">Decisões rápidas e precisas</p>
+                <p className="text-gray-300 text-lg">Acabe com a paralisia por análise e a dúvida. Tenha um framework mental e tecnológico para cortar o ruído, priorizar o essencial e enxergar o caminho mais claro e rápido para seus objetivos</p>
               </div>
             </div>
             
@@ -250,7 +250,7 @@ function App() {
                   <Globe className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-semibold text-white mb-4">Mentalidade Informacional</h3>
-                <p className="text-gray-300 text-lg">Conhecimento em ação concreta</p>
+                <p className="text-gray-300 text-lg">Desenvolva a skill mais valiosa do século XXI: a capacidade de aprender, desaprender e reaprender rapidamente. Esteja sempre à frente, adaptando-se às novas tecnologias e tornando-se insubstituível</p>
               </div>
             </div>
 
@@ -263,7 +263,7 @@ function App() {
                   <Zap className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-semibold text-white mb-4">Ferramentas Práticas</h3>
-                <p className="text-gray-300 text-lg">Resultados reais comprovados</p>
+                <p className="text-gray-300 text-lg">Chega de frustração com tecnologia complexa. Tenha um "guia de instruções" para o mundo digital, com passo a passo simplificado para extrair o máximo de cada ferramenta, sem complicação</p>
               </div>
             </div>
             
