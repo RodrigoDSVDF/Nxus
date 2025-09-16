@@ -295,7 +295,7 @@ function App() {
           
           <div className="bg-gradient-to-br from-slate-800/60 to-blue-900/40 p-12 md:p-16 rounded-3xl border border-blue-500/30 backdrop-blur-sm">
             <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
-              Empresas, profissionais e líderes que dominam a <strong className="text-emerald-400">capacidade informacional</strong> estão sempre à frente. O Nexus traduz essa realidade em <strong className="text-cyan-400">passos aplicáveis</strong> para o seu dia a dia, unindo ciência, tecnologia e estratégia de performance.
+              Empresas, profissionais e líderes que dominam o modelo  <strong className="text-emerald-400">econômico informacional</strong> estão sempre à frente. O Nexus traduz essa realidade em <strong className="text-cyan-400">passos aplicáveis</strong> para o seu dia a dia, unindo ciência, tecnologia e estratégia de performance.
             </p>
           </div>
         </div>
