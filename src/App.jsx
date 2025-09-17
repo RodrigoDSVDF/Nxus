@@ -24,6 +24,7 @@ import redeNeuralAbstrataImg from './assets/rede-neural-abstrata.jpg';
 
 // --- NOVA IMAGEM IMPORTADA ---
 import xadrezStrategiaImg from './assets/xadrez-estrategia.jpg';
+import garantia7DiasImg from './assets/7-dias-garantido.png'; // <--- ASSUMINDO QUE VOCÊ SALVOU A IMAGEM COMO 7-dias-garantido.png NA PASTA ASSETS
 
 function App() {
   const [isVisible, setIsVisible] = useState(false)
@@ -498,6 +499,14 @@ function App() {
       {/* Footer */}
       <footer className="py-12 px-4 bg-slate-900 border-t border-slate-700">
         <div className="max-w-6xl mx-auto text-center">
+          {/* Nova imagem de garantia */}
+          <div className="mb-8"> {/* Adicione margem abaixo da imagem para espaçamento */}
+            <img 
+              src={garantia7DiasImg} 
+              alt="Garantia de 7 dias ou seu dinheiro de volta" 
+              className="mx-auto w-48 h-auto" // Ajuste o tamanho conforme necessário
+            />
+          </div>
           <p className="text-gray-400 text-lg">
             © 2024 NEXUS - Manual de Alta Performance com IA. Todos os direitos reservados.
           </p>
