@@ -24,7 +24,7 @@ import redeNeuralAbstrataImg from './assets/rede-neural-abstrata.jpg';
 
 // --- NOVA IMAGEM IMPORTADA ---
 import xadrezStrategiaImg from './assets/xadrez-estrategia.jpg';
-import garantia7DiasImg from './assets/7-dias-garantido.png'; // <--- ASSUMINDO QUE VOCÊ SALVOU A IMAGEM COMO 7-dias-garantido.png NA PASTA ASSETS
+import garantia7DiasImg from './assets/7-dias-garantido.jpg'; // <--- ASSUMINDO QUE VOCÊ SALVOU A IMAGEM COMO 7-dias-garantido.png NA PASTA ASSETS
 
 function App() {
   const [isVisible, setIsVisible] = useState(false)
