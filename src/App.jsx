@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button.jsx'
-import { ArrowRight, Zap, Target, Globe, Key, Rocket, BookOpen, Brain, TrendingUp, CheckCircle, Sparkles } from 'lucide-react'
+import { ArrowRight, Zap, Target, Globe, Key, Rocket, BookOpen, Brain, TrendingUp, CheckCircle, Sparkles, User, Lightbulb, Search, Eye } from 'lucide-react' // Adicionei ícones novos
 import './App.css'
 
 // Importando as imagens existentes
@@ -21,10 +21,8 @@ import testimonial3Img from './assets/1000396870.jpg'
 import servicosIAImg from './assets/servicos-ia.jpg';
 import produtividadeImg from './assets/produtividade.jpg';
 import redeNeuralAbstrataImg from './assets/rede-neural-abstrata.jpg';
-
-// --- NOVA IMAGEM IMPORTADA ---
 import xadrezStrategiaImg from './assets/xadrez-estrategia.jpg';
-import garantia7DiasImg from './assets/7-dias-garantido.jpg'; // <--- ASSUMINDO QUE VOCÊ SALVOU A IMAGEM COMO 7-dias-garantido.png NA PASTA ASSETS
+import garantia7DiasImg from './assets/7-dias-garantido.jpg'; 
 
 function App() {
   const [isVisible, setIsVisible] = useState(false)
@@ -41,11 +39,8 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 font-['Poppins',sans-serif] overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
-        {/* Background Effects */}
         <div className="hidden md:block absolute top-20 left-20 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="hidden md:block absolute bottom-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        
-        {/* Background Image */}
         <div className="absolute inset-0 opacity-10">
           <img  
             src={brainNetworkImg}  
@@ -60,8 +55,6 @@ function App() {
               <Zap className="w-4 h-4 mr-2" />
               Nova Era Informacional
             </div>
-            
-            {/* Logo NEXUS */}
             <div className="mb-8">
               <img  
                 src={nexusLogoImg}  
@@ -69,18 +62,15 @@ function App() {
                 className="w-56 h-auto mx-auto mb-6"
               />
             </div>
-            
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg break-words">
               O Manual de <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent font-extrabold">Alta Performance</span> com <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent font-extrabold">Inteligência Artificial</span>
             </h1>
-            
             <div className="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto font-light flex flex-col items-center text-center space-y-2">
                 <span>Domine a era da informação.</span>
                 <span>Transforme dados em decisões.</span>
                 <span>Faça da inovação sua maior vantagem competitiva.</span>
                 <span className="font-semibold text-cyan-400 mt-2">Torne-se o protagonista.</span>
             </div>
-            
             <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer">
               <Button  
                 size="md"  
@@ -91,6 +81,92 @@ function App() {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* --- NOVA SEÇÃO DO MANIFESTO --- */}
+      <section className="py-32 px-4 bg-slate-800/20">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Mais que Ferramentas. <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">Uma Jornada.</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Na internet de hoje, a inteligência artificial virou commodity. Mas em meio a tanto ruído, o que mais falta é <strong className="text-white">sentido</strong>.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Coluna da Esquerda: O Problema e a Solução */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-semibold text-white mb-4">O Problema: Um Mar de Informações Vazias</h3>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  As pessoas são bombardeadas com opções, mas não são guiadas a <strong className="text-emerald-400">pensar</strong>. São ensinadas a usar ferramentas, mas não a desenvolver uma <strong className="text-emerald-400">mentalidade</strong>. São incentivadas a produzir, mas não a <strong className="text-emerald-400">refletir</strong>.
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-blue-900/40 to-slate-800/40 p-8 rounded-3xl border border-blue-500/30 backdrop-blur-sm">
+                <h3 className="text-2xl font-semibold text-white mb-4">Nossa Proposta: Um Espaço de Construção</h3>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  Aqui, a I.A. não é um fim — é uma <strong className="text-cyan-400">ponte</strong>. Uma extensão da sua mente para ampliar sua criatividade e resolver problemas complexos, sem abrir mão do que te torna <strong className="text-cyan-400">humano</strong>: seu pensamento crítico, sua intuição e sua capacidade de se comunicar com profundidade.
+                </p>
+              </div>
+            </div>
+            
+            {/* Coluna da Direita: Pilares */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-semibold text-white mb-4 text-center md:text-left">Um guia para alto desempenho cognitivo e emocional, com base em pilares como:</h3>
+              <div className="flex items-start space-x-4 p-4 rounded-xl hover:bg-slate-700/50 transition-colors duration-300">
+                <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Eye className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-white">Atenção e Foco na Era Digital</h4>
+                  <p className="text-gray-400 text-sm">Domine a distração e direcione sua energia para o que realmente importa.</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4 p-4 rounded-xl hover:bg-slate-700/50 transition-colors duration-300">
+                <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Lightbulb className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-white">Criatividade e Autenticidade</h4>
+                  <p className="text-gray-400 text-sm">Use a IA para potencializar suas ideias originais, não para substituí-las.</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4 p-4 rounded-xl hover:bg-slate-700/50 transition-colors duration-300">
+                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Search className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-white">Engenharia de Prompts com Propósito</h4>
+                  <p className="text-gray-400 text-sm">Aprenda a arte de fazer as perguntas certas para obter respostas extraordinárias.</p>
+                </div>
+              </div>
+               <div className="flex items-start space-x-4 p-4 rounded-xl hover:bg-slate-700/50 transition-colors duration-300">
+                <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <User className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-white">Estratégias para o Novo Mercado</h4>
+                  <p className="text-gray-400 text-sm">Posicione-se como um profissional indispensável na nova economia.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-20 text-center max-w-4xl mx-auto">
+              <p className="text-2xl md:text-3xl text-white font-light leading-snug">
+                Nosso compromisso é com seu crescimento real. Queremos que você use a I.A. não para ser substituído, mas para se tornar <span className="font-bold bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">mais humano</span>.
+              </p>
+              <div className="mt-8 flex justify-center">
+                  <div className="w-48 h-1 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full"></div>
+              </div>
+              <p className="mt-8 text-xl text-cyan-300 font-semibold italic">
+                Nexus: Porque tecnologia, sem humanidade, é apenas ruído.
+              </p>
           </div>
         </div>
       </section>
@@ -499,12 +575,11 @@ function App() {
       {/* Footer */}
       <footer className="py-12 px-4 bg-slate-900 border-t border-slate-700">
         <div className="max-w-6xl mx-auto text-center">
-          {/* Nova imagem de garantia */}
-          <div className="mb-8"> {/* Adicione margem abaixo da imagem para espaçamento */}
+          <div className="mb-8">
             <img 
               src={garantia7DiasImg} 
               alt="Garantia de 7 dias ou seu dinheiro de volta" 
-              className="mx-auto w-48 h-auto" // Ajuste o tamanho conforme necessário
+              className="mx-auto w-48 h-auto"
             />
           </div>
           <p className="text-gray-400 text-lg">
