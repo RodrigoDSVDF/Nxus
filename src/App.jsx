@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { ArrowRight, Zap, Target, Globe, Key, Rocket, BookOpen, Brain, TrendingUp, CheckCircle, Sparkles, User, Lightbulb, Search, Eye } from 'lucide-react'
-import './App.css'
+import './App.css' 
 
 // Importando o componente de animação
-import AnimatedSection from '@/components/ui/AnimatedSection.jsx';
+import AnimatedSection from '@/components/ui/AnimatedSection.jsx'; 
 
 // Importando as imagens existentes
 import brainNetworkImg from './assets/1000393266.jpg'
@@ -28,62 +28,103 @@ import xadrezStrategiaImg from './assets/xadrez-estrategia.jpg';
 import garantia7DiasImg from './assets/7-dias-garantido.jpg'; 
 
 function App() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false) 
 
   useEffect(() => {
     setIsVisible(true)
-  }, [])
+  }, []) 
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
-  }
+  } 
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 font-['Poppins',sans-serif] overflow-x-hidden">
-      {/* Hero Section */}
+      {/* Hero Section Atualizada */}
       <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
+        {/* Elementos de fundo existentes */}
         <div className="hidden md:block absolute top-20 left-20 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="hidden md:block absolute bottom-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute inset-0 opacity-10">
-          <img  
-            src={brainNetworkImg}  
-            alt="Neural Network Background"  
+          <img 
+            src={brainNetworkImg} 
+            alt="Neural Network Background" 
             className="w-full h-full object-cover"
           />
         </div>
         
-        <div className={`relative z-10 text-center max-w-6xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="mb-12">
-            <div className="inline-flex items-center px-6 py-3 bg-emerald-500/20 border border-emerald-400/30 rounded-full text-emerald-300 text-sm font-medium mb-8">
-              <Zap className="w-4 h-4 mr-2" />
-              Nova Era Informacional
-            </div>
-            <div className="mb-8">
-              <img  
-                src={nexusLogoImg}  
-                alt="NEXUS Logo"  
-                className="w-56 h-auto mx-auto mb-6"
-              />
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg break-words">
-              O Manual de <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent font-extrabold">Alta Performance</span> com <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent font-extrabold">Inteligência Artificial</span>
-            </h1>
-            <div className="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto font-light flex flex-col items-center text-center space-y-2">
-                <span>Domine a era da informação.</span>
-                <span>Transforme dados em decisões.</span>
-                <span>Faça da inovação sua maior vantagem competitiva.</span>
-                <span className="font-semibold text-cyan-400 mt-2">Torne-se o protagonista.</span>
-            </div>
+        {/* Conteúdo Principal Atualizado */}
+        <div className={`relative z-10 text-center max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          
+          {/* Badge de Destaque */}
+          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-400/30 rounded-full text-cyan-300 text-sm font-medium mb-8 backdrop-blur-sm">
+            <Zap className="w-4 h-4 mr-2" />
+            Transforme Sua Performance com IA
+          </div>
+
+          {/* HEADLINE PRINCIPAL (8 palavras) */}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            Domine a <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Era da IA</span>
+          </h1>
+
+          {/* SUBHEADLINE PERSUASIVA */}
+          <p className="text-xl md:text-2xl text-gray-200 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+            Potencialize suas decisões com inteligência artificial estratégica e alcance resultados extraordinários
+          </p>
+
+          {/* CHAMADA PARA AÇÃO */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer">
-              <Button  
-                size="md"  
-                className="h-auto whitespace-normal text-center bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-900 px-4 sm:px-6 py-3 text-sm sm:text-base font-bold rounded-xl shadow-2xl hover:shadow-cyan-400/30 transition-all duration-300 transform hover:scale-105 border-2 border-cyan-300/50"
+              <Button 
+                size="lg"
+                className="h-14 px-8 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold rounded-xl shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105 border-0"
               >
-                <BookOpen className="w-5 h-5 mr-2" />
-                Quero meu Manual de Alta Performance
+                <Rocket className="w-5 h-5 mr-2" />
+                Começar Agora
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </a>
+            
+            <Button 
+              size="lg"
+              variant="outline"
+              className="h-14 px-8 border-2 border-cyan-400/50 text-cyan-300 hover:bg-cyan-400/10 hover:text-white font-bold rounded-xl transition-all duration-300"
+              onClick={() => scrollToSection('beneficios')}
+            >
+              <BookOpen className="w-5 h-5 mr-2" />
+              Saiba Mais
+            </Button>
+          </div>
+
+          {/* Elementos Visuais de Destaque */}
+          <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                <TrendingUp className="w-6 h-6 text-white" />
+              </div>
+              <p className="text-sm text-gray-300">Produtividade 10x</p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                <Target className="w-6 h-6 text-white" />
+              </div>
+              <p className="text-sm text-gray-300">Estratégia Comprovada</p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                <Sparkles className="w-6 h-6 text-white" />
+              </div>
+              <p className="text-sm text-gray-300">Tecnologia Avançada</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <div className="animate-bounce">
+            <div className="w-6 h-10 border-2 border-cyan-400 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-cyan-400 rounded-full mt-2"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -186,9 +227,9 @@ function App() {
       <section className="py-32 px-4 relative">
         <AnimatedSection>
           <div className="absolute inset-0">
-            <img  
-              src={platosCaveImg}  
-              alt="Caverna de Platão - Era Digital"  
+            <img 
+              src={platosCaveImg} 
+              alt="Caverna de Platão - Era Digital" 
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 to-blue-900/85"></div>
@@ -303,7 +344,7 @@ function App() {
       </section>
 
       {/* Benefícios */}
-      <section className="py-32 px-4 bg-slate-800/30">
+      <section id="beneficios" className="py-32 px-4 bg-slate-800/30">
         <div className="max-w-6xl mx-auto">
           <AnimatedSection>
             <div className="text-center mb-20">
@@ -422,12 +463,12 @@ function App() {
             
             <div className="mb-16">
               <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer">
-                <Button  
-                  size="md"  
-                  className="h-auto whitespace-normal text-center bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-900 px-4 sm:px-6 py-3 text-sm sm:text-base font-bold rounded-xl shadow-2xl hover:shadow-cyan-400/30 transition-all duration-300 transform hover:scale-105 border-2 border-cyan-300/50"
+                <Button 
+                  size="lg"
+                  className="h-14 px-8 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold rounded-xl shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105 border-0"
                 >
-                  <BookOpen className="w-5 h-5 mr-2" />
-                  Quero agora meu Manual de Alta Performance com IA
+                  <Rocket className="w-5 h-5 mr-2" />
+                  Começar Agora
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </a>
@@ -491,9 +532,9 @@ function App() {
               </p>
               
               <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer">
-                <Button  
-                  size="md"  
-                  className="bg-gradient-to-r from-orange-400 to-red-500 hover:from-orange-300 hover:to-red-400 text-white px-6 py-3 text-base font-bold rounded-xl shadow-2xl hover:shadow-orange-400/40 transition-all duration-300 transform hover:scale-105 border-2 border-orange-300/50 animate-pulse"
+                <Button 
+                  size="lg"
+                  className="h-14 px-8 bg-gradient-to-r from-orange-400 to-red-500 hover:from-orange-300 hover:to-red-400 text-white font-bold rounded-xl shadow-2xl hover:shadow-orange-400/40 transition-all duration-300 transform hover:scale-105 border-0 animate-pulse"
                 >
                   <Rocket className="w-5 h-5 mr-2" />
                   QUERO O NEXUS AGORA
@@ -506,9 +547,9 @@ function App() {
           <AnimatedSection delay={0.6}>
             <div className="flex justify-center mt-16">
               <div className="relative group w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl">
-                <img  
-                  src={newProductImg}  
-                  alt="NEXUS - Interface Digital"  
+                <img 
+                  src={newProductImg} 
+                  alt="NEXUS - Interface Digital" 
                   className="w-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
@@ -536,9 +577,9 @@ function App() {
             <AnimatedSection delay={0.2}>
               <div className="group bg-gradient-to-br from-slate-800/60 to-blue-900/40 p-8 rounded-3xl border border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
                 <div className="relative w-full aspect-video mb-6 rounded-2xl overflow-hidden shadow-lg">
-                  <img  
-                    src={testimonial1Img}  
-                    alt="Profissional usando NEXUS"  
+                  <img 
+                    src={testimonial1Img} 
+                    alt="Profissional usando NEXUS" 
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
@@ -559,9 +600,9 @@ function App() {
             <AnimatedSection delay={0.4}>
               <div className="group bg-gradient-to-br from-emerald-900/40 to-slate-800/60 p-8 rounded-3xl border border-emerald-500/30 hover:border-emerald-400/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
                 <div className="relative w-full aspect-video mb-6 rounded-2xl overflow-hidden shadow-lg">
-                  <img  
-                    src={testimonial2Img}  
-                    alt="NEXUS Mobile"  
+                  <img 
+                    src={testimonial2Img} 
+                    alt="NEXUS Mobile" 
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
@@ -582,9 +623,9 @@ function App() {
             <AnimatedSection delay={0.6}>
               <div className="group bg-gradient-to-br from-blue-900/40 to-emerald-900/40 p-8 rounded-3xl border border-blue-500/30 hover:border-emerald-400/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm">
                 <div className="relative w-full aspect-video mb-6 rounded-2xl overflow-hidden shadow-lg">
-                  <img  
-                    src={testimonial3Img}  
-                    alt="NEXUS Tablet"  
+                  <img 
+                    src={testimonial3Img} 
+                    alt="NEXUS Tablet" 
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
@@ -609,9 +650,9 @@ function App() {
                 Junte-se a milhares de profissionais que já transformaram sua performance
               </p>
               <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer">
-                <Button  
-                  size="md"  
-                  className="h-auto whitespace-normal text-center bg-gradient-to-r from-emerald-400 to-blue-500 hover:from-emerald-300 hover:to-blue-400 text-slate-900 px-4 sm:px-6 py-3 text-sm sm:text-base font-bold rounded-xl shadow-2xl hover:shadow-emerald-400/30 transition-all duration-300 transform hover:scale-105 border-2 border-emerald-300/50"
+                <Button 
+                  size="lg"
+                  className="h-14 px-8 bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-400 hover:to-blue-500 text-white font-bold rounded-xl shadow-2xl hover:shadow-emerald-500/30 transition-all duration-300 transform hover:scale-105 border-0"
                 >
                   <Rocket className="w-5 h-5 mr-2" />
                   Começar Minha Transformação Agora
@@ -644,6 +685,6 @@ function App() {
       </section>
     </div>
   )
-}
+} 
 
 export default App
