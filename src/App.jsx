@@ -40,16 +40,18 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 font-['Poppins',sans-serif] overflow-x-hidden">
-      {/* Hero Section Atualizada */}
+      {/* Hero Section Atualizada com Imagem Posicionada à Direita */}
       <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
         {/* Elementos de fundo existentes */}
         <div className="hidden md:block absolute top-20 left-20 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="hidden md:block absolute bottom-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        
+        {/* Imagem de Fundo - Agora Posicionada à Direita */}
         <div className="absolute inset-0 opacity-10">
           <img 
             src={brainNetworkImg} 
             alt="Neural Network Background" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-right" // Adicionei object-right aqui
           />
         </div>
         
@@ -230,7 +232,7 @@ function App() {
             <img 
               src={platosCaveImg} 
               alt="Caverna de Platão - Era Digital" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-right" // Aplicado object-right aqui também
             />
             <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 to-blue-900/85"></div>
           </div>
@@ -298,7 +300,7 @@ function App() {
             <AnimatedSection delay={0.2}>
               <div className="group bg-gradient-to-br from-blue-900/30 to-slate-800/30 p-8 rounded-3xl border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-20">
-                  <img src={digitalToolsImg} alt="Ferramentas Digitais" className="w-full h-full object-cover" />
+                  <img src={digitalToolsImg} alt="Ferramentas Digitais" className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="relative z-10 text-center">
                   <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
@@ -313,7 +315,7 @@ function App() {
             <AnimatedSection delay={0.4}>
               <div className="group bg-gradient-to-br from-emerald-900/30 to-slate-800/30 p-8 rounded-3xl border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-20">
-                  <img src={dataAnalysisImg} alt="Análise de Dado" className="w-full h-full object-cover" />
+                  <img src={dataAnalysisImg} alt="Análise de Dado" className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="relative z-10 text-center">
                   <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
@@ -328,7 +330,7 @@ function App() {
             <AnimatedSection delay={0.6}>
               <div className="group bg-gradient-to-br from-blue-900/30 to-emerald-900/30 p-8 rounded-3xl border border-blue-500/20 hover:border-emerald-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-20">
-                  <img src={brainAIImg} alt="IA Cognitiva" className="w-full h-full object-cover" />
+                  <img src={brainAIImg} alt="IA Cognitiva" className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="relative z-10 text-center">
                   <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
@@ -358,7 +360,7 @@ function App() {
             <AnimatedSection delay={0.2}>
               <div className="group bg-gradient-to-br from-blue-900/30 to-slate-800/30 p-10 rounded-3xl border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
-                  <img src={neuralNetworkImg} alt="Neural Network" className="w-full h-full object-cover" />
+                  <img src={neuralNetworkImg} alt="Neural Network" className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="relative z-10">
                   <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
@@ -373,7 +375,7 @@ function App() {
             <AnimatedSection delay={0.4}>
               <div className="group bg-gradient-to-br from-emerald-900/30 to-slate-800/30 p-10 rounded-3xl border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
-                  <img src={xadrezStrategiaImg} alt="Estratégia e Clareza" className="w-full h-full object-cover" />
+                  <img src={xadrezStrategiaImg} alt="Estratégia e Clareza" className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="relative z-10">
                   <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
@@ -388,7 +390,7 @@ function App() {
             <AnimatedSection delay={0.6}>
               <div className="group bg-gradient-to-br from-blue-900/30 to-emerald-900/30 p-10 rounded-3xl border border-blue-500/20 hover:border-emerald-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
-                  <img src={brainAIImg} alt="Brain AI" className="w-full h-full object-cover" />
+                  <img src={brainAIImg} alt="Brain AI" className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="relative z-10">
                   <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
@@ -403,7 +405,7 @@ function App() {
             <AnimatedSection delay={0.3}>
               <div className="group bg-gradient-to-br from-emerald-900/30 to-blue-900/30 p-10 rounded-3xl border border-emerald-500/20 hover:border-blue-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                  <div className="absolute inset-0 opacity-10">
-                  <img src={servicosIAImg} alt="Ferramentas Práticas de IA" className="w-full h-full object-cover" />
+                  <img src={servicosIAImg} alt="Ferramentas Práticas de IA" className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="relative z-10">
                   <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
@@ -418,7 +420,7 @@ function App() {
             <AnimatedSection delay={0.5}>
               <div className="group bg-gradient-to-br from-blue-900/30 to-slate-800/30 p-10 rounded-3xl border border-blue-500/20 hover:border-emerald-400/40 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
-                  <img src={produtividadeImg} alt="Vantagem Competitiva" className="w-full h-full object-cover" />
+                  <img src={produtividadeImg} alt="Vantagem Competitiva" className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="relative z-10">
                   <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
@@ -437,7 +439,7 @@ function App() {
       <section className="py-32 px-4 bg-gradient-to-r from-blue-900/20 to-emerald-900/20 relative">
         <AnimatedSection>
           <div className="absolute inset-0 opacity-5">
-            <img src={brainNetworkImg} alt="Brain Network" className="w-full h-full object-cover" />
+            <img src={brainNetworkImg} alt="Brain Network" className="w-full h-full object-cover object-right" />
           </div>
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
@@ -580,7 +582,7 @@ function App() {
                   <img 
                     src={testimonial1Img} 
                     alt="Profissional usando NEXUS" 
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover object-center"
                   />
                 </div>
                 <div className="text-center">
@@ -603,7 +605,7 @@ function App() {
                   <img 
                     src={testimonial2Img} 
                     alt="NEXUS Mobile" 
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover object-center"
                   />
                 </div>
                 <div className="text-center">
@@ -626,7 +628,7 @@ function App() {
                   <img 
                     src={testimonial3Img} 
                     alt="NEXUS Tablet" 
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover object-center"
                   />
                 </div>
                 <div className="text-center">
