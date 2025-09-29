@@ -3,12 +3,8 @@ import { Button } from '@/components/ui/button.jsx'
 import { ArrowRight, Zap, Target, Globe, Key, Rocket, BookOpen, Brain, TrendingUp, CheckCircle, Sparkles, User, Lightbulb, Search, Eye } from 'lucide-react'
 import './App.css'
 
-// Importando os componentes de animação e o novo ScrollVideo
+// Importando o componente de animação
 import AnimatedSection from '@/components/ui/AnimatedSection.jsx';
-import ScrollVideo from '@/components/ui/ScrollVideo.jsx';
-
-// Importando o seu vídeo de fundo
-import meuVideoDeFundo from './assets/meu-video.mp4';
 
 // Importando as imagens existentes
 import brainNetworkImg from './assets/1000393266.jpg'
@@ -92,159 +88,156 @@ function App() {
         </div>
       </section>
 
-      {/* INÍCIO DA SEÇÃO COM VÍDEO DE FUNDO */}
-      <ScrollVideo src={meuVideoDeFundo}>
-        
-        {/* --- NOVA SEÇÃO DO MANIFESTO --- */}
-        {/* Adicionado fundo semi-transparente para legibilidade */}
-        <section className="py-32 px-4 bg-slate-900/60 backdrop-blur-sm">
-          <div className="max-w-6xl mx-auto">
-            <AnimatedSection>
-              <div className="text-center mb-20">
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                  Mais que Ferramentas. <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">Uma Jornada.</span>
-                </h2>
-                <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                  Na internet de hoje, a inteligência artificial virou commodity. Mas em meio a tanto ruído, o que mais falta é <strong className="text-white">sentido</strong>.
-                </p>
+      {/* --- NOVA SEÇÃO DO MANIFESTO --- */}
+      <section className="py-32 px-4 bg-slate-800/20">
+        <div className="max-w-6xl mx-auto">
+          <AnimatedSection>
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                Mais que Ferramentas. <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">Uma Jornada.</span>
+              </h2>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                Na internet de hoje, a inteligência artificial virou commodity. Mas em meio a tanto ruído, o que mais falta é <strong className="text-white">sentido</strong>.
+              </p>
+            </div>
+          </AnimatedSection>
+          
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Coluna da Esquerda: O Problema e a Solução */}
+            <AnimatedSection delay={0.3}>
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-2xl font-semibold text-white mb-4">O Problema: Um Mar de Informações Vazias</h3>
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    As pessoas são bombardeadas com opções, mas não são guiadas a <strong className="text-emerald-400">pensar</strong>. São ensinadas a usar ferramentas, mas não a desenvolver uma <strong className="text-emerald-400">mentalidade</strong>. São incentivadas a produzir, mas não a <strong className="text-emerald-400">refletir</strong>.
+                  </p>
+                </div>
+                
+                <div className="bg-gradient-to-br from-blue-900/40 to-slate-800/40 p-8 rounded-3xl border border-blue-500/30 backdrop-blur-sm">
+                  <h3 className="text-2xl font-semibold text-white mb-4">Nossa Proposta: Um Espaço de Construção</h3>
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    Aqui, a I.A. não é um fim — é uma <strong className="text-cyan-400">ponte</strong>. Uma extensão da sua mente para ampliar sua criatividade e resolver problemas complexos, sem abrir mão do que te torna <strong className="text-cyan-400">humano</strong>: seu pensamento crítico, sua intuição e sua capacidade de se comunicar com profundidade.
+                  </p>
+                </div>
               </div>
             </AnimatedSection>
             
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <AnimatedSection delay={0.3}>
-                <div className="space-y-8">
+            {/* Coluna da Direita: Pilares */}
+            <AnimatedSection delay={0.5}>
+              <div className="space-y-6">
+                <h3 className="text-2xl font-semibold text-white mb-4 text-center md:text-left">Um guia para alto desempenho cognitivo e emocional, com base em pilares como:</h3>
+                <div className="flex items-start space-x-4 p-4 rounded-xl hover:bg-slate-700/50 transition-colors duration-300">
+                  <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Eye className="w-5 h-5 text-white" />
+                  </div>
                   <div>
-                    <h3 className="text-2xl font-semibold text-white mb-4">O Problema: Um Mar de Informações Vazias</h3>
-                    <p className="text-gray-300 text-lg leading-relaxed">
-                      As pessoas são bombardeadas com opções, mas não são guiadas a <strong className="text-emerald-400">pensar</strong>. São ensinadas a usar ferramentas, mas não a desenvolver uma <strong className="text-emerald-400">mentalidade</strong>. São incentivadas a produzir, mas não a <strong className="text-emerald-400">refletir</strong>.
-                    </p>
-                  </div>
-                  <div className="bg-gradient-to-br from-blue-900/40 to-slate-800/40 p-8 rounded-3xl border border-blue-500/30 backdrop-blur-sm">
-                    <h3 className="text-2xl font-semibold text-white mb-4">Nossa Proposta: Um Espaço de Construção</h3>
-                    <p className="text-gray-300 text-lg leading-relaxed">
-                      Aqui, a I.A. não é um fim — é uma <strong className="text-cyan-400">ponte</strong>. Uma extensão da sua mente para ampliar sua criatividade e resolver problemas complexos, sem abrir mão do que te torna <strong className="text-cyan-400">humano</strong>: seu pensamento crítico, sua intuição e sua capacidade de se comunicar com profundidade.
-                    </p>
+                    <h4 className="font-semibold text-white">Atenção e Foco na Era Digital</h4>
+                    <p className="text-gray-400 text-sm">Domine a distração e direcione sua energia para o que realmente importa.</p>
                   </div>
                 </div>
-              </AnimatedSection>
-              
-              <AnimatedSection delay={0.5}>
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-semibold text-white mb-4 text-center md:text-left">Um guia para alto desempenho cognitivo e emocional, com base em pilares como:</h3>
-                  <div className="flex items-start space-x-4 p-4 rounded-xl hover:bg-slate-700/50 transition-colors duration-300">
-                    <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Eye className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-white">Atenção e Foco na Era Digital</h4>
-                      <p className="text-gray-400 text-sm">Domine a distração e direcione sua energia para o que realmente importa.</p>
-                    </div>
+                <div className="flex items-start space-x-4 p-4 rounded-xl hover:bg-slate-700/50 transition-colors duration-300">
+                  <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Lightbulb className="w-5 h-5 text-white" />
                   </div>
-                  <div className="flex items-start space-x-4 p-4 rounded-xl hover:bg-slate-700/50 transition-colors duration-300">
-                    <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Lightbulb className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-white">Criatividade e Autenticidade</h4>
-                      <p className="text-gray-400 text-sm">Use a IA para potencializar suas ideias originais, não para substituí-las.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4 p-4 rounded-xl hover:bg-slate-700/50 transition-colors duration-300">
-                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Search className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-white">Engenharia de Prompts com Propósito</h4>
-                      <p className="text-gray-400 text-sm">Aprenda a arte de fazer as perguntas certas para obter respostas extraordinárias.</p>
-                    </div>
-                  </div>
-                   <div className="flex items-start space-x-4 p-4 rounded-xl hover:bg-slate-700/50 transition-colors duration-300">
-                    <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <User className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-white">Estratégias para o Novo Mercado</h4>
-                      <p className="text-gray-400 text-sm">Posicione-se como um profissional indispensável na nova economia.</p>
-                    </div>
+                  <div>
+                    <h4 className="font-semibold text-white">Criatividade e Autenticidade</h4>
+                    <p className="text-gray-400 text-sm">Use a IA para potencializar suas ideias originais, não para substituí-las.</p>
                   </div>
                 </div>
-              </AnimatedSection>
-            </div>
-            
-            <AnimatedSection delay={0.4}>
-              <div className="mt-20 text-center max-w-4xl mx-auto">
-                  <p className="text-2xl md:text-3xl text-white font-light leading-snug">
-                    Nosso compromisso é com seu crescimento real. Queremos que você use a I.A. não para ser substituído, mas para se tornar <span className="font-bold bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">mais humano</span>.
-                  </p>
-                  <div className="mt-8 flex justify-center">
-                      <div className="w-48 h-1 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full"></div>
+                <div className="flex items-start space-x-4 p-4 rounded-xl hover:bg-slate-700/50 transition-colors duration-300">
+                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Search className="w-5 h-5 text-white" />
                   </div>
-                  <p className="mt-8 text-xl text-cyan-300 font-semibold italic">
-                    Nexus: Porque tecnologia, sem humanidade, é apenas ruído.
-                  </p>
+                  <div>
+                    <h4 className="font-semibold text-white">Engenharia de Prompts com Propósito</h4>
+                    <p className="text-gray-400 text-sm">Aprenda a arte de fazer as perguntas certas para obter respostas extraordinárias.</p>
+                  </div>
+                </div>
+                 <div className="flex items-start space-x-4 p-4 rounded-xl hover:bg-slate-700/50 transition-colors duration-300">
+                  <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <User className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white">Estratégias para o Novo Mercado</h4>
+                    <p className="text-gray-400 text-sm">Posicione-se como um profissional indispensável na nova economia.</p>
+                  </div>
+                </div>
               </div>
             </AnimatedSection>
           </div>
-        </section>
-
-        {/* Autoridade Conceitual - Caverna de Platão */}
-        {/* Removida a imagem de fundo original e adicionado fundo semi-transparente */}
-        <section className="py-32 px-4 relative bg-slate-900/70 backdrop-blur-sm">
-            <div className="max-w-6xl mx-auto relative z-10">
-                <AnimatedSection>
-                    <div className="text-center mb-20">
-                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-                        Por que o <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">Nexus</span> é diferente?
-                        </h2>
-                    </div>
-                </AnimatedSection>
-                
-                <div className="grid md:grid-cols-2 gap-16 items-center">
-                    <AnimatedSection delay={0.3}>
-                        <div className="space-y-8">
-                            <div className="flex items-start space-x-6">
-                                <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                <Brain className="w-7 h-7 text-white" />
-                                </div>
-                                <div>
-                                <h3 className="text-2xl font-semibold text-white mb-3">Era Informacional</h3>
-                                <p className="text-gray-200 text-lg leading-relaxed">
-                                    No atual modelo econômico informacional, a fonte real da produtividade está na tecnologia capaz de transformar dados em conhecimento, informação em estratégia e comunicação em resultados.
-                                </p>
-                                </div>
-                            </div>
-                            
-                            <div className="flex items-start space-x-6">
-                                <div className="w-14 h-14 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                <TrendingUp className="w-7 h-7 text-white" />
-                                </div>
-                                <div>
-                                <h3 className="text-2xl font-semibold text-white mb-3">Saia da Caverna Digital</h3>
-                                <p className="text-gray-200 text-lg leading-relaxed">
-                                    Como na alegoria de Platão, muitos vivem presos às sombras da desinformação digital. O NEXUS é sua saída para a luz do conhecimento de valor real.
-                                </p>
-                                </div>
-                            </div>
-                        </div>
-                    </AnimatedSection>
-                    <AnimatedSection delay={0.5}>
-                        <div className="relative">
-                            <div className="bg-slate-800/90 p-8 rounded-3xl border border-blue-500/30 backdrop-blur-sm shadow-2xl">
-                                <p className="text-lg text-gray-200 leading-relaxed">
-                                O Nexus foi criado exatamente para isso: ser um <strong className="text-emerald-400">guia prático</strong> que alia alta performance pessoal e profissional com o poder da Inteligência Artificial, ajudando você a se posicionar no <strong className="text-cyan-400">centro dessa revolução</strong>.
-                                </p>
-                            </div>
-                        </div>
-                    </AnimatedSection>
+          
+          <AnimatedSection delay={0.4}>
+            <div className="mt-20 text-center max-w-4xl mx-auto">
+                <p className="text-2xl md:text-3xl text-white font-light leading-snug">
+                  Nosso compromisso é com seu crescimento real. Queremos que você use a I.A. não para ser substituído, mas para se tornar <span className="font-bold bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">mais humano</span>.
+                </p>
+                <div className="mt-8 flex justify-center">
+                    <div className="w-48 h-1 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full"></div>
                 </div>
+                <p className="mt-8 text-xl text-cyan-300 font-semibold italic">
+                  Nexus: Porque tecnologia, sem humanidade, é apenas ruído.
+                </p>
             </div>
-        </section>
+          </AnimatedSection>
+        </div>
+      </section>
 
-      </ScrollVideo>
-      {/* FIM DA SEÇÃO COM VÍDEO DE FUNDO */}
-
-
-      {/* O RESTO DA PÁGINA CONTINUA NORMALMENTE */}
+      {/* Autoridade Conceitual - Caverna de Platão */}
+      <section className="py-32 px-4 relative">
+        <AnimatedSection>
+          <div className="absolute inset-0">
+            <img  
+              src={platosCaveImg}  
+              alt="Caverna de Platão - Era Digital"  
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 to-blue-900/85"></div>
+          </div>
+          <div className="max-w-6xl mx-auto relative z-10">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+                Por que o <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">Nexus</span> é diferente?
+              </h2>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div className="space-y-8">
+                <div className="flex items-start space-x-6">
+                  <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Brain className="w-7 h-7 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-white mb-3">Era Informacional</h3>
+                    <p className="text-gray-200 text-lg leading-relaxed">
+                      No atual modelo econômico informacional, a fonte real da produtividade está na tecnologia capaz de transformar dados em conhecimento, informação em estratégia e comunicação em resultados.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-6">
+                  <div className="w-14 h-14 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <TrendingUp className="w-7 h-7 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-white mb-3">Saia da Caverna Digital</h3>
+                    <p className="text-gray-200 text-lg leading-relaxed">
+                      Como na alegoria de Platão, muitos vivem presos às sombras da desinformação digital. O NEXUS é sua saída para a luz do conhecimento de valor real.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="relative">
+                <div className="bg-slate-800/90 p-8 rounded-3xl border border-blue-500/30 backdrop-blur-sm shadow-2xl">
+                  <p className="text-lg text-gray-200 leading-relaxed">
+                    O Nexus foi criado exatamente para isso: ser um <strong className="text-emerald-400">guia prático</strong> que alia alta performance pessoal e profissional com o poder da Inteligência Artificial, ajudando você a se posicionar no <strong className="text-cyan-400">centro dessa revolução</strong>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+      </section>
 
       {/* Seção de Ferramentas Práticas */}
       <section className="py-32 px-4">
@@ -445,9 +438,6 @@ function App() {
 
       {/* Nova Seção de Conclusão */}
       <section className="py-32 px-4 bg-gradient-to-br from-slate-900 to-blue-900 relative">
-        <div className="absolute inset-0 opacity-5">
-            <img src={redeNeuralAbstrataImg} alt="Rede Neural Abstrata" className="w-full h-full object-cover" />
-        </div>
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <AnimatedSection>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
