@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button.jsx'
 import {
   ArrowRight, Zap, Target, Globe, Key, Rocket, BookOpen, Brain, TrendingUp,
   CheckCircle, Sparkles, User, Lightbulb, Search, Eye,
-  ClipboardEdit, Code, BarChart, Layout, BrainCircuit, AlertTriangle
+  ClipboardEdit, Code, BarChart, Layout, BrainCircuit, AlertTriangle,
+  Clock, Shield, Users
 } from 'lucide-react'
 import './App.css' 
 
@@ -114,37 +115,14 @@ function App() {
             </p>
           </div>
 
-          {/* BOTÕES DE VENDA COM EFEITO PISCAR */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-4xl mx-auto">
-            {/* Botão 1 */}
-            <div className="pulse-button-container">
-              <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer" className="block">
-                <Button className="w-full h-16 bg-gradient-to-r from-[#FF6B35] to-[#FF8E53] hover:from-[#FF6B35]/90 hover:to-[#FF8E53]/90 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-[#FF6B35]/40 transition-all duration-300 transform hover:scale-105 border-0 pulse-button">
-                  <Zap className="w-5 h-5 mr-2" />
-                  ACESSO IMEDIATO
-                </Button>
-              </a>
-            </div>
-
-            {/* Botão 2 */}
-            <div className="pulse-button-container">
-              <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer" className="block">
-                <Button className="w-full h-16 bg-gradient-to-r from-[#FF6B35] to-[#FF8E53] hover:from-[#FF6B35]/90 hover:to-[#FF8E53]/90 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-[#FF6B35]/40 transition-all duration-300 transform hover:scale-105 border-0 pulse-button">
-                  <Rocket className="w-5 h-5 mr-2" />
-                  GARANTIR MINHA VAGA
-                </Button>
-              </a>
-            </div>
-
-            {/* Botão 3 */}
-            <div className="pulse-button-container">
-              <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer" className="block">
-                <Button className="w-full h-16 bg-gradient-to-r from-[#FF6B35] to-[#FF8E53] hover:from-[#FF6B35]/90 hover:to-[#FF8E53]/90 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-[#FF6B35]/40 transition-all duration-300 transform hover:scale-105 border-0 pulse-button">
-                  <TrendingUp className="w-5 h-5 mr-2" />
-                  QUERO ME ATUALIZAR AGORA
-                </Button>
-              </a>
-            </div>
+          {/* BOTÃO 1 - NO INÍCIO */}
+          <div className="pulse-button-container mb-16 max-w-md mx-auto">
+            <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer" className="block">
+              <Button className="w-full h-16 bg-gradient-to-r from-[#FF6B35] to-[#FF8E53] hover:from-[#FF6B35]/90 hover:to-[#FF8E53]/90 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-[#FF6B35]/40 transition-all duration-300 transform hover:scale-105 border-0 pulse-button">
+                <Zap className="w-5 h-5 mr-2" />
+                ACESSO IMEDIATO
+              </Button>
+            </a>
           </div>
 
           {/* Garantia e Urgência */}
@@ -165,7 +143,6 @@ function App() {
         </div>
       </section>
 
-      {/* Restante do código permanece igual até a seção "O que você vai dominar" */}
       {/* Seção de Ticker */}
       <section className="py-4 bg-gradient-to-r from-[#14222E] to-[#1C2A35] border-y border-[#0D3A46]/50 overflow-hidden">
         <div className="ticker-wrap">
@@ -263,10 +240,126 @@ function App() {
               </div>
             </AnimatedSection>
 
-            {/* Restante dos itens permanece similar, mas você pode atualizar os textos para focar mais nas dores */}
-            {/* ... outros itens ... */}
+            {/* Item 3 */}
+            <AnimatedSection delay={0.3}>
+              <div className="group bg-gradient-to-br from-[#1C2A35] to-[#14222E] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
+                <div className="absolute inset-0 opacity-20">
+                  <img src={produtividadeImg} alt="Vantagem Competitiva" className="w-full h-full object-cover object-center" />
+                </div>
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                    <Key className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-semibold text-white mb-4">Vantagem Competitiva</h3>
+                  <p className="text-gray-300 text-lg">Entregue mais rápido, com mais qualidade e torne-se referência absoluta em sua área.</p>
+                </div>
+              </div>
+            </AnimatedSection>
 
+            {/* Item 4 */}
+            <AnimatedSection delay={0.4}>
+              <div className="group bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
+                <div className="absolute inset-0 opacity-20">
+                  <img src={xadrezStrategiaImg} alt="Engenharia de Contexto" className="w-full h-full object-cover object-center" />
+                </div>
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                    <ClipboardEdit className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-semibold text-white mb-4">Engenharia de Contexto</h3>
+                  <p className="text-gray-300 text-lg">Aprenda a "conversar" com a IA em nível profissional para extrair respostas precisas e criativas.</p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Item 5 */}
+            <AnimatedSection delay={0.5}>
+              <div className="group bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
+                <div className="absolute inset-0 opacity-20">
+                  <img src={laptopNeuralImg} alt="Python para IA" className="w-full h-full object-cover object-center" />
+                </div>
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                    <Code className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-semibold text-white mb-4">Python para Projetos de IA</h3>
+                  <p className="text-gray-300 text-lg">Vá além do básico. Entenda os fundamentos de Python para automatizar tarefas e prototipar suas próprias soluções de IA.</p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Item 6 */}
+            <AnimatedSection delay={0.6}>
+              <div className="group bg-gradient-to-br from-[#1C2A35] to-[#14222E] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
+                <div className="absolute inset-0 opacity-20">
+                  <img src={dataAnalysisImg} alt="Análise de Dados" className="w-full h-full object-cover object-center" />
+                </div>
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                    <BarChart className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-semibold text-white mb-4">Decisões Baseadas em Dados</h3>
+                  <p className="text-gray-300 text-lg">Pare de "achar". Aprenda a coletar, analisar e visualizar dados para tomar decisões estratégicas com base em fatos.</p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Item 7 */}
+            <AnimatedSection delay={0.7}>
+              <div className="group bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
+                <div className="absolute inset-0 opacity-20">
+                  <img src={digitalToolsImg} alt="Criação de Páginas" className="w-full h-full object-cover object-center" />
+                </div>
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                    <Layout className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-semibold text-white mb-4">Páginas que Convertem</h3>
+                  <p className="text-gray-300 text-lg">Domine o design persuasivo e UX para criar landing pages que transformam visitantes em clientes.</p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Item 8 */}
+            <AnimatedSection delay={0.8}>
+              <div className="group bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
+                <div className="absolute inset-0 opacity-20">
+                  <img src={brainAIImg} alt="Aprendizado com IA" className="w-full h-full object-cover object-center" />
+                </div>
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                    <BrainCircuit className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-semibold text-white mb-4">Aprendizado Otimizado</h3>
+                  <p className="text-gray-300 text-lg">Use a IA para aprender qualquer coisa mais rápido, sintetizar informações e criar planos de estudo personalizados.</p>
+                </div>
+              </div>
+            </AnimatedSection>
           </div>
+
+          {/* BOTÃO 2 - NO MEIO DO SITE */}
+          <AnimatedSection>
+            <div className="mt-20 text-center">
+              <div className="bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-12 rounded-3xl border border-[#0D3A46]/30 mb-8">
+                <h3 className="text-3xl font-bold text-white mb-4">
+                  Não Espere Para se Tornar Obsoleto
+                </h3>
+                <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                  A cada dia que passa, mais pessoas dominam essas habilidades e aumentam a distância. 
+                  <span className="text-[#FF8E53] font-semibold"> Sua hora de agir é agora.</span>
+                </p>
+                
+                <div className="pulse-button-container max-w-md mx-auto">
+                  <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer" className="block">
+                    <Button className="w-full h-16 bg-gradient-to-r from-[#FF6B35] to-[#FF8E53] hover:from-[#FF6B35]/90 hover:to-[#FF8E53]/90 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-[#FF6B35]/40 transition-all duration-300 transform hover:scale-105 border-0 pulse-button">
+                      <Rocket className="w-5 h-5 mr-2" />
+                      GARANTIR MINHA VAGA
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
 
           {/* NOVA SEÇÃO: Comparação Transformação */}
           <AnimatedSection>
@@ -310,9 +403,98 @@ function App() {
         </div>
       </section>
 
-      {/* Restante do código permanece similar */}
-      {/* ... outras seções ... */}
+      {/* Seção de Prova/Autoridade */}
+      <section className="py-32 px-4 bg-gradient-to-r from-[#14222E] to-[#1C2A35] relative">
+        <AnimatedSection>
+          <div className="absolute inset-0 opacity-15">
+            <img src={brainNetworkImg} alt="Brain Network" className="w-full h-full object-cover object-right" />
+          </div>
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
+              Alta Performance não é mais <span className="bg-gradient-to-r from-[#4FD1C5] to-[#38B2AC] bg-clip-text text-transparent">opção</span> — é <span className="bg-gradient-to-r from-[#38B2AC] to-[#4FD1C5] bg-clip-text text-transparent">requisito</span>
+            </h2>
+            <div className="bg-gradient-to-br from-[#1C2A35] to-[#14222E] p-12 md:p-16 rounded-3xl border border-[#0D3A46]/40 backdrop-blur-sm">
+              <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
+                Empresas, profissionais e líderes que dominam o modelo <strong className="text-[#4FD1C5]">econômico informacional</strong> estão sempre à frente. O Nexus traduz essa realidade em <strong className="text-[#38B2AC]">passos aplicáveis</strong> para o seu dia a dia, unindo ciência, tecnologia e estratégia de performance.
+              </p>
+            </div>
+          </div>
+        </AnimatedSection>
+      </section>
 
+      {/* Chamada para Ação FINAL */}
+      <section id="cta" className="py-32 px-4 bg-[#0B1016]">
+        <AnimatedSection>
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+              O Futiro Não Espera por Ninguém
+            </h2>
+            
+            <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+              <span className="text-[#FF6B35] font-semibold">72% dos profissionais</span> que não se adaptarem à IA nos próximos 2 anos serão substituídos. 
+              <span className="text-[#4FD1C5] font-semibold"> Escolha de qual lado você quer estar.</span>
+            </p>
+
+            {/* Benefícios Rápidos */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-4">
+                  <Clock className="w-8 h-8 text-[#4FD1C5]" />
+                </div>
+                <h4 className="text-white font-semibold mb-2">Acesso Imediato</h4>
+                <p className="text-gray-400">Comece em minutos após a compra</p>
+              </div>
+              
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-4">
+                  <Shield className="w-8 h-8 text-[#4FD1C5]" />
+                </div>
+                <h4 className="text-white font-semibold mb-2">Garantia de 7 Dias</h4>
+                <p className="text-gray-400">Sem perguntas, sem riscos</p>
+              </div>
+              
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-4">
+                  <Users className="w-8 h-8 text-[#4FD1C5]" />
+                </div>
+                <h4 className="text-white font-semibold mb-2">Suporte Exclusivo</h4>
+                <p className="text-gray-400">Tire dúvidas diretamente</p>
+              </div>
+            </div>
+
+            {/* BOTÃO 3 - NO FINAL */}
+            <div className="pulse-button-container max-w-md mx-auto">
+              <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer" className="block">
+                <Button className="w-full h-16 bg-gradient-to-r from-[#FF6B35] to-[#FF8E53] hover:from-[#FF6B35]/90 hover:to-[#FF8E53]/90 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-[#FF6B35]/40 transition-all duration-300 transform hover:scale-105 border-0 pulse-button">
+                  <TrendingUp className="w-5 h-5 mr-2" />
+                  QUERO ME ATUALIZAR AGORA
+                </Button>
+              </a>
+            </div>
+
+            {/* Garantia Final */}
+            <div className="mt-8 text-gray-400">
+              <p className="flex items-center justify-center">
+                <CheckCircle className="w-5 h-5 text-[#4FD1C5] mr-2" />
+                <span>Compra 100% segura • Acesso imediato • Suporte prioritário</span>
+              </p>
+            </div>
+          </div>
+        </AnimatedSection>
+      </section>
+
+      {/* Footer */}
+      <section>
+        <AnimatedSection>
+          <footer className="py-12 px-4 bg-[#0B1016] border-t border-[#1C2A35]">
+            <div className="max-w-6xl mx-auto text-center">
+              <p className="text-gray-400 text-lg">
+                © 2024 NEXUS - Manual de Alta Performance com IA. Todos os direitos reservados.
+              </p>
+            </div>
+          </footer>
+        </AnimatedSection>
+      </section>
     </div>
   )
 } 
