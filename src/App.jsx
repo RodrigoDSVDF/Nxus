@@ -55,21 +55,7 @@ function App() {
         <div className="hidden md:block absolute top-20 left-20 w-72 h-72 bg-[#0D3A46]/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="hidden md:block absolute bottom-20 right-20 w-96 h-96 bg-[#0D3A46]/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
-        {/* JANELA DE VÍDEO NO TOPO */}
-        <div className="relative z-20 w-full max-w-4xl mb-12 rounded-2xl overflow-hidden shadow-2xl">
-          <video 
-            src={meuVideo} 
-            autoPlay 
-            muted 
-            loop 
-            playsInline
-            className="w-full h-auto rounded-2xl"
-          >
-            Seu navegador não suporta o elemento de vídeo.
-          </video>
-        </div>
-
-        {/* Imagem de Fundo */}
+        {/* Imagem de Fundo Original */}
         <div className="absolute inset-0 opacity-30">
           <img 
             src={brainNetworkImg} 
@@ -81,9 +67,23 @@ function App() {
         {/* Overlay com gradiente */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B1016]/70 via-[#14222E]/60 to-[#0B1016]/70"></div>
 
-        {/* Conteúdo Principal com Nova Narrativa */}
+        {/* Conteúdo Principal */}
         <div className={`relative z-10 text-center max-w-6xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
+          {/* JANELA DE VÍDEO NO TOPO */}
+          <div className="video-container mb-16">
+            <video 
+              src={meuVideo} 
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl video-player"
+            >
+              Seu navegador não suporta o elemento de vídeo.
+            </video>
+          </div>
+
           {/* Badge de Urgência */}
           <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#FF6B35]/20 to-[#FF8E53]/20 border border-[#FF6B35]/40 rounded-full text-[#FF8E53] text-sm font-medium mb-8 backdrop-blur-sm animate-pulse">
             <AlertTriangle className="w-4 h-4 mr-2" />
@@ -133,30 +133,29 @@ function App() {
             </p>
           </div>
 
-          {/* BOTÃO 1 - NO INÍCIO */}
+          {/* SEÇÃO COM IMAGEM DE FUNDO NO MEIO */}
+          <div className="background-image-section my-16 rounded-2xl overflow-hidden">
+            <img 
+              src={fundo02} 
+              alt="Fundo Nexus" 
+              className="w-full h-64 md:h-80 object-cover rounded-2xl background-image"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0B1016]/60 to-[#0B1016]/60 flex items-center justify-center">
+              <h3 className="text-3xl md:text-4xl font-bold text-white text-center px-4">
+                Domine a IA Antes que Ela Domine Você
+              </h3>
+            </div>
+          </div>
+
           <div className="pulse-button-container mb-16 max-w-md mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-              O Futiro Não Espera por Ninguém
+              O Futuro Não Espera por Ninguém
             </h2>
             
             <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
               <span className="text-[#FF6B35] font-semibold">72% dos profissionais</span> que não se adaptarem à IA nos próximos 2 anos serão substituídos. 
               <span className="text-[#4FD1C5] font-semibold"> Escolha de qual lado você quer estar.</span>
             </p>
-
-            {/* IMAGEM DE FUNDO NO MEIO */}
-            <div className="relative my-16 rounded-2xl overflow-hidden">
-              <img 
-                src={fundo02} 
-                alt="Fundo Nexus" 
-                className="w-full h-64 md:h-96 object-cover rounded-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0B1016]/60 to-[#0B1016]/60 flex items-center justify-center">
-                <h3 className="text-3xl md:text-4xl font-bold text-white text-center px-4">
-                  Transforme Sua Produtividade com IA
-                </h3>
-              </div>
-            </div>
 
             {/* Benefícios Rápidos */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -186,7 +185,7 @@ function App() {
             </div>
 
             {/* PRODUTO AO FINAL COM BOTÃO */}
-            <div className="bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] mb-12">
+            <div className="product-section bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] mb-12">
               <div className="text-center mb-8">
                 <h3 className="text-3xl font-bold text-white mb-4">
                   Nexus - Manual de Alta Performance com IA
