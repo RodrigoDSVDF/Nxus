@@ -62,7 +62,6 @@ function App() {
         </div>
 
         {/* Overlay com gradiente (OPACIDADE REDUZIDA) */}
-        {/* ALTERADO de /90, /80, /85 para /70, /60, /70 */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B1016]/70 via-[#14222E]/60 to-[#0B1016]/70"></div>
 
         {/* Conteúdo Principal */}
@@ -224,7 +223,7 @@ function App() {
                   <p className="text-gray-300 text-lg">Vá além do básico. Entenda os fundamentos de Python para automatizar tarefas e prototipar suas próprias soluções de IA.</p>
                 </div>
               </div>
-            </AvoidedSection>
+            </AnimatedSection> {/* <-- ERRO CORRIGIDO AQUI */}
 
             {/* Item 6 */}
             <AnimatedSection delay={0.6}>
