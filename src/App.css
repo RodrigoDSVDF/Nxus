@@ -125,185 +125,109 @@
     --sidebar-ring: oklch(0.556 0 0);
   }
 
-  /* Estilos de base do Shadcn */
+  /* Reset e estilos base */
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--border);
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--background);
+    color: var(--foreground);
     font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    letter-spacing: -0.01em;
+  }
+}
+
+/* 4. ESTILOS PARA OS COMPONENTES ESPECÍFICOS DO NEXUS */
+@layer components {
+  /* Container do vídeo */
+  .video-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 3rem;
   }
 
-  /* Melhorias de tipografia */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
+  .video-player {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(255, 107, 53, 0.25);
+  }
+
+  /* Seção da imagem de fundo */
+  .background-image-section {
+    position: relative;
+    width: 100%;
+    margin: 4rem 0;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  }
+
+  .background-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .background-image-section h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 2.5rem;
     font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    z-index: 2;
   }
 
-  p {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.7;
-    letter-spacing: -0.005em;
+  /* Imagem do produto */
+  .product-image {
+    box-shadow: 0 25px 50px -12px rgba(79, 209, 197, 0.25);
+    transition: transform 0.3s ease;
   }
 
-  /* ... (o restante do seu @layer base) ... */
-  @media (max-width: 768px) {
-    .hero-section {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
-    .section-spacing {
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-    }
-    .container-mobile {
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-    .text-mobile-center {
-      text-align: center;
-    }
-    .button-mobile {
-      width: 100%;
-      max-width: 320px;
-      margin: 0 auto;
-    }
+  .product-image:hover {
+    transform: scale(1.02);
   }
 
-  .smooth-transition {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Efeito de brilho para o botão */
+  .pulse-button {
+    position: relative;
+    overflow: hidden;
+    animation: pulse 2s infinite;
   }
 
-  .hover-glow:hover {
-    box-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
+  .pulse-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0.75rem;
+    background: linear-gradient(45deg, #FF6B35, #FF8E53, #FF6B35);
+    z-index: -1;
+    animation: glow 2s ease-in-out infinite alternate;
+    opacity: 0;
   }
 
-  .gradient-text-cyan {
-    background: linear-gradient(135deg, #22d3ee, #06b6d4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  /* Garantir que o texto do botão fique acima do efeito de brilho */
+  .pulse-button > * {
+    position: relative;
+    z-index: 2;
   }
 
-  .gradient-text-emerald {
-    background: linear-gradient(135deg, #10b981, #059669);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .focus-visible:focus-visible {
-    outline: 2px solid #22d3ee;
-    outline-offset: 2px;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  img {
-    will-change: transform;
-  }
-
-  .animate-element {
-    will-change: transform, opacity;
+  /* Efeito de brilho no hover */
+  .pulse-button:hover::before {
+    animation: none;
+    opacity: 0.3;
   }
 }
 
-/* 4. ESTILOS PERSONALIZADOS (Ticker) */
-.ticker-wrap {
-  width: 100%;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right,
-      transparent,
-      white 10%,
-      white 90%,
-      transparent);
-  mask-image: linear-gradient(to right,
-      transparent,
-      white 10%,
-      white 90%,
-      transparent);
-}
-
-.ticker-move {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  animation: scroll 40s linear infinite;
-  width: -moz-fit-content; /* Para Firefox antigo */
-  width: fit-content;
-}
-
-.ticker-item {
-  font-size: 1.1rem; /* 18px */
-  font-weight: 500;
-  color: #c7d2fe; /* Cor (cinza-azulado claro) */
-  padding: 0 1.5rem; /* 24px */
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.ticker-item-separator {
-  display: flex;
-  align-items: center;
-  padding: 0 0.5rem; /* 8px */
-}
-
-/* 5. ANIMAÇÕES PERSONALIZADAS (@keyframes) */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    /* Move 50% para a esquerda para o loop perfeito */
-    transform: translateX(-50%);
-  }
-}
-
-/* =========================================
-   EFEITOS PARA OS BOTÕES DE VENDA
-   Botões laranja avermelhado com efeito piscar
-========================================= */
-
-/* Container para os botões com efeito de piscar */
-.pulse-button-container {
-  position: relative;
-  display: block;
-}
-
-/* Efeito de piscar para os botões de venda */
-.pulse-button {
-  animation: pulse 2s infinite;
-  position: relative;
-  z-index: 1;
-}
-
-.pulse-button:hover {
-  animation: none;
-}
-
-/* Efeito de brilho para o botão */
-.pulse-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 0.75rem;
-  background: linear-gradient(45deg, #FF6B35, #FF8E53, #FF6B35);
-  z-index: -1;
-  animation: glow 2s ease-in-out infinite alternate;
-  opacity: 0;
-}
-
-/* Keyframes para o efeito de pulsar */
+/* 5. ANIMAÇÕES E KEYFRAMES */
 @keyframes pulse {
   0% {
     box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
@@ -316,7 +240,6 @@
   }
 }
 
-/* Keyframes para o efeito de brilho */
 @keyframes glow {
   from {
     filter: blur(10px);
@@ -328,197 +251,85 @@
   }
 }
 
-/* Efeito de brilho no hover */
-.pulse-button:hover::before {
-  animation: none;
-  opacity: 0.3;
+/* 6. RESPONSIVIDADE */
+@layer utilities {
+  @media (max-width: 768px) {
+    .video-player {
+      max-width: 100%;
+      border-radius: 0.5rem;
+    }
+    
+    .background-image {
+      height: 200px;
+    }
+    
+    .background-image-section h3 {
+      font-size: 1.75rem;
+      padding: 0 1rem;
+    }
+    
+    .pulse-button-container {
+      margin-bottom: 1rem;
+    }
+    
+    .pulse-button {
+      width: 100%;
+    }
+  }
+
+  /* Melhorias de acessibilidade - reduzir animações para usuários que preferem reduzir movimento */
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-button {
+      animation: none;
+    }
+    
+    .pulse-button::before {
+      animation: none;
+      opacity: 0;
+    }
+    
+    .video-player {
+      animation: none;
+    }
+    
+    .product-image:hover {
+      transform: none;
+    }
+  }
 }
 
-/* Garantir que o texto do botão fique acima do efeito de brilho */
-.pulse-button > * {
-  position: relative;
-  z-index: 2;
+/* 7. ESTILOS GLOBAIS ADICIONAIS */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Responsividade para os botões em mobile */
-@media (max-width: 768px) {
-  .pulse-button-container {
-    margin-bottom: 1rem;
-  }
-  
-  .pulse-button {
-    width: 100%;
-  }
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
 }
 
-/* Melhorias de acessibilidade - reduzir animações para usuários que preferem reduzir movimento */
-@media (prefers-reduced-motion: reduce) {
-  .pulse-button {
-    animation: none;
-  }
-  
-  .pulse-button::before {
-    animation: none;
-    opacity: 0;
-  }
-     }
-/* =========================================
-   ESTILOS ADICIONAIS PARA OS NOVOS ELEMENTOS
-========================================= */
-
-/* Container do vídeo */
-.video-container {
-  position: relative;
-  width: 100%;
-  margin-bottom: 3rem;
+/* Garantir que as fontes do Poppins sejam aplicadas corretamente */
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
 }
 
-.video-player {
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-  border-radius: 1rem;
+/* Gradientes customizados para o tema Nexus */
+.gradient-nexus-primary {
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8E53 100%);
+}
+
+.gradient-nexus-secondary {
+  background: linear-gradient(135deg, #0D3A46 0%, #14222E 100%);
+}
+
+.gradient-nexus-accent {
+  background: linear-gradient(135deg, #4FD1C5 0%, #38B2AC 100%);
+}
+
+/* Sombras customizadas */
+.shadow-nexus {
   box-shadow: 0 25px 50px -12px rgba(255, 107, 53, 0.25);
 }
 
-/* Seção da imagem de fundo */
-.background-image-section {
-  position: relative;
-  width: 100%;
-  margin: 4rem 0;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-}
-
-.background-image {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-
-.background-image-section h3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-  z-index: 2;
-}
-
-/* Seção do produto */
-.product-section {
-  background: linear-gradient(135deg, #14222E 0%, #0B1016 100%);
-  border: 1px solid #0D3A46;
-  border-radius: 1rem;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-}
-
-/* Efeito de brilho para o botão */
-.pulse-button {
-  position: relative;
-  overflow: hidden;
-  animation: pulse 2s infinite;
-}
-
-.pulse-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 0.75rem;
-  background: linear-gradient(45deg, #FF6B35, #FF8E53, #FF6B35);
-  z-index: -1;
-  animation: glow 2s ease-in-out infinite alternate;
-  opacity: 0;
-}
-
-/* Keyframes para o efeito de pulsar */
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 15px rgba(255, 107, 53, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
-  }
-}
-
-/* Keyframes para o efeito de brilho */
-@keyframes glow {
-  from {
-    filter: blur(10px);
-    opacity: 0.7;
-  }
-  to {
-    filter: blur(15px);
-    opacity: 0.4;
-  }
-}
-
-/* Efeito de brilho no hover */
-.pulse-button:hover::before {
-  animation: none;
-  opacity: 0.3;
-}
-
-/* Garantir que o texto do botão fique acima do efeito de brilho */
-.pulse-button > * {
-  position: relative;
-  z-index: 2;
-}
-
-/* Responsividade para os botões em mobile */
-@media (max-width: 768px) {
-  .video-player {
-    max-width: 100%;
-    border-radius: 0.5rem;
-  }
-  
-  .background-image {
-    height: 200px;
-  }
-  
-  .background-image-section h3 {
-    font-size: 1.75rem;
-    padding: 0 1rem;
-  }
-  
-  .pulse-button-container {
-    margin-bottom: 1rem;
-  }
-  
-  .pulse-button {
-    width: 100%;
-  }
-  
-  .product-section {
-    padding: 1.5rem;
-  }
-}
-
-/* Melhorias de acessibilidade - reduzir animações para usuários que preferem reduzir movimento */
-@media (prefers-reduced-motion: reduce) {
-  .pulse-button {
-    animation: none;
-  }
-  
-  .pulse-button::before {
-    animation: none;
-    opacity: 0;
-  }
-  
-  .video-player {
-    animation: none;
-  }
-}
+.shadow-nexus-glow {
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+     }
