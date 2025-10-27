@@ -1,7 +1,7 @@
 /* =========================================
-   NEXUS - CSS COMPLETO 2025
+   NEXUS - CSS COMPLETO 2025 - CORRIGIDO
    Manual de Alta Performance com IA
-   Versão: 3.0 - Animações Avançadas
+   Versão: 3.1 - Cores Corrigidas
 ========================================= */
 
 /* 1. IMPORTAÇÕES E CONFIGURAÇÕES INICIAIS */
@@ -9,124 +9,100 @@
 @import "tw-animate-css";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-/* 2. VARIÁVEIS DE TEMA E CORES */
+/* 2. RESET E ESTILOS GLOBAIS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0B1016 !important;
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* 3. CORES DE FUNDO EXPLÍCITAS - CORREÇÃO DO PROBLEMA */
+.bg-primary-dark {
+  background-color: #0B1016 !important;
+}
+
+.bg-secondary-dark {
+  background-color: #14222E !important;
+}
+
+.bg-accent-dark {
+  background-color: #1C2A35 !important;
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(135deg, #0B1016 0%, #14222E 50%, #1C2A35 100%) !important;
+}
+
+/* 4. VARIÁVEIS DE TEMA */
 :root {
   /* Cores Principais */
-  --primary-dark: #0B1016;
-  --secondary-dark: #14222E;
-  --accent-dark: #1C2A35;
-  --border-dark: #0D3A46;
+  --color-primary: #0B1016;
+  --color-secondary: #14222E;
+  --color-accent: #1C2A35;
+  --color-border: #0D3A46;
   
   /* Cores de Destaque */
-  --orange-primary: #FF6B35;
-  --orange-secondary: #FF8E53;
-  --teal-primary: #4FD1C5;
-  --teal-secondary: #38B2AC;
+  --color-orange: #FF6B35;
+  --color-orange-light: #FF8E53;
+  --color-teal: #4FD1C5;
+  --color-teal-light: #38B2AC;
   
   /* Gradientes */
   --gradient-hero: linear-gradient(135deg, #0B1016 0%, #14222E 50%, #0D3A46 100%);
   --gradient-orange: linear-gradient(135deg, #FF6B35 0%, #FF8E53 100%);
   --gradient-teal: linear-gradient(135deg, #4FD1C5 0%, #38B2AC 100%);
   --gradient-mixed: linear-gradient(135deg, #FF6B35 0%, #FF8E53 50%, #4FD1C5 100%);
-  
-  /* Sombras */
-  --shadow-glow: 0 0 50px rgba(255, 107, 53, 0.3);
-  --shadow-glow-teal: 0 0 50px rgba(79, 209, 197, 0.3);
-  --shadow-elevated: 0 25px 50px rgba(0, 0, 0, 0.25);
-  
-  /* Animações */
-  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-power: cubic-bezier(0.87, 0, 0.13, 1);
-}
-
-/* 3. ESTILOS DE BASE */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  border: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 2rem;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background: var(--primary-dark);
-  color: #ffffff;
-  line-height: 1.6;
-  overflow-x: hidden;
-  cursor: none;
-}
-
-/* 4. CURSOR PERSONALIZADO */
-.custom-cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  background: var(--orange-primary);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-  transition: transform 0.1s var(--ease-smooth);
-}
-
-.custom-cursor-follower {
-  position: fixed;
-  width: 40px;
-  height: 40px;
-  border: 2px solid var(--teal-primary);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transition: all 0.2s var(--ease-smooth);
 }
 
 /* 5. ANIMAÇÕES PRINCIPAIS */
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px);
   }
   50% {
-    transform: translateY(-20px) rotate(180deg);
-  }
-}
-
-@keyframes float-slow {
-  0%, 100% {
-    transform: translateY(0px) scale(1);
-  }
-  33% {
-    transform: translateY(-15px) scale(1.05);
-  }
-  66% {
-    transform: translateY(10px) scale(0.95);
+    transform: translateY(-20px);
   }
 }
 
 @keyframes pulse-glow {
   0%, 100% {
     box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
-    transform: scale(1);
   }
   50% {
     box-shadow: 0 0 40px rgba(255, 107, 53, 0.8);
-    transform: scale(1.05);
   }
 }
 
-@keyframes text-shimmer {
-  0% {
-    background-position: -200% center;
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  100% {
-    background-position: 200% center;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }
 
@@ -142,276 +118,113 @@ body {
   }
 }
 
-@keyframes slide-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes typewriter {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: var(--teal-primary);
-  }
-}
-
-@keyframes rotate-3d {
-  0% {
-    transform: rotateY(0deg) rotateX(0deg);
-  }
-  25% {
-    transform: rotateY(90deg) rotateX(10deg);
-  }
-  50% {
-    transform: rotateY(180deg) rotateX(0deg);
-  }
-  75% {
-    transform: rotateY(270deg) rotateX(-10deg);
-  }
-  100% {
-    transform: rotateY(360deg) rotateX(0deg);
-  }
-}
-
-@keyframes magnetic-hover {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  100% {
-    transform: translate(var(--mouse-x), var(--mouse-y)) scale(1.02);
-  }
-}
-
-@keyframes particle-float {
-  0%, 100% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-20px) translateX(10px) rotate(90deg);
-  }
-  50% {
-    transform: translateY(-10px) translateX(-10px) rotate(180deg);
-  }
-  75% {
-    transform: translateY(10px) translateX(15px) rotate(270deg);
-  }
-}
-
-@keyframes glow-pulse {
-  0%, 100% {
-    filter: brightness(1) drop-shadow(0 0 10px rgba(79, 209, 197, 0.3));
-  }
-  50% {
-    filter: brightness(1.2) drop-shadow(0 0 20px rgba(79, 209, 197, 0.6));
-  }
-}
-
-/* 6. CLASSES DE ANIMAÇÃO UTILITÁRIAS */
+/* 6. CLASSES DE ANIMAÇÃO */
 .animate-float {
-  animation: float 6s var(--ease-smooth) infinite;
-}
-
-.animate-float-slow {
-  animation: float-slow 8s var(--ease-smooth) infinite;
+  animation: float 6s ease-in-out infinite;
 }
 
 .animate-pulse-glow {
-  animation: pulse-glow 3s var(--ease-smooth) infinite;
-}
-
-.animate-text-shimmer {
-  background: linear-gradient(
-    90deg,
-    var(--orange-primary),
-    var(--orange-secondary),
-    var(--teal-primary),
-    var(--teal-secondary),
-    var(--orange-primary)
-  );
-  background-size: 200% auto;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: text-shimmer 3s linear infinite;
-}
-
-.animate-gradient-shift {
-  background: linear-gradient(-45deg, #0B1016, #14222E, #0D3A46, #1C2A35, #0B1016);
-  background-size: 400% 400%;
-  animation: gradient-shift 15s ease infinite;
-}
-
-.animate-slide-in-left {
-  animation: slide-in-left 0.8s var(--ease-power) both;
-}
-
-.animate-slide-in-right {
-  animation: slide-in-right 0.8s var(--ease-power) both;
+  animation: pulse-glow 2s ease-in-out infinite;
 }
 
 .animate-slide-in-up {
-  animation: slide-in-up 0.8s var(--ease-power) both;
-}
-
-.animate-scale-in {
-  animation: scale-in 0.6s var(--ease-bounce) both;
+  animation: slide-in-up 0.8s ease-out both;
 }
 
 .animate-typewriter {
   overflow: hidden;
-  border-right: 3px solid var(--teal-primary);
+  border-right: 3px solid #4FD1C5;
   white-space: nowrap;
   animation: typewriter 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
-.animate-rotate-3d {
-  animation: rotate-3d 4s var(--ease-smooth) infinite;
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #4FD1C5; }
 }
 
-.animate-glow-pulse {
-  animation: glow-pulse 2s var(--ease-smooth) infinite;
+.animate-gradient-shift {
+  background: linear-gradient(-45deg, #0B1016, #14222E, #0D3A46, #1C2A35);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
 }
 
-/* 7. COMPONENTES ESPECÍFICOS */
+/* 7. COMPONENTES PRINCIPAIS */
 
-/* Barra de Progresso */
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: var(--gradient-orange);
-  z-index: 10000;
-  transition: width 0.1s var(--ease-smooth);
-  box-shadow: var(--shadow-glow);
-}
-
-/* Partículas Interativas */
-.particles-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.particle {
-  position: absolute;
-  background: var(--gradient-teal);
-  border-radius: 50%;
-  opacity: 0.3;
-  animation: particle-float 8s var(--ease-smooth) infinite;
-}
-
-/* Cards Magnéticos */
-.magnetic-card {
-  transition: all 0.4s var(--ease-smooth);
-  transform-style: preserve-3d;
-  position: relative;
-}
-
-.magnetic-card:hover {
-  transform: perspective(1000px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) scale3d(1.02, 1.02, 1.02);
-}
-
-/* Botões de Venda */
-.pulse-button {
-  animation: pulse-glow 2s var(--ease-smooth) infinite;
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #0B1016 0%, #14222E 50%, #1C2A35 100%);
+  min-height: 100vh;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s var(--ease-smooth);
 }
 
-.pulse-button::before {
-  content: '';
+.hero-bg {
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
+  inset: 0;
+  opacity: 0.3;
 }
 
-.pulse-button:hover::before {
-  left: 100%;
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(11, 16, 22, 0.8) 0%, rgba(20, 34, 46, 0.6) 100%);
 }
 
-.pulse-button:hover {
-  animation: none;
+/* Cards */
+.glass-card {
+  background: linear-gradient(135deg, rgba(20, 34, 46, 0.8) 0%, rgba(28, 42, 53, 0.6) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(13, 58, 70, 0.3);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(79, 209, 197, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Botões */
+.btn-primary {
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8E53 100%);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px rgba(255, 107, 53, 0.4);
+  animation: none;
 }
 
-/* Ticker Animado */
+/* 8. TICKER ANIMADO */
 .ticker-wrap {
   width: 100%;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    white 10%,
-    white 90%,
-    transparent
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    white 10%,
-    white 90%,
-    transparent
-  );
+  background: linear-gradient(135deg, #14222E 0%, #1C2A35 100%);
+  border-top: 1px solid rgba(13, 58, 70, 0.5);
+  border-bottom: 1px solid rgba(13, 58, 70, 0.5);
+  position: relative;
+}
+
+.ticker-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(79, 209, 197, 0.1) 50%, 
+    transparent 100%);
+  pointer-events: none;
 }
 
 .ticker-move {
@@ -437,38 +250,283 @@ body {
   padding: 0 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  transition: all 0.3s var(--ease-smooth);
 }
 
-.ticker-item:hover {
-  color: var(--teal-primary);
-  transform: scale(1.05);
+.ticker-item-separator {
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
 }
 
-/* Seções com Efeito Parallax */
-.parallax-section {
+/* 9. EFEITOS DE TEXTO */
+.text-gradient {
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8E53 50%, #4FD1C5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(79, 209, 197, 0.5);
+}
+
+/* 10. BOTÕES DE VENDA COM EFEITO PISCAR */
+.pulse-button-container {
+  position: relative;
+}
+
+.pulse-button {
+  animation: pulse-glow 2s infinite;
   position: relative;
   overflow: hidden;
 }
 
-.parallax-bg {
-  transform: translateY(calc(var(--scroll-velocity) * 1px));
-  transition: transform 0.1s var(--ease-smooth);
-  will-change: transform;
+.pulse-button:hover {
+  animation: none;
 }
 
-/* Efeitos de Hover Avançados */
+.pulse-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0.75rem;
+  background: linear-gradient(45deg, #FF6B35, #FF8E53, #FF6B35);
+  z-index: -1;
+  animation: glow 2s ease-in-out infinite alternate;
+  opacity: 0;
+}
+
+@keyframes glow {
+  from {
+    filter: blur(10px);
+    opacity: 0.7;
+  }
+  to {
+    filter: blur(15px);
+    opacity: 0.4;
+  }
+}
+
+/* 11. SEÇÕES */
+.section-dark {
+  background-color: #0B1016;
+  padding: 5rem 1rem;
+}
+
+.section-gradient {
+  background: linear-gradient(135deg, #14222E 0%, #1C2A35 100%);
+  padding: 5rem 1rem;
+  position: relative;
+}
+
+.section-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('./assets/1000393266.jpg') center/cover;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+/* 12. CARDS DE CONTEÚDO */
+.content-card {
+  background: linear-gradient(135deg, #14222E 0%, #1C2A35 100%);
+  border: 1px solid rgba(13, 58, 70, 0.3);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.content-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.content-card:hover::before {
+  opacity: 1;
+}
+
+.content-card:hover {
+  border-color: rgba(79, 209, 197, 0.5);
+  transform: translateY(-5px);
+}
+
+/* 13. PARTÍCULAS FLUTUANTES */
+.floating-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  background: linear-gradient(135deg, #FF6B35, #4FD1C5);
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: particle-float 8s ease-in-out infinite;
+}
+
+@keyframes particle-float {
+  0%, 100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-10px) rotate(180deg);
+  }
+  75% {
+    transform: translateY(10px) translateX(15px) rotate(270deg);
+  }
+}
+
+.particle-1 { width: 20px; height: 20px; top: 10%; left: 5%; animation-delay: 0s; }
+.particle-2 { width: 15px; height: 15px; top: 20%; right: 10%; animation-delay: 1s; }
+.particle-3 { width: 25px; height: 25px; bottom: 15%; left: 15%; animation-delay: 2s; }
+.particle-4 { width: 18px; height: 18px; bottom: 25%; right: 5%; animation-delay: 3s; }
+.particle-5 { width: 22px; height: 22px; top: 40%; left: 20%; animation-delay: 4s; }
+.particle-6 { width: 16px; height: 16px; top: 60%; right: 15%; animation-delay: 5s; }
+
+/* 14. BARRA DE PROGRESSO */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8E53 50%, #4FD1C5 100%);
+  z-index: 10000;
+  transition: width 0.1s ease;
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+}
+
+/* 15. ANIMAÇÕES DE ENTRADA */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 16. EFEITOS DE FOCO */
+.focus-glow:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 209, 197, 0.3);
+}
+
+/* 17. RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+  
+  .section-dark,
+  .section-gradient {
+    padding: 3rem 1rem;
+  }
+  
+  .content-card {
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .ticker-item {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+  }
+  
+  .animate-typewriter {
+    animation: none;
+    border-right: none;
+    white-space: normal;
+  }
+}
+
+/* 18. ACESSIBILIDADE */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 19. UTILITÁRIOS */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.backdrop-blur {
+  backdrop-filter: blur(10px);
+}
+
+.border-glow {
+  box-shadow: 0 0 20px rgba(79, 209, 197, 0.3);
+}
+
+/* 20. GRADIENTES ESPECÍFICOS */
+.gradient-orange-teal {
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8E53 50%, #4FD1C5 100%);
+}
+
+.gradient-dark-to-darker {
+  background: linear-gradient(135deg, #14222E 0%, #0B1016 100%);
+}
+
+/* 21. EFEITOS DE HOVER AVANÇADOS */
 .hover-lift {
-  transition: all 0.4s var(--ease-smooth);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hover-lift:hover {
   transform: translateY(-10px);
-  box-shadow: var(--shadow-elevated);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
 }
 
 .hover-glow {
-  transition: all 0.3s var(--ease-smooth);
+  transition: box-shadow 0.3s ease;
 }
 
 .hover-glow:hover {
@@ -477,392 +535,9 @@ body {
     inset 0 0 30px rgba(79, 209, 197, 0.1);
 }
 
-.glow-border {
-  position: relative;
-}
-
-.glow-border::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: var(--gradient-mixed);
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s var(--ease-smooth);
-  animation: rotate-gradient 3s linear infinite;
-}
-
-.glow-border:hover::before {
-  opacity: 1;
-}
-
-@keyframes rotate-gradient {
-  0% {
-    filter: hue-rotate(0deg);
-  }
-  100% {
-    filter: hue-rotate(360deg);
-  }
-}
-
-/* 8. ANIMAÇÕES EM CASCATA (STAGGER) */
-.stagger-container > * {
-  opacity: 0;
-  animation: slide-in-up 0.6s var(--ease-power) forwards;
-}
-
-.stagger-container > *:nth-child(1) { animation-delay: 0.1s; }
-.stagger-container > *:nth-child(2) { animation-delay: 0.2s; }
-.stagger-container > *:nth-child(3) { animation-delay: 0.3s; }
-.stagger-container > *:nth-child(4) { animation-delay: 0.4s; }
-.stagger-container > *:nth-child(5) { animation-delay: 0.5s; }
-.stagger-container > *:nth-child(6) { animation-delay: 0.6s; }
-.stagger-container > *:nth-child(7) { animation-delay: 0.7s; }
-.stagger-container > *:nth-child(8) { animation-delay: 0.8s; }
-
-/* 9. COMPONENTES DE TEXTO ANIMADO */
-.typing-text {
-  overflow: hidden;
-  border-right: 2px solid var(--teal-primary);
-  white-space: nowrap;
-  animation: typing 2s steps(20, end), blink-caret 0.75s step-end infinite;
-}
-
-.text-gradient {
-  background: var(--gradient-orange);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* 10. MODAIS E OVERLAYS */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(11, 16, 22, 0.9);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
-  opacity: 0;
-  animation: fade-in 0.3s var(--ease-smooth) forwards;
-}
-
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.modal-content {
-  animation: scale-in 0.4s var(--ease-bounce) both;
-  animation-delay: 0.1s;
-}
-
-/* 11. FORMULÁRIOS ANIMADOS */
-.animated-input {
-  background: rgba(20, 34, 46, 0.5);
-  border: 1px solid var(--border-dark);
-  transition: all 0.3s var(--ease-smooth);
-}
-
-.animated-input:focus {
-  border-color: var(--teal-primary);
-  box-shadow: 0 0 0 3px rgba(79, 209, 197, 0.1);
-  transform: translateY(-2px);
-}
-
-/* 12. LOADING E ESTADOS DE CARREGAMENTO */
-.loading-spinner {
-  width: 40px;
-  height: 40px;
-  border: 3px solid transparent;
-  border-top: 3px solid var(--teal-primary);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.skeleton-loader {
-  background: linear-gradient(90deg, #14222E 25%, #1C2A35 50%, #14222E 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-}
-
-@keyframes loading {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
-
-/* 13. BOTÕES ESPECIAIS */
-.btn-magnetic {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s var(--ease-smooth);
-}
-
-.btn-magnetic::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-  transition: all 0.3s var(--ease-smooth);
-  transform: translate(-50%, -50%);
-}
-
-.btn-magnetic:hover::before {
-  width: 300px;
-  height: 300px;
-}
-
-/* 14. EFEITOS DE SCROLL PERSONALIZADOS */
-.scroll-indicator {
-  position: fixed;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1000;
-}
-
-.scroll-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--teal-primary);
-  border-radius: 50%;
-  margin: 1rem 0;
-  opacity: 0.3;
-  transition: all 0.3s var(--ease-smooth);
-}
-
-.scroll-dot.active {
-  opacity: 1;
-  transform: scale(1.5);
-  box-shadow: 0 0 10px var(--teal-primary);
-}
-
-/* 15. ANIMAÇÕES DE ENTRADA POR SCROLL */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s var(--ease-smooth);
-}
-
-.scroll-reveal.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 16. GRADIENTES ANIMADOS */
-.animated-gradient {
-  background: linear-gradient(-45deg, 
-    var(--orange-primary), 
-    var(--orange-secondary), 
-    var(--teal-primary), 
-    var(--teal-secondary)
-  );
-  background-size: 400% 400%;
-  animation: gradient-shift 8s ease infinite;
-}
-
-/* 17. EFEITOS DE VIDRO (GLASS MORPHISM) */
-.glass-effect {
-  background: rgba(20, 34, 46, 0.25);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(79, 209, 197, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-.glass-effect-heavy {
-  background: rgba(11, 16, 22, 0.7);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(79, 209, 197, 0.2);
-}
-
-/* 18. ANIMAÇÕES DE ATENÇÃO */
-.attention-pulse {
-  animation: attention-pulse 2s var(--ease-smooth) infinite;
-}
-
-@keyframes attention-pulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 0 10px rgba(255, 107, 53, 0);
-  }
-}
-
-/* 19. EFEITOS DE TEXTO 3D */
-.text-3d {
-  text-shadow: 
-    0 1px 0 #ccc,
-    0 2px 0 #c9c9c9,
-    0 3px 0 #bbb,
-    0 4px 0 #b9b9b9,
-    0 5px 0 #aaa,
-    0 6px 1px rgba(0,0,0,.1),
-    0 0 5px rgba(0,0,0,.1),
-    0 1px 3px rgba(0,0,0,.3),
-    0 3px 5px rgba(0,0,0,.2),
-    0 5px 10px rgba(0,0,0,.25);
-}
-
-/* 20. RESPONSIVIDADE E MEDIA QUERIES */
-@media (max-width: 1024px) {
-  .magnetic-card:hover {
-    transform: none;
-  }
-  
-  .custom-cursor,
-  .custom-cursor-follower {
-    display: none;
-  }
-  
-  body {
-    cursor: auto;
-  }
-}
-
-@media (max-width: 768px) {
-  .animate-typewriter {
-    animation: none;
-    border-right: none;
-    white-space: normal;
-  }
-  
-  .ticker-item {
-    font-size: 0.9rem;
-    padding: 0 1rem;
-  }
-  
-  .scroll-indicator {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .particle {
-    display: none;
-  }
-  
-  .glass-effect {
-    backdrop-filter: blur(5px);
-  }
-}
-
-/* 21. ACESSIBILIDADE */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* 22. UTILITÁRIOS DE LAYOUT */
-.container-custom {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.section-spacing {
-  padding: 5rem 0;
-}
-
-.grid-responsive {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-/* 23. EFEITOS DE FOCO PARA ACESSIBILIDADE */
-.focus-visible {
-  outline: 2px solid var(--teal-primary);
-  outline-offset: 2px;
-}
-
-/* 24. ANIMAÇÕES DE SAÍDA */
-.fade-out {
-  animation: fade-out 0.3s var(--ease-smooth) forwards;
-}
-
-@keyframes fade-out {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-}
-
-/* 25. EFEITOS ESPECIAIS PARA DESTAQUE */
-.highlight-glow {
-  position: relative;
-}
-
-.highlight-glow::after {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: var(--gradient-mixed);
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s var(--ease-smooth);
-}
-
-.highlight-glow:hover::after {
-  opacity: 1;
-  animation: rotate-gradient 2s linear infinite;
-}
-
-/* 26. ANIMAÇÕES DE CARREGAMENTO DE CONTEÚDO */
-.content-fade-in {
-  animation: content-fade-in 0.6s var(--ease-smooth) both;
-}
-
-@keyframes content-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* 27. EFEITOS DE MODALIDADE */
-.backdrop-blur {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.backdrop-blur-heavy {
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
-
-/* 28. ANIMAÇÕES DE ICONES */
+/* 22. ANIMAÇÕES DE ICONES */
 .icon-float {
-  animation: icon-float 3s var(--ease-smooth) infinite;
+  animation: icon-float 3s ease-in-out infinite;
 }
 
 @keyframes icon-float {
@@ -877,260 +552,172 @@ body {
   }
 }
 
-/* 29. EFEITOS DE BORDA ANIMADA */
-.animated-border {
-  position: relative;
-  background: var(--secondary-dark);
-  padding: 2px;
-  border-radius: 12px;
-}
-
-.animated-border::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: var(--gradient-mixed);
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s var(--ease-smooth);
-  animation: rotate-gradient 3s linear infinite;
-}
-
-.animated-border:hover::before {
-  opacity: 1;
-}
-
-/* 30. OTIMIZAÇÕES DE PERFORMANCE */
-.will-change-transform {
-  will-change: transform;
-}
-
-.will-change-opacity {
-  will-change: opacity;
-}
-
-.reduce-motion {
-  animation: none !important;
-  transition: none !important;
-}
-
-/* 31. ESTILOS DE TEXTO RESPONSIVO */
-.text-responsive {
-  font-size: clamp(1rem, 2.5vw, 2rem);
-  line-height: 1.2;
-}
-
-.heading-responsive {
-  font-size: clamp(2rem, 5vw, 4rem);
-  line-height: 1.1;
-}
-
-/* 32. EFEITOS DE SOMBRA DINÂMICOS */
-.dynamic-shadow {
-  box-shadow: 
-    0 2.8px 2.2px rgba(0, 0, 0, 0.02),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.028),
-    0 12.5px 10px rgba(0, 0, 0, 0.035),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.042),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.05),
-    0 100px 80px rgba(0, 0, 0, 0.07);
-}
-
-/* 33. ANIMAÇÕES DE PAGINAÇÃO */
-.page-transition-enter {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.page-transition-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.5s var(--ease-smooth);
-}
-
-.page-transition-exit {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.page-transition-exit-active {
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: all 0.5s var(--ease-smooth);
-}
-
-/* 34. EFEITOS DE CLIQUE */
-.click-feedback:active {
-  transform: scale(0.95);
-  transition: transform 0.1s var(--ease-smooth);
-}
-
-/* 35. GRADIENTES TEXTURAIS */
-.texture-gradient {
-  background: 
-    linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
-    linear-gradient(225deg, rgba(79, 209, 197, 0.1) 0%, transparent 50%),
-    var(--secondary-dark);
-}
-
-/* 36. ANIMAÇÕES DE PRELOADER */
-.preloader {
+/* 23. MODAIS E OVERLAYS */
+.modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--primary-dark);
-  z-index: 9999;
+  inset: 0;
+  background: rgba(11, 16, 22, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.preloader-inner {
-  animation: preloader-spin 1.5s linear infinite;
+.modal-content {
+  background: linear-gradient(135deg, #14222E 0%, #1C2A35 100%);
+  border: 1px solid rgba(13, 58, 70, 0.5);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
 }
 
-@keyframes preloader-spin {
-  0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(1.1); }
-  100% { transform: rotate(360deg) scale(1); }
+/* 24. FORMULÁRIOS */
+.form-input {
+  background: rgba(20, 34, 46, 0.5);
+  border: 1px solid rgba(13, 58, 70, 0.5);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: white;
+  transition: all 0.3s ease;
 }
 
-/* 37. EFEITOS DE VÍDEO DE FUNDO */
-.video-background {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
+.form-input:focus {
+  border-color: #4FD1C5;
+  box-shadow: 0 0 0 3px rgba(79, 209, 197, 0.1);
+  outline: none;
+}
+
+/* 25. RODAPÉ */
+.footer {
+  background: linear-gradient(135deg, #0B1016 0%, #14222E 100%);
+  border-top: 1px solid rgba(13, 58, 70, 0.5);
+  padding: 3rem 1rem;
+}
+
+/* 26. CORREÇÕES ESPECÍFICAS PARA CORES DE FUNDO */
+.min-h-screen {
+  min-height: 100vh;
+  background-color: #0B1016 !important;
+}
+
+.bg-\[\#0B1016\] {
+  background-color: #0B1016 !important;
+}
+
+.bg-\[\#14222E\] {
+  background-color: #14222E !important;
+}
+
+.bg-\[\#1C2A35\] {
+  background-color: #1C2A35 !important;
+}
+
+/* 27. GARANTINDO VISIBILIDADE DO TEXTO */
+.text-white {
+  color: #ffffff !important;
+}
+
+.text-gray-300 {
+  color: #d1d5db !important;
+}
+
+.text-gray-400 {
+  color: #9ca3af !important;
+}
+
+/* 28. BORDAS E DIVISÓRIAS */
+.border-\[\#0D3A46\] {
+  border-color: #0D3A46 !important;
+}
+
+.border-\[\#1C2A35\] {
+  border-color: #1C2A35 !important;
+}
+
+/* 29. OPACIDADES CORRIGIDAS */
+.opacity-30 {
+  opacity: 0.3 !important;
+}
+
+.opacity-20 {
+  opacity: 0.2 !important;
+}
+
+.opacity-15 {
+  opacity: 0.15 !important;
+}
+
+/* 30. EFEITOS DE BLUR E BACKDROP */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+/* 31. SEGURANÇA EXTRA - GARANTINDO CORES DE FUNDO */
+section {
+  background-color: #0B1016;
+}
+
+section.bg-\[\#0B1016\] {
+  background-color: #0B1016 !important;
+}
+
+section.bg-gradient-to-r {
+  background: linear-gradient(135deg, #14222E 0%, #1C2A35 100%) !important;
+}
+
+/* 32. CORREÇÃO PARA IMAGENS DE FUNDO */
+.bg-cover {
+  background-size: cover !important;
+}
+
+.bg-center {
+  background-position: center !important;
+}
+
+.object-cover {
+  object-fit: cover !important;
+}
+
+/* 33. ANIMAÇÕES DE CARREGAMENTO */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid transparent;
+  border-top: 3px solid #4FD1C5;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 34. EFEITOS DE SCROLL SUAVE */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* 35. CORREÇÃO FINAL - GARANTINDO TODOS OS ELEMENTOS VISÍVEIS */
+* {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
   height: auto;
-  transform: translateX(-50%) translateY(-50%);
-  opacity: 0.1;
 }
 
-/* 38. ANIMAÇÕES DE MÁSCARA */
-.mask-reveal {
-  mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
-  animation: mask-reveal 2s var(--ease-smooth) forwards;
+/* 36. CONTROLE DE OVERFLOW */
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 
-@keyframes mask-reveal {
-  from {
-    mask-position: -100% 0;
-    -webkit-mask-position: -100% 0;
-  }
-  to {
-    mask-position: 100% 0;
-    -webkit-mask-position: 100% 0;
-  }
+.overflow-hidden {
+  overflow: hidden;
 }
 
-/* 39. EFEITOS DE REFLEXO */
-.reflection {
-  position: relative;
-}
-
-.reflection::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), transparent);
-  transform: scaleY(-1);
-  opacity: 0.5;
-}
-
-/* 40. ANIMAÇÕES FINAIS DE PERFORMANCE */
-.final-touch {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000;
-}
-
-/* 41. RODAPÉ ANIMADO */
-.footer-wave {
-  position: relative;
-}
-
-.footer-wave::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: var(--gradient-mixed);
-  animation: wave-flow 3s linear infinite;
-}
-
-@keyframes wave-flow {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
-
-/* 42. ESTILOS DE IMPRESSÃO */
-@media print {
-  .animated-element,
-  .magnetic-card,
-  .pulse-button {
-    animation: none !important;
-    transform: none !important;
-  }
-  
-  .glass-effect {
-    background: white;
-    backdrop-filter: none;
-    border: 1px solid #ccc;
-  }
-}
-
-/* 43. DARK MODE NATIVO */
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-  }
-}
-
-/* 44. SUPORTE PARA DISPOSITIVOS TÁTEIS */
-@media (hover: none) and (pointer: coarse) {
-  .magnetic-card:hover,
-  .hover-lift:hover,
-  .hover-glow:hover {
-    transform: none;
-  }
-  
-  .custom-cursor,
-  .custom-cursor-follower {
-    display: none;
-  }
-}
-
-/* 45. OTIMIZAÇÕES FINAIS */
-.optimized-rendering {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-}
-
-.hardware-accelerated {
-  transform: translateZ(0);
-}
-
-/* 46. VARIÁVEIS CSS DINÂMICAS */
-.dynamic-properties {
-  --scroll-progress: 0;
-  --mouse-x: 0;
-  --mouse-y: 0;
-  --random-seed: 0;
-}
-
-/* FIM DO CSS COMPLETO */
+/* FIM DO CSS CORRIGIDO */
