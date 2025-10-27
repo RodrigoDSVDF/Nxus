@@ -30,7 +30,8 @@ import servicosIAImg from './assets/servicos-ia.jpg';
 import produtividadeImg from './assets/produtividade.jpg';
 import redeNeuralAbstrataImg from './assets/rede-neural-abstrata.jpg';
 import xadrezStrategiaImg from './assets/xadrez-estrategia.jpg';
-import garantia7DiasImg from './assets/7-dias-garantido.jpg'; 
+// A imagem de garantia não é mais importada, pois foi removida
+// import garantia7DiasImg from './assets/7-dias-garantido.jpg'; 
 
 function App() {
   const [isVisible, setIsVisible] = useState(false) 
@@ -51,8 +52,8 @@ function App() {
         <div className="hidden md:block absolute top-20 left-20 w-72 h-72 bg-[#0D3A46]/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="hidden md:block absolute bottom-20 right-20 w-96 h-96 bg-[#0D3A46]/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
-        {/* Imagem de Fundo */}
-        <div className="absolute inset-0 opacity-20">
+        {/* Imagem de Fundo (OPACIDADE AUMENTADA) */}
+        <div className="absolute inset-0 opacity-30"> {/* ALTERADO DE opacity-20 */}
           <img 
             src={brainNetworkImg} 
             alt="Neural Network Background" 
@@ -60,8 +61,9 @@ function App() {
           />
         </div>
 
-        {/* Overlay com gradiente da nova paleta */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1016]/90 via-[#14222E]/80 to-[#0B1016]/85"></div>
+        {/* Overlay com gradiente (OPACIDADE REDUZIDA) */}
+        {/* ALTERADO de /90, /80, /85 para /70, /60, /70 */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1016]/70 via-[#14222E]/60 to-[#0B1016]/70"></div>
 
         {/* Conteúdo Principal */}
         <div className={`relative z-10 text-center max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -75,15 +77,7 @@ function App() {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Domine a <span className="bg-gradient-to-r from-[#4FD1C5] to-[#38B2AC] bg-clip-text text-transparent">Era da IA</span>
           </h1>
-
-          {/* SUBHEADLINE PERSUASIVA (Conteúdo original removido, mas estava aqui no seu código) */}
         </div>
-
-        {/* Nota: Havia uma <div> incompleta no seu código original aqui, 
-          após a headline. Eu a removi pois ela não estava sendo fechada 
-          e parecia ser parte de outra seção que foi copiada incorretamente.
-          O código abaixo continua a partir da section Hero.
-        */}
 
       </section>
 
@@ -150,13 +144,12 @@ function App() {
             </div>
           </AnimatedSection>
           
-          {/* Grid expandido para 8 itens */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
-            {/* Item 1 (Existente - Texto encurtado) */}
+            {/* Item 1 */}
             <AnimatedSection delay={0.1}>
               <div className="group bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 opacity-20"> {/* ALTERADO DE opacity-10 */}
                   <img src={redeNeuralAbstrataImg} alt="Mentalidade Informacional" className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="relative z-10">
@@ -169,10 +162,10 @@ function App() {
               </div>
             </AnimatedSection>
 
-            {/* Item 2 (Existente - Texto encurtado) */}
+            {/* Item 2 */}
             <AnimatedSection delay={0.2}>
               <div className="group bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 opacity-20"> {/* ALTERADO DE opacity-10 */}
                   <img src={servicosIAImg} alt="Ferramentas Práticas de IA" className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="relative z-10">
@@ -185,10 +178,10 @@ function App() {
               </div>
             </AnimatedSection>
 
-            {/* Item 3 (Existente - Texto encurtado) */}
+            {/* Item 3 */}
             <AnimatedSection delay={0.3}>
               <div className="group bg-gradient-to-br from-[#1C2A35] to-[#14222E] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 opacity-20"> {/* ALTERADO DE opacity-10 */}
                   <img src={produtividadeImg} alt="Vantagem Competitiva" className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="relative z-10">
@@ -201,10 +194,10 @@ function App() {
               </div>
             </AnimatedSection>
 
-            {/* Item 4 (Novo) - Engenharia de Contexto */}
+            {/* Item 4 */}
             <AnimatedSection delay={0.4}>
               <div className="group bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 opacity-20"> {/* ALTERADO DE opacity-10 */}
                   <img src={xadrezStrategiaImg} alt="Engenharia de Contexto" className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="relative z-10">
@@ -217,10 +210,10 @@ function App() {
               </div>
             </AnimatedSection>
 
-            {/* Item 5 (Novo) - Python para IA */}
+            {/* Item 5 */}
             <AnimatedSection delay={0.5}>
               <div className="group bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 opacity-20"> {/* ALTERADO DE opacity-10 */}
                   <img src={laptopNeuralImg} alt="Python para IA" className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="relative z-10">
@@ -231,12 +224,12 @@ function App() {
                   <p className="text-gray-300 text-lg">Vá além do básico. Entenda os fundamentos de Python para automatizar tarefas e prototipar suas próprias soluções de IA.</p>
                 </div>
               </div>
-            </AnimatedSection>
+            </AvoidedSection>
 
-            {/* Item 6 (Novo) - Análise de Dados */}
+            {/* Item 6 */}
             <AnimatedSection delay={0.6}>
               <div className="group bg-gradient-to-br from-[#1C2A35] to-[#14222E] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 opacity-20"> {/* ALTERADO DE opacity-10 */}
                   <img src={dataAnalysisImg} alt="Análise de Dados" className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="relative z-10">
@@ -249,10 +242,10 @@ function App() {
               </div>
             </AnimatedSection>
 
-            {/* Item 7 (Novo) - Dominação de Páginas */}
+            {/* Item 7 */}
             <AnimatedSection delay={0.7}>
               <div className="group bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 opacity-20"> {/* ALTERADO DE opacity-10 */}
                   <img src={digitalToolsImg} alt="Criação de Páginas" className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="relative z-10">
@@ -265,10 +258,10 @@ function App() {
               </div>
             </AnimatedSection>
 
-            {/* Item 8 (Novo) - Aprendizado Otimizado */}
+            {/* Item 8 */}
             <AnimatedSection delay={0.8}>
               <div className="group bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 opacity-20"> {/* ALTERADO DE opacity-10 */}
                   <img src={brainAIImg} alt="Aprendizado com IA" className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="relative z-10">
@@ -287,7 +280,7 @@ function App() {
       {/* Seção de Prova/Autoridade */}
       <section className="py-32 px-4 bg-gradient-to-r from-[#14222E] to-[#1C2A35] relative">
         <AnimatedSection>
-          <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 opacity-15"> {/* ALTERADO DE opacity-5 */}
             <img src={brainNetworkImg} alt="Brain Network" className="w-full h-full object-cover object-right" />
           </div>
           <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -331,13 +324,9 @@ function App() {
         <AnimatedSection>
           <footer className="py-12 px-4 bg-[#0B1016] border-t border-[#1C2A35]">
             <div className="max-w-6xl mx-auto text-center">
-              <div className="mb-8">
-                <img 
-                  src={garantia7DiasImg} 
-                  alt="Garantia de 7 dias ou seu dinheiro de volta" 
-                  className="mx-auto w-48 h-auto"
-                />
-              </div>
+              
+              {/* IMAGEM DE GARANTIA REMOVIDA DAQUI */}
+
               <p className="text-gray-400 text-lg">
                 © 2024 NEXUS - Manual de Alta Performance com IA. Todos os direitos reservados.
               </p>
