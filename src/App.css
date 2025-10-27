@@ -1,5 +1,5 @@
 /* =========================================
-   App.css - CORREÇÃO FINAL DE BUILD
+   App.css - VERSÃO APRIMORADA COM ANIMAÇÕES
 =========================================
 */
 
@@ -139,6 +139,41 @@
 
 /* 4. ESTILOS PARA OS COMPONENTES ESPECÍFICOS DO NEXUS */
 @layer components {
+  /* ===========================
+     NOVA FAIXA HORIZONTAL ANIMADA
+  =========================== */
+  .horizontal-banner-wrapper {
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #FF6B35 0%, #FF8E53 50%, #4FD1C5 100%);
+    padding: 1rem 0;
+    position: relative;
+    z-index: 50;
+  }
+
+  .horizontal-banner {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .banner-content {
+    display: flex;
+    animation: scroll-horizontal 30s linear infinite;
+    white-space: nowrap;
+  }
+
+  .banner-item {
+    display: inline-block;
+    padding: 0 3rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
   /* Container do vídeo */
   .video-container {
     position: relative;
@@ -193,6 +228,16 @@
     transform: scale(1.02);
   }
 
+  /* Efeito de hover nos cartões */
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(79, 209, 197, 0.3);
+  }
+
   /* Efeito de brilho para o botão */
   .pulse-button {
     position: relative;
@@ -228,6 +273,118 @@
 }
 
 /* 5. ANIMAÇÕES E KEYFRAMES */
+
+/* Animação da faixa horizontal */
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Animações de entrada - Horizontal da Esquerda */
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animações de entrada - Horizontal da Direita */
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animações de entrada - Vertical de Cima */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animações de entrada - Vertical de Baixo */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animação de escala */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animação de fade */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animação de flutuação horizontal */
+@keyframes floatHorizontal {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(30px);
+  }
+}
+
+/* Animação de flutuação horizontal reversa */
+@keyframes floatHorizontalReverse {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-30px);
+  }
+}
+
+/* Animação de pulse lento */
+@keyframes pulseSlow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Animação original de pulse */
 @keyframes pulse {
   0% {
     box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
@@ -240,6 +397,7 @@
   }
 }
 
+/* Animação de glow */
 @keyframes glow {
   from {
     filter: blur(10px);
@@ -251,9 +409,77 @@
   }
 }
 
+/* Classes de animação */
+.animate-slide-left {
+  animation: slideLeft 1s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideRight 1s ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 1s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 1s ease-out forwards;
+}
+
+.animate-slide-up-delay {
+  animation: slideUp 1s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scaleIn 1s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+.animate-float-horizontal {
+  animation: floatHorizontal 6s ease-in-out infinite;
+}
+
+.animate-float-horizontal-reverse {
+  animation: floatHorizontalReverse 8s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 3s ease-in-out infinite;
+}
+
+/* Animações escalonadas para criar efeito cascata */
+.stagger-1 {
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.stagger-2 {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.stagger-3 {
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.stagger-4 {
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
 /* 6. RESPONSIVIDADE */
 @layer utilities {
   @media (max-width: 768px) {
+    .banner-item {
+      font-size: 0.875rem;
+      padding: 0 2rem;
+    }
+
     .video-player {
       max-width: 100%;
       border-radius: 0.5rem;
@@ -295,6 +521,29 @@
     .product-image:hover {
       transform: none;
     }
+
+    .card-hover:hover {
+      transform: none;
+    }
+
+    .banner-content {
+      animation: none;
+    }
+
+    .animate-slide-left,
+    .animate-slide-right,
+    .animate-slide-down,
+    .animate-slide-up,
+    .animate-slide-up-delay,
+    .animate-scale-in,
+    .animate-fade-in,
+    .animate-float-horizontal,
+    .animate-float-horizontal-reverse,
+    .animate-pulse-slow {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
   }
 }
 
@@ -332,4 +581,4 @@
 
 .shadow-nexus-glow {
   box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
-     }
+}
