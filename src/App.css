@@ -1,19 +1,16 @@
 /* =========================================
-   App.css - CORRIGIDO (Build Pass)
+   App.css - CORREÇÃO FINAL DE BUILD
 =========================================
 */
 
-/* 1. IMPORTAÇÕES
-   Importa o Tailwind v4, a biblioteca de animação e a fonte Poppins.
-*/
+/* 1. IMPORTAÇÕES */
 @import "tailwindcss";
 @import "tw-animate-css";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-/* 2. DEFINIÇÃO DE TEMA (CORRIGIDO PARA O BUILD)
-   As regras :root e .dark foram removidas.
-   As variáveis do tema claro ficam no nível superior.
-   As variáveis do tema escuro ficam em @dark { ... }
+/* 2. DEFINIÇÃO DE TEMA (Apenas Tema Claro/Padrão)
+   O bloco @theme SÓ PODE conter --custom-properties e @keyframes.
+   O bloco @dark foi movido para o @layer base.
 */
 @theme inline {
   /* Variáveis Semânticas (Referenciais) */
@@ -86,9 +83,17 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+}
 
+/* Define a variante .dark para o Tailwind */
+@custom-variant dark (&:is(.dark *));
+
+/* 3. ESTILOS DE BASE (@layer base)
+   As variáveis do TEMA ESCURO são definidas aqui, dentro da classe .dark
+*/
+@layer base {
   /* Variáveis Primitivas (Tema Escuro) */
-  @dark {
+  .dark {
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);
     --card: oklch(0.205 0 0);
@@ -121,15 +126,8 @@
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
   }
-}
 
-/* Define a variante .dark para o Tailwind */
-@custom-variant dark (&:is(.dark *));
-
-/* 3. ESTILOS DE BASE (@layer base)
-   (O restante do arquivo permanece o mesmo)
-*/
-@layer base {
+  /* Estilos de base do Shadcn */
   * {
     @apply border-border outline-ring/50;
   }
@@ -141,7 +139,7 @@
     letter-spacing: -0.01em;
   }
 
-  /* ... (todas as suas outras regras do @layer base) ... */
+  /* Melhorias de tipografia */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
@@ -155,6 +153,7 @@
     letter-spacing: -0.005em;
   }
 
+  /* ... (o restante do seu @layer base) ... */
   @media (max-width: 768px) {
     .hero-section {
       padding-top: 4rem;
@@ -218,9 +217,7 @@
   }
 }
 
-/* 4. ESTILOS PERSONALIZADOS (Ticker)
-   (Não precisa de alteração)
-*/
+/* 4. ESTILOS PERSONALIZADOS (Ticker) */
 .ticker-wrap {
   width: 100%;
   overflow: hidden;
@@ -260,9 +257,7 @@
   padding: 0 0.5rem; /* 8px */
 }
 
-/* 5. ANIMAÇÕES PERSONALIZADAS (@keyframes)
-   (Não precisa de alteração)
-*/
+/* 5. ANIMAÇÕES PERSONALIZADAS (@keyframes) */
 @keyframes scroll {
   0% {
     transform: translateX(0);
