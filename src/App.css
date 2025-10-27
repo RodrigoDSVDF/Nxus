@@ -1,25 +1,15 @@
-/* =========================================
-  App.css COMPLETO
-=========================================
-*/
-
-/* 1. Importação da Fonte (Poppins) */
+/* Importação da Fonte (Poppins) */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
-/* 2. Diretivas do Tailwind CSS */
+/* Diretivas do Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 3. Estilos da Faixa (Ticker) 
-   (As classes que adicionamos ao App.jsx)
-*/
+/* Estilos da Faixa (Ticker) */
 .ticker-wrap {
   width: 100%;
   overflow: hidden;
-  /* Adiciona um leve fade nas laterais para suavizar 
-    a entrada/saída da animação 
-  */
   -webkit-mask-image: linear-gradient(to right,
       transparent,
       white 10%,
@@ -36,19 +26,16 @@
   display: flex;
   align-items: center;
   white-space: nowrap;
-  /* Duração da animação. Ajuste 40s para mais rápido/lento */
   animation: scroll 40s linear infinite;
-  /* Garante que a largura se ajuste ao conteúdo para a animação */
-  width: -moz-fit-content; /* Para Firefox antigo */
+  width: -moz-fit-content;
   width: fit-content;
 }
 
 .ticker-item {
-  font-size: 1.1rem; /* 18px */
+  font-size: 1.1rem;
   font-weight: 500;
-  /* Cor (cinza-azulado claro) */
   color: #c7d2fe;
-  padding: 0 1.5rem; /* 24px */
+  padding: 0 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -56,21 +43,14 @@
 .ticker-item-separator {
   display: flex;
   align-items: center;
-  padding: 0 0.5rem; /* 8px */
+  padding: 0 0.5rem;
 }
 
-/* Animação de rolagem */
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
-
   100% {
-    /* Move 50% para a esquerda. 
-      Como duplicamos os itens no HTML, 
-      isso cria um loop perfeito.
-    */
     transform: translateX(-50%);
   }
 }
-
