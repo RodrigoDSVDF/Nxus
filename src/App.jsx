@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 // Ícones importados, incluindo os novos
 import {
@@ -37,8 +37,45 @@ import produtoImg from './assets/produto.jpg';
 import meuVideo from './assets/meu-video.mp4'
 import fundo02 from './assets/fundo02.jpg'
 
+// Hook personalizado para detectar quando elemento entra na viewport
+function useScrollAnimation() {
+  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      {
+        threshold: 0.1, // Ativa quando 10% do elemento está visível
+        rootMargin: '0px 0px -100px 0px' // Ativa um pouco antes de entrar completamente
+      }
+    )
+
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current)
+      }
+    }
+  }, [])
+
+  return [ref, isVisible]
+}
+
 function App() {
   const [isVisible, setIsVisible] = useState(false) 
+  
+  // Refs para animações de scroll nas seções
+  const [heroRef, heroVisible] = useScrollAnimation()
+  const [cardsRef, cardsVisible] = useScrollAnimation()
+  const [productRef, productVisible] = useScrollAnimation()
 
   useEffect(() => {
     setIsVisible(true)
@@ -69,8 +106,13 @@ function App() {
         </div>
       </div>
 
-      {/* Hero Section com Nova Narrativa Persuasiva */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
+      {/* Hero Section com animação de entrada vertical */}
+      <section 
+        ref={heroRef}
+        className={`relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden transition-all duration-1000 ${
+          heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+        }`}
+      >
         {/* Elementos de fundo com animação horizontal */}
         <div className="hidden md:block absolute top-20 left-20 w-72 h-72 bg-[#0D3A46]/20 rounded-full blur-3xl animate-float-horizontal"></div>
         <div className="hidden md:block absolute bottom-20 right-20 w-96 h-96 bg-[#0D3A46]/15 rounded-full blur-3xl animate-float-horizontal-reverse"></div>
@@ -208,8 +250,13 @@ function App() {
         </div>
       </section>
 
-      {/* SEÇÃO DOS CARTÕES ORIGINAIS COM IMAGENS DE FUNDO */}
-      <section className="py-20 px-4 bg-gradient-to-b from-[#0B1016] to-[#14222E]">
+      {/* SEÇÃO DOS CARTÕES - Animação horizontal da esquerda */}
+      <section 
+        ref={cardsRef}
+        className={`py-20 px-4 bg-gradient-to-b from-[#0B1016] to-[#14222E] transition-all duration-1000 ${
+          cardsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+        }`}
+      >
         <AnimatedSection>
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4 animate-slide-down">
@@ -320,8 +367,13 @@ function App() {
         </AnimatedSection>
       </section>
 
-      {/* SEÇÃO FINAL COM A IMAGEM PRODUTO.JPG */}
-      <section className="py-20 px-4 bg-gradient-to-b from-[#14222E] to-[#0B1016]">
+      {/* SEÇÃO FINAL COM A IMAGEM PRODUTO.JPG - Animação horizontal da direita */}
+      <section 
+        ref={productRef}
+        className={`py-20 px-4 bg-gradient-to-b from-[#14222E] to-[#0B1016] transition-all duration-1000 ${
+          productVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
+        }`}
+      >
         <AnimatedSection>
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
