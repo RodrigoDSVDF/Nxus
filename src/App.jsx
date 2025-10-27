@@ -55,7 +55,7 @@ function App() {
         <div className="hidden md:block absolute top-20 left-20 w-72 h-72 bg-[#0D3A46]/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="hidden md:block absolute bottom-20 right-20 w-96 h-96 bg-[#0D3A46]/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
-        {/* Imagem de Fundo Original */}
+        {/* Imagem de Fundo */}
         <div className="absolute inset-0 opacity-30">
           <img 
             src={brainNetworkImg} 
@@ -133,20 +133,7 @@ function App() {
             </p>
           </div>
 
-          {/* SEÇÃO COM IMAGEM DE FUNDO NO MEIO */}
-          <div className="background-image-section my-16 rounded-2xl overflow-hidden">
-            <img 
-              src={fundo02} 
-              alt="Fundo Nexus" 
-              className="w-full h-64 md:h-80 object-cover rounded-2xl background-image"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0B1016]/60 to-[#0B1016]/60 flex items-center justify-center">
-              <h3 className="text-3xl md:text-4xl font-bold text-white text-center px-4">
-                Domine a IA Antes que Ela Domine Você
-              </h3>
-            </div>
-          </div>
-
+          {/* BOTÃO 1 - NO INÍCIO */}
           <div className="pulse-button-container mb-16 max-w-md mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
               O Futuro Não Espera por Ninguém
@@ -156,6 +143,20 @@ function App() {
               <span className="text-[#FF6B35] font-semibold">72% dos profissionais</span> que não se adaptarem à IA nos próximos 2 anos serão substituídos. 
               <span className="text-[#4FD1C5] font-semibold"> Escolha de qual lado você quer estar.</span>
             </p>
+
+            {/* SEÇÃO COM IMAGEM DE FUNDO NO MEIO */}
+            <div className="background-image-section my-16 rounded-2xl overflow-hidden">
+              <img 
+                src={fundo02} 
+                alt="Fundo Nexus" 
+                className="w-full h-64 md:h-80 object-cover rounded-2xl background-image"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0B1016]/60 to-[#0B1016]/60 flex items-center justify-center">
+                <h3 className="text-3xl md:text-4xl font-bold text-white text-center px-4">
+                  Domine a IA Antes que Ela Domine Você
+                </h3>
+              </div>
+            </div>
 
             {/* Benefícios Rápidos */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -183,37 +184,155 @@ function App() {
                 <p className="text-gray-400">Tire dúvidas diretamente</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* PRODUTO AO FINAL COM BOTÃO */}
-            <div className="product-section bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] mb-12">
-              <div className="text-center mb-8">
-                <h3 className="text-3xl font-bold text-white mb-4">
-                  Nexus - Manual de Alta Performance com IA
-                </h3>
-                <p className="text-xl text-gray-300 mb-6">
-                  Domine as estratégias comprovadas que os top performers usam para multiplicar sua produtividade com IA
+      {/* SEÇÃO DOS CARTÕES ORIGINAIS */}
+      <section className="py-20 px-4 bg-gradient-to-b from-[#0B1016] to-[#14222E]">
+        <AnimatedSection>
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4">
+              O Que Você Vai <span className="text-[#4FD1C5]">Dominar</span>
+            </h2>
+            <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
+              Um método passo a passo para você se tornar um expert em IA, mesmo que comece do zero
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+              {/* Cartão 1 */}
+              <div className="bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300">
+                <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
+                  <Brain className="w-7 h-7 text-[#4FD1C5]" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Fundamentos da IA</h3>
+                <p className="text-gray-300">
+                  Compreenda os conceitos essenciais que permanecem relevantes independentemente das ferramentas.
                 </p>
               </div>
 
-              <div className="pulse-button-container max-w-md mx-auto">
-                <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer" className="block">
-                  <Button className="w-full h-16 bg-gradient-to-r from-[#FF6B35] to-[#FF8E53] hover:from-[#FF6B35]/90 hover:to-[#FF8E53]/90 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-[#FF6B35]/40 transition-all duration-300 transform hover:scale-105 border-0 pulse-button">
-                    <TrendingUp className="w-5 h-5 mr-2" />
-                    QUERO ME ATUALIZAR AGORA
-                  </Button>
-                </a>
+              {/* Cartão 2 */}
+              <div className="bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300">
+                <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
+                  <Zap className="w-7 h-7 text-[#4FD1C5]" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Produtividade Extrema</h3>
+                <p className="text-gray-300">
+                  Multiplique sua eficiência usando IA para automatizar tarefas repetitivas e complexas.
+                </p>
               </div>
 
-              {/* Garantia Final */}
-              <div className="mt-8 text-gray-400">
-                <p className="flex items-center justify-center">
-                  <CheckCircle className="w-5 h-5 text-[#4FD1C5] mr-2" />
-                  <span>Compra 100% segura • Acesso imediato • Suporte prioritário</span>
+              {/* Cartão 3 */}
+              <div className="bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300">
+                <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
+                  <Target className="w-7 h-7 text-[#4FD1C5]" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Estratégias Avançadas</h3>
+                <p className="text-gray-300">
+                  Técnicas comprovadas que os top performers usam para se manterem à frente da curva.
+                </p>
+              </div>
+
+              {/* Cartão 4 */}
+              <div className="bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300">
+                <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
+                  <Rocket className="w-7 h-7 text-[#4FD1C5]" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Implementação Rápida</h3>
+                <p className="text-gray-300">
+                  Saiba como aplicar imediatamente o que aprender, com exemplos práticos e casos reais.
+                </p>
+              </div>
+
+              {/* Cartão 5 */}
+              <div className="bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300">
+                <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
+                  <Globe className="w-7 h-7 text-[#4FD1C5]" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Visão de Mercado</h3>
+                <p className="text-gray-300">
+                  Entenda as tendências e prepare-se para as próximas revoluções da IA.
+                </p>
+              </div>
+
+              {/* Cartão 6 */}
+              <div className="bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300">
+                <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
+                  <Key className="w-7 h-7 text-[#4FD1C5]" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Acesso Vitalício</h3>
+                <p className="text-gray-300">
+                  Atualizações constantes para manter você sempre na vanguarda da tecnologia.
                 </p>
               </div>
             </div>
           </div>
-        </div>
+        </AnimatedSection>
+      </section>
+
+      {/* SEÇÃO DO PRODUTO AO FINAL COM A IMAGEM newProductImg */}
+      <section className="py-20 px-4 bg-gradient-to-b from-[#14222E] to-[#0B1016]">
+        <AnimatedSection>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Imagem do Produto */}
+              <div className="flex justify-center">
+                <img 
+                  src={newProductImg} 
+                  alt="Nexus - Manual de Alta Performance com IA" 
+                  className="rounded-2xl shadow-2xl w-full max-w-md product-image"
+                />
+              </div>
+              
+              {/* Conteúdo do Produto */}
+              <div className="text-center lg:text-left">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                  Nexus - Manual de Alta Performance com IA
+                </h2>
+                <p className="text-xl text-gray-300 mb-8">
+                  Domine as estratégias comprovadas que os top performers usam para multiplicar sua produtividade com IA e se manter relevante no mercado.
+                </p>
+                
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center">
+                    <CheckCircle className="w-6 h-6 text-[#4FD1C5] mr-3" />
+                    <span className="text-white">Acesso imediato e vitalício</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="w-6 h-6 text-[#4FD1C5] mr-3" />
+                    <span className="text-white">Atualizações constantes</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="w-6 h-6 text-[#4FD1C5] mr-3" />
+                    <span className="text-white">Suporte prioritário</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="w-6 h-6 text-[#4FD1C5] mr-3" />
+                    <span className="text-white">Garantia de 7 dias</span>
+                  </div>
+                </div>
+
+                {/* BOTÃO FINAL */}
+                <div className="pulse-button-container max-w-md mx-auto lg:mx-0">
+                  <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer" className="block">
+                    <Button className="w-full h-16 bg-gradient-to-r from-[#FF6B35] to-[#FF8E53] hover:from-[#FF6B35]/90 hover:to-[#FF8E53]/90 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-[#FF6B35]/40 transition-all duration-300 transform hover:scale-105 border-0 pulse-button">
+                      <TrendingUp className="w-5 h-5 mr-2" />
+                      QUERO ME ATUALIZAR AGORA
+                    </Button>
+                  </a>
+                </div>
+
+                {/* Garantia Final */}
+                <div className="mt-6 text-gray-400">
+                  <p className="flex items-center justify-center lg:justify-start">
+                    <CheckCircle className="w-5 h-5 text-[#4FD1C5] mr-2" />
+                    <span>Compra 100% segura • Acesso imediato • Suporte prioritário</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
       </section>
 
       {/* Footer */}
