@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button.jsx'
-// Ícone importados
+// Ícones importados
 import {
   ArrowRight, Zap, Target, Globe, Key, Rocket, BookOpen, Brain, TrendingUp,
   CheckCircle, Sparkles, User, Lightbulb, Search, Eye,
