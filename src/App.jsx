@@ -119,7 +119,7 @@ const InteractiveParticles = () => {
   );
 };
 
-// Componente de Card com Efeito Magnetic
+// Componente de Card com Efeito Magnético
 const MagneticCard = ({ children, delay = 0 }) => {
   const cardRef = useRef(null);
   
@@ -230,17 +230,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B1016] font-['Poppins',sans-serif] overflow-x-hidden cursor-none">
-      
-      {/* Cursor Personalizado */}
-      <div 
-        className="fixed w-6 h-6 bg-[#FF6B35] rounded-full mix-blend-difference pointer-events-none z-50 transition-transform duration-100 ease-out"
-        style={{
-          left: mousePosition.x - 12,
-          top: mousePosition.y - 12,
-          transform: `scale(${scrollProgress / 100 + 0.5})`
-        }}
-      />
+    <div className="min-h-screen bg-[#0B1016] font-['Poppins',sans-serif] overflow-x-hidden">
       
       {/* Barra de Progresso Animada */}
       <div 
@@ -274,7 +264,7 @@ function App() {
         >
           <img 
             src={brainNetworkImg} 
-            alt="Neural Network Background" 
+            alt="Rede Neural de Fundo" 
             className="w-full h-full object-cover object-right"
           />
         </div>
@@ -288,42 +278,18 @@ function App() {
           {/* Badge de Urgência com Efeito Pulsar */}
           <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#FF6B35]/20 to-[#FF8E53]/20 border border-[#FF6B35]/40 rounded-full text-[#FF8E53] text-sm font-medium mb-8 backdrop-blur-sm animate-pulse-glow">
             <AlertTriangle className="w-4 h-4 mr-2 animate-spin-slow" />
-            <AnimatedText 
-              text="ATENÇÃO: A IA está evoluindo mais rápido que sua capacidade de aprendizado" 
-              delay={0.5}
-            />
+            ATENÇÃO: A IA está evoluindo mais rápido que sua capacidade de aprendizado
           </div>
 
           {/* HEADLINE PRINCIPAL - Com Efeito de Digitação */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            <AnimatedText 
-              text="Cansado de se sentir "
-              delay={1}
-              className="inline"
-            />
-            <span className="bg-gradient-to-r from-[#FF6B35] to-[#FF8E53] bg-clip-text text-transparent animate-text-shimmer">
-              ultrapassado
-            </span>
-            <AnimatedText 
-              text=" pela velocidade da IA?"
-              delay={1.5}
-              className="inline"
-            />
+            Cansado de se sentir <span className="bg-gradient-to-r from-[#FF6B35] to-[#FF8E53] bg-clip-text text-transparent animate-text-shimmer">ultrapassado</span> pela velocidade da IA?
           </h1>
 
           {/* SUBHEADLINE - Com Efeito Fade In Sequencial */}
           <div className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-            <div className="fade-in-stagger">
-              <div className="fade-in-stagger-item">
-                <span className="text-[#FF8E53] font-semibold">Toda semana surge uma ferramenta nova</span>
-              </div>
-              <div className="fade-in-stagger-item">
-                <span className="text-[#FF6B35] font-semibold"> correndo atrás do prejuízo</span>
-              </div>
-              <div className="fade-in-stagger-item">
-                , sem nunca conseguir dominar de verdade.
-              </div>
-            </div>
+            <span className="text-[#FF8E53] font-semibold">Toda semana surge uma ferramenta nova</span>, todo mês uma atualização revolucionária, e você fica sempre 
+            <span className="text-[#FF6B35] font-semibold"> correndo atrás do prejuízo</span>, sem nunca conseguir dominar de verdade.
           </div>
 
           {/* Pain Points List com Animação em Cascata */}
@@ -352,7 +318,7 @@ function App() {
               E se você pudesse <span className="text-[#4FD1C5] animate-pulse-soft">dominar as bases fundamentais</span> que funcionam independentemente das ferramentas que surgirem?
             </h2>
             <p className="text-lg text-gray-300 slide-in-right">
-              O Nexus não te ensina ferramentas passageiras, mas sim os <span className="text-[#38B2AC] font-semibold">princípios imutáveis</span> da alta performance com IA que vão mantê-lo relevante pelos próximos 10 anos.
+              O Nexus não ensina ferramentas passageiras, mas sim os <span className="text-[#38B2AC] font-semibold">princípios imutáveis</span> da alta performance com IA que vão mantê-lo relevante pelos próximos 10 anos.
             </p>
           </div>
 
@@ -391,12 +357,12 @@ function App() {
         <div className="ticker-wrap">
           <div className="ticker-move">
             {[...Array(3)].map((_, iteration) => (
-              <React.Fragment key={iteration}>
+              <div key={iteration} className="flex items-center">
                 <div className="ticker-item hover-glow">🚀 Engenharia de Contexto Avançada</div>
                 <div className="ticker-item-separator">
                   <Sparkles className="w-4 h-4 text-[#4FD1C5] animate-spin-slow" />
                 </div>
-                <div className="ticker-item hover-glow">🎯 Dominação de Criação de Páginas</div>
+                <div className="ticker-item hover-glow">🎯 Domínio de Criação de Páginas</div>
                 <div className="ticker-item-separator">
                   <Sparkles className="w-4 h-4 text-[#4FD1C5] animate-spin-slow" />
                 </div>
@@ -412,7 +378,7 @@ function App() {
                 <div className="ticker-item-separator">
                   <Sparkles className="w-4 h-4 text-[#4FD1C5] animate-spin-slow" />
                 </div>
-              </React.Fragment>
+              </div>
             ))}
           </div>
         </div>
@@ -426,11 +392,8 @@ function App() {
           {/* Header Animado */}
           <AnimatedSection>
             <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 typewriter-header">
-                <AnimatedText 
-                  text="Pare de correr atrás e comece a liderar"
-                  delay={0.5}
-                />
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Pare de <span className="text-[#FF6B35]">correr atrás</span> e comece a <span className="bg-gradient-to-r from-[#4FD1C5] to-[#38B2AC] bg-clip-text text-transparent">liderar</span>
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-[#FF6B35] to-[#4FD1C5] mx-auto mb-6 animate-width-expand" />
               <p className="text-xl text-gray-400 max-w-3xl mx-auto slide-in-bottom">
@@ -439,7 +402,7 @@ function App() {
             </div>
           </AnimatedSection>
           
-          {/* Grid de Cards com Efeito Magnetic */}
+          {/* Grid de Cards com Efeito Magnético */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
@@ -535,10 +498,7 @@ function App() {
               <div className="bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-12 rounded-3xl border border-[#0D3A46]/30 mb-8 hover-lift-large relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B35]/5 to-[#4FD1C5]/5 animate-pan" />
                 <h3 className="text-3xl font-bold text-white mb-4 relative z-10">
-                  <AnimatedText 
-                    text="Não Espere Para se Tornar Obsoleto"
-                    delay={1}
-                  />
+                  Não Espere Para se Tornar Obsoleto
                 </h3>
                 <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto relative z-10">
                   A cada dia que passa, mais pessoas dominam essas habilidades e aumentam a distância. 
@@ -612,16 +572,13 @@ function App() {
             transform: `translate(${mousePosition.x * 0.03}px, ${mousePosition.y * 0.03}px) scale(1.2)`
           }}
         >
-          <img src={neuralNetworkImg} alt="Neural Network" className="w-full h-full object-cover" />
+          <img src={neuralNetworkImg} alt="Rede Neural" className="w-full h-full object-cover" />
         </div>
         
         <AnimatedSection>
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 typewriter-header">
-              <AnimatedText 
-                text="Alta Performance não é mais opção — é requisito"
-                delay={0.5}
-              />
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
+              Alta Performance não é mais <span className="bg-gradient-to-r from-[#4FD1C5] to-[#38B2AC] bg-clip-text text-transparent">opção</span> — é <span className="bg-gradient-to-r from-[#38B2AC] to-[#4FD1C5] bg-clip-text text-transparent">requisito</span>
             </h2>
             <div className="bg-gradient-to-br from-[#1C2A35] to-[#14222E] p-12 md:p-16 rounded-3xl border border-[#0D3A46]/40 backdrop-blur-sm hover-lift glow-border">
               <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
@@ -637,11 +594,8 @@ function App() {
         <InteractiveParticles />
         <AnimatedSection>
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 typewriter-header">
-              <AnimatedText 
-                text="O Futuro Não Espera por Ninguém"
-                delay={0.5}
-              />
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+              O Futuro Não Espera por Ninguém
             </h2>
             
             <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
