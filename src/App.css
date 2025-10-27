@@ -1,253 +1,250 @@
 /* =========================================
-   NEXUS - CSS COMPLETO 2025 - CORRIGIDO
-   Manual de Alta Performance com IA
-   Versão: 3.1 - Cores Corrigidas
-========================================= */
+   App.css - CORREÇÃO FINAL DE BUILD
+=========================================
+*/
 
-/* 1. IMPORTAÇÕES E CONFIGURAÇÕES INICIAIS */
+/* 1. IMPORTAÇÕES */
 @import "tailwindcss";
 @import "tw-animate-css";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-/* 2. RESET E ESTILOS GLOBAIS */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* 2. DEFINIÇÃO DE TEMA (Apenas Tema Claro/Padrão)
+   O bloco @theme SÓ PODE conter --custom-properties e @keyframes.
+   O bloco @dark foi movido para o @layer base.
+*/
+@theme inline {
+  /* Variáveis Semânticas (Referenciais) */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Variáveis Primitivas (Tema Claro) */
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* Define a variante .dark para o Tailwind */
+@custom-variant dark (&:is(.dark *));
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #0B1016 !important;
-  color: #ffffff;
-  line-height: 1.6;
-  overflow-x: hidden;
-  min-height: 100vh;
-}
-
-/* 3. CORES DE FUNDO EXPLÍCITAS - CORREÇÃO DO PROBLEMA */
-.bg-primary-dark {
-  background-color: #0B1016 !important;
-}
-
-.bg-secondary-dark {
-  background-color: #14222E !important;
-}
-
-.bg-accent-dark {
-  background-color: #1C2A35 !important;
-}
-
-.bg-gradient-dark {
-  background: linear-gradient(135deg, #0B1016 0%, #14222E 50%, #1C2A35 100%) !important;
-}
-
-/* 4. VARIÁVEIS DE TEMA */
-:root {
-  /* Cores Principais */
-  --color-primary: #0B1016;
-  --color-secondary: #14222E;
-  --color-accent: #1C2A35;
-  --color-border: #0D3A46;
-  
-  /* Cores de Destaque */
-  --color-orange: #FF6B35;
-  --color-orange-light: #FF8E53;
-  --color-teal: #4FD1C5;
-  --color-teal-light: #38B2AC;
-  
-  /* Gradientes */
-  --gradient-hero: linear-gradient(135deg, #0B1016 0%, #14222E 50%, #0D3A46 100%);
-  --gradient-orange: linear-gradient(135deg, #FF6B35 0%, #FF8E53 100%);
-  --gradient-teal: linear-gradient(135deg, #4FD1C5 0%, #38B2AC 100%);
-  --gradient-mixed: linear-gradient(135deg, #FF6B35 0%, #FF8E53 50%, #4FD1C5 100%);
-}
-
-/* 5. ANIMAÇÕES PRINCIPAIS */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
+/* 3. ESTILOS DE BASE (@layer base)
+   As variáveis do TEMA ESCURO são definidas aqui, dentro da classe .dark
+*/
+@layer base {
+  /* Variáveis Primitivas (Tema Escuro) */
+  .dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.488 0.243 264.376);
+    --chart-2: oklch(0.696 0.17 162.48);
+    --chart-3: oklch(0.769 0.188 70.08);
+    --chart-4: oklch(0.627 0.265 303.9);
+    --chart-5: oklch(0.645 0.246 16.439);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
   }
-  50% {
-    transform: translateY(-20px);
+
+  /* Estilos de base do Shadcn */
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  /* Melhorias de tipografia */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    letter-spacing: -0.005em;
+  }
+
+  /* ... (o restante do seu @layer base) ... */
+  @media (max-width: 768px) {
+    .hero-section {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+    .section-spacing {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+    .container-mobile {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .text-mobile-center {
+      text-align: center;
+    }
+    .button-mobile {
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+  }
+
+  .smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
+  }
+
+  .gradient-text-cyan {
+    background: linear-gradient(135deg, #22d3ee, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-emerald {
+    background: linear-gradient(135deg, #10b981, #059669);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .focus-visible:focus-visible {
+    outline: 2px solid #22d3ee;
+    outline-offset: 2px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  img {
+    will-change: transform;
+  }
+
+  .animate-element {
+    will-change: transform, opacity;
   }
 }
 
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(255, 107, 53, 0.8);
-  }
-}
-
-@keyframes slide-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes typewriter {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* 6. CLASSES DE ANIMAÇÃO */
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.animate-slide-in-up {
-  animation: slide-in-up 0.8s ease-out both;
-}
-
-.animate-typewriter {
-  overflow: hidden;
-  border-right: 3px solid #4FD1C5;
-  white-space: nowrap;
-  animation: typewriter 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: #4FD1C5; }
-}
-
-.animate-gradient-shift {
-  background: linear-gradient(-45deg, #0B1016, #14222E, #0D3A46, #1C2A35);
-  background-size: 400% 400%;
-  animation: gradient-shift 15s ease infinite;
-}
-
-/* 7. COMPONENTES PRINCIPAIS */
-
-/* Hero Section */
-.hero-section {
-  background: linear-gradient(135deg, #0B1016 0%, #14222E 50%, #1C2A35 100%);
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  opacity: 0.3;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(11, 16, 22, 0.8) 0%, rgba(20, 34, 46, 0.6) 100%);
-}
-
-/* Cards */
-.glass-card {
-  background: linear-gradient(135deg, rgba(20, 34, 46, 0.8) 0%, rgba(28, 42, 53, 0.6) 100%);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(13, 58, 70, 0.3);
-  border-radius: 1rem;
-  transition: all 0.3s ease;
-}
-
-.glass-card:hover {
-  border-color: rgba(79, 209, 197, 0.5);
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* Botões */
-.btn-primary {
-  background: linear-gradient(135deg, #FF6B35 0%, #FF8E53 100%);
-  color: white;
-  border: none;
-  border-radius: 0.75rem;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 30px rgba(255, 107, 53, 0.4);
-  animation: none;
-}
-
-/* 8. TICKER ANIMADO */
+/* 4. ESTILOS PERSONALIZADOS (Ticker) */
 .ticker-wrap {
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(135deg, #14222E 0%, #1C2A35 100%);
-  border-top: 1px solid rgba(13, 58, 70, 0.5);
-  border-bottom: 1px solid rgba(13, 58, 70, 0.5);
-  position: relative;
-}
-
-.ticker-wrap::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(79, 209, 197, 0.1) 50%, 
-    transparent 100%);
-  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to right,
+      transparent,
+      white 10%,
+      white 90%,
+      transparent);
+  mask-image: linear-gradient(to right,
+      transparent,
+      white 10%,
+      white 90%,
+      transparent);
 }
 
 .ticker-move {
   display: flex;
   align-items: center;
   white-space: nowrap;
-  animation: scroll-ticker 40s linear infinite;
-}
-
-@keyframes scroll-ticker {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  animation: scroll 40s linear infinite;
+  width: -moz-fit-content; /* Para Firefox antigo */
+  width: fit-content;
 }
 
 .ticker-item {
-  font-size: 1.1rem;
+  font-size: 1.1rem; /* 18px */
   font-weight: 500;
-  color: #c7d2fe;
-  padding: 0 1.5rem;
+  color: #c7d2fe; /* Cor (cinza-azulado claro) */
+  padding: 0 1.5rem; /* 24px */
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -255,36 +252,43 @@ body {
 .ticker-item-separator {
   display: flex;
   align-items: center;
-  padding: 0 0.5rem;
+  padding: 0 0.5rem; /* 8px */
 }
 
-/* 9. EFEITOS DE TEXTO */
-.text-gradient {
-  background: linear-gradient(135deg, #FF6B35 0%, #FF8E53 50%, #4FD1C5 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* 5. ANIMAÇÕES PERSONALIZADAS (@keyframes) */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Move 50% para a esquerda para o loop perfeito */
+    transform: translateX(-50%);
+  }
 }
 
-.text-glow {
-  text-shadow: 0 0 20px rgba(79, 209, 197, 0.5);
-}
+/* =========================================
+   EFEITOS PARA OS BOTÕES DE VENDA
+   Botões laranja avermelhado com efeito piscar
+========================================= */
 
-/* 10. BOTÕES DE VENDA COM EFEITO PISCAR */
+/* Container para os botões com efeito de piscar */
 .pulse-button-container {
   position: relative;
+  display: block;
 }
 
+/* Efeito de piscar para os botões de venda */
 .pulse-button {
-  animation: pulse-glow 2s infinite;
+  animation: pulse 2s infinite;
   position: relative;
-  overflow: hidden;
+  z-index: 1;
 }
 
 .pulse-button:hover {
   animation: none;
 }
 
+/* Efeito de brilho para o botão */
 .pulse-button::before {
   content: '';
   position: absolute;
@@ -299,6 +303,20 @@ body {
   opacity: 0;
 }
 
+/* Keyframes para o efeito de pulsar */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(255, 107, 53, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+  }
+}
+
+/* Keyframes para o efeito de brilho */
 @keyframes glow {
   from {
     filter: blur(10px);
@@ -310,414 +328,37 @@ body {
   }
 }
 
-/* 11. SEÇÕES */
-.section-dark {
-  background-color: #0B1016;
-  padding: 5rem 1rem;
+/* Efeito de brilho no hover */
+.pulse-button:hover::before {
+  animation: none;
+  opacity: 0.3;
 }
 
-.section-gradient {
-  background: linear-gradient(135deg, #14222E 0%, #1C2A35 100%);
-  padding: 5rem 1rem;
+/* Garantir que o texto do botão fique acima do efeito de brilho */
+.pulse-button > * {
   position: relative;
+  z-index: 2;
 }
 
-.section-gradient::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url('./assets/1000393266.jpg') center/cover;
-  opacity: 0.1;
-  pointer-events: none;
-}
-
-/* 12. CARDS DE CONTEÚDO */
-.content-card {
-  background: linear-gradient(135deg, #14222E 0%, #1C2A35 100%);
-  border: 1px solid rgba(13, 58, 70, 0.3);
-  border-radius: 1.5rem;
-  padding: 2.5rem;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.content-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.content-card:hover::before {
-  opacity: 1;
-}
-
-.content-card:hover {
-  border-color: rgba(79, 209, 197, 0.5);
-  transform: translateY(-5px);
-}
-
-/* 13. PARTÍCULAS FLUTUANTES */
-.floating-particles {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.particle {
-  position: absolute;
-  background: linear-gradient(135deg, #FF6B35, #4FD1C5);
-  border-radius: 50%;
-  opacity: 0.1;
-  animation: particle-float 8s ease-in-out infinite;
-}
-
-@keyframes particle-float {
-  0%, 100% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-20px) translateX(10px) rotate(90deg);
-  }
-  50% {
-    transform: translateY(-10px) translateX(-10px) rotate(180deg);
-  }
-  75% {
-    transform: translateY(10px) translateX(15px) rotate(270deg);
-  }
-}
-
-.particle-1 { width: 20px; height: 20px; top: 10%; left: 5%; animation-delay: 0s; }
-.particle-2 { width: 15px; height: 15px; top: 20%; right: 10%; animation-delay: 1s; }
-.particle-3 { width: 25px; height: 25px; bottom: 15%; left: 15%; animation-delay: 2s; }
-.particle-4 { width: 18px; height: 18px; bottom: 25%; right: 5%; animation-delay: 3s; }
-.particle-5 { width: 22px; height: 22px; top: 40%; left: 20%; animation-delay: 4s; }
-.particle-6 { width: 16px; height: 16px; top: 60%; right: 15%; animation-delay: 5s; }
-
-/* 14. BARRA DE PROGRESSO */
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: linear-gradient(135deg, #FF6B35 0%, #FF8E53 50%, #4FD1C5 100%);
-  z-index: 10000;
-  transition: width 0.1s ease;
-  box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
-}
-
-/* 15. ANIMAÇÕES DE ENTRADA */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 1s ease-in forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-.slide-in-left {
-  opacity: 0;
-  transform: translateX(-50px);
-  animation: slideInLeft 0.8s ease-out forwards;
-}
-
-@keyframes slideInLeft {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.slide-in-right {
-  opacity: 0;
-  transform: translateX(50px);
-  animation: slideInRight 0.8s ease-out forwards;
-}
-
-@keyframes slideInRight {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* 16. EFEITOS DE FOCO */
-.focus-glow:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(79, 209, 197, 0.3);
-}
-
-/* 17. RESPONSIVIDADE */
+/* Responsividade para os botões em mobile */
 @media (max-width: 768px) {
-  .hero-section {
-    padding: 2rem 1rem;
+  .pulse-button-container {
+    margin-bottom: 1rem;
   }
   
-  .section-dark,
-  .section-gradient {
-    padding: 3rem 1rem;
-  }
-  
-  .content-card {
-    padding: 1.5rem;
-    margin: 1rem 0;
-  }
-  
-  .ticker-item {
-    font-size: 0.9rem;
-    padding: 0 1rem;
-  }
-  
-  .animate-typewriter {
-    animation: none;
-    border-right: none;
-    white-space: normal;
+  .pulse-button {
+    width: 100%;
   }
 }
 
-/* 18. ACESSIBILIDADE */
+/* Melhorias de acessibilidade - reduzir animações para usuários que preferem reduzir movimento */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .pulse-button {
+    animation: none;
   }
-}
-
-/* 19. UTILITÁRIOS */
-.text-shadow {
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.backdrop-blur {
-  backdrop-filter: blur(10px);
-}
-
-.border-glow {
-  box-shadow: 0 0 20px rgba(79, 209, 197, 0.3);
-}
-
-/* 20. GRADIENTES ESPECÍFICOS */
-.gradient-orange-teal {
-  background: linear-gradient(135deg, #FF6B35 0%, #FF8E53 50%, #4FD1C5 100%);
-}
-
-.gradient-dark-to-darker {
-  background: linear-gradient(135deg, #14222E 0%, #0B1016 100%);
-}
-
-/* 21. EFEITOS DE HOVER AVANÇADOS */
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-}
-
-.hover-glow {
-  transition: box-shadow 0.3s ease;
-}
-
-.hover-glow:hover {
-  box-shadow: 
-    0 0 30px rgba(79, 209, 197, 0.4),
-    inset 0 0 30px rgba(79, 209, 197, 0.1);
-}
-
-/* 22. ANIMAÇÕES DE ICONES */
-.icon-float {
-  animation: icon-float 3s ease-in-out infinite;
-}
-
-@keyframes icon-float {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
+  
+  .pulse-button::before {
+    animation: none;
+    opacity: 0;
   }
-  33% {
-    transform: translateY(-10px) rotate(5deg);
-  }
-  66% {
-    transform: translateY(5px) rotate(-5deg);
-  }
-}
-
-/* 23. MODAIS E OVERLAYS */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(11, 16, 22, 0.9);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-content {
-  background: linear-gradient(135deg, #14222E 0%, #1C2A35 100%);
-  border: 1px solid rgba(13, 58, 70, 0.5);
-  border-radius: 1.5rem;
-  padding: 2rem;
-  max-width: 90vw;
-  max-height: 90vh;
-  overflow: auto;
-}
-
-/* 24. FORMULÁRIOS */
-.form-input {
-  background: rgba(20, 34, 46, 0.5);
-  border: 1px solid rgba(13, 58, 70, 0.5);
-  border-radius: 0.75rem;
-  padding: 0.75rem 1rem;
-  color: white;
-  transition: all 0.3s ease;
-}
-
-.form-input:focus {
-  border-color: #4FD1C5;
-  box-shadow: 0 0 0 3px rgba(79, 209, 197, 0.1);
-  outline: none;
-}
-
-/* 25. RODAPÉ */
-.footer {
-  background: linear-gradient(135deg, #0B1016 0%, #14222E 100%);
-  border-top: 1px solid rgba(13, 58, 70, 0.5);
-  padding: 3rem 1rem;
-}
-
-/* 26. CORREÇÕES ESPECÍFICAS PARA CORES DE FUNDO */
-.min-h-screen {
-  min-height: 100vh;
-  background-color: #0B1016 !important;
-}
-
-.bg-\[\#0B1016\] {
-  background-color: #0B1016 !important;
-}
-
-.bg-\[\#14222E\] {
-  background-color: #14222E !important;
-}
-
-.bg-\[\#1C2A35\] {
-  background-color: #1C2A35 !important;
-}
-
-/* 27. GARANTINDO VISIBILIDADE DO TEXTO */
-.text-white {
-  color: #ffffff !important;
-}
-
-.text-gray-300 {
-  color: #d1d5db !important;
-}
-
-.text-gray-400 {
-  color: #9ca3af !important;
-}
-
-/* 28. BORDAS E DIVISÓRIAS */
-.border-\[\#0D3A46\] {
-  border-color: #0D3A46 !important;
-}
-
-.border-\[\#1C2A35\] {
-  border-color: #1C2A35 !important;
-}
-
-/* 29. OPACIDADES CORRIGIDAS */
-.opacity-30 {
-  opacity: 0.3 !important;
-}
-
-.opacity-20 {
-  opacity: 0.2 !important;
-}
-
-.opacity-15 {
-  opacity: 0.15 !important;
-}
-
-/* 30. EFEITOS DE BLUR E BACKDROP */
-.backdrop-blur-sm {
-  backdrop-filter: blur(4px);
-}
-
-/* 31. SEGURANÇA EXTRA - GARANTINDO CORES DE FUNDO */
-section {
-  background-color: #0B1016;
-}
-
-section.bg-\[\#0B1016\] {
-  background-color: #0B1016 !important;
-}
-
-section.bg-gradient-to-r {
-  background: linear-gradient(135deg, #14222E 0%, #1C2A35 100%) !important;
-}
-
-/* 32. CORREÇÃO PARA IMAGENS DE FUNDO */
-.bg-cover {
-  background-size: cover !important;
-}
-
-.bg-center {
-  background-position: center !important;
-}
-
-.object-cover {
-  object-fit: cover !important;
-}
-
-/* 33. ANIMAÇÕES DE CARREGAMENTO */
-.loading-spinner {
-  width: 40px;
-  height: 40px;
-  border: 3px solid transparent;
-  border-top: 3px solid #4FD1C5;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* 34. EFEITOS DE SCROLL SUAVE */
-.scroll-smooth {
-  scroll-behavior: smooth;
-}
-
-/* 35. CORREÇÃO FINAL - GARANTINDO TODOS OS ELEMENTOS VISÍVEIS */
-* {
-  color: inherit;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* 36. CONTROLE DE OVERFLOW */
-.overflow-x-hidden {
-  overflow-x: hidden;
-}
-
-.overflow-hidden {
-  overflow: hidden;
-}
-
-/* FIM DO CSS CORRIGIDO */
+     }
