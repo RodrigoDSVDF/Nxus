@@ -1,5 +1,5 @@
 /* =========================================
-   App.css - CORRIGIDO E ORGANIZADO
+   App.css - CORRIGIDO (Build Pass)
 =========================================
 */
 
@@ -10,10 +10,13 @@
 @import "tw-animate-css";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-/* 2. DEFINIÇÃO DE TEMA (shadcn/ui para Tailwind v4)
-   Define as variáveis de cor para os temas light e dark.
+/* 2. DEFINIÇÃO DE TEMA (CORRIGIDO PARA O BUILD)
+   As regras :root e .dark foram removidas.
+   As variáveis do tema claro ficam no nível superior.
+   As variáveis do tema escuro ficam em @dark { ... }
 */
 @theme inline {
+  /* Variáveis Semânticas (Referenciais) */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -50,42 +53,42 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  :root {
-    --radius: 0.625rem;
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.646 0.222 41.116);
-    --chart-2: oklch(0.6 0.118 184.704);
-    --chart-3: oklch(0.398 0.07 227.392);
-    --chart-4: oklch(0.828 0.189 84.429);
-    --chart-5: oklch(0.769 0.188 70.08);
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
-  }
+  /* Variáveis Primitivas (Tema Claro) */
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
 
-  .dark {
+  /* Variáveis Primitivas (Tema Escuro) */
+  @dark {
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);
     --card: oklch(0.205 0 0);
@@ -124,7 +127,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /* 3. ESTILOS DE BASE (@layer base)
-   Estilos fundamentais do shadcn/ui e suas personalizações.
+   (O restante do arquivo permanece o mesmo)
 */
 @layer base {
   * {
@@ -138,7 +141,7 @@
     letter-spacing: -0.01em;
   }
 
-  /* Melhorias de tipografia */
+  /* ... (todas as suas outras regras do @layer base) ... */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
@@ -152,7 +155,6 @@
     letter-spacing: -0.005em;
   }
 
-  /* Espaçamento aprimorado para mobile */
   @media (max-width: 768px) {
     .hero-section {
       padding-top: 4rem;
@@ -176,17 +178,14 @@
     }
   }
 
-  /* Animações suaves */
   .smooth-transition {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Efeitos de hover aprimorados */
   .hover-glow:hover {
     box-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
   }
 
-  /* Gradientes personalizados */
   .gradient-text-cyan {
     background: linear-gradient(135deg, #22d3ee, #06b6d4);
     -webkit-background-clip: text;
@@ -201,18 +200,15 @@
     background-clip: text;
   }
 
-  /* Melhorias de acessibilidade */
   .focus-visible:focus-visible {
     outline: 2px solid #22d3ee;
     outline-offset: 2px;
   }
 
-  /* Scroll suave */
   html {
     scroll-behavior: smooth;
   }
 
-  /* Otimizações de performance */
   img {
     will-change: transform;
   }
@@ -223,7 +219,7 @@
 }
 
 /* 4. ESTILOS PERSONALIZADOS (Ticker)
-   Classes para a faixa de conversão em movimento.
+   (Não precisa de alteração)
 */
 .ticker-wrap {
   width: 100%;
@@ -265,7 +261,7 @@
 }
 
 /* 5. ANIMAÇÕES PERSONALIZADAS (@keyframes)
-   Animação de rolagem para o ticker.
+   (Não precisa de alteração)
 */
 @keyframes scroll {
   0% {
