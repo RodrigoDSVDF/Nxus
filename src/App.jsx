@@ -13,7 +13,7 @@ import './App.css'
 import AnimatedSection from '@/components/ui/AnimatedSection.jsx'; 
 
 // Importando as imagens existentes
-import brainNetworkImg from './assets/1000393266.jpg'
+import brainNetworkImg from './assets/1000393266.jpg' // REVERTIDO: Esta é a imagem de fundo novamente
 import nexusLogoImg from './assets/1000393277.png'
 import platosCaveImg from './assets/1000396070.jpg'
 import dataAnalysisImg from './assets/1000395918.jpg'
@@ -32,7 +32,7 @@ import produtividadeImg from './assets/produtividade.jpg';
 import redeNeuralAbstrataImg from './assets/rede-neural-abstrata.jpg';
 import xadrezStrategiaImg from './assets/xadrez-estrategia.jpg';
 
-// NOVO: Importando os novos arquivos de mídia
+// Importando os novos arquivos de mídia
 import meuVideo from './assets/meu-video.mp4';
 import fundo02Img from './assets/fundo02.jpg';
 import produtoImg from './assets/produto.jpg';
@@ -57,16 +57,12 @@ function App() {
         <div className="hidden md:block absolute top-20 left-20 w-72 h-72 bg-[#0D3A46]/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="hidden md:block absolute bottom-20 right-20 w-96 h-96 bg-[#0D3A46]/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
-        {/* NOVO: Vídeo de Fundo (Substituindo a imagem) */}
+        {/* REVERTIDO: Imagem de Fundo (como no original) */}
         <div className="absolute inset-0 opacity-30">
-          <video
-            src={meuVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
+          <img 
+            src={brainNetworkImg} 
+            alt="Neural Network Background" 
             className="w-full h-full object-cover object-right"
-            alt="Vídeo de fundo da Nexus"
           />
         </div>
 
@@ -74,13 +70,29 @@ function App() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B1016]/70 via-[#14222E]/60 to-[#0B1016]/70"></div>
 
         {/* Conteúdo Principal com Nova Narrativa */}
-        <AnimatedSection> {/* Adicionei o AnimatedSection aqui para englobar todo o conteúdo da hero */}
+        <AnimatedSection>
           <div className={`relative z-10 text-center max-w-6xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             
             {/* Badge de Urgência */}
             <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#FF6B35]/20 to-[#FF8E53]/20 border border-[#FF6B35]/40 rounded-full text-[#FF8E53] text-sm font-medium mb-8 backdrop-blur-sm animate-pulse">
               <AlertTriangle className="w-4 h-4 mr-2" />
               ATENÇÃO: A IA está evoluindo mais rápido que sua capacidade de aprendizado
+            </div>
+
+            {/* NOVO: Janela de Vídeo (acima do texto) */}
+            <div className="relative max-w-4xl mx-auto mb-10 px-4">
+              <video
+                src={meuVideo}
+                controls // Adicionado controles para o usuário
+                autoPlay
+                loop
+                muted // Mudo para autoplay funcionar na maioria dos browsers
+                playsInline
+                className="w-full rounded-2xl shadow-2xl border-2 border-[#1C2A35]/50"
+                alt="Vídeo de apresentação Nexus"
+              >
+                Seu navegador não suporta o vídeo.
+              </video>
             </div>
 
             {/* HEADLINE PRINCIPAL - Focada na Dor */}
@@ -164,7 +176,7 @@ function App() {
                 </div>
               </div>
 
-              {/* NOVO: Imagem do Produto */}
+              {/* Imagem do Produto (Mantida) */}
               <div className="my-12 px-4">
                 <img 
                   src={produtoImg} 
@@ -173,7 +185,7 @@ function App() {
                 />
               </div>
 
-              {/* BOTÃO 3 - NO FINAL (Agora abaixo da imagem) */}
+              {/* BOTÃO 3 - NO FINAL (Mantido) */}
               <div className="pulse-button-container max-w-md mx-auto">
                 <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer" className="block">
                   <Button className="w-full h-16 bg-gradient-to-r from-[#FF6B35] to-[#FF8E53] hover:from-[#FF6B35]/90 hover:to-[#FF8E53]/90 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-[#FF6B35]/40 transition-all duration-300 transform hover:scale-105 border-0 pulse-button">
@@ -183,7 +195,7 @@ function App() {
                 </a>
               </div>
 
-              {/* Garantia Final */}
+              {/* Garantia Final (Mantida) */}
               <div className="mt-8 text-gray-400">
                 <p className="flex items-center justify-center">
                   <CheckCircle className="w-5 h-5 text-[#4FD1C5] mr-2" />
@@ -195,10 +207,10 @@ function App() {
         </AnimatedSection>
       </section>
 
-      {/* NOVO: Seção 2 com imagem de fundo */}
+      {/* Seção 2 com imagem de fundo (Mantida) */}
       <section 
         id="secao-2" 
-        className="relative py-20 min-h-[50vh] bg-cover bg-center bg-fixed" // bg-fixed cria o efeito parallax
+        className="relative py-20 min-h-[50vh] bg-cover bg-center bg-fixed"
         style={{ backgroundImage: `url(${fundo02Img})` }}
       >
         {/* Overlay para legibilidade */}
@@ -213,12 +225,11 @@ function App() {
               Este é o conteúdo da sua nova seção. Você pode adicionar
               mais componentes e texto aqui, sobre o fundo "fundo02.jpg".
             </p>
-            {/* Você pode adicionar mais botões ou componentes aqui */}
           </div>
         </AnimatedSection>
       </section>
 
-      {/* Footer */}
+      {/* Footer (Mantido) */}
       <section>
         <AnimatedSection>
           <footer className="py-12 px-4 bg-[#0B1016] border-t border-[#1C2A35]">
