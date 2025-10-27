@@ -31,6 +31,7 @@ import servicosIAImg from './assets/servicos-ia.jpg';
 import produtividadeImg from './assets/produtividade.jpg';
 import redeNeuralAbstrataImg from './assets/rede-neural-abstrata.jpg';
 import xadrezStrategiaImg from './assets/xadrez-estrategia.jpg';
+import produtoImg from './assets/produto.jpg';
 
 // Importando o vídeo e nova imagem de fundo
 import meuVideo from './assets/meu-video.mp4'
@@ -188,7 +189,7 @@ function App() {
         </div>
       </section>
 
-      {/* SEÇÃO DOS CARTÕES ORIGINAIS */}
+      {/* SEÇÃO DOS CARTÕES ORIGINAIS COM IMAGENS DE FUNDO */}
       <section className="py-20 px-4 bg-gradient-to-b from-[#0B1016] to-[#14222E]">
         <AnimatedSection>
           <div className="max-w-6xl mx-auto">
@@ -201,76 +202,106 @@ function App() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
               {/* Cartão 1 */}
-              <div className="bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300">
-                <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
-                  <Brain className="w-7 h-7 text-[#4FD1C5]" />
+              <div className="relative bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 opacity-10">
+                  <img src={neuralNetworkImg} alt="Neural Network" className="w-full h-full object-cover" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Fundamentos da IA</h3>
-                <p className="text-gray-300">
-                  Compreenda os conceitos essenciais que permanecem relevantes independentemente das ferramentas.
-                </p>
+                <div className="relative z-10">
+                  <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
+                    <Brain className="w-7 h-7 text-[#4FD1C5]" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">Fundamentos da IA</h3>
+                  <p className="text-gray-300">
+                    Compreenda os conceitos essenciais que permanecem relevantes independentemente das ferramentas.
+                  </p>
+                </div>
               </div>
 
               {/* Cartão 2 */}
-              <div className="bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300">
-                <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
-                  <Zap className="w-7 h-7 text-[#4FD1C5]" />
+              <div className="relative bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 opacity-10">
+                  <img src={laptopNeuralImg} alt="Laptop Neural" className="w-full h-full object-cover" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Produtividade Extrema</h3>
-                <p className="text-gray-300">
-                  Multiplique sua eficiência usando IA para automatizar tarefas repetitivas e complexas.
-                </p>
+                <div className="relative z-10">
+                  <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
+                    <Zap className="w-7 h-7 text-[#4FD1C5]" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">Produtividade Extrema</h3>
+                  <p className="text-gray-300">
+                    Multiplique sua eficiência usando IA para automatizar tarefas repetitivas e complexas.
+                  </p>
+                </div>
               </div>
 
               {/* Cartão 3 */}
-              <div className="bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300">
-                <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
-                  <Target className="w-7 h-7 text-[#4FD1C5]" />
+              <div className="relative bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 opacity-10">
+                  <img src={xadrezStrategiaImg} alt="Estratégia" className="w-full h-full object-cover" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Estratégias Avançadas</h3>
-                <p className="text-gray-300">
-                  Técnicas comprovadas que os top performers usam para se manterem à frente da curva.
-                </p>
+                <div className="relative z-10">
+                  <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
+                    <Target className="w-7 h-7 text-[#4FD1C5]" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">Estratégias Avançadas</h3>
+                  <p className="text-gray-300">
+                    Técnicas comprovadas que os top performers usam para se manterem à frente da curva.
+                  </p>
+                </div>
               </div>
 
               {/* Cartão 4 */}
-              <div className="bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300">
-                <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
-                  <Rocket className="w-7 h-7 text-[#4FD1C5]" />
+              <div className="relative bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 opacity-10">
+                  <img src={redeNeuralAbstrataImg} alt="Rede Neural" className="w-full h-full object-cover" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Implementação Rápida</h3>
-                <p className="text-gray-300">
-                  Saiba como aplicar imediatamente o que aprender, com exemplos práticos e casos reais.
-                </p>
+                <div className="relative z-10">
+                  <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
+                    <Rocket className="w-7 h-7 text-[#4FD1C5]" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">Implementação Rápida</h3>
+                  <p className="text-gray-300">
+                    Saiba como aplicar imediatamente o que aprender, com exemplos práticos e casos reais.
+                  </p>
+                </div>
               </div>
 
               {/* Cartão 5 */}
-              <div className="bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300">
-                <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
-                  <Globe className="w-7 h-7 text-[#4FD1C5]" />
+              <div className="relative bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 opacity-10">
+                  <img src={brainAIImg} alt="IA Global" className="w-full h-full object-cover" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Visão de Mercado</h3>
-                <p className="text-gray-300">
-                  Entenda as tendências e prepare-se para as próximas revoluções da IA.
-                </p>
+                <div className="relative z-10">
+                  <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
+                    <Globe className="w-7 h-7 text-[#4FD1C5]" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">Visão de Mercado</h3>
+                  <p className="text-gray-300">
+                    Entenda as tendências e prepare-se para as próximas revoluções da IA.
+                  </p>
+                </div>
               </div>
 
               {/* Cartão 6 */}
-              <div className="bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300">
-                <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
-                  <Key className="w-7 h-7 text-[#4FD1C5]" />
+              <div className="relative bg-gradient-to-br from-[#14222E] to-[#0B1016] p-8 rounded-2xl border border-[#0D3A46] hover:border-[#4FD1C5] transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 opacity-10">
+                  <img src={digitalToolsImg} alt="Ferramentas Digitais" className="w-full h-full object-cover" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Acesso Vitalício</h3>
-                <p className="text-gray-300">
-                  Atualizações constantes para manter você sempre na vanguarda da tecnologia.
-                </p>
+                <div className="relative z-10">
+                  <div className="w-14 h-14 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-6">
+                    <Key className="w-7 h-7 text-[#4FD1C5]" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">Acesso Vitalício</h3>
+                  <p className="text-gray-300">
+                    Atualizações constantes para manter você sempre na vanguarda da tecnologia.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </AnimatedSection>
       </section>
 
-      {/* SEÇÃO DO PRODUTO AO FINAL COM A IMAGEM newProductImg */}
+      {/* SEÇÃO FINAL COM A IMAGEM PRODUTO.JPG */}
       <section className="py-20 px-4 bg-gradient-to-b from-[#14222E] to-[#0B1016]">
         <AnimatedSection>
           <div className="max-w-6xl mx-auto">
@@ -278,7 +309,7 @@ function App() {
               {/* Imagem do Produto */}
               <div className="flex justify-center">
                 <img 
-                  src={newProductImg} 
+                  src={produtoImg} 
                   alt="Nexus - Manual de Alta Performance com IA" 
                   className="rounded-2xl shadow-2xl w-full max-w-md product-image"
                 />
