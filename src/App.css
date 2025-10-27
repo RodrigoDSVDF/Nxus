@@ -73,8 +73,6 @@
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -267,3 +265,100 @@
     transform: translateX(-50%);
   }
 }
+
+/* =========================================
+   EFEITOS PARA OS BOTÕES DE VENDA
+   Botões laranja avermelhado com efeito piscar
+========================================= */
+
+/* Container para os botões com efeito de piscar */
+.pulse-button-container {
+  position: relative;
+  display: block;
+}
+
+/* Efeito de piscar para os botões de venda */
+.pulse-button {
+  animation: pulse 2s infinite;
+  position: relative;
+  z-index: 1;
+}
+
+.pulse-button:hover {
+  animation: none;
+}
+
+/* Efeito de brilho para o botão */
+.pulse-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0.75rem;
+  background: linear-gradient(45deg, #FF6B35, #FF8E53, #FF6B35);
+  z-index: -1;
+  animation: glow 2s ease-in-out infinite alternate;
+  opacity: 0;
+}
+
+/* Keyframes para o efeito de pulsar */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(255, 107, 53, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+  }
+}
+
+/* Keyframes para o efeito de brilho */
+@keyframes glow {
+  from {
+    filter: blur(10px);
+    opacity: 0.7;
+  }
+  to {
+    filter: blur(15px);
+    opacity: 0.4;
+  }
+}
+
+/* Efeito de brilho no hover */
+.pulse-button:hover::before {
+  animation: none;
+  opacity: 0.3;
+}
+
+/* Garantir que o texto do botão fique acima do efeito de brilho */
+.pulse-button > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsividade para os botões em mobile */
+@media (max-width: 768px) {
+  .pulse-button-container {
+    margin-bottom: 1rem;
+  }
+  
+  .pulse-button {
+    width: 100%;
+  }
+}
+
+/* Melhorias de acessibilidade - reduzir animações para usuários que preferem reduzir movimento */
+@media (prefers-reduced-motion: reduce) {
+  .pulse-button {
+    animation: none;
+  }
+  
+  .pulse-button::before {
+    animation: none;
+    opacity: 0;
+  }
+     }
