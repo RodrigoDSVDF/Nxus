@@ -401,4 +401,4 @@ function App() {
   )
 } 
 
-expor
+export default App
