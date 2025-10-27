@@ -4,9 +4,9 @@
 */
 
 /* 1. IMPORTAÇÕES */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /* 2. DEFINIÇÃO DE TEMA (Apenas Tema Claro/Padrão)
    O bloco @theme SÓ PODE conter --custom-properties e @keyframes.
