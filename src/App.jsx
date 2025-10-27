@@ -1,352 +1,278 @@
-import { useState, useEffect } from 'react'
-import { Button } from '@/components/ui/button.jsx'
-// Ícones importados, incluindo os novos
-import {
-  ArrowRight, Zap, Target, Globe, Key, Rocket, BookOpen, Brain, TrendingUp,
-  CheckCircle, Sparkles, User, Lightbulb, Search, Eye,
-  ClipboardEdit, Code, BarChart, Layout, BrainCircuit // Novos ícones
-} from 'lucide-react'
-import './App.css' 
+/* =========================================
+   App.css - CORRIGIDO E ORGANIZADO
+=========================================
+*/
 
-// Importando o componente de animação
-import AnimatedSection from '@/components/ui/AnimatedSection.jsx'; 
+/* 1. IMPORTAÇÕES
+   Importa o Tailwind v4, a biblioteca de animação e a fonte Poppins.
+*/
+@import "tailwindcss";
+@import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-// Importando as imagens existentes
-import brainNetworkImg from './assets/1000393266.jpg'
-import nexusLogoImg from './assets/1000393277.png'
-import platosCaveImg from './assets/1000396070.jpg'
-import dataAnalysisImg from './assets/1000395918.jpg'
-import newProductImg from './assets/1000396691.jpg'
-import testimonial1Img from './assets/1000396866.jpg'
-import testimonial2Img from './assets/1000396868.jpg'
-import testimonial3Img from './assets/1000396870.jpg'
-import laptopNeuralImg from './assets/1000393263.jpg'
-import brainAIImg from './assets/1000393262.jpg'
-import digitalToolsImg from './assets/1000395915.jpg'
-import neuronImg from './assets/1000393265.jpg'
-import neuralNetworkImg from './assets/1000393264.jpg'
-import ebookImg from './assets/1000393237.png'
-import servicosIAImg from './assets/servicos-ia.jpg';
-import produtividadeImg from './assets/produtividade.jpg';
-import redeNeuralAbstrataImg from './assets/rede-neural-abstrata.jpg';
-import xadrezStrategiaImg from './assets/xadrez-estrategia.jpg';
-import garantia7DiasImg from './assets/7-dias-garantido.jpg'; 
+/* 2. DEFINIÇÃO DE TEMA (shadcn/ui para Tailwind v4)
+   Define as variáveis de cor para os temas light e dark.
+*/
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 
-function App() {
-  const [isVisible, setIsVisible] = useState(false) 
+  :root {
+    --radius: 0.625rem;
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.646 0.222 41.116);
+    --chart-2: oklch(0.6 0.118 184.704);
+    --chart-3: oklch(0.398 0.07 227.392);
+    --chart-4: oklch(0.828 0.189 84.429);
+    --chart-5: oklch(0.769 0.188 70.08);
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+  }
 
-  useEffect(() => {
-    setIsVisible(true)
-  }, []) 
+  .dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.488 0.243 264.376);
+    --chart-2: oklch(0.696 0.17 162.48);
+    --chart-3: oklch(0.769 0.188 70.08);
+    --chart-4: oklch(0.627 0.265 303.9);
+    --chart-5: oklch(0.645 0.246 16.439);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+  }
+}
 
-  const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
-  } 
+/* Define a variante .dark para o Tailwind */
+@custom-variant dark (&:is(.dark *));
 
-  return (
-    <div className="min-h-screen bg-[#0B1016] font-['Poppins',sans-serif] overflow-x-hidden">
-      {/* Hero Section com Nova Paleta */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
-        {/* Elementos de fundo com nova paleta */}
-        <div className="hidden md:block absolute top-20 left-20 w-72 h-72 bg-[#0D3A46]/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="hidden md:block absolute bottom-20 right-20 w-96 h-96 bg-[#0D3A46]/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
+/* 3. ESTILOS DE BASE (@layer base)
+   Estilos fundamentais do shadcn/ui e suas personalizações.
+*/
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
 
-        {/* Imagem de Fundo */}
-        <div className="absolute inset-0 opacity-20">
-          <img 
-            src={brainNetworkImg} 
-            alt="Neural Network Background" 
-            className="w-full h-full object-cover object-right"
-          />
-        </div>
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
 
-        {/* Overlay com gradiente da nova paleta */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1016]/90 via-[#14222E]/80 to-[#0B1016]/85"></div>
+  /* Melhorias de tipografia */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
 
-        {/* Conteúdo Principal */}
-        <div className={`relative z-10 text-center max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          {/* Badge de Destaque */}
-          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#0D3A46]/30 to-[#14222E]/40 border border-[#0D3A46]/50 rounded-full text-[#8AB4B8] text-sm font-medium mb-8 backdrop-blur-sm">
-            <Zap className="w-4 h-4 mr-2" />
-            Transforme Sua Performance com IA
-          </div>
+  p {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    letter-spacing: -0.005em;
+  }
 
-          {/* HEADLINE PRINCIPAL */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Domine a <span className="bg-gradient-to-r from-[#4FD1C5] to-[#38B2AC] bg-clip-text text-transparent">Era da IA</span>
-          </h1>
+  /* Espaçamento aprimorado para mobile */
+  @media (max-width: 768px) {
+    .hero-section {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+    .section-spacing {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+    .container-mobile {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .text-mobile-center {
+      text-align: center;
+    }
+    .button-mobile {
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+  }
 
-          {/* SUBHEADLINE PERSUASIVA (Conteúdo original removido, mas estava aqui no seu código) */}
-        </div>
+  /* Animações suaves */
+  .smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-        {/* Nota: Havia uma <div> incompleta no seu código original aqui, 
-          após a headline. Eu a removi pois ela não estava sendo fechada 
-          e parecia ser parte de outra seção que foi copiada incorretamente.
-          O código abaixo continua a partir da section Hero.
-        */}
+  /* Efeitos de hover aprimorados */
+  .hover-glow:hover {
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
+  }
 
-      </section>
+  /* Gradientes personalizados */
+  .gradient-text-cyan {
+    background: linear-gradient(135deg, #22d3ee, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
-      {/* NOVA Seção - Faixa de Conversão (Ticker) */}
-      <section className="py-4 bg-gradient-to-r from-[#14222E] to-[#1C2A35] border-y border-[#0D3A46]/50 overflow-hidden">
-        <div className="ticker-wrap">
-          <div className="ticker-move">
-            <div className="ticker-item">Engenharia de Contexto</div>
-            <div className="ticker-item-separator">
-              <Sparkles className="w-4 h-4 text-[#4FD1C5]" />
-            </div>
-            <div className="ticker-item">Dominação de Criação de Páginas</div>
-            <div className="ticker-item-separator">
-              <Sparkles className="w-4 h-4 text-[#4FD1C5]" />
-            </div>
-            <div className="ticker-item">Análise de Dados Aplicada</div>
-            <div className="ticker-item-separator">
-              <Sparkles className="w-4 h-4 text-[#4FD1C5]" />
-            </div>
-            <div className="ticker-item">Python para Projetos de IA</div>
-            <div className="ticker-item-separator">
-              <Sparkles className="w-4 h-4 text-[#4FD1C5]" />
-            </div>
-            <div className="ticker-item">Aprendizado Otimizado com IA</div>
-            <div className="ticker-item-separator">
-              <Sparkles className="w-4 h-4 text-[#4FD1C5]" />
-            </div>
-            {/* Itens duplicados para loop contínuo */}
-            <div className="ticker-item">Engenharia de Contexto</div>
-            <div className="ticker-item-separator">
-              <Sparkles className="w-4 h-4 text-[#4FD1C5]" />
-            </div>
-            <div className="ticker-item">Dominação de Criação de Páginas</div>
-            <div className="ticker-item-separator">
-              <Sparkles className="w-4 h-4 text-[#4FD1C5]" />
-            </div>
-            <div className="ticker-item">Análise de Dados Aplicada</div>
-            <div className="ticker-item-separator">
-              <Sparkles className="w-4 h-4 text-[#4FD1C5]" />
-            </div>
-            <div className="ticker-item">Python para Projetos de IA</div>
-            <div className="ticker-item-separator">
-              <Sparkles className="w-4 h-4 text-[#4FD1C5]" />
-            </div>
-            <div className="ticker-item">Aprendizado Otimizado com IA</div>
-            <div className="ticker-item-separator">
-              <Sparkles className="w-4 h-4 text-[#4FD1C5]" />
-            </div>
-          </div>
-        </div>
-      </section>
+  .gradient-text-emerald {
+    background: linear-gradient(135deg, #10b981, #059669);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
-      {/* Seção "O que você vai dominar" (MODIFICADA E EXPANDIDA) */}
-      <section id="sobre" className="py-32 px-4 bg-[#0B1016]">
-        <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                O Ecossistema Completo para <span className="bg-gradient-to-r from-[#4FD1C5] to-[#38B2AC] bg-clip-text text-transparent">Performance Absoluta</span>
-              </h2>
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                O Nexus não é apenas um curso, é um manual estratégico para dominar as habilidades mais valiosas da nova economia.
-              </p>
-            </div>
-          </AnimatedSection>
-          
-          {/* Grid expandido para 8 itens */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+  /* Melhorias de acessibilidade */
+  .focus-visible:focus-visible {
+    outline: 2px solid #22d3ee;
+    outline-offset: 2px;
+  }
 
-            {/* Item 1 (Existente - Texto encurtado) */}
-            <AnimatedSection delay={0.1}>
-              <div className="group bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute inset-0 opacity-10">
-                  <img src={redeNeuralAbstrataImg} alt="Mentalidade Informacional" className="w-full h-full object-cover object-center" />
-                </div>
-                <div className="relative z-10">
-                  <div className="w-20 h-20 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                    <Globe className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-white mb-4">Mentalidade Informacional</h3>
-                  <p className="text-gray-300 text-lg">Desenvolva a skill de aprender, desaprender e reaprender rapidamente para estar sempre à frente.</p>
-                </div>
-              </div>
-            </AnimatedSection>
+  /* Scroll suave */
+  html {
+    scroll-behavior: smooth;
+  }
 
-            {/* Item 2 (Existente - Texto encurtado) */}
-            <AnimatedSection delay={0.2}>
-              <div className="group bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute inset-0 opacity-10">
-                  <img src={servicosIAImg} alt="Ferramentas Práticas de IA" className="w-full h-full object-cover object-center" />
-                </div>
-                <div className="relative z-10">
-                  <div className="w-20 h-20 bg-gradient-to-r from-[#14222E] to-[#0D3A46] rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                    <Zap className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-white mb-4">Ferramentas Práticas</h3>
-                  <p className="text-gray-300 text-lg">Um guia simplificado para extrair o máximo de cada ferramenta digital, sem complicação.</p>
-                </div>
-              </div>
-            </AnimatedSection>
+  /* Otimizações de performance */
+  img {
+    will-change: transform;
+  }
 
-            {/* Item 3 (Existente - Texto encurtado) */}
-            <AnimatedSection delay={0.3}>
-              <div className="group bg-gradient-to-br from-[#1C2A35] to-[#14222E] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute inset-0 opacity-10">
-                  <img src={produtividadeImg} alt="Vantagem Competitiva" className="w-full h-full object-cover object-center" />
-                </div>
-                <div className="relative z-10">
-                  <div className="w-20 h-20 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                    <Key className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-white mb-4">Vantagem Competitiva</h3>
-                  <p className="text-gray-300 text-lg">Entregue mais rápido, com mais qualidade e torne-se referência absoluta em sua área.</p>
-                </div>
-              </div>
-            </AnimatedSection>
+  .animate-element {
+    will-change: transform, opacity;
+  }
+}
 
-            {/* Item 4 (Novo) - Engenharia de Contexto */}
-            <AnimatedSection delay={0.4}>
-              <div className="group bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute inset-0 opacity-10">
-                  <img src={xadrezStrategiaImg} alt="Engenharia de Contexto" className="w-full h-full object-cover object-center" />
-                </div>
-                <div className="relative z-10">
-                  <div className="w-20 h-20 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                    <ClipboardEdit className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-white mb-4">Engenharia de Contexto</h3>
-                  <p className="text-gray-300 text-lg">Aprenda a "conversar" com a IA em nível profissional para extrair respostas precisas e criativas.</p>
-                </div>
-              </div>
-            </AnimatedSection>
+/* 4. ESTILOS PERSONALIZADOS (Ticker)
+   Classes para a faixa de conversão em movimento.
+*/
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right,
+      transparent,
+      white 10%,
+      white 90%,
+      transparent);
+  mask-image: linear-gradient(to right,
+      transparent,
+      white 10%,
+      white 90%,
+      transparent);
+}
 
-            {/* Item 5 (Novo) - Python para IA */}
-            <AnimatedSection delay={0.5}>
-              <div className="group bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute inset-0 opacity-10">
-                  <img src={laptopNeuralImg} alt="Python para IA" className="w-full h-full object-cover object-center" />
-                </div>
-                <div className="relative z-10">
-                  <div className="w-20 h-20 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                    <Code className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-white mb-4">Python para Projetos de IA</h3>
-                  <p className="text-gray-300 text-lg">Vá além do básico. Entenda os fundamentos de Python para automatizar tarefas e prototipar suas próprias soluções de IA.</p>
-                </div>
-              </div>
-            </AnimatedSection>
+.ticker-move {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: scroll 40s linear infinite;
+  width: -moz-fit-content; /* Para Firefox antigo */
+  width: fit-content;
+}
 
-            {/* Item 6 (Novo) - Análise de Dados */}
-            <AnimatedSection delay={0.6}>
-              <div className="group bg-gradient-to-br from-[#1C2A35] to-[#14222E] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute inset-0 opacity-10">
-                  <img src={dataAnalysisImg} alt="Análise de Dados" className="w-full h-full object-cover object-center" />
-                </div>
-                <div className="relative z-10">
-                  <div className="w-20 h-20 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                    <BarChart className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-white mb-4">Decisões Baseadas em Dados</h3>
-                  <p className="text-gray-300 text-lg">Pare de "achar". Aprenda a coletar, analisar e visualizar dados para tomar decisões estratégicas com base em fatos.</p>
-                </div>
-              </div>
-            </AnimatedSection>
+.ticker-item {
+  font-size: 1.1rem; /* 18px */
+  font-weight: 500;
+  color: #c7d2fe; /* Cor (cinza-azulado claro) */
+  padding: 0 1.5rem; /* 24px */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
-            {/* Item 7 (Novo) - Dominação de Páginas */}
-            <AnimatedSection delay={0.7}>
-              <div className="group bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute inset-0 opacity-10">
-                  <img src={digitalToolsImg} alt="Criação de Páginas" className="w-full h-full object-cover object-center" />
-                </div>
-                <div className="relative z-10">
-                  <div className="w-20 h-20 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                    <Layout className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-white mb-4">Páginas que Convertem</h3>
-                  <p className="text-gray-300 text-lg">Domine o design persuasivo e UX para criar landing pages que transformam visitantes em clientes.</p>
-                </div>
-              </div>
-            </AnimatedSection>
+.ticker-item-separator {
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem; /* 8px */
+}
 
-            {/* Item 8 (Novo) - Aprendizado Otimizado */}
-            <AnimatedSection delay={0.8}>
-              <div className="group bg-gradient-to-br from-[#14222E] to-[#1C2A35] p-10 rounded-3xl border border-[#0D3A46]/30 hover:border-[#0D3A46]/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute inset-0 opacity-10">
-                  <img src={brainAIImg} alt="Aprendizado com IA" className="w-full h-full object-cover object-center" />
-                </div>
-                <div className="relative z-10">
-                  <div className="w-20 h-20 bg-gradient-to-r from-[#0D3A46] to-[#14222E] rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                    <BrainCircuit className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-white mb-4">Aprendizado Otimizado</h3>
-                  <p className="text-gray-300 text-lg">Use a IA para aprender qualquer coisa mais rápido, sintetizar informações e criar planos de estudo personalizados.</p>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Seção de Prova/Autoridade */}
-      <section className="py-32 px-4 bg-gradient-to-r from-[#14222E] to-[#1C2A35] relative">
-        <AnimatedSection>
-          <div className="absolute inset-0 opacity-5">
-            <img src={brainNetworkImg} alt="Brain Network" className="w-full h-full object-cover object-right" />
-          </div>
-          <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
-              Alta Performance não é mais <span className="bg-gradient-to-r from-[#4FD1C5] to-[#38B2AC] bg-clip-text text-transparent">opção</span> — é <span className="bg-gradient-to-r from-[#38B2AC] to-[#4FD1C5] bg-clip-text text-transparent">requisito</span>
-            </h2>
-            <div className="bg-gradient-to-br from-[#1C2A35] to-[#14222E] p-12 md:p-16 rounded-3xl border border-[#0D3A46]/40 backdrop-blur-sm">
-              <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
-                Empresas, profissionais e líderes que dominam o modelo <strong className="text-[#4FD1C5]">econômico informacional</strong> estão sempre à frente. O Nexus traduz essa realidade em <strong className="text-[#38B2AC]">passos aplicáveis</strong> para o seu dia a dia, unindo ciência, tecnologia e estratégia de performance.
-              </p>
-            </div>
-          </div>
-        </AnimatedSection>
-      </section>
-
-      {/* Chamada para Ação */}
-      <section id="cta" className="py-32 px-4 bg-[#0B1016]">
-        <AnimatedSection>
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
-              Está pronto para elevar sua performance ao <span className="bg-gradient-to-r from-[#4FD1C5] to-[#38B2AC] bg-clip-text text-transparent">próximo nível</span>?
-            </h2>
-            <div className="mb-16">
-              <a href="https://pay.cakto.com.br/5dUKrWD" target="_blank" rel="noopener noreferrer">
-                <Button 
-                  size="lg"
-                  className="h-14 px-8 bg-gradient-to-r from-[#0D3A46] to-[#14222E] hover:from-[#0D3A46]/90 hover:to-[#14222E]/90 text-white font-bold rounded-xl shadow-2xl hover:shadow-[#0D3A46]/25 transition-all duration-300 transform hover:scale-105 border-0"
-                >
-                  <Rocket className="w-5 h-5 mr-2" />
-                  Começar Agora
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </a>
-            </div>
-          </div>
-        </AnimatedSection>
-      </section>
-
-      {/* Footer */}
-      <section>
-        <AnimatedSection>
-          <footer className="py-12 px-4 bg-[#0B1016] border-t border-[#1C2A35]">
-            <div className="max-w-6xl mx-auto text-center">
-              <div className="mb-8">
-                <img 
-                  src={garantia7DiasImg} 
-                  alt="Garantia de 7 dias ou seu dinheiro de volta" 
-                  className="mx-auto w-48 h-auto"
-                />
-              </div>
-              <p className="text-gray-400 text-lg">
-                © 2024 NEXUS - Manual de Alta Performance com IA. Todos os direitos reservados.
-              </p>
-            </div>
-          </footer>
-        </AnimatedSection>
-      </section>
-    </div>
-  )
-} 
-
-export default App
+/* 5. ANIMAÇÕES PERSONALIZADAS (@keyframes)
+   Animação de rolagem para o ticker.
+*/
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Move 50% para a esquerda para o loop perfeito */
+    transform: translateX(-50%);
+  }
+}
