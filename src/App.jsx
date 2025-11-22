@@ -18,6 +18,13 @@ import fundo02 from './assets/fundo02.jpg'
 // Link do Checkout
 const CHECKOUT_LINK = "https://pay.cakto.com.br/5dUKrWD";
 
+// --- DEFINIÇÃO DE CORES (Para fácil referência) ---
+const colors = {
+    primaryBlue: "#3B82F6", // Azul Moderno (Identidade)
+    actionRed: "#FF4F1F",   // Vermelho Alaranjado (Botões/Urgência)
+    actionRedLight: "#FF7F50" // Gradiente mais claro
+};
+
 // --- DADOS ESTRUTURADOS ---
 
 const bentoFeatures = [
@@ -90,25 +97,25 @@ function App() {
   const [offerRef, offerVisible] = useScrollAnimation(0.1)
 
   return (
-    <div className="min-h-screen bg-[#050A0F] font-['Poppins',sans-serif] overflow-x-hidden text-slate-100 selection:bg-[#FF6B35] selection:text-white">
+    // Atualizado selection color para o novo vermelho
+    <div className="min-h-screen bg-[#050A0F] font-['Poppins',sans-serif] overflow-x-hidden text-slate-100 selection:bg-[#FF4F1F] selection:text-white">
       
-      {/* BACKGROUND GLOBAL */}
+      {/* BACKGROUND GLOBAL - Atualizado com Azul e Vermelho */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-[#4FD1C5]/5 rounded-full blur-[120px] animate-pulse-slow"></div>
-          <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#FF6B35]/5 rounded-full blur-[100px] animate-pulse-slow" style={{animationDelay: '2s'}}></div>
+          <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-[#3B82F6]/10 rounded-full blur-[120px] animate-pulse-slow"></div>
+          <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#FF4F1F]/10 rounded-full blur-[100px] animate-pulse-slow" style={{animationDelay: '2s'}}></div>
           <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10"></div>
       </div>
 
-      {/* 1. FAIXA SUPERIOR DE URGÊNCIA */}
-      <div className="horizontal-banner-wrapper border-b border-[#FF6B35]/20 bg-[#0F161E]/90 backdrop-blur-md z-50 relative">
+      {/* 1. FAIXA SUPERIOR DE URGÊNCIA - Atualizada para Vermelho */}
+      <div className="horizontal-banner-wrapper border-b border-[#FF4F1F]/20 bg-[#0F161E]/90 backdrop-blur-md z-50 relative">
         <div className="horizontal-banner">
           <div className="banner-content">
-             <span className="banner-item text-xs md:text-sm text-[#FF8E53] flex items-center"><Zap className="w-4 h-4 mr-2"/>OFERTA DE LANÇAMENTO</span>
-             <span className="banner-item text-xs md:text-sm text-[#FF8E53] flex items-center"><CheckCircle className="w-4 h-4 mr-2"/>ACESSO VITALÍCIO</span>
-             <span className="banner-item text-xs md:text-sm text-[#FF8E53] flex items-center"><Shield className="w-4 h-4 mr-2"/>GARANTIA DE 7 DIAS</span>
-             <span className="banner-item text-xs md:text-sm text-[#FF8E53] flex items-center"><Rocket className="w-4 h-4 mr-2"/>ATUALIZAÇÕES INCLUSAS</span>
-             <span className="banner-item text-xs md:text-sm text-[#FF8E53] flex items-center"><Zap className="w-4 h-4 mr-2"/>OFERTA DE LANÇAMENTO</span>
-             <span className="banner-item text-xs md:text-sm text-[#FF8E53] flex items-center"><CheckCircle className="w-4 h-4 mr-2"/>ACESSO VITALÍCIO</span>
+             <span className="banner-item text-xs md:text-sm text-[#FF7F50] flex items-center"><Zap className="w-4 h-4 mr-2"/>OFERTA DE LANÇAMENTO</span>
+             <span className="banner-item text-xs md:text-sm text-[#FF7F50] flex items-center"><CheckCircle className="w-4 h-4 mr-2"/>ACESSO VITALÍCIO</span>
+             <span className="banner-item text-xs md:text-sm text-[#FF7F50] flex items-center"><Shield className="w-4 h-4 mr-2"/>GARANTIA DE 7 DIAS</span>
+             <span className="banner-item text-xs md:text-sm text-[#FF7F50] flex items-center"><Rocket className="w-4 h-4 mr-2"/>ATUALIZAÇÕES INCLUSAS</span>
+             <span className="banner-item text-xs md:text-sm text-[#FF7F50] flex items-center"><Zap className="w-4 h-4 mr-2"/>OFERTA DE LANÇAMENTO</span>
           </div>
         </div>
       </div>
@@ -117,12 +124,13 @@ function App() {
       <section ref={heroRef} className="relative z-10 pt-20 pb-32 px-4 overflow-hidden">
         <div className={`max-w-7xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
+          {/* Badge - Atualizado para Gradiente Azul/Vermelho */}
           <div className="inline-flex items-center relative mb-8 group cursor-default animate-fade-in">
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#FF6B35] to-[#4FD1C5] rounded-full blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#FF4F1F] to-[#3B82F6] rounded-full blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
             <div className="relative px-6 py-2 bg-[#0F161E] border border-[#1C2A35] rounded-full flex items-center gap-3">
                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4FD1C5] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-[#4FD1C5]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3B82F6] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-[#3B82F6]"></span>
                </span>
                <span className="text-sm font-semibold bg-gradient-to-r from-gray-100 to-gray-300 bg-clip-text text-transparent tracking-wide">
                  Sistema Operacional de Alta Performance com IA
@@ -130,28 +138,31 @@ function App() {
             </div>
           </div>
 
+          {/* Headline - Gradiente Vermelho Alaranjado */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-8 tracking-tight animate-slide-up">
             Domine a IA Antes Que <br />
-            <span className="relative whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B35] via-[#FF8E53] to-[#FF6B35] animate-gradient-x">
+            <span className="relative whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-[#FF4F1F] via-[#FF7F50] to-[#FF4F1F] animate-gradient-x">
               Ela Substitua Você.
             </span>
           </h1>
 
+          {/* Subheadline - Destaque em Azul Moderno */}
           <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up-delay">
-            Pare de correr atrás de ferramentas novas toda semana. Descubra os <span className="text-[#4FD1C5] font-semibold">princípios imutáveis</span> da inteligência artificial que colocarão você no top 1% do mercado.
+            Pare de correr atrás de ferramentas novas toda semana. Descubra os <span className="text-[#3B82F6] font-semibold">princípios imutáveis</span> da inteligência artificial que colocarão você no top 1% do mercado.
           </p>
 
+          {/* CTA Botão Vermelho Alaranjado */}
           <div className="flex flex-col items-center gap-6 animate-scale-in">
             <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="group relative inline-block">
-              <div className="absolute -inset-px bg-gradient-to-r from-[#FF6B35] to-[#FF8E53] rounded-xl blur-lg opacity-60 group-hover:opacity-100 transition-all duration-500 group-hover:duration-200 animate-pulse-slow"></div>
-              <Button className="relative w-full md:w-auto h-16 px-12 bg-[#FF6B35] hover:bg-[#e05a2b] text-white font-bold text-xl rounded-xl flex items-center justify-center gap-3 transition-transform group-hover:-translate-y-1">
+              <div className="absolute -inset-px bg-gradient-to-r from-[#FF4F1F] to-[#FF7F50] rounded-xl blur-lg opacity-60 group-hover:opacity-100 transition-all duration-500 group-hover:duration-200 animate-pulse-slow"></div>
+              <Button className="relative w-full md:w-auto h-16 px-12 bg-[#FF4F1F] hover:bg-[#e0481d] text-white font-bold text-xl rounded-xl flex items-center justify-center gap-3 transition-transform group-hover:-translate-y-1">
                 QUERO ACESSO VITALÍCIO AGORA
                 <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
               </Button>
             </a>
             <div className="flex items-center gap-4 text-sm text-gray-400">
-              <span className="flex items-center"><Shield className="w-4 h-4 text-[#4FD1C5] mr-2"/> Compra Segura</span>
-              <span className="flex items-center"><Rocket className="w-4 h-4 text-[#4FD1C5] mr-2"/> Acesso Imediato</span>
+              <span className="flex items-center"><Shield className="w-4 h-4 text-[#3B82F6] mr-2"/> Compra Segura</span>
+              <span className="flex items-center"><Rocket className="w-4 h-4 text-[#3B82F6] mr-2"/> Acesso Imediato</span>
             </div>
           </div>
         </div>
@@ -161,41 +172,41 @@ function App() {
         </div>
       </section>
 
-      {/* 3. PROVA SOCIAL (LOGOS) */}
+      {/* 3. PROVA SOCIAL (LOGOS) - Atualizado com Azul Tech */}
       <div className="relative z-10 border-y border-[#1C2A35] bg-[#0F161E]/50 backdrop-blur-md py-8">
           <div className="max-w-6xl mx-auto px-4 text-center">
               <p className="text-sm font-medium text-gray-500 mb-6 uppercase tracking-widest">Método utilizado por profissionais de:</p>
-              <div className="flex flex-wrap justify-center items-center gap-12 opacity-40 grayscale">
-                  <div className="text-2xl font-bold font-mono">TECH<span className="text-[#4FD1C5]">CORP</span></div>
+              <div className="flex flex-wrap justify-center items-center gap-12 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+                  <div className="text-2xl font-bold font-mono">TECH<span className="text-[#3B82F6]">CORP</span></div>
                   <div className="text-2xl font-bold font-sans italic">InnovateLabs</div>
-                  <div className="text-xl font-bold uppercase tracking-tighter">Future<span className="text-[#FF6B35] font-extrabold">/</span>Work</div>
-                  <div className="text-2xl font-semibold">Global<span className="font-light">Systems</span></div>
+                  <div className="text-xl font-bold uppercase tracking-tighter">Future<span className="text-[#FF4F1F] font-extrabold">/</span>Work</div>
+                  <div className="text-2xl font-semibold">Global<span className="font-light text-[#3B82F6]">Systems</span></div>
               </div>
           </div>
       </div>
 
-      {/* 4. A DOR */}
+      {/* 4. A DOR - Atualizado com Vermelho de Alerta */}
       <section ref={painRef} className={`relative z-10 py-32 px-4 transition-all duration-1000 delay-200 ${painVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
         <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-5 gap-12 items-center">
                 <div className="md:col-span-2 relative group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B35]/30 to-transparent rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#FF4F1F]/30 to-transparent rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700"></div>
                     <img src={fundo02} alt="Caos Digital" className="relative rounded-3xl shadow-2xl border-2 border-[#1C2A35] z-10 rotate-3 group-hover:rotate-0 transition-all duration-700 grayscale hover:grayscale-0" />
                 </div>
                 <div className="md:col-span-3 space-y-8">
                     <h2 className="text-3xl md:text-5xl font-bold leading-tight">
-                        A "Corrida dos Ratos" Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B35] to-[#FF8E53]">Está Te Deixando Para Trás.</span>
+                        A "Corrida dos Ratos" Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF4F1F] to-[#FF7F50]">Está Te Deixando Para Trás.</span>
                     </h2>
                     <p className="text-lg text-gray-300 leading-relaxed">
                         Enquanto você gasta horas tentando entender a "ferramenta de IA da semana", os top performers do mercado já estão usando sistemas validados para produzir 10x mais rápido.
                     </p>
                     <ul className="space-y-4">
-                        <li className="flex items-start p-4 bg-[#14222E]/50 border border-[#FF6B35]/20 rounded-xl">
-                            <AlertTriangle className="w-6 h-6 text-[#FF6B35] mr-4 flex-shrink-0 mt-1" />
+                        <li className="flex items-start p-4 bg-[#14222E]/50 border border-[#FF4F1F]/20 rounded-xl">
+                            <AlertTriangle className="w-6 h-6 text-[#FF4F1F] mr-4 flex-shrink-0 mt-1" />
                             <span><strong className="text-white">Ansiedade Tecnológica:</strong> A sensação constante de que existe algo novo que você deveria saber.</span>
                         </li>
-                        <li className="flex items-start p-4 bg-[#14222E]/50 border border-[#FF6B35]/20 rounded-xl">
-                            <AlertTriangle className="w-6 h-6 text-[#FF6B35] mr-4 flex-shrink-0 mt-1" />
+                        <li className="flex items-start p-4 bg-[#14222E]/50 border border-[#FF4F1F]/20 rounded-xl">
+                            <AlertTriangle className="w-6 h-6 text-[#FF4F1F] mr-4 flex-shrink-0 mt-1" />
                             <span><strong className="text-white">Medo da Irrelevância:</strong> Ver profissionais menos experientes te ultrapassarem porque dominam a IA.</span>
                         </li>
                     </ul>
@@ -204,11 +215,11 @@ function App() {
         </div>
       </section>
 
-      {/* 5. A SOLUÇÃO: BENTO GRID */}
+      {/* 5. A SOLUÇÃO: BENTO GRID - Atualizado para Azul Moderno */}
       <section ref={bentoRef} className="relative z-10 pt-32 pb-16 px-4 bg-[#0F161E]">
         <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
-                <h2 className="text-4xl md:text-6xl font-bold mb-6">O Ecossistema <span className="text-[#4FD1C5]">Nexus Origin</span></h2>
+                <h2 className="text-4xl md:text-6xl font-bold mb-6">O Ecossistema <span className="text-[#3B82F6]">Nexus Origin</span></h2>
                 <p className="text-xl text-gray-400 max-w-3xl mx-auto">
                     Não é um curso. É um sistema operacional mental para você navegar e liderar na era da Inteligência Artificial.
                 </p>
@@ -216,9 +227,10 @@ function App() {
 
             <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-1000 delay-300 ${bentoVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
                 {bentoFeatures.map((item, index) => (
-                    <div key={index} className={`${item.colSpan} group relative bg-[#14222E] rounded-3xl border border-[#1C2A35] overflow-hidden hover:border-[#4FD1C5]/50 transition-all duration-500`}>
+                    <div key={index} className={`${item.colSpan} group relative bg-[#14222E] rounded-3xl border border-[#1C2A35] overflow-hidden hover:border-[#3B82F6]/50 transition-all duration-500`}>
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none">
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#4FD1C5]/20 via-transparent to-[#FF6B35]/20 blur-xl"></div>
+                            {/* Glow Azul e Vermelho no hover */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6]/20 via-transparent to-[#FF4F1F]/20 blur-xl"></div>
                         </div>
                         {item.bgImage && (
                             <div className="absolute inset-0 z-0">
@@ -227,10 +239,10 @@ function App() {
                             </div>
                         )}
                         <div className="relative z-10 p-8 h-full flex flex-col justify-end">
-                            <div className="w-14 h-14 bg-[#0F161E]/80 backdrop-blur-xl border border-[#4FD1C5]/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                                <item.icon className="w-7 h-7 text-[#4FD1C5]" />
+                            <div className="w-14 h-14 bg-[#0F161E]/80 backdrop-blur-xl border border-[#3B82F6]/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                                <item.icon className="w-7 h-7 text-[#3B82F6]" />
                             </div>
-                            <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#4FD1C5] transition-colors">{item.title}</h3>
+                            <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#3B82F6] transition-colors">{item.title}</h3>
                             <p className="text-gray-400 text-lg leading-relaxed">{item.desc}</p>
                         </div>
                     </div>
@@ -239,55 +251,51 @@ function App() {
         </div>
       </section>
 
-      {/* --- NOVA FAIXA HORIZONTAL INTERMEDIÁRIA --- */}
+      {/* FAIXA HORIZONTAL INTERMEDIÁRIA - Atualizada para Azul Tech */}
       <div className="relative z-20 py-6 overflow-hidden bg-gradient-to-r from-[#0F161E] via-[#14222E] to-[#0F161E] border-y border-[#1C2A35]">
-        {/* Reutilizando a classe existente do CSS, mas com conteúdo diferente */}
         <div className="horizontal-banner-wrapper" style={{ background: 'transparent', padding: 0 }}>
           <div className="horizontal-banner">
             <div className="banner-content">
-              {/* Itens com estilo 'Tech' */}
-              <span className="banner-item text-[#4FD1C5] font-mono tracking-widest flex items-center text-lg">
-                <Sparkles className="w-4 h-4 mr-3 text-[#FF6B35]" /> FRAMEWORKS ESTRATÉGICOS
+              <span className="banner-item text-[#3B82F6] font-mono tracking-widest flex items-center text-lg">
+                <Sparkles className="w-4 h-4 mr-3 text-[#FF4F1F]" /> FRAMEWORKS ESTRATÉGICOS
               </span>
-              <span className="banner-item text-[#4FD1C5] font-mono tracking-widest flex items-center text-lg">
-                <Terminal className="w-4 h-4 mr-3 text-[#FF6B35]" /> ENGENHARIA DE PROMPT
+              <span className="banner-item text-[#3B82F6] font-mono tracking-widest flex items-center text-lg">
+                <Terminal className="w-4 h-4 mr-3 text-[#FF4F1F]" /> ENGENHARIA DE PROMPT
               </span>
-              <span className="banner-item text-[#4FD1C5] font-mono tracking-widest flex items-center text-lg">
-                <Cpu className="w-4 h-4 mr-3 text-[#FF6B35]" /> AUTOMAÇÃO DE TAREFAS
+              <span className="banner-item text-[#3B82F6] font-mono tracking-widest flex items-center text-lg">
+                <Cpu className="w-4 h-4 mr-3 text-[#FF4F1F]" /> AUTOMAÇÃO DE TAREFAS
               </span>
-              <span className="banner-item text-[#4FD1C5] font-mono tracking-widest flex items-center text-lg">
-                <Layers className="w-4 h-4 mr-3 text-[#FF6B35]" /> MODELOS MENTAIS
+              <span className="banner-item text-[#3B82F6] font-mono tracking-widest flex items-center text-lg">
+                <Layers className="w-4 h-4 mr-3 text-[#FF4F1F]" /> MODELOS MENTAIS
               </span>
-              <span className="banner-item text-[#4FD1C5] font-mono tracking-widest flex items-center text-lg">
-                <Sparkles className="w-4 h-4 mr-3 text-[#FF6B35]" /> FRAMEWORKS ESTRATÉGICOS
-              </span>
-              <span className="banner-item text-[#4FD1C5] font-mono tracking-widest flex items-center text-lg">
-                <Terminal className="w-4 h-4 mr-3 text-[#FF6B35]" /> ENGENHARIA DE PROMPT
+              <span className="banner-item text-[#3B82F6] font-mono tracking-widest flex items-center text-lg">
+                <Sparkles className="w-4 h-4 mr-3 text-[#FF4F1F]" /> FRAMEWORKS ESTRATÉGICOS
               </span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* 6. O STACK */}
+      {/* 6. O STACK - Atualizado: Ícones Azuis, Botão Vermelho */}
       <section ref={stackRef} className="relative z-10 py-32 px-4">
           <div className="max-w-5xl mx-auto bg-[#14222E]/40 backdrop-blur-xl border border-[#1C2A35] rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#4FD1C5]/10 rounded-full blur-[100px] pointer-events-none"></div>
-              <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#FF6B35]/10 rounded-full blur-[100px] pointer-events-none"></div>
+              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#3B82F6]/10 rounded-full blur-[100px] pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#FF4F1F]/10 rounded-full blur-[100px] pointer-events-none"></div>
 
               <div className={`relative z-10 transition-all duration-1000 ${stackVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-                  <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">O Arsenal Completo da Sua <span className="text-[#FF6B35]">Nova Carreira</span></h2>
+                  <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">O Arsenal Completo da Sua <span className="text-[#FF4F1F]">Nova Carreira</span></h2>
                   
                   <div className="space-y-6">
                       {stackItems.map((item, index) => (
-                          <div key={index} className="flex flex-col md:flex-row items-center justify-between p-6 bg-[#0F161E]/60 border border-[#1C2A35] rounded-2xl hover:border-[#FF6B35]/50 transition-colors duration-300 group">
+                          <div key={index} className="flex flex-col md:flex-row items-center justify-between p-6 bg-[#0F161E]/60 border border-[#1C2A35] rounded-2xl hover:border-[#FF4F1F]/50 transition-colors duration-300 group">
                               <div className="flex items-center gap-6 mb-4 md:mb-0">
-                                  <div className="w-12 h-12 bg-gradient-to-br from-[#FF6B35] to-[#FF8E53] rounded-xl flex items-center justify-center shadow-lg shadow-[#FF6B35]/20 group-hover:scale-110 transition-transform">
-                                      <item.icon className="w-6 h-6 text-white" />
+                                  {/* Ícone agora é Azul */}
+                                  <div className="w-12 h-12 bg-[#3B82F6]/20 border border-[#3B82F6]/50 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                                      <item.icon className="w-6 h-6 text-[#3B82F6]" />
                                   </div>
                                   <h3 className="text-xl font-bold">{item.title}</h3>
                               </div>
-                              <div className="px-6 py-2 bg-[#1C2A35] rounded-full text-[#4FD1C5] font-mono font-bold border border-[#4FD1C5]/20">
+                              <div className="px-6 py-2 bg-[#1C2A35] rounded-full text-[#3B82F6] font-mono font-bold border border-[#3B82F6]/20">
                                   {item.value}
                               </div>
                           </div>
@@ -297,10 +305,11 @@ function App() {
                   <div className="mt-16 text-center">
                       <p className="text-xl text-gray-400 mb-6">Valor Total do Stack: <span className="line-through">R$ 641,00</span></p>
                       <p className="text-3xl md:text-5xl font-extrabold text-white mb-8">
-                          Hoje por apenas: <span className="text-[#4FD1C5]">R$ 37,00</span>
+                          Hoje por apenas: <span className="text-[#3B82F6]">R$ 37,00</span>
                       </p>
+                      {/* Botão Vermelho Alaranjado */}
                       <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block w-full max-w-md">
-                        <Button className="w-full h-16 bg-gradient-to-r from-[#FF6B35] to-[#FF8E53] hover:from-[#e05a2b] hover:to-[#e07a46] text-white font-bold text-xl rounded-xl shadow-2xl shadow-[#FF6B35]/20 flex items-center justify-center gap-3 pulse-button animate-bounce-slow">
+                        <Button className="w-full h-16 bg-gradient-to-r from-[#FF4F1F] to-[#FF7F50] hover:from-[#e0481d] hover:to-[#e06a40] text-white font-bold text-xl rounded-xl shadow-2xl shadow-[#FF4F1F]/20 flex items-center justify-center gap-3 pulse-button animate-bounce-slow">
                             GARANTIR MEU ARSENAL AGORA
                         </Button>
                     </a>
@@ -309,21 +318,21 @@ function App() {
           </div>
       </section>
 
-      {/* 7. TESTEMUNHOS */}
+      {/* 7. TESTEMUNHOS - Atualizado com Azul Tech */}
       <section ref={reviewsRef} className="relative z-10 py-24 px-4 bg-[#0F161E] border-y border-[#1C2A35]">
         <div className={`max-w-6xl mx-auto transition-all duration-1000 ${reviewsVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">O Que Estão Falando do <span className="text-[#4FD1C5]">Método Nexus</span></h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">O Que Estão Falando do <span className="text-[#3B82F6]">Método Nexus</span></h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[1, 2, 3].map((_, i) => (
-                    <div key={i} className="p-8 bg-[#14222E] border border-[#1C2A35] rounded-3xl relative">
-                        <div className="absolute -top-4 left-8 text-[#FF6B35] text-6xl opacity-20">"</div>
+                    <div key={i} className="p-8 bg-[#14222E] border border-[#1C2A35] rounded-3xl relative hover:border-[#3B82F6]/30 transition-colors">
+                        <div className="absolute -top-4 left-8 text-[#3B82F6] text-6xl opacity-20">"</div>
                         <div className="flex gap-1 mb-4">
-                            {[...Array(5)].map((_, j) => <Star key={j} className="w-5 h-5 text-[#FF6B35] fill-current" />)}
+                            {[...Array(5)].map((_, j) => <Star key={j} className="w-5 h-5 text-[#FF4F1F] fill-current" />)}
                         </div>
                         <p className="text-gray-300 mb-6 leading-relaxed">"O material é direto ao ponto. Em uma tarde eu já estava aplicando conceitos que economizaram horas da minha semana. O melhor investimento que fiz esse ano."</p>
                         <div className="flex items-center gap-4">
-                            <div className="w-10 h-10 bg-gradient-to-br from-gray-700 to-gray-600 rounded-full flex items-center justify-center font-bold text-sm">
+                            <div className="w-10 h-10 bg-gradient-to-br from-[#3B82F6] to-[#2563EB] rounded-full flex items-center justify-center font-bold text-sm text-white">
                                 {String.fromCharCode(65 + i)}
                             </div>
                             <div>
@@ -337,17 +346,17 @@ function App() {
         </div>
       </section>
 
-      {/* 8. FAQ */}
+      {/* 8. FAQ - Atualizado com Azul Tech */}
       <section className="relative z-10 py-24 px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Perguntas Frequentes</h2>
             <div className="space-y-4">
                 {faqItems.map((item, index) => (
-                    <div key={index} className="bg-[#14222E]/50 border border-[#1C2A35] rounded-2xl overflow-hidden hover:border-[#4FD1C5]/30 transition-colors">
+                    <div key={index} className="bg-[#14222E]/50 border border-[#1C2A35] rounded-2xl overflow-hidden hover:border-[#3B82F6]/30 transition-colors">
                         <details className="group">
                             <summary className="flex justify-between items-center p-6 cursor-pointer list-none">
                                 <h3 className="text-lg font-bold text-white">{item.q}</h3>
-                                <ChevronRight className="w-5 h-5 text-[#4FD1C5] transform group-open:rotate-90 transition-transform" />
+                                <ChevronRight className="w-5 h-5 text-[#3B82F6] transform group-open:rotate-90 transition-transform" />
                             </summary>
                             <div className="px-6 pb-6 pt-2 text-gray-300 leading-relaxed border-t border-[#1C2A35]/50 bg-[#0F161E]/30">
                                 {item.a}
@@ -359,26 +368,26 @@ function App() {
           </div>
       </section>
 
-      {/* 9. OFERTA FINAL */}
+      {/* 9. OFERTA FINAL - Atualizado: Azul Tech e Botão Vermelho */}
       <section ref={offerRef} className="relative z-10 py-32 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#FF6B35]/10 to-transparent pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#FF4F1F]/10 to-transparent pointer-events-none"></div>
         
         <div className={`max-w-4xl mx-auto text-center relative z-20 transition-all duration-1000 ${offerVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             <div className="mb-12">
-                 <Shield className="w-20 h-20 text-[#4FD1C5] mx-auto mb-6 animate-pulse-slow" />
+                 <Shield className="w-20 h-20 text-[#3B82F6] mx-auto mb-6 animate-pulse-slow" />
                  <h2 className="text-4xl md:text-5xl font-bold mb-6">Garantia Blindada de 7 Dias</h2>
                  <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
                      O risco é todo nosso. Acesse o material, aplique os blueprints. Se você não sentir que isso vale 10x o que você pagou, envie um único e-mail e devolvemos 100% do seu dinheiro.
                  </p>
             </div>
 
-            <div className="bg-[#14222E] border-2 border-[#FF6B35] rounded-[3rem] p-12 shadow-2xl shadow-[#FF6B35]/20 relative overflow-hidden group">
+            <div className="bg-[#14222E] border-2 border-[#FF4F1F] rounded-[3rem] p-12 shadow-2xl shadow-[#FF4F1F]/20 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10 mix-blend-overlay"></div>
-                <div className="absolute -inset-1 bg-gradient-to-r from-[#FF6B35] to-[#FF8E53] blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-1000"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#FF4F1F] to-[#FF7F50] blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-1000"></div>
                 
                 <div className="relative z-10">
                     <h3 className="text-3xl font-bold text-white mb-2">Última Chance para Garantir o Preço de Lançamento</h3>
-                    <p className="text-[#FF8E53] font-medium mb-8 uppercase tracking-wider">Acesso Vitalício + Bônus Exclusivos</p>
+                    <p className="text-[#FF7F50] font-medium mb-8 uppercase tracking-wider">Acesso Vitalício + Bônus Exclusivos</p>
                     
                     <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
                         <img src={produtoImg} alt="Pack Nexus" className="w-64 rounded-xl shadow-2xl border border-[#1C2A35] rotate-[-5deg] group-hover:rotate-0 transition-all duration-500" />
@@ -386,14 +395,15 @@ function App() {
                             <div className="text-6xl font-extrabold text-white mb-2">R$ 37<span className="text-2xl text-gray-400">,00</span></div>
                             <p className="text-gray-400 mb-4">Pagamento único. Sem mensalidades.</p>
                             <div className="flex flex-col gap-2">
-                                <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[#4FD1C5] mr-2" /> Acesso Imediato via E-mail</div>
-                                <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[#4FD1C5] mr-2" /> Plataforma Segura e Confiável</div>
+                                <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[#3B82F6] mr-2" /> Acesso Imediato via E-mail</div>
+                                <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[#3B82F6] mr-2" /> Plataforma Segura e Confiável</div>
                             </div>
                         </div>
                     </div>
 
+                    {/* Botão Vermelho Alaranjado Final */}
                     <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="block max-w-2xl mx-auto">
-                        <Button className="w-full h-20 bg-gradient-to-r from-[#FF6B35] to-[#FF8E53] hover:from-[#e05a2b] hover:to-[#e07a46] text-white font-extrabold text-2xl rounded-2xl shadow-2xl shadow-[#FF6B35]/30 flex items-center justify-center gap-4 pulse-button animate-bounce-slow hover:scale-[1.02] transition-transform">
+                        <Button className="w-full h-20 bg-gradient-to-r from-[#FF4F1F] to-[#FF7F50] hover:from-[#e0481d] hover:to-[#e06a40] text-white font-extrabold text-2xl rounded-2xl shadow-2xl shadow-[#FF4F1F]/30 flex items-center justify-center gap-4 pulse-button animate-bounce-slow hover:scale-[1.02] transition-transform">
                             QUERO COMEÇAR AGORA MESMO
                             <ArrowRight className="w-8 h-8" />
                         </Button>
@@ -403,12 +413,12 @@ function App() {
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* FOOTER - Atualizado com Ícone Azul */}
       <footer className="bg-[#030507] pt-24 pb-12 px-4 border-t border-[#1C2A35] relative z-10">
         <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
             <div className="md:col-span-2">
                 <div className="flex items-center gap-3 mb-6">
-                    <Brain className="w-8 h-8 text-[#FF6B35]" />
+                    <Brain className="w-8 h-8 text-[#3B82F6]" />
                     <span className="text-2xl font-bold text-white">NEXUS ORIGIN</span>
                 </div>
                 <p className="text-gray-500 leading-relaxed max-w-sm mb-6">
@@ -418,8 +428,8 @@ function App() {
             <div>
                 <h4 className="text-white font-bold mb-6">Links Úteis</h4>
                 <ul className="space-y-3 text-gray-500">
-                    <li><a href="#" className="hover:text-[#FF6B35] transition-colors">Política de Privacidade</a></li>
-                    <li><a href="#" className="hover:text-[#FF6B35] transition-colors">Suporte</a></li>
+                    <li><a href="#" className="hover:text-[#3B82F6] transition-colors">Política de Privacidade</a></li>
+                    <li><a href="#" className="hover:text-[#3B82F6] transition-colors">Suporte</a></li>
                 </ul>
             </div>
             <div>
