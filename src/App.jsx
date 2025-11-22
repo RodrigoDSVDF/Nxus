@@ -3,11 +3,11 @@ import { Button } from '@/components/ui/button.jsx'
 import {
   ArrowRight, Zap, Target, Globe, Key, Rocket, Brain, TrendingUp,
   CheckCircle, AlertTriangle, Shield, Users, Star, ChevronRight,
-  Terminal, Cpu, Network, Layers, Check
+  Terminal, Cpu, Network, Layers, Check, Sparkles
 } from 'lucide-react'
 import './App.css' 
 
-// --- IMPORTAÇÃO DE IMAGENS (Mantendo as suas existentes) ---
+// --- IMPORTAÇÃO DE IMAGENS ---
 import brainNetworkImg from './assets/1000393266.jpg'
 import neuralNetworkImg from './assets/1000393264.jpg'
 import laptopNeuralImg from './assets/1000393263.jpg'
@@ -15,12 +15,11 @@ import brainAIImg from './assets/1000393262.jpg'
 import produtoImg from './assets/produto.jpg'
 import fundo02 from './assets/fundo02.jpg'
 
-// Link do Checkout Centralizado
+// Link do Checkout
 const CHECKOUT_LINK = "https://pay.cakto.com.br/5dUKrWD";
 
 // --- DADOS ESTRUTURADOS ---
 
-// Dados do Bento Grid (Nova estrutura de features)
 const bentoFeatures = [
   { 
     colSpan: "md:col-span-2",
@@ -48,7 +47,6 @@ const bentoFeatures = [
   },
 ];
 
-// Dados do Stack (O que está incluso)
 const stackItems = [
     { icon: Layers, title: "O Manual Nexus Origin (E-book Premium)", value: "R$ 197" },
     { icon: Cpu, title: "Banco de Prompts 'Copy & Paste' de Alta Conversão", value: "R$ 147" },
@@ -56,7 +54,6 @@ const stackItems = [
     { icon: Shield, title: "Acesso Vitalício + Atualizações Mensais", value: "Inestimável" },
 ];
 
-// Dados de FAQ
 const faqItems = [
   { q: "Preciso saber programar para usar o Nexus?", a: "Absolutamente não. O Nexus foi desenhado para profissionais de qualquer área. Focamos na lógica e estratégia, não em código." },
   { q: "A IA muda toda semana, o material não vai ficar obsoleto?", a: "Essa é a diferença do Nexus. Focamos nos 'princípios imutáveis' da IA. Além disso, você tem atualizações vitalícias garantidas." },
@@ -64,9 +61,7 @@ const faqItems = [
   { q: "E se eu não gostar?", a: "Você tem 7 dias de garantia incondicional. Se achar que não é para você, devolvemos 100% do seu investimento, sem perguntas." },
 ];
 
-
 // --- HOOKS ---
-// Hook de Scroll Animation (Mantido e otimizado)
 function useScrollAnimation(threshold = 0.1) {
   const [isVisible, setIsVisible] = useState(false)
   const ref = useRef(null)
@@ -74,7 +69,6 @@ function useScrollAnimation(threshold = 0.1) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Apenas ativa, não desativa para evitar "flicker" ao rolar para cima
         if (entry.isIntersecting) setIsVisible(true)
       },
       { threshold, rootMargin: '0px 0px -100px 0px' }
@@ -86,10 +80,8 @@ function useScrollAnimation(threshold = 0.1) {
   return [ref, isVisible]
 }
 
-
 // --- COMPONENTE PRINCIPAL ---
 function App() {
-  // Refs para animações de seção
   const [heroRef, heroVisible] = useScrollAnimation()
   const [painRef, painVisible] = useScrollAnimation(0.2)
   const [bentoRef, bentoVisible] = useScrollAnimation(0.1)
@@ -98,37 +90,34 @@ function App() {
   const [offerRef, offerVisible] = useScrollAnimation(0.1)
 
   return (
-    // Adicionado 'selection' para cor de seleção de texto personalizada
     <div className="min-h-screen bg-[#050A0F] font-['Poppins',sans-serif] overflow-x-hidden text-slate-100 selection:bg-[#FF6B35] selection:text-white">
       
-      {/* --- BACKGROUND DINÂMICO GLOBAL --- */}
+      {/* BACKGROUND GLOBAL */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-          {/* Orbs pulsantes */}
           <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-[#4FD1C5]/5 rounded-full blur-[120px] animate-pulse-slow"></div>
           <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#FF6B35]/5 rounded-full blur-[100px] animate-pulse-slow" style={{animationDelay: '2s'}}></div>
-          {/* Grid Overlay Sutil */}
           <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10"></div>
       </div>
 
-      {/* 1. FAIXA DE URGÊNCIA (SCROLL HORIZONTAL) */}
-      <div className="relative z-20 bg-[#0F161E]/80 backdrop-blur-sm border-b border-[#FF6B35]/20 py-2 overflow-hidden">
-        <div className="animate-marquee whitespace-nowrap flex gap-8 items-center">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="flex gap-8 text-xs font-medium text-[#FF8E53] tracking-widest">
-               <span className="flex items-center"><Zap className="w-3 h-3 mr-2"/>OFERTA DE LANÇAMENTO POR TEMPO LIMITADO</span>
-               <span className="flex items-center"><CheckCircle className="w-3 h-3 mr-2"/>ACESSO VITALÍCIO + ATUALIZAÇÕES</span>
-               <span className="flex items-center"><Shield className="w-3 h-3 mr-2"/>GARANTIA BLINDADA DE 7 DIAS</span>
-            </div>
-          ))}
+      {/* 1. FAIXA SUPERIOR DE URGÊNCIA */}
+      <div className="horizontal-banner-wrapper border-b border-[#FF6B35]/20 bg-[#0F161E]/90 backdrop-blur-md z-50 relative">
+        <div className="horizontal-banner">
+          <div className="banner-content">
+             <span className="banner-item text-xs md:text-sm text-[#FF8E53] flex items-center"><Zap className="w-4 h-4 mr-2"/>OFERTA DE LANÇAMENTO</span>
+             <span className="banner-item text-xs md:text-sm text-[#FF8E53] flex items-center"><CheckCircle className="w-4 h-4 mr-2"/>ACESSO VITALÍCIO</span>
+             <span className="banner-item text-xs md:text-sm text-[#FF8E53] flex items-center"><Shield className="w-4 h-4 mr-2"/>GARANTIA DE 7 DIAS</span>
+             <span className="banner-item text-xs md:text-sm text-[#FF8E53] flex items-center"><Rocket className="w-4 h-4 mr-2"/>ATUALIZAÇÕES INCLUSAS</span>
+             <span className="banner-item text-xs md:text-sm text-[#FF8E53] flex items-center"><Zap className="w-4 h-4 mr-2"/>OFERTA DE LANÇAMENTO</span>
+             <span className="banner-item text-xs md:text-sm text-[#FF8E53] flex items-center"><CheckCircle className="w-4 h-4 mr-2"/>ACESSO VITALÍCIO</span>
+          </div>
         </div>
       </div>
 
-      {/* 2. HERO SECTION REVAMPED (Sem Vídeo, Foco em Copy e Visual Abstrato) */}
+      {/* 2. HERO SECTION */}
       <section ref={heroRef} className="relative z-10 pt-20 pb-32 px-4 overflow-hidden">
         <div className={`max-w-7xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
-          {/* Badge de Autoridade Animado */}
-          <div className="inline-flex items-center relative mb-8 group cursor-default">
+          <div className="inline-flex items-center relative mb-8 group cursor-default animate-fade-in">
             <div className="absolute -inset-1 bg-gradient-to-r from-[#FF6B35] to-[#4FD1C5] rounded-full blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
             <div className="relative px-6 py-2 bg-[#0F161E] border border-[#1C2A35] rounded-full flex items-center gap-3">
                <span className="relative flex h-3 w-3">
@@ -141,20 +130,17 @@ function App() {
             </div>
           </div>
 
-          {/* Headline Massiva */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-8 tracking-tight">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-8 tracking-tight animate-slide-up">
             Domine a IA Antes Que <br />
             <span className="relative whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B35] via-[#FF8E53] to-[#FF6B35] animate-gradient-x">
               Ela Substitua Você.
             </span>
           </h1>
 
-          {/* Subheadline Focada no Benefício */}
-          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Pare de correr atrás de ferramentas novas toda semana. Descubra os <span className="text-[#4FD1C5] font-semibold">princípios imutáveis</span> da inteligência artificial que colocarão você no top 1% do mercado pelos próximos 10 anos.
+          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up-delay">
+            Pare de correr atrás de ferramentas novas toda semana. Descubra os <span className="text-[#4FD1C5] font-semibold">princípios imutáveis</span> da inteligência artificial que colocarão você no top 1% do mercado.
           </p>
 
-          {/* CTA Principal Com Efeito de Glow */}
           <div className="flex flex-col items-center gap-6 animate-scale-in">
             <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="group relative inline-block">
               <div className="absolute -inset-px bg-gradient-to-r from-[#FF6B35] to-[#FF8E53] rounded-xl blur-lg opacity-60 group-hover:opacity-100 transition-all duration-500 group-hover:duration-200 animate-pulse-slow"></div>
@@ -170,18 +156,16 @@ function App() {
           </div>
         </div>
 
-        {/* Imagem Abstrata de Fundo (Substituindo o vídeo como elemento visual) */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl opacity-30 pointer-events-none -z-10 mix-blend-screen">
             <img src={brainNetworkImg} alt="" className="w-full h-auto mask-radial-faded animate-float-slow" />
         </div>
       </section>
 
-      {/* 3. BARRA DE PROVA SOCIAL (Placeholders para Autoridade) */}
+      {/* 3. PROVA SOCIAL (LOGOS) */}
       <div className="relative z-10 border-y border-[#1C2A35] bg-[#0F161E]/50 backdrop-blur-md py-8">
           <div className="max-w-6xl mx-auto px-4 text-center">
               <p className="text-sm font-medium text-gray-500 mb-6 uppercase tracking-widest">Método utilizado por profissionais de:</p>
               <div className="flex flex-wrap justify-center items-center gap-12 opacity-40 grayscale">
-                  {/* Logos Placeholder - Substitua por SVGs reais se tiver */}
                   <div className="text-2xl font-bold font-mono">TECH<span className="text-[#4FD1C5]">CORP</span></div>
                   <div className="text-2xl font-bold font-sans italic">InnovateLabs</div>
                   <div className="text-xl font-bold uppercase tracking-tighter">Future<span className="text-[#FF6B35] font-extrabold">/</span>Work</div>
@@ -190,7 +174,7 @@ function App() {
           </div>
       </div>
 
-      {/* 4. A DOR (AGITAÇÃO MODERNA) */}
+      {/* 4. A DOR */}
       <section ref={painRef} className={`relative z-10 py-32 px-4 transition-all duration-1000 delay-200 ${painVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
         <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-5 gap-12 items-center">
@@ -208,11 +192,11 @@ function App() {
                     <ul className="space-y-4">
                         <li className="flex items-start p-4 bg-[#14222E]/50 border border-[#FF6B35]/20 rounded-xl">
                             <AlertTriangle className="w-6 h-6 text-[#FF6B35] mr-4 flex-shrink-0 mt-1" />
-                            <span><strong className="text-white">Ansiedade Tecnológica:</strong> A sensação constante de que existe algo novo que você deveria saber, mas não sabe.</span>
+                            <span><strong className="text-white">Ansiedade Tecnológica:</strong> A sensação constante de que existe algo novo que você deveria saber.</span>
                         </li>
                         <li className="flex items-start p-4 bg-[#14222E]/50 border border-[#FF6B35]/20 rounded-xl">
                             <AlertTriangle className="w-6 h-6 text-[#FF6B35] mr-4 flex-shrink-0 mt-1" />
-                            <span><strong className="text-white">Medo da Irrelevância:</strong> Ver profissionais mais jovens e menos experientes te ultrapassarem porque dominam a IA.</span>
+                            <span><strong className="text-white">Medo da Irrelevância:</strong> Ver profissionais menos experientes te ultrapassarem porque dominam a IA.</span>
                         </li>
                     </ul>
                 </div>
@@ -220,8 +204,8 @@ function App() {
         </div>
       </section>
 
-      {/* 5. A SOLUÇÃO: BENTO GRID (MODERNO E VISUAL) */}
-      <section ref={bentoRef} className="relative z-10 py-32 px-4 bg-[#0F161E]">
+      {/* 5. A SOLUÇÃO: BENTO GRID */}
+      <section ref={bentoRef} className="relative z-10 pt-32 pb-16 px-4 bg-[#0F161E]">
         <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
                 <h2 className="text-4xl md:text-6xl font-bold mb-6">O Ecossistema <span className="text-[#4FD1C5]">Nexus Origin</span></h2>
@@ -230,24 +214,18 @@ function App() {
                 </p>
             </div>
 
-            {/* Bento Grid Layout */}
             <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-1000 delay-300 ${bentoVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
                 {bentoFeatures.map((item, index) => (
                     <div key={index} className={`${item.colSpan} group relative bg-[#14222E] rounded-3xl border border-[#1C2A35] overflow-hidden hover:border-[#4FD1C5]/50 transition-all duration-500`}>
-                        {/* Efeito de Hover Glow na Borda */}
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none">
                             <div className="absolute inset-0 bg-gradient-to-r from-[#4FD1C5]/20 via-transparent to-[#FF6B35]/20 blur-xl"></div>
                         </div>
-
-                        {/* Imagem de Fundo (se houver) */}
                         {item.bgImage && (
                             <div className="absolute inset-0 z-0">
                                 <img src={item.bgImage} alt="" className="w-full h-full object-cover opacity-20 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000 mix-blend-overlay" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#14222E] via-[#14222E]/80 to-transparent"></div>
                             </div>
                         )}
-                        
-                        {/* Conteúdo */}
                         <div className="relative z-10 p-8 h-full flex flex-col justify-end">
                             <div className="w-14 h-14 bg-[#0F161E]/80 backdrop-blur-xl border border-[#4FD1C5]/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                                 <item.icon className="w-7 h-7 text-[#4FD1C5]" />
@@ -261,10 +239,39 @@ function App() {
         </div>
       </section>
 
-      {/* 6. O STACK (O QUE ESTÁ INCLUSO) - NOVA SEÇÃO */}
+      {/* --- NOVA FAIXA HORIZONTAL INTERMEDIÁRIA --- */}
+      <div className="relative z-20 py-6 overflow-hidden bg-gradient-to-r from-[#0F161E] via-[#14222E] to-[#0F161E] border-y border-[#1C2A35]">
+        {/* Reutilizando a classe existente do CSS, mas com conteúdo diferente */}
+        <div className="horizontal-banner-wrapper" style={{ background: 'transparent', padding: 0 }}>
+          <div className="horizontal-banner">
+            <div className="banner-content">
+              {/* Itens com estilo 'Tech' */}
+              <span className="banner-item text-[#4FD1C5] font-mono tracking-widest flex items-center text-lg">
+                <Sparkles className="w-4 h-4 mr-3 text-[#FF6B35]" /> FRAMEWORKS ESTRATÉGICOS
+              </span>
+              <span className="banner-item text-[#4FD1C5] font-mono tracking-widest flex items-center text-lg">
+                <Terminal className="w-4 h-4 mr-3 text-[#FF6B35]" /> ENGENHARIA DE PROMPT
+              </span>
+              <span className="banner-item text-[#4FD1C5] font-mono tracking-widest flex items-center text-lg">
+                <Cpu className="w-4 h-4 mr-3 text-[#FF6B35]" /> AUTOMAÇÃO DE TAREFAS
+              </span>
+              <span className="banner-item text-[#4FD1C5] font-mono tracking-widest flex items-center text-lg">
+                <Layers className="w-4 h-4 mr-3 text-[#FF6B35]" /> MODELOS MENTAIS
+              </span>
+              <span className="banner-item text-[#4FD1C5] font-mono tracking-widest flex items-center text-lg">
+                <Sparkles className="w-4 h-4 mr-3 text-[#FF6B35]" /> FRAMEWORKS ESTRATÉGICOS
+              </span>
+              <span className="banner-item text-[#4FD1C5] font-mono tracking-widest flex items-center text-lg">
+                <Terminal className="w-4 h-4 mr-3 text-[#FF6B35]" /> ENGENHARIA DE PROMPT
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 6. O STACK */}
       <section ref={stackRef} className="relative z-10 py-32 px-4">
           <div className="max-w-5xl mx-auto bg-[#14222E]/40 backdrop-blur-xl border border-[#1C2A35] rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden">
-              {/* Efeitos de Luz Internos */}
               <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#4FD1C5]/10 rounded-full blur-[100px] pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#FF6B35]/10 rounded-full blur-[100px] pointer-events-none"></div>
 
@@ -273,7 +280,7 @@ function App() {
                   
                   <div className="space-y-6">
                       {stackItems.map((item, index) => (
-                          <div key={index} className="flex flex-col md:flex-row items-center justify-between p-6 bg-[#0F161E]/60 border border-[#1C2A35] rounded-2xl hover:border-[#FF6B35]/50 transition-colors duration-300 group" style={{transitionDelay: `${index * 100}ms`}}>
+                          <div key={index} className="flex flex-col md:flex-row items-center justify-between p-6 bg-[#0F161E]/60 border border-[#1C2A35] rounded-2xl hover:border-[#FF6B35]/50 transition-colors duration-300 group">
                               <div className="flex items-center gap-6 mb-4 md:mb-0">
                                   <div className="w-12 h-12 bg-gradient-to-br from-[#FF6B35] to-[#FF8E53] rounded-xl flex items-center justify-center shadow-lg shadow-[#FF6B35]/20 group-hover:scale-110 transition-transform">
                                       <item.icon className="w-6 h-6 text-white" />
@@ -302,7 +309,7 @@ function App() {
           </div>
       </section>
 
-      {/* 7. TESTEMUNHOS (PROVA SOCIAL) - NOVA SEÇÃO */}
+      {/* 7. TESTEMUNHOS */}
       <section ref={reviewsRef} className="relative z-10 py-24 px-4 bg-[#0F161E] border-y border-[#1C2A35]">
         <div className={`max-w-6xl mx-auto transition-all duration-1000 ${reviewsVisible ? 'opacity-100' : 'opacity-0'}`}>
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">O Que Estão Falando do <span className="text-[#4FD1C5]">Método Nexus</span></h2>
@@ -316,10 +323,12 @@ function App() {
                         </div>
                         <p className="text-gray-300 mb-6 leading-relaxed">"O material é direto ao ponto. Em uma tarde eu já estava aplicando conceitos que economizaram horas da minha semana. O melhor investimento que fiz esse ano."</p>
                         <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 bg-gray-700 rounded-full"></div> {/* Placeholder Avatar */}
+                            <div className="w-10 h-10 bg-gradient-to-br from-gray-700 to-gray-600 rounded-full flex items-center justify-center font-bold text-sm">
+                                {String.fromCharCode(65 + i)}
+                            </div>
                             <div>
-                                <h4 className="font-bold text-white">Carlos M.</h4>
-                                <p className="text-sm text-gray-500">Analista de Marketing</p>
+                                <h4 className="font-bold text-white">Aluno Verificado</h4>
+                                <p className="text-sm text-gray-500">Membro da Comunidade</p>
                             </div>
                         </div>
                     </div>
@@ -328,14 +337,13 @@ function App() {
         </div>
       </section>
 
-      {/* 8. FAQ (PERGUNTAS FREQUENTES) - NOVA SEÇÃO */}
+      {/* 8. FAQ */}
       <section className="relative z-10 py-24 px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Perguntas Frequentes</h2>
             <div className="space-y-4">
                 {faqItems.map((item, index) => (
                     <div key={index} className="bg-[#14222E]/50 border border-[#1C2A35] rounded-2xl overflow-hidden hover:border-[#4FD1C5]/30 transition-colors">
-                        {/* Usando details/summary nativo para um accordion simples sem JS extra */}
                         <details className="group">
                             <summary className="flex justify-between items-center p-6 cursor-pointer list-none">
                                 <h3 className="text-lg font-bold text-white">{item.q}</h3>
@@ -351,9 +359,8 @@ function App() {
           </div>
       </section>
 
-      {/* 9. OFERTA FINAL & GARANTIA */}
+      {/* 9. OFERTA FINAL */}
       <section ref={offerRef} className="relative z-10 py-32 px-4 overflow-hidden">
-        {/* Fundo gradiente intenso para a oferta final */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#FF6B35]/10 to-transparent pointer-events-none"></div>
         
         <div className={`max-w-4xl mx-auto text-center relative z-20 transition-all duration-1000 ${offerVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
@@ -405,13 +412,12 @@ function App() {
                     <span className="text-2xl font-bold text-white">NEXUS ORIGIN</span>
                 </div>
                 <p className="text-gray-500 leading-relaxed max-w-sm mb-6">
-                    O manual definitivo para profissionais que desejam liderar a revolução da IA, focado em fundamentos estratégicos e implementação prática.
+                    O manual definitivo para profissionais que desejam liderar a revolução da IA.
                 </p>
             </div>
             <div>
                 <h4 className="text-white font-bold mb-6">Links Úteis</h4>
                 <ul className="space-y-3 text-gray-500">
-                    <li><a href="#" className="hover:text-[#FF6B35] transition-colors">Termos de Uso</a></li>
                     <li><a href="#" className="hover:text-[#FF6B35] transition-colors">Política de Privacidade</a></li>
                     <li><a href="#" className="hover:text-[#FF6B35] transition-colors">Suporte</a></li>
                 </ul>
@@ -424,9 +430,6 @@ function App() {
         <div className="max-w-6xl mx-auto text-center pt-8 border-t border-[#1C2A35]/50">
           <p className="text-gray-600 text-sm mb-4">
             &copy; 2025 Nexus Origin. Todos os direitos reservados.
-          </p>
-          <p className="text-gray-700 text-xs max-w-3xl mx-auto">
-            Isenção de responsabilidade: Este produto não garante a obtenção de resultados financeiros. O sucesso depende do esforço, dedicação e capacidade de implementação de cada indivíduo. Os resultados podem variar.
           </p>
         </div>
       </footer>
