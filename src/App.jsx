@@ -90,15 +90,15 @@ function App() {
   const [offerRef, offerVisible] = useScrollAnimation(0.1)
 
   return (
-    <div className="min-h-screen bg-[#050505] font-['Poppins',sans-serif] overflow-x-hidden text-slate-100 selection:bg-[#FF6B35] selection:text-white">
+    <div className="min-h-screen bg-[#020408] font-['Poppins',sans-serif] overflow-x-hidden text-slate-100 selection:bg-[#2DD4BF] selection:text-black">
       
-      {/* BACKGROUND GLOBAL - "Cyber Sunset" */}
+      {/* BACKGROUND GLOBAL - "Cyber Teal" */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-          {/* Laranja no topo esquerdo */}
-          <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-[#FF6B35]/10 rounded-full blur-[120px] animate-pulse-slow"></div>
-          {/* Roxo bonito na direita inferior */}
-          <div className="absolute bottom-[-20%] right-[-10%] w-[800px] h-[800px] bg-[#8B5CF6]/10 rounded-full blur-[120px] animate-pulse-slow" style={{animationDelay: '2s'}}></div>
-          {/* Grid sutil */}
+          {/* Turquesa no topo esquerdo (Dominante) */}
+          <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-[#2DD4BF]/10 rounded-full blur-[120px] animate-pulse-slow"></div>
+          {/* Laranja na direita inferior (Contraste) */}
+          <div className="absolute bottom-[-20%] right-[-10%] w-[800px] h-[800px] bg-[#FF6B35]/10 rounded-full blur-[120px] animate-pulse-slow" style={{animationDelay: '2s'}}></div>
+          {/* Grid Tech */}
           <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-5"></div>
       </div>
 
@@ -106,12 +106,12 @@ function App() {
       <div className="horizontal-banner-wrapper">
         <div className="horizontal-banner">
           <div className="banner-content">
-             <span className="banner-item flex items-center"><Zap className="w-4 h-4 mr-2"/>OFERTA DE LANÇAMENTO</span>
-             <span className="banner-item flex items-center"><CheckCircle className="w-4 h-4 mr-2"/>ACESSO VITALÍCIO</span>
-             <span className="banner-item flex items-center"><Shield className="w-4 h-4 mr-2"/>GARANTIA DE 7 DIAS</span>
-             <span className="banner-item flex items-center"><Rocket className="w-4 h-4 mr-2"/>ATUALIZAÇÕES INCLUSAS</span>
-             <span className="banner-item flex items-center"><Zap className="w-4 h-4 mr-2"/>OFERTA DE LANÇAMENTO</span>
-             <span className="banner-item flex items-center"><CheckCircle className="w-4 h-4 mr-2"/>ACESSO VITALÍCIO</span>
+             {/* Texto Preto para contraste no banner Turquesa/Laranja */}
+             <span className="banner-item flex items-center text-black"><Zap className="w-4 h-4 mr-2"/>OFERTA DE LANÇAMENTO</span>
+             <span className="banner-item flex items-center text-black"><CheckCircle className="w-4 h-4 mr-2"/>ACESSO VITALÍCIO</span>
+             <span className="banner-item flex items-center text-black"><Shield className="w-4 h-4 mr-2"/>GARANTIA DE 7 DIAS</span>
+             <span className="banner-item flex items-center text-black"><Rocket className="w-4 h-4 mr-2"/>ATUALIZAÇÕES INCLUSAS</span>
+             <span className="banner-item flex items-center text-black"><Zap className="w-4 h-4 mr-2"/>OFERTA DE LANÇAMENTO</span>
           </div>
         </div>
       </div>
@@ -120,30 +120,30 @@ function App() {
       <section ref={heroRef} className="relative z-10 pt-20 pb-32 px-4 overflow-hidden">
         <div className={`max-w-7xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
-          {/* Badge Tech */}
+          {/* Badge Tech - Turquesa */}
           <div className="inline-flex items-center relative mb-8 group cursor-default animate-fade-in">
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#FF6B35] to-[#8B5CF6] rounded-full blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
-            <div className="relative px-6 py-2 bg-[#0A0A0A] border border-[#FF6B35]/30 rounded-full flex items-center gap-3">
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#2DD4BF] to-[#FF6B35] rounded-full blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+            <div className="relative px-6 py-2 bg-[#0A0A0A] border border-[#2DD4BF]/30 rounded-full flex items-center gap-3">
                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF6B35] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-[#FF6B35]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2DD4BF] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-[#2DD4BF]"></span>
                </span>
-               <span className="text-sm font-semibold text-gray-200 tracking-wide">
+               <span className="text-sm font-semibold text-[#2DD4BF] tracking-wide shadow-cyan-500/50">
                  Sistema Operacional de Alta Performance com IA
                </span>
             </div>
           </div>
 
-          {/* Headline com Gradiente Laranja -> Roxo */}
+          {/* Headline com Gradiente Turquesa -> Laranja */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-8 tracking-tight animate-slide-up">
             Domine a IA Antes Que <br />
-            <span className="text-gradient-orange-purple animate-gradient-text">
+            <span className="text-gradient-teal-orange animate-gradient-text">
               Ela Substitua Você.
             </span>
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up-delay">
-            Pare de correr atrás de ferramentas novas toda semana. Descubra os <span className="text-[#FF6B35] font-semibold">princípios imutáveis</span> da inteligência artificial que colocarão você no top 1% do mercado.
+            Pare de correr atrás de ferramentas novas toda semana. Descubra os <span className="text-[#2DD4BF] font-semibold">princípios imutáveis</span> da inteligência artificial que colocarão você no top 1% do mercado.
           </p>
 
           {/* CTA Botão Vermelho Alaranjado (Destaque Total) */}
@@ -155,8 +155,8 @@ function App() {
               </Button>
             </a>
             <div className="flex items-center gap-4 text-sm text-gray-500">
-              <span className="flex items-center"><Shield className="w-4 h-4 text-[#8B5CF6] mr-2"/> Compra Segura</span>
-              <span className="flex items-center"><Rocket className="w-4 h-4 text-[#8B5CF6] mr-2"/> Acesso Imediato</span>
+              <span className="flex items-center"><Shield className="w-4 h-4 text-[#2DD4BF] mr-2"/> Compra Segura</span>
+              <span className="flex items-center"><Rocket className="w-4 h-4 text-[#2DD4BF] mr-2"/> Acesso Imediato</span>
             </div>
           </div>
         </div>
@@ -166,25 +166,25 @@ function App() {
         </div>
       </section>
 
-      {/* 3. PROVA SOCIAL (LOGOS) */}
+      {/* 3. PROVA SOCIAL (LOGOS) - Detalhes Turquesa e Laranja */}
       <div className="relative z-10 border-y border-[#333] bg-[#0A0A0A]/80 backdrop-blur-md py-8">
           <div className="max-w-6xl mx-auto px-4 text-center">
               <p className="text-sm font-medium text-gray-500 mb-6 uppercase tracking-widest">Método utilizado por profissionais de:</p>
               <div className="flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-                  <div className="text-2xl font-bold font-mono">TECH<span className="text-[#FF6B35]">CORP</span></div>
-                  <div className="text-2xl font-bold font-sans italic">InnovateLabs</div>
-                  <div className="text-xl font-bold uppercase tracking-tighter">Future<span className="text-[#8B5CF6] font-extrabold">/</span>Work</div>
-                  <div className="text-2xl font-semibold">Global<span className="font-light text-[#FF6B35]">Systems</span></div>
+                  <div className="text-2xl font-bold font-mono text-white">TECH<span className="text-[#2DD4BF]">CORP</span></div>
+                  <div className="text-2xl font-bold font-sans italic text-white">InnovateLabs</div>
+                  <div className="text-xl font-bold uppercase tracking-tighter text-white">Future<span className="text-[#FF6B35] font-extrabold">/</span>Work</div>
+                  <div className="text-2xl font-semibold text-white">Global<span className="font-light text-[#2DD4BF]">Systems</span></div>
               </div>
           </div>
       </div>
 
-      {/* 4. A DOR */}
+      {/* 4. A DOR - Foco em Alerta (Laranja/Vermelho) mas com glow Turquesa */}
       <section ref={painRef} className={`relative z-10 py-32 px-4 transition-all duration-1000 delay-200 ${painVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
         <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-5 gap-12 items-center">
                 <div className="md:col-span-2 relative group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B35]/20 to-[#8B5CF6]/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#2DD4BF]/20 to-[#FF6B35]/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700"></div>
                     <img src={fundo02} alt="Caos Digital" className="relative rounded-3xl shadow-2xl border border-[#333] z-10 rotate-3 group-hover:rotate-0 transition-all duration-700 grayscale hover:grayscale-0" />
                 </div>
                 <div className="md:col-span-3 space-y-8">
@@ -209,11 +209,11 @@ function App() {
         </div>
       </section>
 
-      {/* 5. A SOLUÇÃO: BENTO GRID */}
+      {/* 5. A SOLUÇÃO: BENTO GRID - Dominância Turquesa */}
       <section ref={bentoRef} className="relative z-10 pt-32 pb-16 px-4 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
-                <h2 className="text-4xl md:text-6xl font-bold mb-6">O Ecossistema <span className="text-[#FF6B35]">Nexus Origin</span></h2>
+                <h2 className="text-4xl md:text-6xl font-bold mb-6">O Ecossistema <span className="text-[#2DD4BF]">Nexus Origin</span></h2>
                 <p className="text-xl text-gray-400 max-w-3xl mx-auto">
                     Não é um curso. É um sistema operacional mental para você navegar e liderar na era da Inteligência Artificial.
                 </p>
@@ -223,8 +223,8 @@ function App() {
                 {bentoFeatures.map((item, index) => (
                     <div key={index} className={`${item.colSpan} nexus-card group relative rounded-3xl overflow-hidden`}>
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none">
-                            {/* Glow Roxo no Hover */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#8B5CF6]/10 via-transparent to-[#FF6B35]/10 blur-xl"></div>
+                            {/* Glow Turquesa no Hover */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#2DD4BF]/10 via-transparent to-[#FF6B35]/10 blur-xl"></div>
                         </div>
                         {item.bgImage && (
                             <div className="absolute inset-0 z-0">
@@ -233,11 +233,11 @@ function App() {
                             </div>
                         )}
                         <div className="relative z-10 p-8 h-full flex flex-col justify-end">
-                            {/* Ícone Laranja */}
-                            <div className="w-14 h-14 bg-[#1A1A1A] border border-[#FF6B35]/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                                <item.icon className="w-7 h-7 text-[#FF6B35]" />
+                            {/* Ícone Turquesa */}
+                            <div className="w-14 h-14 bg-[#1A1A1A] border border-[#2DD4BF]/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                                <item.icon className="w-7 h-7 text-[#2DD4BF]" />
                             </div>
-                            <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#FF6B35] transition-colors">{item.title}</h3>
+                            <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#2DD4BF] transition-colors">{item.title}</h3>
                             <p className="text-gray-400 text-lg leading-relaxed">{item.desc}</p>
                         </div>
                     </div>
@@ -246,25 +246,25 @@ function App() {
         </div>
       </section>
 
-      {/* FAIXA HORIZONTAL INTERMEDIÁRIA (MOVIMENTO) */}
+      {/* FAIXA HORIZONTAL INTERMEDIÁRIA - Ícones Turquesa */}
       <div className="relative z-20 py-6 overflow-hidden bg-[#0A0A0A] border-y border-[#333]">
         <div className="horizontal-banner-wrapper" style={{ background: 'transparent', border: 'none' }}>
           <div className="horizontal-banner">
             <div className="banner-content">
-              {/* Ícones Roxos para diferenciar */}
-              <span className="banner-item text-[#8B5CF6] font-mono tracking-widest flex items-center text-lg">
+              {/* Ícones Turquesa, texto claro */}
+              <span className="banner-item text-[#2DD4BF] font-mono tracking-widest flex items-center text-lg">
                 <Sparkles className="w-4 h-4 mr-3 text-[#FF6B35]" /> FRAMEWORKS ESTRATÉGICOS
               </span>
-              <span className="banner-item text-[#8B5CF6] font-mono tracking-widest flex items-center text-lg">
+              <span className="banner-item text-[#2DD4BF] font-mono tracking-widest flex items-center text-lg">
                 <Terminal className="w-4 h-4 mr-3 text-[#FF6B35]" /> ENGENHARIA DE PROMPT
               </span>
-              <span className="banner-item text-[#8B5CF6] font-mono tracking-widest flex items-center text-lg">
+              <span className="banner-item text-[#2DD4BF] font-mono tracking-widest flex items-center text-lg">
                 <Cpu className="w-4 h-4 mr-3 text-[#FF6B35]" /> AUTOMAÇÃO DE TAREFAS
               </span>
-              <span className="banner-item text-[#8B5CF6] font-mono tracking-widest flex items-center text-lg">
+              <span className="banner-item text-[#2DD4BF] font-mono tracking-widest flex items-center text-lg">
                 <Layers className="w-4 h-4 mr-3 text-[#FF6B35]" /> MODELOS MENTAIS
               </span>
-              <span className="banner-item text-[#8B5CF6] font-mono tracking-widest flex items-center text-lg">
+              <span className="banner-item text-[#2DD4BF] font-mono tracking-widest flex items-center text-lg">
                 <Sparkles className="w-4 h-4 mr-3 text-[#FF6B35]" /> FRAMEWORKS ESTRATÉGICOS
               </span>
             </div>
@@ -272,11 +272,11 @@ function App() {
         </div>
       </div>
 
-      {/* 6. O STACK */}
+      {/* 6. O STACK - Azul e Laranja equilibrados */}
       <section ref={stackRef} className="relative z-10 py-32 px-4">
           <div className="max-w-5xl mx-auto bg-[#111]/60 backdrop-blur-xl border border-[#333] rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden">
               {/* Glows de Fundo */}
-              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#8B5CF6]/10 rounded-full blur-[100px] pointer-events-none"></div>
+              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#2DD4BF]/10 rounded-full blur-[100px] pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#FF6B35]/10 rounded-full blur-[100px] pointer-events-none"></div>
 
               <div className={`relative z-10 transition-all duration-1000 ${stackVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
@@ -284,15 +284,15 @@ function App() {
                   
                   <div className="space-y-6">
                       {stackItems.map((item, index) => (
-                          <div key={index} className="flex flex-col md:flex-row items-center justify-between p-6 bg-[#0A0A0A]/80 border border-[#333] rounded-2xl hover:border-[#FF6B35]/50 transition-colors duration-300 group">
+                          <div key={index} className="flex flex-col md:flex-row items-center justify-between p-6 bg-[#0A0A0A]/80 border border-[#333] rounded-2xl hover:border-[#2DD4BF]/50 transition-colors duration-300 group">
                               <div className="flex items-center gap-6 mb-4 md:mb-0">
-                                  {/* Ícone Laranja */}
-                                  <div className="w-12 h-12 bg-[#FF6B35]/10 border border-[#FF6B35]/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                                      <item.icon className="w-6 h-6 text-[#FF6B35]" />
+                                  {/* Ícone Turquesa */}
+                                  <div className="w-12 h-12 bg-[#2DD4BF]/10 border border-[#2DD4BF]/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                                      <item.icon className="w-6 h-6 text-[#2DD4BF]" />
                                   </div>
                                   <h3 className="text-xl font-bold">{item.title}</h3>
                               </div>
-                              <div className="px-6 py-2 bg-[#1A1A1A] rounded-full text-[#8B5CF6] font-mono font-bold border border-[#8B5CF6]/20">
+                              <div className="px-6 py-2 bg-[#1A1A1A] rounded-full text-[#FF6B35] font-mono font-bold border border-[#FF6B35]/20">
                                   {item.value}
                               </div>
                           </div>
@@ -302,7 +302,7 @@ function App() {
                   <div className="mt-16 text-center">
                       <p className="text-xl text-gray-400 mb-6">Valor Total do Stack: <span className="line-through">R$ 641,00</span></p>
                       <p className="text-3xl md:text-5xl font-extrabold text-white mb-8">
-                          Hoje por apenas: <span className="text-[#FF6B35]">R$ 37,00</span>
+                          Hoje por apenas: <span className="text-[#2DD4BF]">R$ 37,00</span>
                       </p>
                       <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block w-full max-w-md">
                         <Button className="pulse-button w-full h-16 text-white font-bold text-xl rounded-xl flex items-center justify-center gap-3">
@@ -317,7 +317,7 @@ function App() {
       {/* 7. TESTEMUNHOS */}
       <section ref={reviewsRef} className="relative z-10 py-24 px-4 bg-[#0A0A0A] border-y border-[#333]">
         <div className={`max-w-6xl mx-auto transition-all duration-1000 ${reviewsVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">O Que Estão Falando do <span className="text-[#8B5CF6]">Método Nexus</span></h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">O Que Estão Falando do <span className="text-[#2DD4BF]">Método Nexus</span></h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[1, 2, 3].map((_, i) => (
@@ -328,7 +328,7 @@ function App() {
                         </div>
                         <p className="text-gray-300 mb-6 leading-relaxed">"O material é direto ao ponto. Em uma tarde eu já estava aplicando conceitos que economizaram horas da minha semana. O melhor investimento que fiz esse ano."</p>
                         <div className="flex items-center gap-4">
-                            <div className="w-10 h-10 bg-gradient-to-br from-[#8B5CF6] to-[#6D28D9] rounded-full flex items-center justify-center font-bold text-sm text-white">
+                            <div className="w-10 h-10 bg-gradient-to-br from-[#2DD4BF] to-[#0D9488] rounded-full flex items-center justify-center font-bold text-sm text-black">
                                 {String.fromCharCode(65 + i)}
                             </div>
                             <div>
@@ -348,11 +348,11 @@ function App() {
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Perguntas Frequentes</h2>
             <div className="space-y-4">
                 {faqItems.map((item, index) => (
-                    <div key={index} className="bg-[#111]/50 border border-[#333] rounded-2xl overflow-hidden hover:border-[#8B5CF6]/50 transition-colors">
+                    <div key={index} className="bg-[#111]/50 border border-[#333] rounded-2xl overflow-hidden hover:border-[#2DD4BF]/50 transition-colors">
                         <details className="group">
                             <summary className="flex justify-between items-center p-6 cursor-pointer list-none">
                                 <h3 className="text-lg font-bold text-white">{item.q}</h3>
-                                <ChevronRight className="w-5 h-5 text-[#FF6B35] transform group-open:rotate-90 transition-transform" />
+                                <ChevronRight className="w-5 h-5 text-[#2DD4BF] transform group-open:rotate-90 transition-transform" />
                             </summary>
                             <div className="px-6 pb-6 pt-2 text-gray-300 leading-relaxed border-t border-[#333] bg-[#0A0A0A]/50">
                                 {item.a}
@@ -370,7 +370,7 @@ function App() {
         
         <div className={`max-w-4xl mx-auto text-center relative z-20 transition-all duration-1000 ${offerVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             <div className="mb-12">
-                 <Shield className="w-20 h-20 text-[#8B5CF6] mx-auto mb-6 animate-pulse-slow" />
+                 <Shield className="w-20 h-20 text-[#2DD4BF] mx-auto mb-6 animate-pulse-slow" />
                  <h2 className="text-4xl md:text-5xl font-bold mb-6">Garantia Blindada de 7 Dias</h2>
                  <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
                      O risco é todo nosso. Acesse o material, aplique os blueprints. Se você não sentir que isso vale 10x o que você pagou, envie um único e-mail e devolvemos 100% do seu dinheiro.
@@ -391,8 +391,8 @@ function App() {
                             <div className="text-6xl font-extrabold text-white mb-2">R$ 37<span className="text-2xl text-gray-400">,00</span></div>
                             <p className="text-gray-400 mb-4">Pagamento único. Sem mensalidades.</p>
                             <div className="flex flex-col gap-2">
-                                <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[#FF6B35] mr-2" /> Acesso Imediato via E-mail</div>
-                                <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[#FF6B35] mr-2" /> Plataforma Segura e Confiável</div>
+                                <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[#2DD4BF] mr-2" /> Acesso Imediato via E-mail</div>
+                                <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[#2DD4BF] mr-2" /> Plataforma Segura e Confiável</div>
                             </div>
                         </div>
                     </div>
@@ -413,7 +413,7 @@ function App() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
             <div className="md:col-span-2">
                 <div className="flex items-center gap-3 mb-6">
-                    <Brain className="w-8 h-8 text-[#FF6B35]" />
+                    <Brain className="w-8 h-8 text-[#2DD4BF]" />
                     <span className="text-2xl font-bold text-white">NEXUS ORIGIN</span>
                 </div>
                 <p className="text-gray-500 leading-relaxed max-w-sm mb-6">
@@ -423,8 +423,8 @@ function App() {
             <div>
                 <h4 className="text-white font-bold mb-6">Links Úteis</h4>
                 <ul className="space-y-3 text-gray-500">
-                    <li><a href="#" className="hover:text-[#FF6B35] transition-colors">Política de Privacidade</a></li>
-                    <li><a href="#" className="hover:text-[#FF6B35] transition-colors">Suporte</a></li>
+                    <li><a href="#" className="hover:text-[#2DD4BF] transition-colors">Política de Privacidade</a></li>
+                    <li><a href="#" className="hover:text-[#2DD4BF] transition-colors">Suporte</a></li>
                 </ul>
             </div>
             <div>
