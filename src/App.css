@@ -1,5 +1,5 @@
 /* =========================================
-   App.css - VERSÃO FINAL (CYBER TEAL + ORANGE/RED CTA)
+   App.css - VERSÃO FINAL (DARK METAL BLUE + TEAL/ORANGE/RED CTA)
 ========================================
 */
 
@@ -11,7 +11,7 @@
 /* 2. DEFINIÇÃO DE TEMA (Tailwind v4 - CSS-first) */
 @theme inline {
   /* PALETA NEXUS REFINADA */
-  --color-nexus-bg: #020408;          /* Fundo Dark Profundo */
+  --color-nexus-bg: #1A2A3A;          /* NOVO AZUL METÁLICO ESCURO */
   --color-nexus-teal: #2DD4BF;        /* AZUL TURQUESA (Identidade Principal) */
   --color-nexus-orange: #FF6B35;      /* Laranja (Detalhes/Contraste) */
   --color-nexus-cta: #FF4F1F;         /* Vermelho Alaranjado (BOTÕES DE VENDA) */
@@ -232,7 +232,7 @@
 
 /* Gradientes Customizados NEXUS (Ajustados) */
 .gradient-nexus-primary { background: linear-gradient(135deg, #FF4F1F 0%, #FF7F50 100%); } /* Red-Orange */
-.gradient-nexus-secondary { background: linear-gradient(135deg, #020408 0%, #14222E 100%); } /* Dark */
+.gradient-nexus-secondary { background: linear-gradient(135deg, #1A2A3A 0%, #253D50 100%); } /* Dark Metal Blue */
 .gradient-nexus-accent { background: linear-gradient(135deg, #2DD4BF 0%, #0D9488 100%); } /* Teal */
 
 /* Sombras Customizados (Ajustados) */
