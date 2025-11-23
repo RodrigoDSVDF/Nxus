@@ -417,3 +417,151 @@
 /* Sombras Customizados */
 .shadow-nexus { box-shadow: 0 25px 50px -12px rgba(255, 79, 31, 0.25); }
 .shadow-nexus-glow { box-shadow: 0 0 20px rgba(255, 79, 31, 0.5); }
+/* =========================================
+   App.css - VERSÃO "SUNSET CYBERPUNK"
+========================================
+*/
+
+/* 1. IMPORTAÇÕES */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* 2. DEFINIÇÃO DE TEMA */
+@theme inline {
+  /* PALETA NEXUS REFINADA */
+  --color-nexus-bg: #050505;          /* Preto quase absoluto */
+  --color-nexus-orange: #FF6B35;      /* Laranja Identidade (Ícones/Destaques) */
+  --color-nexus-purple: #8B5CF6;      /* Roxo "Bonito" (Glows/Detalhes) */
+  --color-nexus-cta: #FF4F1F;         /* Vermelho Alaranjado (BOTÕES DE VENDA) */
+  --color-nexus-cta-hover: #FF2E00;   /* Hover do Botão */
+
+  /* Variáveis Tailwind padrão (mantidas para compatibilidade) */
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  /* ... (pode manter as outras variáveis padrão se quiser, mas as acima são as principais) ... */
+}
+
+/* 3. ESTILOS DE BASE */
+@layer base {
+  body {
+    background-color: var(--color-nexus-bg);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+/* 4. COMPONENTES E EFEITOS ESPECÍFICOS */
+@layer components {
+  /* FAIXA HORIZONTAL - Gradiente Laranja para Roxo */
+  .horizontal-banner-wrapper {
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(90deg, #FF6B35 0%, #8B5CF6 50%, #FF6B35 100%);
+    padding: 0.5rem 0;
+    position: relative;
+    z-index: 50;
+    border-bottom: 1px solid rgba(255, 107, 53, 0.3);
+  }
+
+  .horizontal-banner {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .banner-content {
+    display: flex;
+    animation: scroll-horizontal 30s linear infinite;
+    white-space: nowrap;
+  }
+
+  .banner-item {
+    display: inline-block;
+    padding: 0 3rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* BOTÃO PULSANTE DE VENDA (Vermelho Alaranjado) */
+  .pulse-button {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-nexus-cta);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 79, 31, 0.4); /* Glow vermelho */
+  }
+
+  .pulse-button:hover {
+    background: var(--color-nexus-cta-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(255, 79, 31, 0.6);
+  }
+
+  .pulse-button::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+    transform: translateX(-100%);
+    animation: shine 3s infinite;
+  }
+
+  /* CARDS HOVER EFFECT */
+  .nexus-card {
+    background: rgba(20, 20, 25, 0.6);
+    border: 1px solid rgba(255, 107, 53, 0.1);
+    transition: all 0.4s ease;
+  }
+
+  .nexus-card:hover {
+    border-color: var(--color-nexus-orange);
+    box-shadow: 0 10px 40px -10px rgba(139, 92, 246, 0.2); /* Sombra Roxa sutil */
+    transform: translateY(-5px);
+  }
+}
+
+/* 5. ANIMAÇÕES */
+@keyframes scroll-horizontal {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  20% { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes gradientX {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Utilitários de Animação */
+.animate-marquee { animation: scroll-horizontal 20s linear infinite; }
+.animate-pulse-slow { animation: pulse-slow 4s infinite; }
+.animate-gradient-text {
+  background-size: 200% auto;
+  animation: gradientX 4s linear infinite;
+}
+
+/* Utilitários de Gradiente de Texto */
+.text-gradient-orange-purple {
+  background: linear-gradient(to right, #FF6B35, #8B5CF6, #FF6B35);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: gradientX 5s linear infinite;
+}
