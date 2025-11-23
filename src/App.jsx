@@ -226,13 +226,12 @@ function App() {
                         </div>
                         {item.bgImage && (
                             <div className="absolute inset-0 z-0">
-                                {/* CORRIGIDO: Tag img fechada corretamente */}
                                 <img src={item.bgImage} alt={`Imagem de ${item.title}`} className="w-full h-full object-cover opacity-20 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/80 to-transparent"></div>
                             </div>
                         )}
                         <div className="relative z-10 p-8 h-full flex flex-col justify-end">
-                            <div className="w-14 h-14 bg-[#1A1A1A] border border-[--color-nexus-teal]/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                            <div className="w-14 h-14 bg-[#1A1A3A] border border-[--color-nexus-teal]/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                                 <item.icon className="w-7 h-7 text-[--color-nexus-teal]" />
                             </div>
                             <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[--color-nexus-teal] transition-colors">{item.title}</h3>
@@ -244,25 +243,25 @@ function App() {
         </div>
       </section>
 
-      {/* FAIXA HORIZONTAL INTERMEDIÁRIA */}
-      <div className="relative z-20 py-6 overflow-hidden bg-[#0A0A0A] border-y border-[#333]">
-        <div className="horizontal-banner-wrapper" style={{ background: 'transparent', border: 'none' }}>
+      {/* FAIXA HORIZONTAL INTERMEDIÁRIA - Azul mais claro, apenas "Nexus" */}
+      <div className="relative z-20 py-6 overflow-hidden bg-[#0A0A0A] border-y border-[#333] horizontal-banner-mid-section"> 
+        <div className="horizontal-banner-wrapper" style={{ background: 'linear-gradient(90deg, #A7D9FF 0%, #DBEEFF 50%, #A7D9FF 100%)', border: 'none' }}>
           <div className="horizontal-banner">
             <div className="banner-content">
-              <span className="banner-item text-[--color-nexus-teal] font-mono tracking-widest flex items-center text-lg">
-                <Sparkles className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> FRAMEWORKS ESTRATÉGICOS
+              <span className="banner-item font-mono tracking-widest flex items-center text-lg"> 
+                <Sparkles className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> NEXUS
               </span>
-              <span className="banner-item text-[--color-nexus-teal] font-mono tracking-widest flex items-center text-lg">
-                <Terminal className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> ENGENHARIA DE PROMPT
+              <span className="banner-item font-mono tracking-widest flex items-center text-lg">
+                <Terminal className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> NEXUS
               </span>
-              <span className="banner-item text-[--color-nexus-teal] font-mono tracking-widest flex items-center text-lg">
-                <Cpu className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> AUTOMAÇÃO DE TAREFAS
+              <span className="banner-item font-mono tracking-widest flex items-center text-lg">
+                <Cpu className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> NEXUS
               </span>
-              <span className="banner-item text-[--color-nexus-teal] font-mono tracking-widest flex items-center text-lg">
-                <Layers className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> MODELOS MENTAIS
+              <span className="banner-item font-mono tracking-widest flex items-center text-lg">
+                <Layers className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> NEXUS
               </span>
-              <span className="banner-item text-[--color-nexus-teal] font-mono tracking-widest flex items-center text-lg">
-                <Sparkles className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> FRAMEWORKS ESTRATÉGICOS
+              <span className="banner-item font-mono tracking-widest flex items-center text-lg">
+                <Sparkles className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> NEXUS
               </span>
             </div>
           </div>
@@ -287,7 +286,7 @@ function App() {
                                   </div>
                                   <h3 className="text-xl font-bold">{item.title}</h3>
                               </div>
-                              <div className="px-6 py-2 bg-[#1A1A1A] rounded-full text-[--color-nexus-orange] font-mono font-bold border border-[--color-nexus-orange]/20">
+                              <div className="px-6 py-2 bg-[#1A1A3A] rounded-full text-[--color-nexus-orange] font-mono font-bold border border-[--color-nexus-orange]/20">
                                   {item.value}
                               </div>
                           </div>
