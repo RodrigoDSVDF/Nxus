@@ -92,13 +92,13 @@ function App() {
   return (
     <div className="min-h-screen bg-[--color-nexus-bg] font-['Poppins',sans-serif] overflow-x-hidden text-slate-100 selection:bg-[--color-nexus-teal] selection:text-black">
       
-      {/* BACKGROUND GLOBAL - "Dark Metal Blue" */}
+      {/* BACKGROUND GLOBAL */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-          {/* Turquesa no topo esquerdo (Dominante) */}
+          {/* Turquesa (Dominante) */}
           <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-[--color-nexus-teal]/10 rounded-full blur-[120px] animate-pulse-slow"></div>
-          {/* Laranja na direita inferior (Contraste) */}
+          {/* Laranja (Contraste) */}
           <div className="absolute bottom-[-20%] right-[-10%] w-[800px] h-[800px] bg-[--color-nexus-orange]/10 rounded-full blur-[120px] animate-pulse-slow" style={{animationDelay: '2s'}}></div>
-          {/* Grid Tech (mantido, talvez com opacidade ajustada) */}
+          {/* Grid Tech */}
           <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-5"></div>
       </div>
 
@@ -106,7 +106,6 @@ function App() {
       <div className="horizontal-banner-wrapper">
         <div className="horizontal-banner">
           <div className="banner-content">
-             {/* Texto Preto para contraste no banner Turquesa/Laranja */}
              <span className="banner-item flex items-center text-black"><Zap className="w-4 h-4 mr-2"/>OFERTA DE LANÇAMENTO</span>
              <span className="banner-item flex items-center text-black"><CheckCircle className="w-4 h-4 mr-2"/>ACESSO VITALÍCIO</span>
              <span className="banner-item flex items-center text-black"><Shield className="w-4 h-4 mr-2"/>GARANTIA DE 7 DIAS</span>
@@ -146,7 +145,7 @@ function App() {
             Pare de correr atrás de ferramentas novas toda semana. Descubra os <span className="text-[--color-nexus-teal] font-semibold">princípios imutáveis</span> da inteligência artificial que colocarão você no top 1% do mercado.
           </p>
 
-          {/* CTA Botão Vermelho Alaranjado (Destaque Total) */}
+          {/* CTA Botão Vermelho Alaranjado */}
           <div className="flex flex-col items-center gap-6 animate-scale-in">
             <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="group relative inline-block">
               <Button className="pulse-button relative w-full md:w-auto h-16 px-12 text-white font-bold text-xl rounded-xl flex items-center justify-center gap-3">
@@ -162,11 +161,11 @@ function App() {
         </div>
 
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl opacity-30 pointer-events-none -z-10 mix-blend-screen">
-            <img src={brainNetworkImg} alt="" className="w-full h-auto mask-radial-faded" />
+            <img src={brainNetworkImg} alt="Imagem abstrata de rede neural" className="w-full h-auto mask-radial-faded" />
         </div>
       </section>
 
-      {/* 3. PROVA SOCIAL (LOGOS) - Detalhes Turquesa e Laranja */}
+      {/* 3. PROVA SOCIAL (LOGOS) */}
       <div className="relative z-10 border-y border-[#333] bg-[#0A0A0A]/80 backdrop-blur-md py-8">
           <div className="max-w-6xl mx-auto px-4 text-center">
               <p className="text-sm font-medium text-gray-500 mb-6 uppercase tracking-widest">Método utilizado por profissionais de:</p>
@@ -179,7 +178,7 @@ function App() {
           </div>
       </div>
 
-      {/* 4. A DOR - Foco em Alerta (Laranja/Vermelho) mas com glow Turquesa */}
+      {/* 4. A DOR */}
       <section ref={painRef} className={`relative z-10 py-32 px-4 transition-all duration-1000 delay-200 ${painVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
         <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-5 gap-12 items-center">
@@ -209,7 +208,7 @@ function App() {
         </div>
       </section>
 
-      {/* 5. A SOLUÇÃO: BENTO GRID - Dominância Turquesa */}
+      {/* 5. A SOLUÇÃO: BENTO GRID */}
       <section ref={bentoRef} className="relative z-10 pt-32 pb-16 px-4 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
@@ -223,9 +222,220 @@ function App() {
                 {bentoFeatures.map((item, index) => (
                     <div key={index} className={`${item.colSpan} nexus-card group relative rounded-3xl overflow-hidden`}>
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none">
-                            {/* Glow Turquesa no Hover */}
                             <div className="absolute inset-0 bg-gradient-to-r from-[--color-nexus-teal]/10 via-transparent to-[--color-nexus-orange]/10 blur-xl"></div>
                         </div>
                         {item.bgImage && (
                             <div className="absolute inset-0 z-0">
-                                <img src={item.bgImage} alt="" className="w-full h-full object-cover opacity-20 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration
+                                {/* CORRIGIDO: Tag img fechada corretamente */}
+                                <img src={item.bgImage} alt={`Imagem de ${item.title}`} className="w-full h-full object-cover opacity-20 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/80 to-transparent"></div>
+                            </div>
+                        )}
+                        <div className="relative z-10 p-8 h-full flex flex-col justify-end">
+                            <div className="w-14 h-14 bg-[#1A1A1A] border border-[--color-nexus-teal]/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                                <item.icon className="w-7 h-7 text-[--color-nexus-teal]" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[--color-nexus-teal] transition-colors">{item.title}</h3>
+                            <p className="text-gray-400 text-lg leading-relaxed">{item.desc}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+      </section>
+
+      {/* FAIXA HORIZONTAL INTERMEDIÁRIA */}
+      <div className="relative z-20 py-6 overflow-hidden bg-[#0A0A0A] border-y border-[#333]">
+        <div className="horizontal-banner-wrapper" style={{ background: 'transparent', border: 'none' }}>
+          <div className="horizontal-banner">
+            <div className="banner-content">
+              <span className="banner-item text-[--color-nexus-teal] font-mono tracking-widest flex items-center text-lg">
+                <Sparkles className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> FRAMEWORKS ESTRATÉGICOS
+              </span>
+              <span className="banner-item text-[--color-nexus-teal] font-mono tracking-widest flex items-center text-lg">
+                <Terminal className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> ENGENHARIA DE PROMPT
+              </span>
+              <span className="banner-item text-[--color-nexus-teal] font-mono tracking-widest flex items-center text-lg">
+                <Cpu className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> AUTOMAÇÃO DE TAREFAS
+              </span>
+              <span className="banner-item text-[--color-nexus-teal] font-mono tracking-widest flex items-center text-lg">
+                <Layers className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> MODELOS MENTAIS
+              </span>
+              <span className="banner-item text-[--color-nexus-teal] font-mono tracking-widest flex items-center text-lg">
+                <Sparkles className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> FRAMEWORKS ESTRATÉGICOS
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 6. O STACK */}
+      <section ref={stackRef} className="relative z-10 py-32 px-4">
+          <div className="max-w-5xl mx-auto bg-[#1A2A3A]/80 backdrop-blur-xl border border-[#333] rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[--color-nexus-teal]/10 rounded-full blur-[100px] pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[--color-nexus-orange]/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+              <div className={`relative z-10 transition-all duration-1000 ${stackVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+                  <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">O Arsenal Completo da Sua <span className="text-[--color-nexus-orange]">Nova Carreira</span></h2>
+                  
+                  <div className="space-y-6">
+                      {stackItems.map((item, index) => (
+                          <div key={index} className="flex flex-col md:flex-row items-center justify-between p-6 bg-[#0A0A0A]/80 border border-[#333] rounded-2xl hover:border-[--color-nexus-teal]/50 transition-colors duration-300 group">
+                              <div className="flex items-center gap-6 mb-4 md:mb-0">
+                                  <div className="w-12 h-12 bg-[--color-nexus-teal]/10 border border-[--color-nexus-teal]/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                                      <item.icon className="w-6 h-6 text-[--color-nexus-teal]" />
+                                  </div>
+                                  <h3 className="text-xl font-bold">{item.title}</h3>
+                              </div>
+                              <div className="px-6 py-2 bg-[#1A1A1A] rounded-full text-[--color-nexus-orange] font-mono font-bold border border-[--color-nexus-orange]/20">
+                                  {item.value}
+                              </div>
+                          </div>
+                      ))}
+                  </div>
+
+                  <div className="mt-16 text-center">
+                      <p className="text-xl text-gray-400 mb-6">Valor Total do Stack: <span className="line-through">R$ 641,00</span></p>
+                      <p className="text-3xl md:text-5xl font-extrabold text-white mb-8">
+                          Hoje por apenas: <span className="text-[--color-nexus-teal]">R$ 37,00</span>
+                      </p>
+                      <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block w-full max-w-md">
+                        <Button className="pulse-button w-full h-16 text-white font-bold text-xl rounded-xl flex items-center justify-center gap-3">
+                            GARANTIR MEU ARSENAL AGORA
+                        </Button>
+                    </a>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      {/* 7. TESTEMUNHOS */}
+      <section ref={reviewsRef} className="relative z-10 py-24 px-4 bg-[#0A0A0A] border-y border-[#333]">
+        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${reviewsVisible ? 'opacity-100' : 'opacity-0'}`}>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">O Que Estão Falando do <span className="text-[--color-nexus-teal]">Método Nexus</span></h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[1, 2, 3].map((_, i) => (
+                    <div key={i} className="nexus-card p-8 rounded-3xl relative">
+                        <div className="absolute -top-4 left-8 text-[--color-nexus-orange] text-6xl opacity-20">"</div>
+                        <div className="flex gap-1 mb-4">
+                            {[...Array(5)].map((_, j) => <Star key={j} className="w-5 h-5 text-[--color-nexus-orange] fill-current" />)}
+                        </div>
+                        <p className="text-gray-300 mb-6 leading-relaxed">"O material é direto ao ponto. Em uma tarde eu já estava aplicando conceitos que economizaram horas da minha semana. O melhor investimento que fiz esse ano."</p>
+                        <div className="flex items-center gap-4">
+                            <div className="w-10 h-10 bg-gradient-to-br from-[--color-nexus-teal] to-[#0D9488] rounded-full flex items-center justify-center font-bold text-sm text-black">
+                                {String.fromCharCode(65 + i)}
+                            </div>
+                            <div>
+                                <h4 className="font-bold text-white">Aluno Verificado</h4>
+                                <p className="text-sm text-gray-500">Membro da Comunidade</p>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+      </section>
+
+      {/* 8. FAQ */}
+      <section className="relative z-10 py-24 px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Perguntas Frequentes</h2>
+            <div className="space-y-4">
+                {faqItems.map((item, index) => (
+                    <div key={index} className="bg-[#111]/50 border border-[#333] rounded-2xl overflow-hidden hover:border-[--color-nexus-teal]/50 transition-colors">
+                        <details className="group">
+                            <summary className="flex justify-between items-center p-6 cursor-pointer list-none">
+                                <h3 className="text-lg font-bold text-white">{item.q}</h3>
+                                <ChevronRight className="w-5 h-5 text-[--color-nexus-teal] transform group-open:rotate-90 transition-transform" />
+                            </summary>
+                            <div className="px-6 pb-6 pt-2 text-gray-300 leading-relaxed border-t border-[#333] bg-[#0A0A0A]/50">
+                                {item.a}
+                            </div>
+                        </details>
+                    </div>
+                ))}
+            </div>
+          </div>
+      </section>
+
+      {/* 9. OFERTA FINAL */}
+      <section ref={offerRef} className="relative z-10 py-32 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-[--color-nexus-cta]/10 to-transparent pointer-events-none"></div>
+        
+        <div className={`max-w-4xl mx-auto text-center relative z-20 transition-all duration-1000 ${offerVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+            <div className="mb-12">
+                 <Shield className="w-20 h-20 text-[--color-nexus-teal] mx-auto mb-6 animate-pulse-slow" />
+                 <h2 className="text-4xl md:text-5xl font-bold mb-6">Garantia Blindada de 7 Dias</h2>
+                 <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                     O risco é todo nosso. Acesse o material, aplique os blueprints. Se você não sentir que isso vale 10x o que você pagou, envie um único e-mail e devolvemos 100% do seu dinheiro.
+                 </p>
+            </div>
+
+            <div className="bg-[#1A2A3A] border-2 border-[--color-nexus-cta] rounded-[3rem] p-12 shadow-2xl shadow-[--color-nexus-cta]/20 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10 mix-blend-overlay"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-[--color-nexus-cta] to-[--color-nexus-orange] blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-1000"></div>
+                
+                <div className="relative z-10">
+                    <h3 className="text-3xl font-bold text-white mb-2">Última Chance para Garantir o Preço de Lançamento</h3>
+                    <p className="text-[--color-nexus-orange] font-medium mb-8 uppercase tracking-wider">Acesso Vitalício + Bônus Exclusivos</p>
+                    
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
+                        <img src={produtoImg} alt="Pack Nexus" className="w-64 rounded-xl shadow-2xl border border-[#333] rotate-[-5deg] group-hover:rotate-0 transition-all duration-500" />
+                        <div className="text-left">
+                            <div className="text-6xl font-extrabold text-white mb-2">R$ 37<span className="text-2xl text-gray-400">,00</span></div>
+                            <p className="text-gray-400 mb-4">Pagamento único. Sem mensalidades.</p>
+                            <div className="flex flex-col gap-2">
+                                <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[--color-nexus-teal] mr-2" /> Acesso Imediato via E-mail</div>
+                                <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[--color-nexus-teal] mr-2" /> Plataforma Segura e Confiável</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="block max-w-2xl mx-auto">
+                        <Button className="pulse-button w-full h-20 text-white font-extrabold text-2xl rounded-2xl flex items-center justify-center gap-4 hover:scale-[1.02] transition-transform">
+                            QUERO COMEÇAR AGORA MESMO
+                            <ArrowRight className="w-8 h-8" />
+                        </Button>
+                    </a>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="bg-[#0A0A0A] pt-24 pb-12 px-4 border-t border-[#111] relative z-10">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
+            <div className="md:col-span-2">
+                <div className="flex items-center gap-3 mb-6">
+                    <Brain className="w-8 h-8 text-[--color-nexus-teal]" />
+                    <span className="text-2xl font-bold text-white">NEXUS ORIGIN</span>
+                </div>
+                <p className="text-gray-500 leading-relaxed max-w-sm mb-6">
+                    O manual definitivo para profissionais que desejam liderar a revolução da IA.
+                </p>
+            </div>
+            <div>
+                <h4 className="text-white font-bold mb-6">Links Úteis</h4>
+                <ul className="space-y-3 text-gray-500">
+                    <li><a href="#" className="hover:text-[--color-nexus-teal] transition-colors">Política de Privacidade</a></li>
+                    <li><a href="#" className="hover:text-[--color-nexus-teal] transition-colors">Suporte</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 className="text-white font-bold mb-6">Contato</h4>
+                <p className="text-gray-500">suporte@nexusorigin.com</p>
+            </div>
+        </div>
+        <div className="max-w-6xl mx-auto text-center pt-8 border-t border-[#111]">
+          <p className="text-gray-600 text-sm mb-4">
+            &copy; 2025 Nexus Origin. Todos os direitos reservados.
+          </p>
+        </div>
+      </footer>
+
+    </div>
+  )
+}
+
+export default App
