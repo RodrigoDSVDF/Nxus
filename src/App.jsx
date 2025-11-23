@@ -89,6 +89,10 @@ function App() {
   const [reviewsRef, reviewsVisible] = useScrollAnimation(0.1)
   const [offerRef, offerVisible] = useScrollAnimation(0.1)
 
+  // Novo cor de fundo para a faixa intermediária (texto claro/quase branco)
+  const MID_BANNER_COLOR = '#4E97D1';
+  const MID_BANNER_TEXT_COLOR = '#DBEEFF'; // Cor de texto que se destaca no #4E97D1
+
   return (
     <div className="min-h-screen bg-[--color-nexus-bg] font-['Poppins',sans-serif] overflow-x-hidden text-slate-100 selection:bg-[--color-nexus-teal] selection:text-black">
       
@@ -231,7 +235,7 @@ function App() {
                             </div>
                         )}
                         <div className="relative z-10 p-8 h-full flex flex-col justify-end">
-                            <div className="w-14 h-14 bg-[#1A1A3A] border border-[--color-nexus-teal]/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                            <div className="w-14 h-14 bg-[#1A2A3A] border border-[--color-nexus-teal]/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                                 <item.icon className="w-7 h-7 text-[--color-nexus-teal]" />
                             </div>
                             <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[--color-nexus-teal] transition-colors">{item.title}</h3>
@@ -243,24 +247,30 @@ function App() {
         </div>
       </section>
 
-      {/* FAIXA HORIZONTAL INTERMEDIÁRIA - Azul mais claro, apenas "Nexus" */}
-      <div className="relative z-20 py-6 overflow-hidden bg-[#0A0A0A] border-y border-[#333] horizontal-banner-mid-section"> 
-        <div className="horizontal-banner-wrapper" style={{ background: 'linear-gradient(90deg, #A7D9FF 0%, #DBEEFF 50%, #A7D9FF 100%)', border: 'none' }}>
+      {/* FAIXA HORIZONTAL INTERMEDIÁRIA - NOVA COR DE FUNDO */}
+      <div className="relative z-20 py-6 overflow-hidden bg-[#0A0A0A] border-y border-[#333] horizontal-banner-mid-section">
+        <div 
+          className="horizontal-banner-wrapper" 
+          style={{ 
+            background: `linear-gradient(90deg, ${MID_BANNER_COLOR} 0%, #68A9E6 50%, ${MID_BANNER_COLOR} 100%)`, 
+            border: 'none' 
+          }}
+        >
           <div className="horizontal-banner">
             <div className="banner-content">
-              <span className="banner-item font-mono tracking-widest flex items-center text-lg"> 
+              <span className="banner-item font-mono tracking-widest flex items-center text-lg" style={{color: MID_BANNER_TEXT_COLOR}}> 
                 <Sparkles className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> NEXUS
               </span>
-              <span className="banner-item font-mono tracking-widest flex items-center text-lg">
+              <span className="banner-item font-mono tracking-widest flex items-center text-lg" style={{color: MID_BANNER_TEXT_COLOR}}>
                 <Terminal className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> NEXUS
               </span>
-              <span className="banner-item font-mono tracking-widest flex items-center text-lg">
+              <span className="banner-item font-mono tracking-widest flex items-center text-lg" style={{color: MID_BANNER_TEXT_COLOR}}>
                 <Cpu className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> NEXUS
               </span>
-              <span className="banner-item font-mono tracking-widest flex items-center text-lg">
+              <span className="banner-item font-mono tracking-widest flex items-center text-lg" style={{color: MID_BANNER_TEXT_COLOR}}>
                 <Layers className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> NEXUS
               </span>
-              <span className="banner-item font-mono tracking-widest flex items-center text-lg">
+              <span className="banner-item font-mono tracking-widest flex items-center text-lg" style={{color: MID_BANNER_TEXT_COLOR}}>
                 <Sparkles className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> NEXUS
               </span>
             </div>
@@ -286,7 +296,7 @@ function App() {
                                   </div>
                                   <h3 className="text-xl font-bold">{item.title}</h3>
                               </div>
-                              <div className="px-6 py-2 bg-[#1A1A3A] rounded-full text-[--color-nexus-orange] font-mono font-bold border border-[--color-nexus-orange]/20">
+                              <div className="px-6 py-2 bg-[#1A2A3A] rounded-full text-[--color-nexus-orange] font-mono font-bold border border-[--color-nexus-orange]/20">
                                   {item.value}
                               </div>
                           </div>
