@@ -91,10 +91,10 @@ const Button = ({ children, className, ...props }) => (
     <button
       className={`
         // Usando cores HEX no hover e no ring para compatibilidade total
-        bg-[#FF4F1F] hover:bg-[#FF7F50] 
+        bg-[${NEXUS_COLORS.CTA}] hover:bg-[${NEXUS_COLORS.CTA_LIGHT}] 
         text-white font-bold py-3 px-6 rounded-lg 
         transition-all duration-300 transform hover:scale-[1.02] 
-        focus:outline-none focus:ring-4 focus:ring-[#FF4F1F]/50
+        focus:outline-none focus:ring-4 focus:ring-[${NEXUS_COLORS.CTA}]/50
         ${className}
       `}
       {...props}
@@ -120,9 +120,7 @@ function App() {
     <>
       <style>{`
         /* =========================================
-           ESTILOS CSS EMBUTIDOS (Conteúdo do App.css)
-           NOTA: Mantendo as variáveis :root para estilos complexos (pulse-button, gradients)
-           e keyframes.
+           ESTILOS CSS EMBUTIDOS (Cópia fiel do App.css mais as correções)
         ========================================= */
 
         /* 1. IMPORTAÇÕES E FONTES */
