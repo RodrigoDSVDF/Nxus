@@ -1,148 +1,169 @@
 /* =========================================
-   App.css - VERSÃO FINAL (DARK METAL BLUE + TEAL/ORANGE/RED CTA)
-========================================
-*/
+   App.css - VERSÃO CORRIGIDA E CONSOLIDADA
+   Garante compatibilidade total com o componente React fornecido.
+======================================== */
 
-/* 1. IMPORTAÇÕES */
+/* 1. IMPORTAÇÕES E CONFIGURAÇÃO DE FONTES */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@import "tailwindcss";
-@import "tw-animate-css";
+/* Nota: Você deve garantir que o Tailwind esteja rodando no seu ambiente (ex: PostCSS/Webpack) */
 
-/* 2. DEFINIÇÃO DE TEMA (Tailwind v4 - CSS-first) */
-@theme inline {
-  /* PALETA NEXUS REFINADA */
-  --color-nexus-bg: #1A2A3A;          /* AZUL METÁLICO ESCURO (Fundo) */
-  --color-nexus-teal: #2DD4BF;        /* AZUL TURQUESA (Identidade Principal) */
-  --color-nexus-orange: #FF6B35;      /* Laranja (Detalhes/Contraste) */
-  --color-nexus-cta: #FF4F1F;         /* Vermelho Alaranjado (BOTÕES DE VENDA) */
-  --color-nexus-cta-light: #FF7F50;   /* Variação CTA (para gradientes) */
-  
-  /* Variáveis Tailwind padrão */
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+/* 2. VARIÁVEIS CSS GLOBAIS (DEFINIÇÕES DE TEMA) */
+/* Estas variáveis substituem as definidas via useEffect no código React */
+:root {
+    /* PALETA NEXUS REFINADA (Dark Metal Blue/Teal/Orange) */
+    --color-nexus-bg: #050505; /* Voltando para o preto sólido do código original para evitar conflitos de BG */
+    --color-nexus-bg-section: #0A0A0A; /* Cor para seções de contraste */
+    --color-nexus-teal: #4FD1C5; /* Turquesa (Identidade Principal) */
+    --color-nexus-orange: #FF6B35; /* Laranja (Detalhes/Contraste) */
+    --color-nexus-cta: #CC3300; /* Vermelho Alaranjado (BOTÕES DE VENDA) */
+    --color-nexus-text: #E5E5E5;
+    
+    /* Variáveis para o banner intermediário */
+    --mid-banner-color: #4E97D1;
+    --mid-banner-text-color: #DBEEFF;
 }
 
-/* 3. ESTILOS DE BASE (@layer base) */
-@layer base {
-  body {
+/* 3. ESTILOS DE BASE */
+body {
     background-color: var(--color-nexus-bg);
-    color: #ffffff;
+    color: var(--color-nexus-text);
     font-family: 'Poppins', sans-serif;
-  }
-  * {
-    border-color: rgba(255, 255, 255, 0.1); 
-  }
+    overflow-x: hidden;
+    /* Estilo de seleção do texto */
+    -webkit-tap-highlight-color: var(--color-nexus-teal);
+    user-select: none;
+}
+* {
+    /* Garante que o border padrão seja escuro */
+    border-color: #333333; 
 }
 
-/* 4. ESTILOS PARA OS COMPONENTES ESPECÍFICOS DO NEXUS */
-@layer components {
-  /* FAIXA HORIZONTAL - Gradiente Turquesa para Laranja (Predominante Turquesa) */
-  .horizontal-banner-wrapper {
-    width: 100%;
-    overflow: hidden;
-    background: linear-gradient(90deg, #2DD4BF 0%, #0D9488 50%, #FF6B35 100%);
-    padding: 0.5rem 0;
-    position: relative;
-    z-index: 50;
-    border-bottom: 1px solid rgba(45, 212, 191, 0.2);
-  }
+/* 4. ESTILOS DE COMPONENTES E UTILITÁRIOS */
 
-  .horizontal-banner {
-    display: flex;
-    width: 100%;
-    overflow: hidden;
-  }
+/* === SCROLLBAR PERSONALIZADA (Copiado do React) === */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-nexus-bg); }
+::-webkit-scrollbar-thumb { background: #1A1A1A; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-nexus-teal); }
 
-  .banner-content {
-    display: flex;
-    animation: scroll-horizontal 30s linear infinite;
-    white-space: nowrap;
-  }
+/* === CARDS (BENTO GRID) (Copiado do React) === */
+.nexus-card {
+    background-color: #1A1A1A;
+    border: 1px solid #333333;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
 
-  .banner-item {
-    display: inline-block;
-    padding: 0 3rem;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #020408; /* Texto escuro para contraste no banner claro */
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  /* NOVO ESTILO PARA A SEGUNDA FAIXA HORIZONTAL (AZUL MAIS CLARO) */
-  .horizontal-banner-mid-section .banner-item {
-      color: #DBEEFF; /* Tom de azul bem claro */
-  }
-  
-  /* Imagem do produto (Sombra Turquesa) */
-  .product-image {
-    box-shadow: 0 25px 50px -12px rgba(45, 212, 191, 0.25);
-    transition: transform 0.3s ease;
-  }
-
-  /* Efeito de hover nos cartões (Borda Turquesa) */
-  .nexus-card:hover {
+.nexus-card:hover {
     border-color: var(--color-nexus-teal);
-    box-shadow: 0 10px 40px -10px rgba(45, 212, 191, 0.2); 
     transform: translateY(-5px);
-  }
-
-  /* Efeito de brilho para o botão (Vermelho-Alaranjado) */
-  .pulse-button {
-    position: relative;
-    overflow: hidden;
-    background: var(--color-nexus-cta);
-    transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(255, 79, 31, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    animation: pulse 2s infinite;
-  }
-  
-  .pulse-button:hover {
-    background: var(--color-nexus-cta-hover);
-    box-shadow: 0 0 30px rgba(255, 79, 31, 0.6);
-  }
-
-  .pulse-button::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    border-radius: 0.75rem;
-    background: linear-gradient(45deg, var(--color-nexus-cta), var(--color-nexus-cta-light), var(--color-nexus-cta));
-    z-index: -1;
-    animation: glow 2s ease-in-out infinite alternate;
-    opacity: 0;
-  }
-  
-  .pulse-button > * { position: relative; z-index: 2; }
+    box-shadow: 0 8px 20px rgba(79, 209, 197, 0.15);
 }
 
-/* 5. ANIMAÇÕES E KEYFRAMES */
+/* === BOTÃO CTA (PULSE BUTTON) (Copiado do React) === */
+button.pulse-button {
+    background-image: linear-gradient(to right, var(--color-nexus-orange), var(--color-nexus-cta));
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+    /* Adicionando a animação de pulso para feedback visual */
+    animation: buttonPulse 2s infinite; 
+}
 
-@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 79, 31, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(255, 79, 31, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 79, 31, 0); } }
-@keyframes scroll-horizontal { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-@keyframes gradientX { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+button.pulse-button:hover {
+    background-image: linear-gradient(to right, var(--color-nexus-cta), var(--color-nexus-orange));
+}
 
-/* Gradiente de Texto Turquesa para Laranja */
+/* === GRADIENTE DE TEXTO (Copiado do React) === */
 .text-gradient-teal-orange {
-  background: linear-gradient(to right, #2DD4BF, #FF6B35, #2DD4BF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  background-size: 200% auto;
-  animation: gradientX 5s linear infinite;
+    background-image: linear-gradient(to right, var(--color-nexus-teal), var(--color-nexus-orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
-/* Classes de animação (Mantidas) */
-.animate-slide-left { animation: slideLeft 1s ease-out forwards; }
-.animate-slide-right { animation: slideRight 1s ease-out forwards; }
-/* ... (outras classes de animação omitidas para brevidade, mas devem ser mantidas no seu arquivo real) ... */
+/* === MÁSCARA RADIAL (Copiado do React) === */
+.mask-radial-faded {
+    mask-image: radial-gradient(circle at center, white 50%, transparent 80%);
+}
 
-/* 7. ESTILOS GLOBAIS ADICIONAIS */
-.gradient-nexus-primary { background: linear-gradient(135deg, #FF4F1F 0%, #FF7F50 100%); } /* Red-Orange */
-.gradient-nexus-secondary { background: linear-gradient(135deg, #1A2A3A 0%, #253D50 100%); } /* Dark Metal Blue */
-.gradient-nexus-accent { background: linear-gradient(135deg, #2DD4BF 0%, #0D9488 100%); } /* Teal */
-.shadow-nexus { box-shadow: 0 25px 50px -12px rgba(255, 79, 31, 0.25); }
+/* 5. ESTILOS DE BANNERS DE ROLAGEM HORIZONTAL */
+
+/* Banner Superior (Turquesa) */
+.horizontal-banner-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    background: var(--color-nexus-teal);
+    border-bottom: 1px solid #000;
+}
+.horizontal-banner {
+    display: inline-block;
+    animation: marquee 15s linear infinite;
+    padding: 0.5rem 0; 
+}
+.banner-content {
+    display: inline-block;
+}
+.banner-item {
+    display: inline-block;
+    padding: 0 1.5rem;
+    color: #000; /* Texto preto para contraste no fundo turquesa */
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+}
+
+/* Banner Intermediário (Substitui o inline style complexo do React) */
+.horizontal-banner-mid-section .horizontal-banner-wrapper {
+    /* Animação desligada, como no código React */
+    animation: none !important; 
+    /* Estilo de fundo do banner intermediário - O React usará o MID_BANNER_COLOR */
+    background: var(--mid-banner-color); 
+    border: none;
+}
+.horizontal-banner-mid-section .banner-item {
+    color: var(--mid-banner-text-color) !important;
+    font-size: 1.125rem;
+}
+
+/* 6. KEYFRAMES E ANIMAÇÕES */
+
+/* Efeito de pulso lento do fundo (Copiado do React) */
+@keyframes pulse {
+    0% { opacity: 0.1; }
+    50% { opacity: 0.2; }
+    100% { opacity: 0.1; }
+}
+.animate-pulse-slow { animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+
+/* Animações de Scroll (Copiado do React) */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Essas classes devem ser aplicadas pelo hook useScrollAnimation */
+.animate-slide-up { animation: slideUp 0.8s ease-out forwards; }
+.animate-slide-up-delay { animation: slideUp 0.8s ease-out 0.2s forwards; opacity: 0; }
+        
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+.animate-scale-in { animation: scaleIn 0.5s ease-out forwards; }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+
+/* Animação de pulso do botão CTA (Copiado do React) */
+@keyframes buttonPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 107, 53, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0); }
+}
+
+/* Animação do Marquee (Copiado do React) */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
