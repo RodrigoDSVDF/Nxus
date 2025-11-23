@@ -1,5 +1,5 @@
 /* =========================================
-   App.css - VERSÃO APRIMORADA (MODERN BLUE + RED-ORANGE)
+   App.css - VERSÃO FINAL (CYBER TEAL + ORANGE/RED CTA)
 ========================================
 */
 
@@ -8,461 +8,65 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* 2. DEFINIÇÃO DE TEMA (Apenas Tema Claro/Padrão) */
+/* 2. DEFINIÇÃO DE TEMA (Tailwind v4 - CSS-first) */
 @theme inline {
-  /* NOVA PALETA NEXUS (DEFINIÇÃO GLOBAL) */
-  --color-nexus-bg: #050A0F;
-  --color-nexus-blue: #3B82F6; /* Azul Tech */
-  --color-nexus-red: #FF4F1F;  /* Vermelho Ação */
-  --color-nexus-red-light: #FF7F50;
-
-  /* Variáveis Semânticas (Referenciais) */
+  /* PALETA NEXUS REFINADA */
+  --color-nexus-bg: #020408;          /* Fundo Dark Profundo */
+  --color-nexus-teal: #2DD4BF;        /* AZUL TURQUESA (Identidade Principal) */
+  --color-nexus-orange: #FF6B35;      /* Laranja (Detalhes/Contraste) */
+  --color-nexus-cta: #FF4F1F;         /* Vermelho Alaranjado (BOTÕES DE VENDA) */
+  --color-nexus-cta-light: #FF7F50;   /* Variação CTA (para gradientes) */
+  
+  /* Variáveis Semânticas (Referenciais) - Shadcn/UI Style */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-
-  /* Variáveis Primitivas (Tema Claro) */
-  --radius: 0.625rem;
+  
+  /* Mapeando Tema Claro para usar variáveis modernas */
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  
+  /* Variáveis Primitivas (Tema Claro) */
+  --radius: 0.625rem;
 }
 
-/* Define a variante .dark para o Tailwind */
+/* Define a variante .dark para o Tailwind (Mantido) */
 @custom-variant dark (&:is(.dark *));
 
 /* 3. ESTILOS DE BASE (@layer base) */
 @layer base {
-  .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.488 0.243 264.376);
-    --chart-2: oklch(0.696 0.17 162.48);
-    --chart-3: oklch(0.769 0.188 70.08);
-    --chart-4: oklch(0.627 0.265 303.9);
-    --chart-5: oklch(0.645 0.246 16.439);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
-  }
-
-  * {
-    border-color: var(--border);
-  }
-
-  body {
-    background-color: var(--background);
-    color: var(--foreground);
-    font-family: 'Poppins', sans-serif;
-  }
-}
-
-/* 4. ESTILOS PARA OS COMPONENTES ESPECÍFICOS DO NEXUS */
-@layer components {
-  /* ===========================
-     NOVA FAIXA HORIZONTAL ANIMADA (ATUALIZADA)
-  =========================== */
-  .horizontal-banner-wrapper {
-    width: 100%;
-    overflow: hidden;
-    /* Gradiente Vermelho Alaranjado para Azul */
-    background: linear-gradient(135deg, #FF4F1F 0%, #FF7F50 50%, #3B82F6 100%);
-    padding: 1rem 0;
-    position: relative;
-    z-index: 50;
-  }
-
-  .horizontal-banner {
-    display: flex;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .banner-content {
-    display: flex;
-    animation: scroll-horizontal 30s linear infinite;
-    white-space: nowrap;
-  }
-
-  .banner-item {
-    display: inline-block;
-    padding: 0 3rem;
-    font-size: 1rem;
-    font-weight: 700;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  /* Container do vídeo */
-  .video-container {
-    position: relative;
-    width: 100%;
-    margin-bottom: 3rem;
-  }
-
-  .video-player {
-    width: 100%;
-    max-width: 900px;
-    height: auto;
-    border-radius: 1rem;
-    /* Sombra Vermelha */
-    box-shadow: 0 25px 50px -12px rgba(255, 79, 31, 0.25);
-  }
-
-  /* Seção da imagem de fundo */
-  .background-image-section {
-    position: relative;
-    width: 100%;
-    margin: 4rem 0;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-  }
-
-  .background-image {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-  }
-
-  .background-image-section h3 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-    z-index: 2;
-  }
-
-  /* Imagem do produto */
-  .product-image {
-    /* Sombra Azul Tech */
-    box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25);
-    transition: transform 0.3s ease;
-  }
-
-  .product-image:hover {
-    transform: scale(1.02);
-  }
-
-  /* Efeito de hover nos cartões */
-  .card-hover {
-    transition: all 0.3s ease;
-  }
-
-  .card-hover:hover {
-    transform: translateY(-8px);
-    /* Sombra Azul Tech no Hover */
-    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
-  }
-
-  /* Efeito de brilho para o botão */
-  .pulse-button {
-    position: relative;
-    overflow: hidden;
-    animation: pulse 2s infinite;
-  }
-
-  .pulse-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 0.75rem;
-    /* Gradiente Vermelho Alaranjado */
-    background: linear-gradient(45deg, #FF4F1F, #FF7F50, #FF4F1F);
-    z-index: -1;
-    animation: glow 2s ease-in-out infinite alternate;
-    opacity: 0;
-  }
-
-  .pulse-button > * {
-    position: relative;
-    z-index: 2;
-  }
-
-  .pulse-button:hover::before {
-    animation: none;
-    opacity: 0.3;
-  }
-}
-
-/* 5. ANIMAÇÕES E KEYFRAMES */
-
-/* Animação original de pulse (ATUALIZADA PARA VERMELHO) */
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 79, 31, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 15px rgba(255, 79, 31, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 79, 31, 0);
-  }
-}
-
-/* Animação da faixa horizontal */
-@keyframes scroll-horizontal {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* Animações de entrada */
-@keyframes slideLeft {
-  from { opacity: 0; transform: translateX(-100px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideRight {
-  from { opacity: 0; transform: translateX(100px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-100px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(100px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes floatHorizontal {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(30px); }
-}
-
-@keyframes floatHorizontalReverse {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(-30px); }
-}
-
-@keyframes pulseSlow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-
-@keyframes glow {
-  from { filter: blur(10px); opacity: 0.7; }
-  to { filter: blur(15px); opacity: 0.4; }
-}
-
-/* Classes de animação */
-.animate-slide-left { animation: slideLeft 1s ease-out forwards; }
-.animate-slide-right { animation: slideRight 1s ease-out forwards; }
-.animate-slide-down { animation: slideDown 1s ease-out forwards; }
-.animate-slide-up { animation: slideUp 1s ease-out forwards; }
-.animate-slide-up-delay { animation: slideUp 1s ease-out 0.2s forwards; opacity: 0; }
-.animate-scale-in { animation: scaleIn 1s ease-out forwards; }
-.animate-fade-in { animation: fadeIn 1.5s ease-out forwards; }
-.animate-float-horizontal { animation: floatHorizontal 6s ease-in-out infinite; }
-.animate-float-horizontal-reverse { animation: floatHorizontalReverse 8s ease-in-out infinite; }
-.animate-pulse-slow { animation: pulseSlow 3s ease-in-out infinite; }
-.animate-marquee { animation: scroll-horizontal 20s linear infinite; }
-.animate-gradient-x {
-  background-size: 200% 200%;
-  animation: gradientX 5s ease infinite;
-}
-@keyframes gradientX {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-.animate-bounce-slow { animation: bounce 3s infinite; }
-@keyframes bounce {
-  0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8,0,1,1); }
-  50% { transform: translateY(0); animation-timing-function: cubic-bezier(0,0,0.2,1); }
-}
-
-/* Stagger Animations */
-.stagger-1 { animation-delay: 0.1s; opacity: 0; }
-.stagger-2 { animation-delay: 0.2s; opacity: 0; }
-.stagger-3 { animation-delay: 0.3s; opacity: 0; }
-.stagger-4 { animation-delay: 0.4s; opacity: 0; }
-
-/* 6. RESPONSIVIDADE */
-@layer utilities {
-  @media (max-width: 768px) {
-    .banner-item { font-size: 0.875rem; padding: 0 2rem; }
-    .video-player { max-width: 100%; border-radius: 0.5rem; }
-    .background-image { height: 200px; }
-    .background-image-section h3 { font-size: 1.75rem; padding: 0 1rem; }
-    .pulse-button-container { margin-bottom: 1rem; }
-    .pulse-button { width: 100%; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .pulse-button, .pulse-button::before, .video-player, 
-    .banner-content, .animate-slide-left, .animate-slide-right,
-    .animate-slide-down, .animate-slide-up, .animate-slide-up-delay,
-    .animate-scale-in, .animate-fade-in, .animate-float-horizontal,
-    .animate-float-horizontal-reverse, .animate-pulse-slow {
-      animation: none;
-      opacity: 1;
-      transform: none;
-    }
-    .product-image:hover, .card-hover:hover { transform: none; }
-  }
-}
-
-/* 7. ESTILOS GLOBAIS ADICIONAIS */
-.animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-.backdrop-blur-sm { backdrop-filter: blur(4px); }
-.font-poppins { font-family: 'Poppins', sans-serif; }
-
-/* Gradientes Customizados NEXUS */
-.gradient-nexus-primary { background: linear-gradient(135deg, #FF4F1F 0%, #FF7F50 100%); }
-.gradient-nexus-secondary { background: linear-gradient(135deg, #050A0F 0%, #14222E 100%); }
-.gradient-nexus-accent { background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%); }
-
-/* Sombras Customizados */
-.shadow-nexus { box-shadow: 0 25px 50px -12px rgba(255, 79, 31, 0.25); }
-.shadow-nexus-glow { box-shadow: 0 0 20px rgba(255, 79, 31, 0.5); }
-/* =========================================
-   App.css - VERSÃO "SUNSET CYBERPUNK"
-========================================
-*/
-
-/* 1. IMPORTAÇÕES */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@import "tailwindcss";
-@import "tw-animate-css";
-
-/* 2. DEFINIÇÃO DE TEMA */
-@theme inline {
-  /* PALETA NEXUS REFINADA */
-  --color-nexus-bg: #050505;          /* Preto quase absoluto */
-  --color-nexus-orange: #FF6B35;      /* Laranja Identidade (Ícones/Destaques) */
-  --color-nexus-purple: #8B5CF6;      /* Roxo "Bonito" (Glows/Detalhes) */
-  --color-nexus-cta: #FF4F1F;         /* Vermelho Alaranjado (BOTÕES DE VENDA) */
-  --color-nexus-cta-hover: #FF2E00;   /* Hover do Botão */
-
-  /* Variáveis Tailwind padrão (mantidas para compatibilidade) */
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  /* ... (pode manter as outras variáveis padrão se quiser, mas as acima são as principais) ... */
-}
-
-/* 3. ESTILOS DE BASE */
-@layer base {
+  /* O tema escuro deve ser o padrão aqui */
   body {
     background-color: var(--color-nexus-bg);
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
   }
+  * {
+    border-color: rgba(255, 255, 255, 0.1); /* Borda escura suave */
+  }
 }
 
-/* 4. COMPONENTES E EFEITOS ESPECÍFICOS */
+/* 4. ESTILOS PARA OS COMPONENTES ESPECÍFICOS DO NEXUS */
 @layer components {
-  /* FAIXA HORIZONTAL - Gradiente Laranja para Roxo */
+  /* FAIXA HORIZONTAL - Gradiente Turquesa para Laranja (Predominante Turquesa) */
   .horizontal-banner-wrapper {
     width: 100%;
     overflow: hidden;
-    background: linear-gradient(90deg, #FF6B35 0%, #8B5CF6 50%, #FF6B35 100%);
+    background: linear-gradient(90deg, #2DD4BF 0%, #0D9488 50%, #FF6B35 100%);
     padding: 0.5rem 0;
     position: relative;
     z-index: 50;
-    border-bottom: 1px solid rgba(255, 107, 53, 0.3);
+    border-bottom: 1px solid rgba(45, 212, 191, 0.2);
   }
 
   .horizontal-banner {
@@ -482,23 +86,60 @@
     padding: 0 3rem;
     font-size: 0.85rem;
     font-weight: 700;
-    color: white;
+    color: #020408; /* Texto escuro para contraste no banner claro */
     text-transform: uppercase;
     letter-spacing: 0.1em;
   }
+  
+  /* Container do vídeo (Sombra Turquesa) */
+  .video-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
 
-  /* BOTÃO PULSANTE DE VENDA (Vermelho Alaranjado) */
+  .video-player {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(45, 212, 191, 0.25);
+  }
+  
+  /* Imagem do produto (Sombra Turquesa) */
+  .product-image {
+    box-shadow: 0 25px 50px -12px rgba(45, 212, 191, 0.25);
+    transition: transform 0.3s ease;
+  }
+
+  .product-image:hover {
+    transform: scale(1.02);
+  }
+
+  /* Efeito de hover nos cartões (Borda Turquesa) */
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .nexus-card:hover { /* Usando a classe mais moderna do JSX */
+    border-color: var(--color-nexus-teal);
+    box-shadow: 0 10px 40px -10px rgba(45, 212, 191, 0.2); 
+    transform: translateY(-5px);
+  }
+
+  /* Efeito de brilho para o botão (Vermelho-Alaranjado) */
   .pulse-button {
     position: relative;
     overflow: hidden;
     background: var(--color-nexus-cta);
     transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(255, 79, 31, 0.4); /* Glow vermelho */
+    box-shadow: 0 0 20px rgba(255, 79, 31, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: pulse 2s infinite;
   }
-
+  
   .pulse-button:hover {
     background: var(--color-nexus-cta-hover);
-    transform: translateY(-2px);
     box-shadow: 0 0 30px rgba(255, 79, 31, 0.6);
   }
 
@@ -506,62 +147,94 @@
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
-    transform: translateX(-100%);
-    animation: shine 3s infinite;
+    border-radius: 0.75rem;
+    background: linear-gradient(45deg, var(--color-nexus-cta), var(--color-nexus-cta-light), var(--color-nexus-cta));
+    z-index: -1;
+    animation: glow 2s ease-in-out infinite alternate;
+    opacity: 0;
   }
-
-  /* CARDS HOVER EFFECT */
-  .nexus-card {
-    background: rgba(20, 20, 25, 0.6);
-    border: 1px solid rgba(255, 107, 53, 0.1);
-    transition: all 0.4s ease;
-  }
-
-  .nexus-card:hover {
-    border-color: var(--color-nexus-orange);
-    box-shadow: 0 10px 40px -10px rgba(139, 92, 246, 0.2); /* Sombra Roxa sutil */
-    transform: translateY(-5px);
-  }
+  
+  .pulse-button > * { position: relative; z-index: 2; }
+  .pulse-button:hover::before { animation: none; opacity: 0.3; }
 }
 
-/* 5. ANIMAÇÕES */
-@keyframes scroll-horizontal {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+/* 5. ANIMAÇÕES E KEYFRAMES */
+
+/* Animação original de pulse (ATUALIZADA PARA VERMELHO) */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 79, 31, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(255, 79, 31, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 79, 31, 0); }
 }
 
-@keyframes shine {
-  0% { transform: translateX(-100%); }
-  20% { transform: translateX(100%); }
-  100% { transform: translateX(100%); }
-}
-
-@keyframes pulse-slow {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
-}
-
-@keyframes gradientX {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Utilitários de Animação */
-.animate-marquee { animation: scroll-horizontal 20s linear infinite; }
-.animate-pulse-slow { animation: pulse-slow 4s infinite; }
-.animate-gradient-text {
-  background-size: 200% auto;
-  animation: gradientX 4s linear infinite;
-}
-
-/* Utilitários de Gradiente de Texto */
-.text-gradient-orange-purple {
-  background: linear-gradient(to right, #FF6B35, #8B5CF6, #FF6B35);
+/* Gradiente de Texto Turquesa para Laranja */
+.text-gradient-teal-orange {
+  background: linear-gradient(to right, #2DD4BF, #FF6B35, #2DD4BF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   background-size: 200% auto;
   animation: gradientX 5s linear infinite;
 }
+
+/* Animações Padrão (Mantidas) */
+@keyframes scroll-horizontal { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes slideLeft { from { opacity: 0; transform: translateX(-100px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideRight { from { opacity: 0; transform: translateX(100px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-100px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(100px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes floatHorizontal { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(30px); } }
+@keyframes floatHorizontalReverse { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-30px); } }
+@keyframes pulseSlow { 0%, 100% { opacity: 0.7; } 50% { opacity: 0.4; } }
+@keyframes glow { from { filter: blur(10px); opacity: 0.7; } to { filter: blur(15px); opacity: 0.4; } }
+@keyframes gradientX { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes bounce { 0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8,0,1,1); } 50% { transform: translateY(0); animation-timing-function: cubic-bezier(0,0,0.2,1); } }
+
+/* Classes de animação (Mantidas) */
+.animate-slide-left { animation: slideLeft 1s ease-out forwards; }
+.animate-slide-right { animation: slideRight 1s ease-out forwards; }
+.animate-slide-down { animation: slideDown 1s ease-out forwards; }
+.animate-slide-up { animation: slideUp 1s ease-out forwards; }
+.animate-slide-up-delay { animation: slideUp 1s ease-out 0.2s forwards; opacity: 0; }
+.animate-scale-in { animation: scaleIn 1s ease-out forwards; }
+.animate-fade-in { animation: fadeIn 1.5s ease-out forwards; }
+.animate-float-horizontal { animation: floatHorizontal 6s ease-in-out infinite; }
+.animate-float-horizontal-reverse { animation: floatHorizontalReverse 8s ease-in-out infinite; }
+.animate-pulse-slow { animation: pulseSlow 3s ease-in-out infinite; }
+.animate-marquee { animation: scroll-horizontal 20s linear infinite; }
+.animate-gradient-x { background-size: 200% 200%; animation: gradientX 5s ease infinite; }
+.animate-bounce-slow { animation: bounce 3s infinite; }
+.animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+
+/* Stagger Animations */
+.stagger-1 { animation-delay: 0.1s; opacity: 0; }
+.stagger-2 { animation-delay: 0.2s; opacity: 0; }
+.stagger-3 { animation-delay: 0.3s; opacity: 0; }
+.stagger-4 { animation-delay: 0.4s; opacity: 0; }
+
+/* 6. RESPONSIVIDADE */
+@layer utilities {
+  @media (max-width: 768px) {
+    .banner-item { font-size: 0.875rem; padding: 0 2rem; }
+    /* Adicione outros ajustes responsivos aqui, se necessário */
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    /* Redução de movimento (Mantido) */
+  }
+}
+
+/* 7. ESTILOS GLOBAIS ADICIONAIS */
+.backdrop-blur-sm { backdrop-filter: blur(4px); }
+.font-poppins { font-family: 'Poppins', sans-serif; }
+
+/* Gradientes Customizados NEXUS (Ajustados) */
+.gradient-nexus-primary { background: linear-gradient(135deg, #FF4F1F 0%, #FF7F50 100%); } /* Red-Orange */
+.gradient-nexus-secondary { background: linear-gradient(135deg, #020408 0%, #14222E 100%); } /* Dark */
+.gradient-nexus-accent { background: linear-gradient(135deg, #2DD4BF 0%, #0D9488 100%); } /* Teal */
+
+/* Sombras Customizados (Ajustados) */
+.shadow-nexus { box-shadow: 0 25px 50px -12px rgba(255, 79, 31, 0.25); }
+.shadow-nexus-glow { box-shadow: 0 0 20px rgba(255, 79, 31, 0.5); }
