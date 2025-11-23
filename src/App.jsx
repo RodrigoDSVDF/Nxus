@@ -4,7 +4,7 @@ import {
   CheckCircle, AlertTriangle, Shield, Star, ChevronRight,
   Terminal, Cpu, Network, Layers, Check, Sparkles
 } from 'lucide-react'
-// import './App.css' // Importação de CSS local removida para evitar erro de compilação no ambiente
+// Não é necessário importar o './App.css' quando os estilos estão embutidos
 
 // --- IMAGENS PLACEHOLDERS ---
 // Usando placehold.co para simular os assets em um ambiente de arquivo único.
