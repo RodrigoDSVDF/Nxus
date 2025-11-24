@@ -15,11 +15,16 @@ import brainAIImg from './assets/1000393262.jpg'
 import produtoImg from './assets/produto.jpg'
 import fundo02 from './assets/fundo02.jpg'
 
-// --- NOVAS IMAGENS SOLICITADAS ---
+// --- IMAGENS BENTO GRID ---
 import produtividadeImg from './assets/produtividade.jpg'
 import servicosIaImg from './assets/servicos-ia.jpg'
 import xadrezImg from './assets/xadrez-estrategia.jpg'
 import promptImg from './assets/engenharia_prompt.png'
+
+// --- IMAGENS PROVA SOCIAL (NOVAS) ---
+import socialWoman2 from './assets/femele_social02.png'
+import socialWoman1 from './assets/femele_social.png'
+import socialMan from './assets/masculino_social.png'
 
 // Link do Checkout Centralizado
 const CHECKOUT_LINK = "https://pay.cakto.com.br/5dUKrWD";
@@ -52,6 +57,28 @@ const bentoFeatures = [
     icon: Target, title: "Vantagem Injusta", 
     desc: "Enquanto outros lutam com o básico, você estará implementando estratégias de nível sênior e dominando o mercado." 
   },
+];
+
+// Dados dos Depoimentos (Prova Social)
+const testimonials = [
+    {
+        img: socialMan,
+        name: "Carlos Mendes",
+        role: "Desenvolvedor Senior",
+        text: "O material é direto ao ponto. Em uma tarde eu já estava aplicando conceitos que economizaram horas da minha semana. O melhor investimento que fiz esse ano."
+    },
+    {
+        img: socialWoman1,
+        name: "Ana Paula S.",
+        role: "Marketing Digital",
+        text: "Eu tinha medo da IA substituir meu trabalho. O Nexus me ensinou a usar ela como minha 'estagiária' de luxo. A qualidade das minhas entregas subiu drasticamente."
+    },
+    {
+        img: socialWoman2,
+        name: "Juliana Costa",
+        role: "Redatora & Copywriter",
+        text: "O banco de prompts se pagou no primeiro projeto que fechei. Não é só teoria, é um sistema prático para quem quer ganhar dinheiro com agilidade."
+    }
 ];
 
 // Dados do Stack
@@ -328,7 +355,7 @@ function App() {
         </div>
       </section>
 
-      {/* --- FAIXA HORIZONTAL INTERMEDIÁRIA (ATUALIZADA) --- */}
+      {/* --- FAIXA HORIZONTAL INTERMEDIÁRIA --- */}
       <div className="relative z-20 py-6 overflow-hidden bg-[#0A0A0A] border-y border-[#333] horizontal-banner-mid-section">
         <div 
           className="horizontal-banner-wrapper" 
@@ -339,7 +366,6 @@ function App() {
           }}
         >
           <div className="horizontal-banner">
-            {/* Animation Duration em 10s para ficar mais rápido */}
             <div className="banner-content" style={{ animationDuration: '10s' }}>
               <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white"> 
                 <Terminal className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> ENGENHARIA DE CONTEXTO
@@ -354,7 +380,6 @@ function App() {
                 <Cpu className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> INTELIGÊNCIA ESTRATÉGICA
               </span>
               
-              {/* Repetição para garantir o loop contínuo */}
               <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white"> 
                 <Terminal className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> ENGENHARIA DE CONTEXTO
               </span>
@@ -412,26 +437,30 @@ function App() {
         </div>
       </section>
 
-      {/* 7. TESTEMUNHOS */}
+      {/* 7. TESTEMUNHOS (COM FOTOS REAIS AGORA) */}
       <section id="reviews" ref={reviewsRef} className="relative z-10 py-24 px-4 bg-[#0A0A0A] border-y border-[#333]">
         <div className={`max-w-6xl mx-auto transition-all duration-1000 ${reviewsVisible ? 'opacity-100' : 'opacity-0'}`}>
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">O Que Estão Falando do <span className="text-[--color-nexus-teal]">Método Nexus</span></h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {[1, 2, 3].map((_, i) => (
-                    <div key={i} className="nexus-card p-8 rounded-3xl relative">
-                        <div className="absolute -top-4 left-8 text-[--color-nexus-orange] text-6xl opacity-20">"</div>
-                        <div className="flex gap-1 mb-4">
-                            {[...Array(5)].map((_, j) => <Star key={j} className="w-5 h-5 text-[--color-nexus-orange] fill-current" />)}
+                {testimonials.map((item, i) => (
+                    <div key={i} className="nexus-card p-8 rounded-3xl relative flex flex-col justify-between">
+                        <div>
+                            <div className="absolute -top-4 left-8 text-[--color-nexus-orange] text-6xl opacity-20">"</div>
+                            <div className="flex gap-1 mb-4">
+                                {[...Array(5)].map((_, j) => <Star key={j} className="w-5 h-5 text-[--color-nexus-orange] fill-current" />)}
+                            </div>
+                            <p className="text-gray-300 mb-6 leading-relaxed">"{item.text}"</p>
                         </div>
-                        <p className="text-gray-300 mb-6 leading-relaxed">"O material é direto ao ponto. Em uma tarde eu já estava aplicando conceitos que economizaram horas da minha semana. O melhor investimento que fiz esse ano."</p>
-                        <div className="flex items-center gap-4">
-                            <div className="w-10 h-10 bg-gradient-to-br from-[--color-nexus-teal] to-[#0D9488] rounded-full flex items-center justify-center font-bold text-sm text-black">
-                                {String.fromCharCode(65 + i)}
+                        
+                        <div className="flex items-center gap-4 mt-4">
+                            {/* Avatar Imagem Real */}
+                            <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[--color-nexus-teal]">
+                                <img src={item.img} alt={item.name} className="w-full h-full object-cover" />
                             </div>
                             <div>
-                                <h4 className="font-bold text-white">Aluno Verificado</h4>
-                                <p className="text-sm text-gray-500">Membro da Comunidade</p>
+                                <h4 className="font-bold text-white">{item.name}</h4>
+                                <p className="text-sm text-gray-500">{item.role}</p>
                             </div>
                         </div>
                     </div>
