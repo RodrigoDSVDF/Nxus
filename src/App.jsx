@@ -3,46 +3,53 @@ import { Button } from '@/components/ui/button.jsx'
 import {
   ArrowRight, Zap, Target, Key, Rocket, Brain,
   CheckCircle, AlertTriangle, Shield, ChevronRight,
-  Terminal, Cpu, Network, Layers, Check, Sparkles, Star // Adicionado Sparkles
+  Terminal, Cpu, Network, Layers, Check, Sparkles, Star
 } from 'lucide-react'
 import './App.css' 
 
 // --- IMPORTAÇÃO DE IMAGENS ---
+// Imagens existentes
 import brainNetworkImg from './assets/1000393266.jpg'
-import neuralNetworkImg from './assets/1000393264.jpg'
-import laptopNeuralImg from './assets/1000393263.jpg'
+import neuralNetworkImg from './assets/1000393264.jpg' // Mantida caso precise depois
+import laptopNeuralImg from './assets/1000393263.jpg' // Mantida caso precise depois
 import brainAIImg from './assets/1000393262.jpg'
 import produtoImg from './assets/produto.jpg'
 import fundo02 from './assets/fundo02.jpg'
+
+// --- NOVAS IMAGENS SOLICITADAS ---
+import produtividadeImg from './assets/produtividade.jpg'
+import servicosIaImg from './assets/servicos-ia.jpg'
+import xadrezImg from './assets/xadrez-estrategia.jpg'
+import promptImg from './assets/engenharia_prompt.png'
 
 // Link do Checkout Centralizado
 const CHECKOUT_LINK = "https://pay.cakto.com.br/5dUKrWD";
 
 // --- DADOS ESTRUTURADOS ---
 
-// Dados do Bento Grid (Nova estrutura de features)
+// Dados do Bento Grid (ATUALIZADO COM AS NOVAS IMAGENS)
 const bentoFeatures = [
   { 
     colSpan: "md:col-span-2",
-    bgImage: neuralNetworkImg,
+    bgImage: xadrezImg, // >> O Cérebro Digital
     icon: Brain, title: "O Cérebro Digital", 
     desc: "Não aprenda ferramentas. Aprenda os fundamentos cognitivos da IA que nunca mudam, garantindo sua relevância no futuro." 
   },
   { 
     colSpan: "md:col-span-1",
-    bgImage: null,
+    bgImage: servicosIaImg, // >> Velocidade Warp
     icon: Zap, title: "Velocidade Warp", 
     desc: "Automatize 80% do seu trabalho operacional e foque apenas no estratégico, multiplicando sua produtividade e resultados." 
   },
   { 
     colSpan: "md:col-span-1",
-    bgImage: null,
+    bgImage: promptImg, // >> Engenharia de Prompt
     icon: Terminal, title: "Engenharia de Prompt", 
     desc: "A nova linguagem de programação. Fale a língua da máquina fluentemente para obter resultados de alta precisão." 
   },
   { 
     colSpan: "md:col-span-2",
-    bgImage: laptopNeuralImg,
+    bgImage: produtividadeImg, // >> Vantagem Injusta
     icon: Target, title: "Vantagem Injusta", 
     desc: "Enquanto outros lutam com o básico, você estará implementando estratégias de nível sênior e dominando o mercado." 
   },
@@ -284,7 +291,7 @@ function App() {
         </div>
       </section>
 
-      {/* 5. A SOLUÇÃO: BENTO GRID - INTERATIVO (O layout original é mantido, mas os cards são clicáveis) */}
+      {/* 5. A SOLUÇÃO: BENTO GRID - INTERATIVO */}
       <section id="bento" ref={bentoRef} className="relative z-10 pt-32 pb-16 px-4 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
@@ -303,20 +310,20 @@ function App() {
                 {bentoFeatures.map((item, index) => (
                     <div 
                         key={index} 
-                        onClick={() => setActiveFeature(item)} // <<< ADICIONADO: Define a feature ativa
+                        onClick={() => setActiveFeature(item)} // <<< Define a feature ativa
                         className={`${item.colSpan} group relative bg-[#14222E] rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 nexus-card
                             ${activeFeature?.title === item.title 
-                                ? 'border-2 border-[--color-nexus-cta] shadow-xl shadow-[--color-nexus-cta]/20 scale-[1.03]' // ESTADO ATIVO: Borda CTA e escala
+                                ? 'border-2 border-[--color-nexus-cta] shadow-xl shadow-[--color-nexus-cta]/20 scale-[1.03]' // ESTADO ATIVO
                                 : 'border border-[#1C2A35] hover:border-[--color-nexus-teal]/50' // ESTADO NORMAL
                             }
                         `}
                     >
-                        {/* Efeito de Hover Glow na Borda (Aprimorado para o estado ativo) */}
+                        {/* Efeito de Hover Glow na Borda */}
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none">
                             <div className={`absolute inset-0 bg-gradient-to-r ${activeFeature?.title === item.title ? 'from-[--color-nexus-cta]/20 to-[--color-nexus-orange]/20' : 'from-[--color-nexus-teal]/20 to-[--color-nexus-orange]/10'} blur-xl`}></div>
                         </div>
 
-                        {/* Imagem de Fundo (se houver) */}
+                        {/* Imagem de Fundo (AGORA APLICADA A TODOS OS CARDS) */}
                         {item.bgImage && (
                             <div className="absolute inset-0 z-0">
                                 <img src={item.bgImage} alt={`Imagem de ${item.title}`} className="w-full h-full object-cover opacity-20 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000 mix-blend-overlay" />
@@ -348,7 +355,7 @@ function App() {
         </div>
       </section>
 
-      {/* FAIXA HORIZONTAL INTERMEDIÁRIA - NOVA COR DE FUNDO */}
+      {/* FAIXA HORIZONTAL INTERMEDIÁRIA */}
       <div className="relative z-20 py-6 overflow-hidden bg-[#0A0A0A] border-y border-[#333] horizontal-banner-mid-section">
         <div 
           className="horizontal-banner-wrapper" 
