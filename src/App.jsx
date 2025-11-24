@@ -124,7 +124,7 @@ function useScrollAnimation(threshold = 0.1) {
 const handleTrackCheckout = () => {
   // Verifica se o objeto fbq (Facebook Pixel) existe no navegador
   if (typeof window !== 'undefined' && window.fbq) {
-    console.log("Pixel Disparado: InitiateCheckout"); // Log para debug
+    // console.log("Pixel Disparado: InitiateCheckout"); // Descomente para debug
     window.fbq('track', 'InitiateCheckout');
   }
 };
@@ -460,7 +460,7 @@ function App() {
                     <p className="text-3xl md:text-5xl font-extrabold text-white mb-8">
                         Hoje por apenas: <span className="text-[--color-nexus-teal]">R$ 47,00</span>
                     </p>
-                    {/* CTA Stack com Pixel */}
+                    {/* CTA Stack com Pixel e Botão Mobile Ajustado */}
                     <a 
                         href={CHECKOUT_LINK} 
                         target="_blank" 
@@ -468,7 +468,7 @@ function App() {
                         className="inline-block w-full max-w-md"
                         onClick={handleTrackCheckout}
                     >
-                        <Button className="pulse-button w-full h-16 text-white font-bold text-xl rounded-xl flex items-center justify-center gap-3">
+                        <Button className="pulse-button w-full h-14 md:h-16 text-white font-bold text-lg md:text-xl rounded-xl flex items-center justify-center gap-3">
                             GARANTIR MEU ARSENAL AGORA
                         </Button>
                     </a>
@@ -563,7 +563,7 @@ function App() {
                         </div>
                     </div>
 
-                    {/* CTA Oferta Final com Pixel */}
+                    {/* CTA Oferta Final com Pixel e Botão Mobile Ajustado */}
                     <a 
                         href={CHECKOUT_LINK} 
                         target="_blank" 
@@ -571,9 +571,9 @@ function App() {
                         className="block max-w-2xl mx-auto"
                         onClick={handleTrackCheckout}
                     >
-                        <Button className="pulse-button w-full h-20 text-white font-extrabold text-2xl rounded-2xl flex items-center justify-center gap-4 hover:scale-[1.02] transition-transform">
+                        <Button className="pulse-button w-full h-14 md:h-20 text-white font-extrabold text-lg md:text-2xl rounded-2xl flex items-center justify-center gap-2 md:gap-4 hover:scale-[1.02] transition-transform">
                             QUERO COMEÇAR AGORA MESMO
-                            <ArrowRight className="w-8 h-8" />
+                            <ArrowRight className="w-6 h-6 md:w-8 md:h-8" />
                         </Button>
                     </a>
                 </div>
