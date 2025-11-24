@@ -3,7 +3,8 @@ import { Button } from '@/components/ui/button.jsx'
 import {
   ArrowRight, Zap, Target, Key, Rocket, Brain,
   CheckCircle, AlertTriangle, Shield, ChevronRight,
-  Terminal, Cpu, Network, Layers, Check, Sparkles, Star
+  Terminal, Cpu, Network, Layers, Check, Sparkles, Star,
+  Instagram // Adicionado ícone do Instagram
 } from 'lucide-react'
 import './App.css' 
 
@@ -21,7 +22,7 @@ import servicosIaImg from './assets/servicos-ia.jpg'
 import xadrezImg from './assets/xadrez-estrategia.jpg'
 import promptImg from './assets/engenharia_prompt.png'
 
-// --- IMAGENS PROVA SOCIAL (NOVAS) ---
+// --- IMAGENS PROVA SOCIAL ---
 import socialWoman2 from './assets/femele_social02.png'
 import socialWoman1 from './assets/femele_social.png'
 import socialMan from './assets/masculino_social.png'
@@ -59,7 +60,7 @@ const bentoFeatures = [
   },
 ];
 
-// Dados dos Depoimentos (Prova Social)
+// Dados dos Depoimentos
 const testimonials = [
     {
         img: socialMan,
@@ -81,9 +82,9 @@ const testimonials = [
     }
 ];
 
-// Dados do Stack
+// Dados do Stack (Atualizado Nome)
 const stackItems = [
-    { icon: Layers, title: "O Manual Nexus Origin (E-book Premium)", value: "R$ 197" },
+    { icon: Layers, title: "O Nexus Manual (E-book Premium)", value: "R$ 197" }, // Nome Atualizado
     { icon: Cpu, title: "Banco de Prompts 'Copy & Paste' de Alta Conversão", value: "R$ 147" },
     { icon: Network, title: "Blueprint: Implementação de IA em Negócios", value: "R$ 297" },
     { icon: Shield, title: "Acesso Vitalício + Atualizações Mensais", value: "Inestimável" },
@@ -141,7 +142,8 @@ function Header() {
             <div className="max-w-7xl mx-auto h-20 flex items-center justify-between px-4">
                 <button onClick={() => handleScroll('hero')} className="flex items-center gap-2 cursor-pointer">
                     <Brain className="w-7 h-7 text-[#2DD4BF]" />
-                    <span className="text-xl font-bold text-white">NEXUS ORIGIN</span>
+                    {/* NOME ATUALIZADO */}
+                    <span className="text-xl font-bold text-white">NEXUS MANUAL</span>
                 </button>
                 <nav className="hidden lg:flex items-center gap-6">
                     {NAV_ITEMS.map((item) => (
@@ -194,7 +196,7 @@ function App() {
           <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-5"></div>
       </div>
 
-      {/* 1. FAIXA DE URGÊNCIA (Topo) */}
+      {/* 1. FAIXA DE URGÊNCIA */}
       <div className="horizontal-banner-wrapper">
         <div className="horizontal-banner">
           <div className="banner-content">
@@ -297,11 +299,11 @@ function App() {
         </div>
       </section>
 
-      {/* 5. BENTO GRID */}
+      {/* 5. BENTO GRID (NOME ATUALIZADO) */}
       <section id="bento" ref={bentoRef} className="relative z-10 pt-32 pb-16 px-4 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
-                <h2 className="text-4xl md:text-6xl font-bold mb-6">O Ecossistema <span className="text-[--color-nexus-teal]">Nexus Origin</span></h2>
+                <h2 className="text-4xl md:text-6xl font-bold mb-6">O Ecossistema <span className="text-[--color-nexus-teal]">Nexus Manual</span></h2>
                 <p className="text-xl text-gray-400 max-w-3xl mx-auto">
                     Não é um curso. É um sistema operacional mental para você navegar e liderar na era da Inteligência Artificial.
                 </p>
@@ -397,7 +399,7 @@ function App() {
         </div>
       </div>
 
-      {/* 6. O STACK */}
+      {/* 6. O STACK (PREÇO ATUALIZADO) */}
       <section id="stack" ref={stackRef} className="relative z-10 py-32 px-4">
         <div className="max-w-5xl mx-auto bg-[#1A2A3A]/80 backdrop-blur-xl border border-[#333] rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[--color-nexus-teal]/10 rounded-full blur-[100px] pointer-events-none"></div>
@@ -424,8 +426,9 @@ function App() {
 
                 <div className="mt-16 text-center">
                     <p className="text-xl text-gray-400 mb-6">Valor Total do Stack: <span className="line-through">R$ 641,00</span></p>
+                    {/* PREÇO ATUALIZADO PARA 47 */}
                     <p className="text-3xl md:text-5xl font-extrabold text-white mb-8">
-                        Hoje por apenas: <span className="text-[--color-nexus-teal]">R$ 37,00</span>
+                        Hoje por apenas: <span className="text-[--color-nexus-teal]">R$ 47,00</span>
                     </p>
                     <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block w-full max-w-md">
                         <Button className="pulse-button w-full h-16 text-white font-bold text-xl rounded-xl flex items-center justify-center gap-3">
@@ -437,10 +440,11 @@ function App() {
         </div>
       </section>
 
-      {/* 7. TESTEMUNHOS (COM FOTOS REAIS AGORA) */}
+      {/* 7. TESTEMUNHOS */}
       <section id="reviews" ref={reviewsRef} className="relative z-10 py-24 px-4 bg-[#0A0A0A] border-y border-[#333]">
         <div className={`max-w-6xl mx-auto transition-all duration-1000 ${reviewsVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">O Que Estão Falando do <span className="text-[--color-nexus-teal]">Método Nexus</span></h2>
+            {/* NOME ATUALIZADO */}
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">O Que Estão Falando do <span className="text-[--color-nexus-teal]">Nexus Manual</span></h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {testimonials.map((item, i) => (
@@ -454,7 +458,6 @@ function App() {
                         </div>
                         
                         <div className="flex items-center gap-4 mt-4">
-                            {/* Avatar Imagem Real */}
                             <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[--color-nexus-teal]">
                                 <img src={item.img} alt={item.name} className="w-full h-full object-cover" />
                             </div>
@@ -491,7 +494,7 @@ function App() {
           </div>
       </section>
 
-      {/* 9. OFERTA FINAL */}
+      {/* 9. OFERTA FINAL (PREÇO ATUALIZADO) */}
       <section id="offer" ref={offerRef} className="relative z-10 py-32 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-[--color-nexus-cta]/10 to-transparent pointer-events-none"></div>
         
@@ -515,7 +518,8 @@ function App() {
                     <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
                         <img src={produtoImg} alt="Pack Nexus" className="w-64 rounded-xl shadow-2xl border border-[#333] rotate-[-5deg] group-hover:rotate-0 transition-all duration-500" />
                         <div className="text-left">
-                            <div className="text-6xl font-extrabold text-white mb-2">R$ 37<span className="text-2xl text-gray-400">,00</span></div>
+                            {/* PREÇO ATUALIZADO PARA 47 */}
+                            <div className="text-6xl font-extrabold text-white mb-2">R$ 47<span className="text-2xl text-gray-400">,00</span></div>
                             <p className="text-gray-400 mb-4">Pagamento único. Sem mensalidades.</p>
                             <div className="flex flex-col gap-2">
                                 <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[--color-nexus-teal] mr-2" /> Acesso Imediato via E-mail</div>
@@ -535,13 +539,14 @@ function App() {
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* FOOTER (ATUALIZADO COM INSTAGRAM E NOME) */}
       <footer className="bg-[#0A0A0A] pt-24 pb-12 px-4 border-t border-[#111] relative z-10">
         <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
             <div className="md:col-span-2">
                 <div className="flex items-center gap-3 mb-6">
                     <Brain className="w-8 h-8 text-[--color-nexus-teal]" />
-                    <span className="text-2xl font-bold text-white">NEXUS ORIGIN</span>
+                    {/* NOME ATUALIZADO */}
+                    <span className="text-2xl font-bold text-white">NEXUS MANUAL</span>
                 </div>
                 <p className="text-gray-500 leading-relaxed max-w-sm mb-6">
                     O manual definitivo para profissionais que desejam liderar a revolução da IA.
@@ -556,12 +561,19 @@ function App() {
             </div>
             <div>
                 <h4 className="text-white font-bold mb-6">Contato</h4>
-                <p className="text-gray-500">suporte@nexusorigin.com</p>
+                <p className="text-gray-500 mb-4">suporte@nexusorigin.com</p>
+                
+                {/* INSTAGRAM ADICIONADO */}
+                <a href="https://instagram.com/nexus0rigin" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-400 hover:text-[--color-nexus-orange] transition-colors gap-2">
+                    <Instagram className="w-5 h-5" />
+                    <span>@nexus0rigin</span>
+                </a>
             </div>
         </div>
         <div className="max-w-6xl mx-auto text-center pt-8 border-t border-[#111]">
+          {/* NOME ATUALIZADO NO COPYRIGHT */}
           <p className="text-gray-600 text-sm mb-4">
-            &copy; 2025 Nexus Origin. Todos os direitos reservados.
+            &copy; 2025 Nexus Manual. Todos os direitos reservados.
           </p>
         </div>
       </footer>
