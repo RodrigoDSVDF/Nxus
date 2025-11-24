@@ -8,10 +8,9 @@ import {
 import './App.css' 
 
 // --- IMPORTAÇÃO DE IMAGENS ---
-// Imagens existentes
 import brainNetworkImg from './assets/1000393266.jpg'
-import neuralNetworkImg from './assets/1000393264.jpg' // Mantida caso precise depois
-import laptopNeuralImg from './assets/1000393263.jpg' // Mantida caso precise depois
+import neuralNetworkImg from './assets/1000393264.jpg' 
+import laptopNeuralImg from './assets/1000393263.jpg'
 import brainAIImg from './assets/1000393262.jpg'
 import produtoImg from './assets/produto.jpg'
 import fundo02 from './assets/fundo02.jpg'
@@ -27,7 +26,7 @@ const CHECKOUT_LINK = "https://pay.cakto.com.br/5dUKrWD";
 
 // --- DADOS ESTRUTURADOS ---
 
-// Dados do Bento Grid (ATUALIZADO COM AS NOVAS IMAGENS)
+// Dados do Bento Grid
 const bentoFeatures = [
   { 
     colSpan: "md:col-span-2",
@@ -55,7 +54,7 @@ const bentoFeatures = [
   },
 ];
 
-// Dados do Stack (O que está incluso)
+// Dados do Stack
 const stackItems = [
     { icon: Layers, title: "O Manual Nexus Origin (E-book Premium)", value: "R$ 197" },
     { icon: Cpu, title: "Banco de Prompts 'Copy & Paste' de Alta Conversão", value: "R$ 147" },
@@ -73,7 +72,6 @@ const faqItems = [
 
 
 // --- HOOKS ---
-// Hook de Scroll Animation
 function useScrollAnimation(threshold = 0.1) {
   const [isVisible, setIsVisible] = useState(false)
   const ref = useRef(null)
@@ -101,13 +99,11 @@ const NAV_ITEMS = [
 ];
 
 function Header() {
-    
-    // Função de rolagem com ajuste para o header fixo
     const handleScroll = (id) => {
         const targetElement = document.getElementById(id);
         if (targetElement) {
             window.scrollTo({
-                top: targetElement.offsetTop - 80, // Offset para o header fixo
+                top: targetElement.offsetTop - 80,
                 behavior: 'smooth'
             });
         }
@@ -116,14 +112,10 @@ function Header() {
     return (
         <header className="sticky top-0 z-50 w-full bg-[#0A0A0A]/90 backdrop-blur-md border-b border-[#333] shadow-lg">
             <div className="max-w-7xl mx-auto h-20 flex items-center justify-between px-4">
-                
-                {/* Logo / Título Principal */}
                 <button onClick={() => handleScroll('hero')} className="flex items-center gap-2 cursor-pointer">
                     <Brain className="w-7 h-7 text-[#2DD4BF]" />
                     <span className="text-xl font-bold text-white">NEXUS ORIGIN</span>
                 </button>
-
-                {/* Itens de Navegação (Links) */}
                 <nav className="hidden lg:flex items-center gap-6">
                     {NAV_ITEMS.map((item) => (
                         <button
@@ -136,8 +128,6 @@ function Header() {
                         </button>
                     ))}
                 </nav>
-
-                {/* CTA Rápido */}
                 <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer">
                     <Button className="h-10 px-6 text-sm font-semibold bg-[#FF6B35] hover:bg-red-600 transition-colors">
                         ACESSO IMEDIATO
@@ -151,7 +141,6 @@ function Header() {
 
 // --- COMPONENTE PRINCIPAL ---
 function App() {
-  // Refs para animações de seção
   const [heroRef, heroVisible] = useScrollAnimation()
   const [painRef, painVisible] = useScrollAnimation(0.2)
   const [bentoRef, bentoVisible] = useScrollAnimation(0.1)
@@ -159,33 +148,26 @@ function App() {
   const [reviewsRef, reviewsVisible] = useScrollAnimation(0.1)
   const [offerRef, offerVisible] = useScrollAnimation(0.1)
 
-  // NOVO ESTADO: Qual feature do Bento Grid está selecionada (Menu Interativo)
-  // Define o primeiro item como padrão ativo ao carregar
   const [activeFeature, setActiveFeature] = useState(bentoFeatures[0]); 
 
-  // Mapeamento das variáveis de cor do CSS para classes Tailwind (usando o escopo global)
   const TEAL = '#2DD4BF';
   const ORANGE = '#FF6B35';
   const CTA = '#FF4F1F';
   const BG = '#1A2A3A';
 
   return (
-    // Reutilizando as cores customizadas do seu App.css
     <div className="min-h-screen bg-[--color-nexus-bg] font-['Poppins',sans-serif] overflow-x-hidden text-slate-100 selection:bg-[--color-nexus-cta] selection:text-white">
       
-      {/* NOVO: Header Global */}
       <Header />
       
-      {/* --- BACKGROUND DINÂMICO GLOBAL --- */}
+      {/* --- BACKGROUND DINÂMICO --- */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-          {/* Orbs pulsantes */}
           <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-[--color-nexus-teal]/10 rounded-full blur-[120px] animate-pulse-slow"></div>
           <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[--color-nexus-orange]/10 rounded-full blur-[100px] animate-pulse-slow" style={{animationDelay: '2s'}}></div>
-          {/* Grid Overlay Sutil */}
           <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-5"></div>
       </div>
 
-      {/* 1. FAIXA DE URGÊNCIA (SCROLL HORIZONTAL) */}
+      {/* 1. FAIXA DE URGÊNCIA (Topo) */}
       <div className="horizontal-banner-wrapper">
         <div className="horizontal-banner">
           <div className="banner-content">
@@ -202,7 +184,6 @@ function App() {
       <section id="hero" ref={heroRef} className="relative z-10 pt-20 pb-32 px-4 overflow-hidden">
         <div className={`max-w-7xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
-          {/* Badge Tech - Turquesa */}
           <div className="inline-flex items-center relative mb-8 group cursor-default animate-fade-in">
             <div className="absolute -inset-1 bg-gradient-to-r from-[--color-nexus-teal] to-[--color-nexus-orange] rounded-full blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
             <div className="relative px-6 py-2 bg-[#0A0A0A] border border-[--color-nexus-teal]/30 rounded-full flex items-center gap-3">
@@ -216,7 +197,6 @@ function App() {
             </div>
           </div>
 
-          {/* Headline com Gradiente Turquesa -> Laranja */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-8 tracking-tight animate-slide-up">
             Domine a IA Antes Que <br />
             <span className="text-gradient-teal-orange animate-gradient-text">
@@ -228,7 +208,6 @@ function App() {
             Pare de correr atrás de ferramentas novas toda semana. Descubra os <span className="text-[--color-nexus-teal] font-semibold">princípios imutáveis</span> da inteligência artificial que colocarão você no top 1% do mercado.
           </p>
 
-          {/* CTA Botão Vermelho Alaranjado */}
           <div className="flex flex-col items-center gap-6 animate-scale-in">
             <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="group relative inline-block">
               <Button className="pulse-button relative w-full md:w-auto h-16 px-12 text-white font-bold text-xl rounded-xl flex items-center justify-center gap-3">
@@ -248,7 +227,7 @@ function App() {
         </div>
       </section>
 
-      {/* 3. PROVA SOCIAL (LOGOS) */}
+      {/* 3. PROVA SOCIAL */}
       <div className="relative z-10 border-y border-[#333] bg-[#0A0A0A]/80 backdrop-blur-md py-8">
           <div className="max-w-6xl mx-auto px-4 text-center">
               <p className="text-sm font-medium text-gray-500 mb-6 uppercase tracking-widest">Método utilizado por profissionais de:</p>
@@ -291,7 +270,7 @@ function App() {
         </div>
       </section>
 
-      {/* 5. A SOLUÇÃO: BENTO GRID - INTERATIVO */}
+      {/* 5. BENTO GRID */}
       <section id="bento" ref={bentoRef} className="relative z-10 pt-32 pb-16 px-4 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
@@ -299,31 +278,27 @@ function App() {
                 <p className="text-xl text-gray-400 max-w-3xl mx-auto">
                     Não é um curso. É um sistema operacional mental para você navegar e liderar na era da Inteligência Artificial.
                 </p>
-                {/* Visualização da Feature Ativa em Dispositivos Menores (Feedback) */}
                  <p className="md:hidden mt-8 text-lg font-bold text-[--color-nexus-orange]">
                     Feature Ativa: {activeFeature?.title}
                 </p>
             </div>
 
-            {/* Bento Grid Layout (Cards Clicáveis) */}
             <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-1000 delay-300 ${bentoVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
                 {bentoFeatures.map((item, index) => (
                     <div 
                         key={index} 
-                        onClick={() => setActiveFeature(item)} // <<< Define a feature ativa
+                        onClick={() => setActiveFeature(item)} 
                         className={`${item.colSpan} group relative bg-[#14222E] rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 nexus-card
                             ${activeFeature?.title === item.title 
-                                ? 'border-2 border-[--color-nexus-cta] shadow-xl shadow-[--color-nexus-cta]/20 scale-[1.03]' // ESTADO ATIVO
-                                : 'border border-[#1C2A35] hover:border-[--color-nexus-teal]/50' // ESTADO NORMAL
+                                ? 'border-2 border-[--color-nexus-cta] shadow-xl shadow-[--color-nexus-cta]/20 scale-[1.03]' 
+                                : 'border border-[#1C2A35] hover:border-[--color-nexus-teal]/50'
                             }
                         `}
                     >
-                        {/* Efeito de Hover Glow na Borda */}
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none">
                             <div className={`absolute inset-0 bg-gradient-to-r ${activeFeature?.title === item.title ? 'from-[--color-nexus-cta]/20 to-[--color-nexus-orange]/20' : 'from-[--color-nexus-teal]/20 to-[--color-nexus-orange]/10'} blur-xl`}></div>
                         </div>
 
-                        {/* Imagem de Fundo (AGORA APLICADA A TODOS OS CARDS) */}
                         {item.bgImage && (
                             <div className="absolute inset-0 z-0">
                                 <img src={item.bgImage} alt={`Imagem de ${item.title}`} className="w-full h-full object-cover opacity-20 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000 mix-blend-overlay" />
@@ -331,7 +306,6 @@ function App() {
                             </div>
                         )}
                         
-                        {/* Conteúdo */}
                         <div className="relative z-10 p-8 h-full flex flex-col justify-end">
                             <div className={`w-14 h-14 bg-[#0F161E]/80 backdrop-blur-xl rounded-2xl flex items-center justify-center mb-6 transition-all duration-300
                                 ${activeFeature?.title === item.title ? 'bg-[--color-nexus-cta]/20 border border-[--color-nexus-cta]' : 'bg-[#1A2A3A] border border-[--color-nexus-teal]/30 group-hover:scale-110'}
@@ -340,7 +314,6 @@ function App() {
                             </div>
                             <h3 className={`text-2xl font-bold mb-3 transition-colors ${activeFeature?.title === item.title ? 'text-[--color-nexus-cta]' : 'text-white group-hover:text-[--color-nexus-teal]'}`}>{item.title}</h3>
                             <p className="text-gray-400 text-lg leading-relaxed">{item.desc}</p>
-                            {/* CTA opcional no card ativo */}
                             {activeFeature?.title === item.title && (
                                 <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer">
                                     <span className="flex items-center text-sm font-semibold text-[--color-nexus-cta] mt-4 hover:underline">
@@ -355,7 +328,7 @@ function App() {
         </div>
       </section>
 
-      {/* FAIXA HORIZONTAL INTERMEDIÁRIA */}
+      {/* --- FAIXA HORIZONTAL INTERMEDIÁRIA (ATUALIZADA) --- */}
       <div className="relative z-20 py-6 overflow-hidden bg-[#0A0A0A] border-y border-[#333] horizontal-banner-mid-section">
         <div 
           className="horizontal-banner-wrapper" 
@@ -366,21 +339,33 @@ function App() {
           }}
         >
           <div className="horizontal-banner">
-            <div className="banner-content">
+            {/* Animation Duration em 10s para ficar mais rápido */}
+            <div className="banner-content" style={{ animationDuration: '10s' }}>
               <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white"> 
-                <Sparkles className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> NEXUS
+                <Terminal className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> ENGENHARIA DE CONTEXTO
               </span>
               <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
-                <Terminal className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> NEXUS
+                <Layers className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> ECOSSISTEMA DE PRODUTIVIDADE
               </span>
               <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
-                <Cpu className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> NEXUS
+                <Brain className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> APRENDIZADO ACELERADO
               </span>
               <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
-                <Layers className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> NEXUS
+                <Cpu className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> INTELIGÊNCIA ESTRATÉGICA
+              </span>
+              
+              {/* Repetição para garantir o loop contínuo */}
+              <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white"> 
+                <Terminal className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> ENGENHARIA DE CONTEXTO
               </span>
               <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
-                <Sparkles className="w-4 h-4 mr-3 text-[--color-nexus-orange]" /> NEXUS
+                <Layers className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> ECOSSISTEMA DE PRODUTIVIDADE
+              </span>
+              <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
+                <Brain className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> APRENDIZADO ACELERADO
+              </span>
+              <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
+                <Cpu className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> INTELIGÊNCIA ESTRATÉGICA
               </span>
             </div>
           </div>
