@@ -4,7 +4,7 @@ import {
   ArrowRight, Zap, Target, Key, Rocket, Brain,
   CheckCircle, AlertTriangle, Shield, ChevronRight,
   Terminal, Cpu, Network, Layers, Check, Sparkles, Star,
-  Instagram // Adicionado ícone do Instagram
+  Instagram
 } from 'lucide-react'
 import './App.css' 
 
@@ -82,9 +82,9 @@ const testimonials = [
     }
 ];
 
-// Dados do Stack (Atualizado Nome)
+// Dados do Stack
 const stackItems = [
-    { icon: Layers, title: "O Nexus Manual (E-book Premium)", value: "R$ 197" }, // Nome Atualizado
+    { icon: Layers, title: "O Nexus Manual (E-book Premium)", value: "R$ 197" },
     { icon: Cpu, title: "Banco de Prompts 'Copy & Paste' de Alta Conversão", value: "R$ 147" },
     { icon: Network, title: "Blueprint: Implementação de IA em Negócios", value: "R$ 297" },
     { icon: Shield, title: "Acesso Vitalício + Atualizações Mensais", value: "Inestimável" },
@@ -99,7 +99,9 @@ const faqItems = [
 ];
 
 
-// --- HOOKS ---
+// --- HOOKS E FUNÇÕES AUXILIARES ---
+
+// Hook de Scroll Animation
 function useScrollAnimation(threshold = 0.1) {
   const [isVisible, setIsVisible] = useState(false)
   const ref = useRef(null)
@@ -117,6 +119,15 @@ function useScrollAnimation(threshold = 0.1) {
 
   return [ref, isVisible]
 }
+
+// --- FUNÇÃO DE RASTREAMENTO DO PIXEL ---
+const handleTrackCheckout = () => {
+  // Verifica se o objeto fbq (Facebook Pixel) existe no navegador
+  if (typeof window !== 'undefined' && window.fbq) {
+    console.log("Pixel Disparado: InitiateCheckout"); // Log para debug
+    window.fbq('track', 'InitiateCheckout');
+  }
+};
 
 // --- COMPONENTE DE NAVEGAÇÃO GLOBAL ---
 const NAV_ITEMS = [
@@ -142,7 +153,6 @@ function Header() {
             <div className="max-w-7xl mx-auto h-20 flex items-center justify-between px-4">
                 <button onClick={() => handleScroll('hero')} className="flex items-center gap-2 cursor-pointer">
                     <Brain className="w-7 h-7 text-[#2DD4BF]" />
-                    {/* NOME ATUALIZADO */}
                     <span className="text-xl font-bold text-white">NEXUS MANUAL</span>
                 </button>
                 <nav className="hidden lg:flex items-center gap-6">
@@ -157,7 +167,14 @@ function Header() {
                         </button>
                     ))}
                 </nav>
-                <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer">
+                
+                {/* CTA Header com Pixel */}
+                <a 
+                    href={CHECKOUT_LINK} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onClick={handleTrackCheckout}
+                >
                     <Button className="h-10 px-6 text-sm font-semibold bg-[#FF6B35] hover:bg-red-600 transition-colors">
                         ACESSO IMEDIATO
                     </Button>
@@ -238,7 +255,14 @@ function App() {
           </p>
 
           <div className="flex flex-col items-center gap-6 animate-scale-in">
-            <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="group relative inline-block">
+            {/* CTA Hero com Pixel */}
+            <a 
+                href={CHECKOUT_LINK} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group relative inline-block"
+                onClick={handleTrackCheckout}
+            >
               <Button className="pulse-button relative w-full md:w-auto h-16 px-12 text-white font-bold text-xl rounded-xl flex items-center justify-center gap-3">
                 QUERO ACESSO VITALÍCIO AGORA
                 <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
@@ -299,7 +323,7 @@ function App() {
         </div>
       </section>
 
-      {/* 5. BENTO GRID (NOME ATUALIZADO) */}
+      {/* 5. BENTO GRID */}
       <section id="bento" ref={bentoRef} className="relative z-10 pt-32 pb-16 px-4 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
@@ -343,8 +367,15 @@ function App() {
                             </div>
                             <h3 className={`text-2xl font-bold mb-3 transition-colors ${activeFeature?.title === item.title ? 'text-[--color-nexus-cta]' : 'text-white group-hover:text-[--color-nexus-teal]'}`}>{item.title}</h3>
                             <p className="text-gray-400 text-lg leading-relaxed">{item.desc}</p>
+                            
+                            {/* CTA Bento Grid com Pixel (Só aparece se o card estiver ativo) */}
                             {activeFeature?.title === item.title && (
-                                <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer">
+                                <a 
+                                    href={CHECKOUT_LINK} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    onClick={handleTrackCheckout}
+                                >
                                     <span className="flex items-center text-sm font-semibold text-[--color-nexus-cta] mt-4 hover:underline">
                                         Explorar Detalhes <ChevronRight className="w-4 h-4 ml-1"/>
                                     </span>
@@ -399,7 +430,7 @@ function App() {
         </div>
       </div>
 
-      {/* 6. O STACK (PREÇO ATUALIZADO) */}
+      {/* 6. O STACK */}
       <section id="stack" ref={stackRef} className="relative z-10 py-32 px-4">
         <div className="max-w-5xl mx-auto bg-[#1A2A3A]/80 backdrop-blur-xl border border-[#333] rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[--color-nexus-teal]/10 rounded-full blur-[100px] pointer-events-none"></div>
@@ -426,11 +457,17 @@ function App() {
 
                 <div className="mt-16 text-center">
                     <p className="text-xl text-gray-400 mb-6">Valor Total do Stack: <span className="line-through">R$ 641,00</span></p>
-                    {/* PREÇO ATUALIZADO PARA 47 */}
                     <p className="text-3xl md:text-5xl font-extrabold text-white mb-8">
                         Hoje por apenas: <span className="text-[--color-nexus-teal]">R$ 47,00</span>
                     </p>
-                    <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block w-full max-w-md">
+                    {/* CTA Stack com Pixel */}
+                    <a 
+                        href={CHECKOUT_LINK} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-block w-full max-w-md"
+                        onClick={handleTrackCheckout}
+                    >
                         <Button className="pulse-button w-full h-16 text-white font-bold text-xl rounded-xl flex items-center justify-center gap-3">
                             GARANTIR MEU ARSENAL AGORA
                         </Button>
@@ -443,7 +480,6 @@ function App() {
       {/* 7. TESTEMUNHOS */}
       <section id="reviews" ref={reviewsRef} className="relative z-10 py-24 px-4 bg-[#0A0A0A] border-y border-[#333]">
         <div className={`max-w-6xl mx-auto transition-all duration-1000 ${reviewsVisible ? 'opacity-100' : 'opacity-0'}`}>
-            {/* NOME ATUALIZADO */}
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">O Que Estão Falando do <span className="text-[--color-nexus-teal]">Nexus Manual</span></h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -494,7 +530,7 @@ function App() {
           </div>
       </section>
 
-      {/* 9. OFERTA FINAL (PREÇO ATUALIZADO) */}
+      {/* 9. OFERTA FINAL */}
       <section id="offer" ref={offerRef} className="relative z-10 py-32 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-[--color-nexus-cta]/10 to-transparent pointer-events-none"></div>
         
@@ -518,7 +554,6 @@ function App() {
                     <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
                         <img src={produtoImg} alt="Pack Nexus" className="w-64 rounded-xl shadow-2xl border border-[#333] rotate-[-5deg] group-hover:rotate-0 transition-all duration-500" />
                         <div className="text-left">
-                            {/* PREÇO ATUALIZADO PARA 47 */}
                             <div className="text-6xl font-extrabold text-white mb-2">R$ 47<span className="text-2xl text-gray-400">,00</span></div>
                             <p className="text-gray-400 mb-4">Pagamento único. Sem mensalidades.</p>
                             <div className="flex flex-col gap-2">
@@ -528,7 +563,14 @@ function App() {
                         </div>
                     </div>
 
-                    <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="block max-w-2xl mx-auto">
+                    {/* CTA Oferta Final com Pixel */}
+                    <a 
+                        href={CHECKOUT_LINK} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="block max-w-2xl mx-auto"
+                        onClick={handleTrackCheckout}
+                    >
                         <Button className="pulse-button w-full h-20 text-white font-extrabold text-2xl rounded-2xl flex items-center justify-center gap-4 hover:scale-[1.02] transition-transform">
                             QUERO COMEÇAR AGORA MESMO
                             <ArrowRight className="w-8 h-8" />
@@ -539,13 +581,12 @@ function App() {
         </div>
       </section>
 
-      {/* FOOTER (ATUALIZADO COM INSTAGRAM E NOME) */}
+      {/* FOOTER */}
       <footer className="bg-[#0A0A0A] pt-24 pb-12 px-4 border-t border-[#111] relative z-10">
         <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
             <div className="md:col-span-2">
                 <div className="flex items-center gap-3 mb-6">
                     <Brain className="w-8 h-8 text-[--color-nexus-teal]" />
-                    {/* NOME ATUALIZADO */}
                     <span className="text-2xl font-bold text-white">NEXUS MANUAL</span>
                 </div>
                 <p className="text-gray-500 leading-relaxed max-w-sm mb-6">
@@ -562,8 +603,6 @@ function App() {
             <div>
                 <h4 className="text-white font-bold mb-6">Contato</h4>
                 <p className="text-gray-500 mb-4">suporte@nexusorigin.com</p>
-                
-                {/* INSTAGRAM ADICIONADO */}
                 <a href="https://instagram.com/nexus0rigin" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-400 hover:text-[--color-nexus-orange] transition-colors gap-2">
                     <Instagram className="w-5 h-5" />
                     <span>@nexus0rigin</span>
@@ -571,7 +610,6 @@ function App() {
             </div>
         </div>
         <div className="max-w-6xl mx-auto text-center pt-8 border-t border-[#111]">
-          {/* NOME ATUALIZADO NO COPYRIGHT */}
           <p className="text-gray-600 text-sm mb-4">
             &copy; 2025 Nexus Manual. Todos os direitos reservados.
           </p>
