@@ -122,9 +122,7 @@ function useScrollAnimation(threshold = 0.1) {
 
 // --- FUNÇÃO DE RASTREAMENTO DO PIXEL ---
 const handleTrackCheckout = () => {
-  // Verifica se o objeto fbq (Facebook Pixel) existe no navegador
   if (typeof window !== 'undefined' && window.fbq) {
-    // console.log("Pixel Disparado: InitiateCheckout"); // Descomente para debug
     window.fbq('track', 'InitiateCheckout');
   }
 };
@@ -263,9 +261,10 @@ function App() {
                 className="group relative inline-block"
                 onClick={handleTrackCheckout}
             >
-              <Button className="pulse-button relative w-full md:w-auto h-16 px-12 text-white font-bold text-xl rounded-xl flex items-center justify-center gap-3">
+              {/* Ajuste Mobile: h-auto e py-3 para adaptar ao texto */}
+              <Button className="pulse-button relative w-full md:w-auto h-auto py-3 md:h-16 px-8 md:px-12 text-white font-bold text-sm md:text-xl rounded-xl flex items-center justify-center gap-3 whitespace-normal text-center">
                 QUERO ACESSO VITALÍCIO AGORA
-                <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform flex-shrink-0" />
               </Button>
             </a>
             <div className="flex items-center gap-4 text-sm text-gray-500">
@@ -368,7 +367,7 @@ function App() {
                             <h3 className={`text-2xl font-bold mb-3 transition-colors ${activeFeature?.title === item.title ? 'text-[--color-nexus-cta]' : 'text-white group-hover:text-[--color-nexus-teal]'}`}>{item.title}</h3>
                             <p className="text-gray-400 text-lg leading-relaxed">{item.desc}</p>
                             
-                            {/* CTA Bento Grid com Pixel (Só aparece se o card estiver ativo) */}
+                            {/* CTA Bento Grid com Pixel */}
                             {activeFeature?.title === item.title && (
                                 <a 
                                     href={CHECKOUT_LINK} 
@@ -460,7 +459,7 @@ function App() {
                     <p className="text-3xl md:text-5xl font-extrabold text-white mb-8">
                         Hoje por apenas: <span className="text-[--color-nexus-teal]">R$ 47,00</span>
                     </p>
-                    {/* CTA Stack com Pixel e Botão Mobile Ajustado */}
+                    {/* CTA Stack com Pixel e Botão Mobile Ajustado (CORREÇÃO DE TEXTO CORTADO) */}
                     <a 
                         href={CHECKOUT_LINK} 
                         target="_blank" 
@@ -468,7 +467,8 @@ function App() {
                         className="inline-block w-full max-w-md"
                         onClick={handleTrackCheckout}
                     >
-                        <Button className="pulse-button w-full h-14 md:h-16 text-white font-bold text-lg md:text-xl rounded-xl flex items-center justify-center gap-3">
+                        {/* h-auto e py-3 permitem que o botão cresça se o texto quebrar de linha */}
+                        <Button className="pulse-button w-full h-auto py-3 md:h-16 text-white font-bold text-sm md:text-xl rounded-xl flex items-center justify-center gap-2 md:gap-3 whitespace-normal text-center">
                             GARANTIR MEU ARSENAL AGORA
                         </Button>
                     </a>
@@ -563,7 +563,7 @@ function App() {
                         </div>
                     </div>
 
-                    {/* CTA Oferta Final com Pixel e Botão Mobile Ajustado */}
+                    {/* CTA Oferta Final com Pixel e Botão Mobile Ajustado (CORREÇÃO DE TEXTO CORTADO) */}
                     <a 
                         href={CHECKOUT_LINK} 
                         target="_blank" 
@@ -571,9 +571,10 @@ function App() {
                         className="block max-w-2xl mx-auto"
                         onClick={handleTrackCheckout}
                     >
-                        <Button className="pulse-button w-full h-14 md:h-20 text-white font-extrabold text-lg md:text-2xl rounded-2xl flex items-center justify-center gap-2 md:gap-4 hover:scale-[1.02] transition-transform">
+                         {/* h-auto e py-4 garantem que o texto não corte */}
+                        <Button className="pulse-button w-full h-auto py-4 md:h-20 text-white font-extrabold text-sm md:text-2xl rounded-2xl flex items-center justify-center gap-2 md:gap-4 hover:scale-[1.02] transition-transform whitespace-normal text-center">
                             QUERO COMEÇAR AGORA MESMO
-                            <ArrowRight className="w-6 h-6 md:w-8 md:h-8" />
+                            <ArrowRight className="w-5 h-5 md:w-8 md:h-8 flex-shrink-0" />
                         </Button>
                     </a>
                 </div>
