@@ -219,7 +219,6 @@ function Header() {
                     COMPRAR AGORA
                   </Button>
                 </a>
-              </div>
             </div>
         </header>
     );
@@ -311,24 +310,160 @@ function App() {
         </div>
       </section>
 
-      {/* BENTO GRID SECTION (Mantido original) */}
+      {/* BENTO GRID SECTION */}
       <section id="bento" className="py-24 px-4 bg-[#0A0A0A] relative overflow-hidden">
-        {/* ... (mantenha o código original do bento grid aqui) ... */}
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-6xl font-black mb-6">
+              O QUE VOCÊ VAI <span className="text-[--color-nexus-orange]">DOMINAR</span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Um sistema completo que vai te transformar em um expert em IA, não apenas um usuário básico
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {bentoFeatures.map((feature, index) => (
+              <div
+                key={index}
+                className={`${feature.colSpan} relative group rounded-3xl overflow-hidden border border-[#333] bg-cover bg-center min-h-[300px] flex flex-col justify-end p-8 transition-all duration-500 hover:scale-[1.02] hover:border-[--color-nexus-teal]`}
+                style={{ backgroundImage: `url(${feature.bgImage})` }}
+              >
+                <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-all duration-500"></div>
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 bg-[--color-nexus-teal] rounded-lg">
+                      <feature.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-black text-white">{feature.title}</h3>
+                  </div>
+                  <p className="text-gray-300 leading-relaxed">{feature.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
-      {/* STACK SECTION (Mantido original) */}
+      {/* STACK SECTION */}
       <section id="stack" className="py-24 px-4 bg-gradient-to-b from-[#0A0A0A] to-[#0f172a] relative overflow-hidden">
-        {/* ... (mantenha o código original do stack aqui) ... */}
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-6xl font-black mb-6">
+              O QUE VOCÊ <span className="text-[--color-nexus-teal]">VAI RECEBER</span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Um arsenal completo para sua dominância digital
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {stackItems.map((item, index) => (
+              <div
+                key={index}
+                className="bg-[#1a1a1a] border border-[#333] rounded-2xl p-8 hover:border-[--color-nexus-teal] transition-all duration-300 group"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-[--color-nexus-teal] rounded-xl group-hover:scale-110 transition-transform">
+                    <item.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-black text-white mb-2">{item.title}</h3>
+                    <div className="text-2xl font-black text-[--color-nexus-orange]">{item.value}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
-      {/* OFFER SECTION (Mantido original) */}
+      {/* OFFER SECTION */}
       <section id="offer" className="py-24 px-4 bg-gradient-to-b from-[#0f172a] to-[#0A0A0A] relative overflow-hidden">
-        {/* ... (mantenha o código original da offer aqui) ... */}
+        <div className="max-w-6xl mx-auto text-center">
+          <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] border border-[#333] rounded-3xl p-8 md:p-12 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[--color-nexus-teal] rounded-full filter blur-3xl opacity-20"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-[--color-nexus-orange] rounded-full filter blur-3xl opacity-20"></div>
+            
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
+                OFERTA <span className="text-[--color-nexus-orange]">EXCLUSIVA</span>
+              </h2>
+              <p className="text-gray-400 text-lg mb-8">
+                Acesso imediato a todo o ecossistema Nexus
+              </p>
+
+              <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
+                <img src={produtoImg} alt="Pack Nexus" className="w-48 md:w-64 rounded-xl shadow-2xl border border-[#333] rotate-[-5deg] hover:rotate-0 transition-all duration-500" />
+                <div className="text-center md:text-left">
+                  <div className="text-5xl md:text-6xl font-extrabold text-white mb-2">
+                    R$ 47<span className="text-2xl text-gray-400">,00</span>
+                  </div>
+                  <p className="text-gray-400 mb-4">Pagamento único. Sem mensalidades.</p>
+                  <div className="flex flex-col gap-2 items-center md:items-start">
+                    <div className="flex items-center text-sm text-gray-300">
+                      <Check className="w-4 h-4 text-[--color-nexus-teal] mr-2" /> 
+                      Acesso Imediato via E-mail
+                    </div>
+                    <div className="flex items-center text-sm text-gray-300">
+                      <Check className="w-4 h-4 text-[--color-nexus-teal] mr-2" /> 
+                      Plataforma Segura e Confiável
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA Oferta Final */}
+              <a 
+                href={CHECKOUT_LINK} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="block max-w-2xl mx-auto"
+                onClick={handleTrackCheckout}
+              >
+                <Button className="pulse-button w-full h-auto py-4 md:py-6 text-white font-extrabold text-lg md:text-2xl rounded-2xl flex items-center justify-center gap-2 md:gap-4 hover:scale-[1.02] transition-transform">
+                  QUERO COMEÇAR AGORA MESMO
+                  <ArrowRight className="w-5 h-5 md:w-8 md:h-8 flex-shrink-0" />
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* FOOTER (Mantido original) */}
+      {/* FOOTER */}
       <footer className="bg-[#0A0A0A] pt-24 pb-12 px-4 border-t border-[#111] relative z-10">
-        {/* ... (mantenha o código original do footer aqui) ... */}
+        <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
+            <div className="md:col-span-2">
+                <div className="flex items-center gap-3 mb-6">
+                    <Brain className="w-8 h-8 text-[--color-nexus-teal]" />
+                    <span className="text-2xl font-bold text-white">NEXUS MANUAL</span>
+                </div>
+                <p className="text-gray-500 leading-relaxed max-w-sm mb-6">
+                    O manual definitivo para profissionais que desejam liderar a revolução da IA.
+                </p>
+            </div>
+            <div>
+                <h4 className="text-white font-bold mb-6">Links Úteis</h4>
+                <ul className="space-y-3 text-gray-500">
+                    <li><a href="#" className="hover:text-[--color-nexus-teal] transition-colors">Política de Privacidade</a></li>
+                    <li><a href="#" className="hover:text-[--color-nexus-teal] transition-colors">Suporte</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 className="text-white font-bold mb-6">Contato</h4>
+                <p className="text-gray-500 mb-4">suporte@nexusorigin.com</p>
+                <a href="https://instagram.com/nexus0rigin" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-400 hover:text-[--color-nexus-orange] transition-colors gap-2">
+                    <Instagram className="w-5 h-5" />
+                    <span>@nexus0rigin</span>
+                </a>
+            </div>
+        </div>
+        <div className="max-w-6xl mx-auto text-center pt-8 border-t border-[#111]">
+          <p className="text-gray-600 text-sm mb-4">
+            &copy; 2025 Nexus Manual. Todos os direitos reservados.
+          </p>
+        </div>
       </footer>
     </div>
   )
