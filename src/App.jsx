@@ -1,3 +1,4 @@
+Blame
 import { useState, useEffect, useRef } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import {
@@ -34,8 +35,8 @@ import socialWoman2 from './assets/femele_social02.png'
 import socialWoman1 from './assets/femele_social.png'
 import socialMan from './assets/masculino_social.png'
 
-// --- LINK DO CHECKOUT (ATUALIZADO) ---
-const CHECKOUT_LINK = "https://ecossistema-beta.streamlit.app/";
+// Link do Checkout Atualizado
+const CHECKOUT_LINK = "https://ecossistema-beta.streamlit.app";
 
 // --- DADOS ESTRUTURADOS ---
 
@@ -67,7 +68,7 @@ const bentoFeatures = [
   },
 ];
 
-// SEÇÃO: ECOSSISTEMA NEXUS
+// NOVA SEÇÃO: ECOSSISTEMA NEXUS
 const ecosystemFeatures = [
   {
     image: ecossistemaNexusImg,
@@ -103,181 +104,368 @@ const ecosystemFeatures = [
 
 // Dados dos Depoimentos
 const testimonials = [
-    {
-        img: socialMan,
-        name: "Carlos Mendes",
-        role: "Desenvolvedor Senior",
-        text: "O material é direto ao ponto. Em uma tarde eu já estava aplicando conceitos que economizaram horas da minha semana. O melhor investimento que fiz esse ano."
-    },
-    {
-        img: socialWoman1,
-        name: "Ana Paula S.",
-        role: "Marketing Digital",
-        text: "Eu tinha medo da IA substituir meu trabalho. O Nexus me ensinou a usar ela como minha 'estagiária' de luxo. A qualidade das minhas entregas subiu drasticamente."
-    },
-    {
-        img: socialWoman2,
-        name: "Juliana Costa",
-        role: "Redatora & Copywriter",
-        text: "O banco de prompts se pagou no primeiro projeto que fechei. Não é só teoria, é um sistema prático para quem quer ganhar dinheiro com agilidade."
-    }
+  {
+    img: socialMan,
+    name: "Carlos Mendes",
+    role: "Desenvolvedor Senior",
+    text: "O material é direto ao ponto. Em uma tarde eu já estava aplicando conceitos que economizaram horas da minha semana. O melhor investimento que fiz esse ano."
+  },
+  {
+    img: socialWoman1,
+    name: "Ana Paula S.",
+    role: "Marketing Digital",
+    text: "Eu tinha medo da IA substituir meu trabalho. O Nexus me ensinou a usar ela como minha 'estagiária' de luxo. A qualidade das minhas entregas subiu drasticamente."
+  },
+  {
+    img: socialWoman2,
+    name: "Juliana Costa",
+    role: "Redatora & Copywriter",
+    text: "O banco de prompts se pagou no primeiro projeto que fechei. Não é só teoria, é um sistema prático para quem quer ganhar dinheiro com agilidade."
+  }
 ];
 
 function App() {
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const observerRef = useRef(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   const handleTrackCheckout = () => {
-    console.log("Checkout iniciado no link: " + CHECKOUT_LINK);
-    // Aqui você pode adicionar lógica de Pixel do Facebook/Google se necessário
-  };
+    // Implementação do tracking de conversão
+    console.log('Checkout click tracked')
+  }
 
   return (
-    <div className="App min-h-screen bg-black text-white font-sans selection:bg-[#00E5E5] selection:text-black">
-      
-      {/* 1. SEÇÃO BENTO GRID (Renderização dos dados bentoFeatures) */}
-      <section className="py-20 px-4 max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-          Domine a Nova Era
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          {bentoFeatures.map((feature, index) => (
-            <div 
-              key={index} 
-              className={`${feature.colSpan} relative group overflow-hidden rounded-3xl border border-white/10 h-[400px]`}
+    <div className="min-h-screen bg-[#0A0A0A] text-white">
+      {/* HEADER */}
+      <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-[#0A0A0A]/90 backdrop-blur-md border-b border-[#111]' : 'bg-transparent'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <div className="flex items-center gap-3">
+              <Brain className="w-8 h-8 text-[--color-nexus-teal]" />
+              <span className="text-2xl font-bold text-white">NEXUS MANUAL</span>
+            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-8">
+              <a href="#ecossistema" className="text-gray-400 hover:text-white transition-colors">Ecossistema</a>
+              <a href="#beneficios" className="text-gray-400 hover:text-white transition-colors">Benefícios</a>
+              <a href="#depoimentos" className="text-gray-400 hover:text-white transition-colors">Depoimentos</a>
+              <a href="#oferta" className="text-gray-400 hover:text-white transition-colors">Oferta</a>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {/* Imagem de Fundo com Overlay */}
-              <div className="absolute inset-0 z-0">
-                <img src={feature.bgImage} alt={feature.title} className="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-              </div>
-              
-              {/* Conteúdo */}
-              <div className="absolute bottom-0 left-0 p-8 z-10 w-full">
-                <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center mb-4 border border-white/20">
-                  <feature.icon className="w-6 h-6 text-[#00E5E5]" />
-                </div>
-                <h3 className="text-2xl font-bold mb-2 text-white">{feature.title}</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">{feature.desc}</p>
-              </div>
+              <div className={`w-6 h-0.5 bg-white transition-all ${isMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></div>
+              <div className={`w-6 h-0.5 bg-white my-1.5 ${isMenuOpen ? 'opacity-0' : ''}`}></div>
+              <div className={`w-6 h-0.5 bg-white transition-all ${isMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></div>
+            </button>
+          </div>
+
+          {/* Mobile Navigation */}
+          {isMenuOpen && (
+            <div className="md:hidden py-4 border-t border-[#111]">
+              <nav className="flex flex-col gap-4">
+                <a href="#ecossistema" className="text-gray-400 hover:text-white transition-colors py-2">Ecossistema</a>
+                <a href="#beneficios" className="text-gray-400 hover:text-white transition-colors py-2">Benefícios</a>
+                <a href="#depoimentos" className="text-gray-400 hover:text-white transition-colors py-2">Depoimentos</a>
+                <a href="#oferta" className="text-gray-400 hover:text-white transition-colors py-2">Oferta</a>
+              </nav>
             </div>
-          ))}
+          )}
         </div>
-      </section>
+      </header>
 
-      {/* 2. SEÇÃO ECOSSISTEMA (Renderização dos dados ecosystemFeatures) */}
-      <section className="py-20 bg-[#050505]">
-        <div className="max-w-7xl mx-auto px-4">
-           <h2 className="text-4xl md:text-5xl font-bold text-center mb-20">
-             O Ecossistema <span className="text-[#00E5E5]">Nexus</span>
-           </h2>
-           <div className="space-y-24">
-             {ecosystemFeatures.map((item, index) => (
-               <div key={index} className={`flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12`}>
-                 <div className="flex-1">
-                   <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
-                     <div className="absolute inset-0 bg-[#00E5E5]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay"></div>
-                     <img src={item.image} alt={item.title} className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700" />
-                   </div>
-                 </div>
-                 <div className="flex-1 space-y-6">
-                    <p className="text-[#F97316] font-bold tracking-widest uppercase text-sm">{item.tagline}</p>
-                    <h3 className="text-3xl md:text-4xl font-bold leading-tight">{item.title}</h3>
-                    <p className="text-gray-400 text-lg leading-relaxed">{item.description}</p>
-                 </div>
-               </div>
-             ))}
-           </div>
+      {/* HERO SECTION */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${fundo02})` }}
+        >
+          <div className="absolute inset-0 bg-black/70"></div>
         </div>
-      </section>
-
-      {/* 3. SEÇÃO DEPOIMENTOS (Renderização dos dados testimonials) */}
-      <section className="py-20 border-y border-white/5 bg-black">
-        <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">O que dizem os membros</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {testimonials.map((t, i) => (
-                    <div key={i} className="bg-[#111] p-8 rounded-2xl border border-white/10 hover:border-[#00E5E5]/50 transition-colors">
-                        <div className="flex items-center gap-4 mb-6">
-                            <img src={t.img} alt={t.name} className="w-12 h-12 rounded-full border border-gray-700" />
-                            <div>
-                                <p className="font-bold text-white">{t.name}</p>
-                                <p className="text-xs text-gray-500 uppercase">{t.role}</p>
-                            </div>
-                        </div>
-                        <p className="text-gray-300 italic">"{t.text}"</p>
-                        <div className="flex gap-1 mt-4 text-[#F97316]">
-                            {[...Array(5)].map((_, starI) => <Star key={starI} size={16} fill="currentColor" />)}
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-      </section>
-
-      {/* 4. SEÇÃO DE OFERTA / PRICING (Código Original Mantido) */}
-      <section className="py-20 bg-black relative overflow-hidden">
-        {/* Fundo decorativo se necessário */}
-        <div className="absolute inset-0 bg-[url('./assets/fundo02.jpg')] opacity-10 bg-cover bg-center z-0"></div>
         
-        <div className="container mx-auto px-4">
-            <div className="relative z-10 text-center">
-                <h3 className="text-3xl font-bold text-white mb-2">Última Chance para Garantir o Preço de Lançamento</h3>
-                <p className="text-[#F97316] font-medium mb-8 uppercase tracking-wider">Acesso Vitalício + Bônus Exclusivos</p>
-                
-                <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
-                    <img src={produtoImg} alt="Pack Nexus" className="w-64 rounded-xl shadow-2xl border border-[#333] rotate-[-5deg] hover:rotate-0 transition-all duration-500" />
-                    <div className="text-left">
-                        <div className="text-6xl font-extrabold text-white mb-2">R$ 47<span className="text-2xl text-gray-400">,00</span></div>
-                        <p className="text-gray-400 mb-4">Pagamento único. Sem mensalidades.</p>
-                        <div className="flex flex-col gap-2">
-                            <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[#00E5E5] mr-2" /> Acesso Imediato via E-mail</div>
-                            <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[#00E5E5] mr-2" /> Plataforma Segura e Confiável</div>
-                        </div>
-                    </div>
-                </div>
+        <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
+          <div className="inline-flex items-center gap-2 bg-[#111]/80 border border-[#222] rounded-full px-4 py-2 mb-8">
+            <Sparkles className="w-4 h-4 text-[--color-nexus-orange]" />
+            <span className="text-sm text-gray-300">O Manual Definitivo da Era da I.A.</span>
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            Domine a
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[--color-nexus-orange] to-[--color-nexus-teal]">
+              I.A. em 2025
+            </span>
+          </h1>
+          
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Vá do básico ao avançado com o método que ensina não apenas ferramentas, mas os 
+            <span className="text-[--color-nexus-orange] font-semibold"> princípios cognitivos fundamentais</span> 
+            {' '}da inteligência artificial.
+          </p>
 
-                {/* CTA Oferta Final com Link Atualizado */}
-                <a 
-                    href={CHECKOUT_LINK} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="block max-w-2xl mx-auto"
-                    onClick={handleTrackCheckout}
-                >
-                    <Button className="w-full h-auto py-4 md:h-20 bg-[#00E5E5] hover:bg-[#00CCCC] text-black font-extrabold text-sm md:text-2xl rounded-2xl flex items-center justify-center gap-2 md:gap-4 hover:scale-[1.02] transition-transform whitespace-normal text-center shadow-[0_0_20px_rgba(0,229,229,0.4)]">
-                        QUERO COMEÇAR AGORA MESMO
-                        <ArrowRight className="w-5 h-5 md:w-8 md:h-8 flex-shrink-0" />
-                    </Button>
-                </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            <a 
+              href={CHECKOUT_LINK} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={handleTrackCheckout}
+            >
+              <Button className="bg-gradient-to-r from-[--color-nexus-orange] to-[--color-nexus-teal] text-white px-8 py-6 text-lg font-bold rounded-2xl hover:scale-105 transition-transform flex items-center gap-2">
+                QUERO ME TORNAR UM EXPERT
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+            </a>
+            <Button variant="outline" className="border-2 border-gray-600 text-white px-8 py-6 text-lg font-bold rounded-2xl hover:border-white transition-colors">
+              VER DEPOIMENTOS
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-[--color-nexus-orange]">10x</div>
+              <div className="text-sm text-gray-400">Mais Produtivo</div>
             </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-[--color-nexus-orange]">80%</div>
+              <div className="text-sm text-gray-400">Tempo Economizado</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-[--color-nexus-orange]">R$ 47</div>
+              <div className="text-sm text-gray-400">Investimento</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-[--color-nexus-orange]">100%</div>
+              <div className="text-sm text-gray-400">Online</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <ChevronRight className="w-6 h-6 text-gray-400 rotate-90" />
         </div>
       </section>
 
-      {/* FOOTER (Código Original Mantido) */}
+      {/* BENTO GRID SECTION */}
+      <section id="beneficios" className="py-20 px-4 max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Por Que Este Manual é
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[--color-nexus-orange] to-[--color-nexus-teal]">
+              Diferente de Tudo?
+            </span>
+          </h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Não é mais um curso de ferramentas. É uma mudança de mentalidade que vai te posicionar 
+            anos à frente da concorrência.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {bentoFeatures.map((feature, index) => {
+            const IconComponent = feature.icon
+            return (
+              <div 
+                key={index}
+                className={`${feature.colSpan} relative group rounded-3xl overflow-hidden min-h-[300px] bg-cover bg-center`}
+                style={{ backgroundImage: `url(${feature.bgImage})` }}
+              >
+                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-all duration-500"></div>
+                <div className="relative z-10 p-8 h-full flex flex-col justify-end">
+                  <IconComponent className="w-12 h-12 text-[--color-nexus-orange] mb-4" />
+                  <h3 className="text-2xl font-bold text-white mb-3">{feature.title}</h3>
+                  <p className="text-gray-300 leading-relaxed">{feature.desc}</p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
+      {/* ECOSSISTEMA NEXUS SECTION */}
+      <section id="ecossistema" className="py-20 bg-[#111]">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              O Ecossistema
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[--color-nexus-orange] to-[--color-nexus-teal]">
+                Nexus Completo
+              </span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Um sistema integrado que vai te levar do zero ao domínio absoluto da inteligência artificial.
+            </p>
+          </div>
+
+          <div className="space-y-20">
+            {ecosystemFeatures.map((feature, index) => (
+              <div 
+                key={index}
+                className={`flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12`}
+              >
+                <div className="flex-1">
+                  <img 
+                    src={feature.image} 
+                    alt={feature.title}
+                    className="rounded-2xl shadow-2xl w-full h-auto"
+                  />
+                </div>
+                <div className="flex-1">
+                  <div className="inline-flex items-center gap-2 bg-[#222] rounded-full px-4 py-2 mb-4">
+                    <Target className="w-4 h-4 text-[--color-nexus-orange]" />
+                    <span className="text-sm text-gray-300">{feature.tagline}</span>
+                  </div>
+                  <h3 className="text-3xl font-bold text-white mb-6">{feature.title}</h3>
+                  <p className="text-lg text-gray-400 leading-relaxed mb-6">{feature.description}</p>
+                  <div className="flex items-center gap-2 text-[--color-nexus-teal]">
+                    <span className="font-semibold">Descubra como</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DEPOIMENTOS SECTION */}
+      <section id="depoimentos" className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              O Que Quem Já
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[--color-nexus-orange] to-[--color-nexus-teal]">
+                Usa Está Falando
+              </span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Profissionais reais, resultados reais. Veja como o Nexus Manual está transformando carreiras.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="bg-[#111] rounded-2xl p-8 border border-[#222] hover:border-[#333] transition-colors">
+                <div className="flex items-center gap-4 mb-6">
+                  <img 
+                    src={testimonial.img} 
+                    alt={testimonial.name}
+                    className="w-16 h-16 rounded-full object-cover"
+                  />
+                  <div>
+                    <div className="font-bold text-white text-lg">{testimonial.name}</div>
+                    <div className="text-gray-400 text-sm">{testimonial.role}</div>
+                  </div>
+                </div>
+                <p className="text-gray-300 leading-relaxed italic">"{testimonial.text}"</p>
+                <div className="flex gap-1 mt-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-[--color-nexus-orange] text-[--color-nexus-orange]" />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* OFERTA SECTION */}
+      <section id="oferta" className="relative py-20 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${neuralNetworkImg})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/90 to-[#0A0A0A]"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
+          <div className="inline-flex items-center gap-2 bg-[--color-nexus-orange]/20 border border-[--color-nexus-orange]/30 rounded-full px-4 py-2 mb-4">
+            <AlertTriangle className="w-4 h-4 text-[--color-nexus-orange]" />
+            <span className="text-sm text-[--color-nexus-orange] font-medium">OFERTA POR TEMPO LIMITADO</span>
+          </div>
+          
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            Invista no Seu
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[--color-nexus-orange] to-[--color-nexus-teal]">
+              Futuro Digital
+            </span>
+          </h2>
+          
+          <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+            Acesso imediato e vitalício a todo o ecossistema Nexus Manual por um investimento especial de lançamento.
+          </p>
+
+          <div className="relative z-10">
+            <h3 className="text-3xl font-bold text-white mb-2">Última Chance para Garantir o Preço de Lançamento</h3>
+            <p className="text-[--color-nexus-orange] font-medium mb-8 uppercase tracking-wider">Acesso Vitalício + Bônus Exclusivos</p>
+            
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
+              <img src={produtoImg} alt="Pack Nexus" className="w-64 rounded-xl shadow-2xl border border-[#333] rotate-[-5deg] group-hover:rotate-0 transition-all duration-500" />
+              <div className="text-left">
+                <div className="text-6xl font-extrabold text-white mb-2">R$ 47<span className="text-2xl text-gray-400">,00</span></div>
+                <p className="text-gray-400 mb-4">Pagamento único. Sem mensalidades.</p>
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[--color-nexus-teal] mr-2" /> Acesso Imediato via E-mail</div>
+                  <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[--color-nexus-teal] mr-2" /> Plataforma Segura e Confiável</div>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Oferta Final */}
+            <a 
+              href={CHECKOUT_LINK} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="block max-w-2xl mx-auto"
+              onClick={handleTrackCheckout}
+            >
+              <Button className="pulse-button w-full h-auto py-4 md:h-20 text-white font-extrabold text-sm md:text-2xl rounded-2xl flex items-center justify-center gap-2 md:gap-4 hover:scale-[1.02] transition-transform whitespace-normal text-center">
+                QUERO COMEÇAR AGORA MESMO
+                <ArrowRight className="w-5 h-5 md:w-8 md:h-8 flex-shrink-0" />
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
       <footer className="bg-[#0A0A0A] pt-24 pb-12 px-4 border-t border-[#111] relative z-10">
         <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
-            <div className="md:col-span-2">
-                <div className="flex items-center gap-3 mb-6">
-                    <Brain className="w-8 h-8 text-[#00E5E5]" />
-                    <span className="text-2xl font-bold text-white">NEXUS MANUAL</span>
-                </div>
-                <p className="text-gray-500 leading-relaxed max-w-sm mb-6">
-                    O manual definitivo para profissionais que desejam liderar a revolução da IA.
-                </p>
+          <div className="md:col-span-2">
+            <div className="flex items-center gap-3 mb-6">
+              <Brain className="w-8 h-8 text-[--color-nexus-teal]" />
+              <span className="text-2xl font-bold text-white">NEXUS MANUAL</span>
             </div>
-            <div>
-                <h4 className="text-white font-bold mb-6">Links Úteis</h4>
-                <ul className="space-y-3 text-gray-500">
-                    <li><a href="#" className="hover:text-[#00E5E5] transition-colors">Política de Privacidade</a></li>
-                    <li><a href="#" className="hover:text-[#00E5E5] transition-colors">Suporte</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 className="text-white font-bold mb-6">Contato</h4>
-                <p className="text-gray-500 mb-4">suporte@nexusorigin.com</p>
-                <a href="https://instagram.com/nexus0rigin" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-400 hover:text-[#F97316] transition-colors gap-2">
-                    <Instagram className="w-5 h-5" />
-                    <span>@nexus0rigin</span>
-                </a>
-            </div>
+            <p className="text-gray-500 leading-relaxed max-w-sm mb-6">
+              O manual definitivo para profissionais que desejam liderar a revolução da IA.
+            </p>
+          </div>
+          <div>
+            <h4 className="text-white font-bold mb-6">Links Úteis</h4>
+            <ul className="space-y-3 text-gray-500">
+              <li><a href="#" className="hover:text-[--color-nexus-teal] transition-colors">Política de Privacidade</a></li>
+              <li><a href="#" className="hover:text-[--color-nexus-teal] transition-colors">Suporte</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-white font-bold mb-6">Contato</h4>
+            <p className="text-gray-500 mb-4">suporte@nexusorigin.com</p>
+            <a href="https://instagram.com/nexus0rigin" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-400 hover:text-[--color-nexus-orange] transition-colors gap-2">
+              <Instagram className="w-5 h-5" />
+              <span>@nexus0rigin</span>
+            </a>
+          </div>
         </div>
         <div className="max-w-6xl mx-auto text-center pt-8 border-t border-[#111]">
           <p className="text-gray-600 text-sm mb-4">
@@ -285,7 +473,6 @@ function App() {
           </p>
         </div>
       </footer>
-
     </div>
   )
 }
