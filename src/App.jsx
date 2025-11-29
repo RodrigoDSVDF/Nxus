@@ -34,7 +34,7 @@ import socialWoman2 from './assets/femele_social02.png'
 import socialWoman1 from './assets/femele_social.png'
 import socialMan from './assets/masculino_social.png'
 
-// Link do Checkout Atualizado
+// Link do Checkout Centralizado - ATUALIZADO
 const CHECKOUT_LINK = "https://ecossistema-beta.streamlit.app";
 
 // --- DADOS ESTRUTURADOS ---
@@ -103,44 +103,25 @@ const ecosystemFeatures = [
 
 // Dados dos Depoimentos
 const testimonials = [
-  {
-    img: socialMan,
-    name: "Carlos Mendes",
-    role: "Desenvolvedor Senior",
-    text: "O material é direto ao ponto. Em uma tarde eu já estava aplicando conceitos que economizaram horas da minha semana. O melhor investimento que fiz esse ano."
-  },
-  {
-    img: socialWoman1,
-    name: "Ana Paula S.",
-    role: "Marketing Digital",
-    text: "Eu tinha medo da IA substituir meu trabalho. O Nexus me ensinou a usar ela como minha 'estagiária' de luxo. A qualidade das minhas entregas subiu drasticamente."
-  },
-  {
-    img: socialWoman2,
-    name: "Juliana Costa",
-    role: "Redatora & Copywriter",
-    text: "O banco de prompts se pagou no primeiro projeto que fechei. Não é só teoria, é um sistema prático para quem quer ganhar dinheiro com agilidade."
-  }
+    {
+        img: socialMan,
+        name: "Carlos Mendes",
+        role: "Desenvolvedor Senior",
+        text: "O material é direto ao ponto. Em uma tarde eu já estava aplicando conceitos que economizaram horas da minha semana. O melhor investimento que fiz esse ano."
+    },
+    {
+        img: socialWoman1,
+        name: "Ana Paula S.",
+        role: "Marketing Digital",
+        text: "Eu tinha medo da IA substituir meu trabalho. O Nexus me ensinou a usar ela como minha 'estagiária' de luxo. A qualidade das minhas entregas subiu drasticamente."
+    },
+    {
+        img: socialWoman2,
+        name: "Juliana Costa",
+        role: "Redatora & Copywriter",
+        text: "O banco de prompts se pagou no primeiro projeto que fechei. Não é só teoria, é um sistema prático para quem quer ganhar dinheiro com agilidade."
+    }
 ];
-
-// Estilos CSS inline para as cores personalizadas
-const customStyles = `
-  :root {
-    --color-nexus-orange: #ff6b35;
-    --color-nexus-teal: #2ec4b6;
-  }
-  
-  .pulse-button {
-    background: linear-gradient(135deg, var(--color-nexus-orange), var(--color-nexus-teal));
-    animation: pulse 2s infinite;
-  }
-  
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-  }
-`;
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -163,15 +144,12 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white">
-      {/* Injetar estilos CSS personalizados */}
-      <style jsx>{customStyles}</style>
-      
       {/* HEADER */}
       <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-[#0A0A0A]/90 backdrop-blur-md border-b border-[#111]' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center gap-3">
-              <Brain className="w-8 h-8" style={{ color: '#2ec4b6' }} />
+              <Brain className="w-8 h-8 text-[--color-nexus-teal]" />
               <span className="text-2xl font-bold text-white">NEXUS MANUAL</span>
             </div>
 
@@ -219,20 +197,20 @@ function App() {
         
         <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-[#111]/80 border border-[#222] rounded-full px-4 py-2 mb-8">
-            <Sparkles className="w-4 h-4" style={{ color: '#ff6b35' }} />
+            <Sparkles className="w-4 h-4 text-[--color-nexus-orange]" />
             <span className="text-sm text-gray-300">O Manual Definitivo da Era da I.A.</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             Domine a
-            <span className="block bg-gradient-to-r from-[#ff6b35] to-[#2ec4b6] bg-clip-text text-transparent">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[--color-nexus-orange] to-[--color-nexus-teal]">
               I.A. em 2025
             </span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
             Vá do básico ao avançado com o método que ensina não apenas ferramentas, mas os 
-            <span className="font-semibold" style={{ color: '#ff6b35' }}> princípios cognitivos fundamentais</span> 
+            <span className="text-[--color-nexus-orange] font-semibold"> princípios cognitivos fundamentais</span> 
             {' '}da inteligência artificial.
           </p>
 
@@ -243,8 +221,7 @@ function App() {
               rel="noopener noreferrer"
               onClick={handleTrackCheckout}
             >
-              <Button className="px-8 py-6 text-lg font-bold rounded-2xl hover:scale-105 transition-transform flex items-center gap-2 text-white"
-                style={{ background: 'linear-gradient(135deg, #ff6b35, #2ec4b6)' }}>
+              <Button className="bg-gradient-to-r from-[--color-nexus-orange] to-[--color-nexus-teal] text-white px-8 py-6 text-lg font-bold rounded-2xl hover:scale-105 transition-transform flex items-center gap-2">
                 QUERO ME TORNAR UM EXPERT
                 <ArrowRight className="w-5 h-5" />
               </Button>
@@ -256,19 +233,19 @@ function App() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
             <div className="text-center">
-              <div className="text-2xl font-bold" style={{ color: '#ff6b35' }}>10x</div>
+              <div className="text-2xl font-bold text-[--color-nexus-orange]">10x</div>
               <div className="text-sm text-gray-400">Mais Produtivo</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold" style={{ color: '#ff6b35' }}>80%</div>
+              <div className="text-2xl font-bold text-[--color-nexus-orange]">80%</div>
               <div className="text-sm text-gray-400">Tempo Economizado</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold" style={{ color: '#ff6b35' }}>R$ 47</div>
+              <div className="text-2xl font-bold text-[--color-nexus-orange]">R$ 47</div>
               <div className="text-sm text-gray-400">Investimento</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold" style={{ color: '#ff6b35' }}>100%</div>
+              <div className="text-2xl font-bold text-[--color-nexus-orange]">100%</div>
               <div className="text-sm text-gray-400">Online</div>
             </div>
           </div>
@@ -284,7 +261,7 @@ function App() {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Por Que Este Manual é
-            <span className="block bg-gradient-to-r from-[#ff6b35] to-[#2ec4b6] bg-clip-text text-transparent">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[--color-nexus-orange] to-[--color-nexus-teal]">
               Diferente de Tudo?
             </span>
           </h2>
@@ -305,7 +282,7 @@ function App() {
               >
                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-all duration-500"></div>
                 <div className="relative z-10 p-8 h-full flex flex-col justify-end">
-                  <IconComponent className="w-12 h-12 mb-4" style={{ color: '#ff6b35' }} />
+                  <IconComponent className="w-12 h-12 text-[--color-nexus-orange] mb-4" />
                   <h3 className="text-2xl font-bold text-white mb-3">{feature.title}</h3>
                   <p className="text-gray-300 leading-relaxed">{feature.desc}</p>
                 </div>
@@ -321,7 +298,7 @@ function App() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               O Ecossistema
-              <span className="block bg-gradient-to-r from-[#ff6b35] to-[#2ec4b6] bg-clip-text text-transparent">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[--color-nexus-orange] to-[--color-nexus-teal]">
                 Nexus Completo
               </span>
             </h2>
@@ -345,12 +322,12 @@ function App() {
                 </div>
                 <div className="flex-1">
                   <div className="inline-flex items-center gap-2 bg-[#222] rounded-full px-4 py-2 mb-4">
-                    <Target className="w-4 h-4" style={{ color: '#ff6b35' }} />
+                    <Target className="w-4 h-4 text-[--color-nexus-orange]" />
                     <span className="text-sm text-gray-300">{feature.tagline}</span>
                   </div>
                   <h3 className="text-3xl font-bold text-white mb-6">{feature.title}</h3>
                   <p className="text-lg text-gray-400 leading-relaxed mb-6">{feature.description}</p>
-                  <div className="flex items-center gap-2" style={{ color: '#2ec4b6' }}>
+                  <div className="flex items-center gap-2 text-[--color-nexus-teal]">
                     <span className="font-semibold">Descubra como</span>
                     <ArrowRight className="w-4 h-4" />
                   </div>
@@ -367,7 +344,7 @@ function App() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               O Que Quem Já
-              <span className="block bg-gradient-to-r from-[#ff6b35] to-[#2ec4b6] bg-clip-text text-transparent">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[--color-nexus-orange] to-[--color-nexus-teal]">
                 Usa Está Falando
               </span>
             </h2>
@@ -393,7 +370,7 @@ function App() {
                 <p className="text-gray-300 leading-relaxed italic">"{testimonial.text}"</p>
                 <div className="flex gap-1 mt-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4" style={{ fill: '#ff6b35', color: '#ff6b35' }} />
+                    <Star key={i} className="w-4 h-4 fill-[--color-nexus-orange] text-[--color-nexus-orange]" />
                   ))}
                 </div>
               </div>
@@ -412,14 +389,14 @@ function App() {
         </div>
         
         <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
-          <div className="inline-flex items-center gap-2 bg-[#ff6b35]/20 border border-[#ff6b35]/30 rounded-full px-4 py-2 mb-4">
-            <AlertTriangle className="w-4 h-4" style={{ color: '#ff6b35' }} />
-            <span className="text-sm font-medium" style={{ color: '#ff6b35' }}>OFERTA POR TEMPO LIMITADO</span>
+          <div className="inline-flex items-center gap-2 bg-[--color-nexus-orange]/20 border border-[--color-nexus-orange]/30 rounded-full px-4 py-2 mb-4">
+            <AlertTriangle className="w-4 h-4 text-[--color-nexus-orange]" />
+            <span className="text-sm text-[--color-nexus-orange] font-medium">OFERTA POR TEMPO LIMITADO</span>
           </div>
           
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             Invista no Seu
-            <span className="block bg-gradient-to-r from-[#ff6b35] to-[#2ec4b6] bg-clip-text text-transparent">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[--color-nexus-orange] to-[--color-nexus-teal]">
               Futuro Digital
             </span>
           </h2>
@@ -430,7 +407,7 @@ function App() {
 
           <div className="relative z-10">
             <h3 className="text-3xl font-bold text-white mb-2">Última Chance para Garantir o Preço de Lançamento</h3>
-            <p className="font-medium mb-8 uppercase tracking-wider" style={{ color: '#ff6b35' }}>Acesso Vitalício + Bônus Exclusivos</p>
+            <p className="text-[--color-nexus-orange] font-medium mb-8 uppercase tracking-wider">Acesso Vitalício + Bônus Exclusivos</p>
             
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
               <img src={produtoImg} alt="Pack Nexus" className="w-64 rounded-xl shadow-2xl border border-[#333] rotate-[-5deg] group-hover:rotate-0 transition-all duration-500" />
@@ -438,13 +415,13 @@ function App() {
                 <div className="text-6xl font-extrabold text-white mb-2">R$ 47<span className="text-2xl text-gray-400">,00</span></div>
                 <p className="text-gray-400 mb-4">Pagamento único. Sem mensalidades.</p>
                 <div className="flex flex-col gap-2">
-                  <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 mr-2" style={{ color: '#2ec4b6' }} /> Acesso Imediato via E-mail</div>
-                  <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 mr-2" style={{ color: '#2ec4b6' }} /> Plataforma Segura e Confiável</div>
+                  <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[--color-nexus-teal] mr-2" /> Acesso Imediato via E-mail</div>
+                  <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[--color-nexus-teal] mr-2" /> Plataforma Segura e Confiável</div>
                 </div>
               </div>
             </div>
 
-            {/* CTA Oferta Final */}
+            {/* CTA Oferta Final com Pixel e Botão Mobile Ajustado (CORREÇÃO DE TEXTO CORTADO) */}
             <a 
               href={CHECKOUT_LINK} 
               target="_blank" 
@@ -466,7 +443,7 @@ function App() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <Brain className="w-8 h-8" style={{ color: '#2ec4b6' }} />
+              <Brain className="w-8 h-8 text-[--color-nexus-teal]" />
               <span className="text-2xl font-bold text-white">NEXUS MANUAL</span>
             </div>
             <p className="text-gray-500 leading-relaxed max-w-sm mb-6">
@@ -476,14 +453,14 @@ function App() {
           <div>
             <h4 className="text-white font-bold mb-6">Links Úteis</h4>
             <ul className="space-y-3 text-gray-500">
-              <li><a href="#" className="hover:text-[#2ec4b6] transition-colors">Política de Privacidade</a></li>
-              <li><a href="#" className="hover:text-[#2ec4b6] transition-colors">Suporte</a></li>
+              <li><a href="#" className="hover:text-[--color-nexus-teal] transition-colors">Política de Privacidade</a></li>
+              <li><a href="#" className="hover:text-[--color-nexus-teal] transition-colors">Suporte</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-white font-bold mb-6">Contato</h4>
             <p className="text-gray-500 mb-4">suporte@nexusorigin.com</p>
-            <a href="https://instagram.com/nexus0rigin" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-400 hover:text-[#ff6b35] transition-colors gap-2">
+            <a href="https://instagram.com/nexus0rigin" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-400 hover:text-[--color-nexus-orange] transition-colors gap-2">
               <Instagram className="w-5 h-5" />
               <span>@nexus0rigin</span>
             </a>
