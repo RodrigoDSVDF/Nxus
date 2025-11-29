@@ -27,8 +27,8 @@ import socialWoman2 from './assets/femele_social02.png'
 import socialWoman1 from './assets/femele_social.png'
 import socialMan from './assets/masculino_social.png'
 
-// Link do Checkout Centralizado
-const CHECKOUT_LINK = "https://pay.cakto.com.br/5dUKrWD";
+// Link do Checkout Centralizado (ALTERADO)
+const CHECKOUT_LINK = "https://ecossistema-beta.streamlit.app/";
 
 // --- DADOS ESTRUTURADOS ---
 
@@ -571,7 +571,7 @@ function App() {
                         className="block max-w-2xl mx-auto"
                         onClick={handleTrackCheckout}
                     >
-                         {/* h-auto e py-4 garantem que o texto não corte */}
+                        {/* h-auto e py-4 garantem que o texto não corte */}
                         <Button className="pulse-button w-full h-auto py-4 md:h-20 text-white font-extrabold text-sm md:text-2xl rounded-2xl flex items-center justify-center gap-2 md:gap-4 hover:scale-[1.02] transition-transform whitespace-normal text-center">
                             QUERO COMEÇAR AGORA MESMO
                             <ArrowRight className="w-5 h-5 md:w-8 md:h-8 flex-shrink-0" />
