@@ -482,7 +482,7 @@ function App() {
                 <div className="mt-16 text-center">
                     <p className="text-xl text-gray-400 mb-6">Valor Total do Stack: <span className="line-through">R$ 641,00</span></p>
                     <p className="text-3xl md:text-5xl font-extrabold text-white mb-8">
-                        Hoje por apenas: <span className="text-[--color-nexus-teal]">R$ 47,00</span>
+                        Hoje por apenas: <span className="text-[--color-nexus-teal]">R$ 19,90</span>
                     </p>
                     {/* CTA Stack com Pixel e Botão Mobile Ajustado */}
                     <a 
