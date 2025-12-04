@@ -221,9 +221,9 @@ function App() {
 
       {/* --- BACKGROUND DINÂMICO (AJUSTADO PARA DESTACAR IMAGEM DO HERO) --- */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-[--color-nexus-teal]/5 rounded-full blur-[120px] animate-pulse-slow"></div>
-        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[--color-nexus-orange]/5 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-3"></div>
+        <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-[--color-nexus-teal]/8 rounded-full blur-[120px] animate-pulse-slow"></div>
+        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[--color-nexus-orange]/8 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-5"></div>
       </div>
 
       {/* 1. FAIXA DE URGÊNCIA */}
@@ -239,8 +239,8 @@ function App() {
         </div>
       </div>
 
-      {/* 2. HERO SECTION - COM IMAGEM MAIS VISÍVEL */}
-      <section id="hero" ref={heroRef} className="relative z-10 pt-20 pb-32 px-4 overflow-hidden">
+      {/* 2. HERO SECTION - COM IMAGEM MAIS VISÍVEL E TOM ESCURO */}
+      <section id="hero" ref={heroRef} className="relative z-10 pt-20 pb-32 px-4 overflow-hidden bg-gradient-to-b from-[#0A0A0A]/80 via-[#0A0A0A]/50 to-[#0A0A0A]/80">
         <div className={`max-w-7xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 
           <div className="inline-flex items-center relative mb-8 group cursor-default animate-fade-in">
@@ -287,26 +287,32 @@ function App() {
           </div>
         </div>
 
-        {/* IMAGEM DE FUNDO DO HERO - MAIS VISÍVEL */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl pointer-events-none -z-10 opacity-50">
+        {/* IMAGEM DE FUNDO DO HERO - MAIS VISÍVEL E MAIOR */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[90rem] pointer-events-none -z-10">
           <div className="relative w-full h-full">
-            {/* Camada de cor para realçar a imagem */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#22D3EE]/15 via-[#2DD4BF]/15 to-transparent mix-blend-overlay"></div>
+            {/* Camada de tom escuro sutil para não ofuscar a imagem */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/40 via-[#0A0A0A]/20 to-[#0A0A0A]/40 mix-blend-multiply"></div>
             
-            {/* Imagem principal com ajustes otimizados */}
+            {/* Camada de cor para realçar a imagem */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#22D3EE]/10 via-[#2DD4BF]/10 to-transparent mix-blend-overlay opacity-60"></div>
+            
+            {/* Imagem principal ampliada e mais visível */}
             <img 
               src={brainNetworkImg} 
               alt="Imagem abstrata de rede neural" 
-              className="w-full h-auto contrast-125 brightness-110 saturate-110"
+              className="w-full h-auto scale-110 contrast-125 brightness-105 saturate-110 opacity-70"
               style={{
-                filter: 'contrast(1.25) brightness(1.1) saturate(1.1)',
-                maskImage: 'radial-gradient(circle at center, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, transparent 80%)',
-                WebkitMaskImage: 'radial-gradient(circle at center, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, transparent 80%)'
+                filter: 'contrast(1.25) brightness(1.05) saturate(1.1)',
+                maskImage: 'radial-gradient(circle at center, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 85%)',
+                WebkitMaskImage: 'radial-gradient(circle at center, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 85%)'
               }}
             />
             
             {/* Efeito de brilho sutil */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#22D3EE]/10 via-transparent to-[#2DD4BF]/10 mix-blend-soft-light"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-[#22D3EE]/15 via-transparent to-[#2DD4BF]/15 mix-blend-soft-light"></div>
+            
+            {/* Gradiente escuro nas bordas para contraste */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/70 via-transparent to-[#0A0A0A]/70"></div>
           </div>
         </div>
       </section>
