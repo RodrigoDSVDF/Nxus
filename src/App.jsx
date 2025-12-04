@@ -302,19 +302,8 @@ function App() {
           </div>
         </div>
 
-        {/* Imagem de fundo ajustada - VOLTANDO À VERSÃO ORIGINAL MAS COM MELHORIAS */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl opacity-30 pointer-events-none -z-10 mix-blend-screen">
-          <img 
-            src={brainNetworkImg} 
-            alt="Imagem abstrata de rede neural" 
-            className="w-full h-auto mask-radial-faded"
-            style={{ 
-              width: '130%', 
-              height: 'auto',
-              marginLeft: '-15%',
-              marginTop: '-10%'
-            }}
-          />
+          <img src={brainNetworkImg} alt="Imagem abstrata de rede neural" className="w-full h-auto mask-radial-faded" />
         </div>
       </section>
 
