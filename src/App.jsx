@@ -41,24 +41,24 @@ const bentoFeatures = [
     colSpan: "md:col-span-2",
     bgImage: xadrezImg, // >> O Cérebro Digital
     icon: Brain, title: "O Cérebro Digital", 
-    desc: "Não aprenda ferramentas. Aprenda os fundamentos cognitivos da IA que nunca mudam, garantindo sua relevância no futuro." 
+    desc: "Não aprenda ferramentas. Acesse as melhores e aprenda a navegar entre elas de forma otimizada." 
   },
   { 
     colSpan: "md:col-span-1",
     bgImage: servicosIaImg, // >> Velocidade Warp
-    icon: Zap, title: "Velocidade Warp", 
+    icon: Zap, title: "Velocidade de Acesso", 
     desc: "Automatize 80% do seu trabalho operacional e foque apenas no estratégico, multiplicando sua produtividade e resultados." 
   },
   { 
     colSpan: "md:col-span-1",
     bgImage: promptImg, // >> Engenharia de Prompt
-    icon: Terminal, title: "Engenharia de Prompt", 
+    icon: Terminal, title: "Engenharia de Contexto", 
     desc: "A nova linguagem de programação. Fale a língua da máquina fluentemente para obter resultados de alta precisão." 
   },
   { 
     colSpan: "md:col-span-2",
     bgImage: produtividadeImg, // >> Vantagem Injusta
-    icon: Target, title: "Vantagem Injusta", 
+    icon: Target, title: "Vantagem Competitiva", 
     desc: "Enquanto outros lutam com o básico, você estará implementando estratégias de nível sênior e dominando o mercado." 
   },
 ];
@@ -97,7 +97,7 @@ const stackItems = [
 const faqItems = [
   { q: "Preciso saber programar para usar o Nexus?", a: "Absolutamente não. O Nexus foi desenhado para profissionais de qualquer área. Focamos na lógica e estratégia, não em código." },
   { q: "A IA muda toda semana, o material não vai ficar obsoleto?", a: "Essa é a diferença do Nexus. Focamos nos 'princípios imutáveis' da IA. Além disso, você tem atualizações vitalícias garantidas." },
-  { q: "Em quanto tempo vejo resultados?", a: "Nossos alunos relatam ganho de produtividade nas primeiras 24 horas após aplicarem os primeiros blueprints do manual." },
+  { q: "Em quanto tempo vejo resultados?", a: "Nossos alunos relatam ganho de produtividade nas primeiras 24 horas após aplicarem os primeiros feedbacks do manual." },
   { q: "E se eu não gostar?", a: "Você tem 7 dias de garantia incondicional. Se achar que o conteúdo não é para você, devolvemos 100% do seu investimento, sem perguntas." },
 ];
 
@@ -274,7 +274,7 @@ function App() {
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up-delay">
-            Pare de correr atrás de ferramentas novas toda semana. Descubra os <span className="text-[--color-nexus-teal] font-semibold">princípios imutáveis</span> da inteligência artificial que colocarão você no top 1% do mercado.
+            Pare de correr atrás de ferramentas novas toda semana. Descubra a <span className="text-[--color-nexus-teal] font-semibold">ferramenta que sempre te deixarà totalmente atualizado com as melhores IAs do mercado.
           </p>
 
           <div className="flex flex-col items-center gap-6 animate-scale-in">
@@ -434,20 +434,20 @@ function App() {
                 <Brain className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> APRENDIZADO ACELERADO
               </span>
               <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
-                <Cpu className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> INTELIGÊNCIA ESTRATÉGICA
+                <Cpu className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> PRODUTIVIDADE ESTRATÉGICA
               </span>
               
               <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white"> 
                 <Terminal className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> ENGENHARIA DE CONTEXTO
               </span>
               <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
-                <Layers className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> ECOSSISTEMA DE PRODUTIVIDADE
+                <Layers className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> ECOSSISTEMA DE I.A
               </span>
               <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
                 <Brain className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> APRENDIZADO ACELERADO
               </span>
               <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
-                <Cpu className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> INTELIGÊNCIA ESTRATÉGICA
+                <Cpu className="w-5 h-5 mr-3 text-[--color-nexus-orange]" /> PRODUTIVIDADE ESTRATÉGICA
               </span>
             </div>
           </div>
