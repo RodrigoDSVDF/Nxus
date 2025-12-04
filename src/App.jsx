@@ -28,42 +28,37 @@ import socialWoman1 from './assets/femele_social.png'
 import socialMan from './assets/masculino_social.png'
 
 // --- CONFIGURAÇÕES GERAIS ---
-// Link Atualizado
 const CHECKOUT_LINK = "https://nexus-beta.streamlit.app/"
-// ID do Pixel
 const PIXEL_ID = "640277028566260"
 
 // --- DADOS ESTRUTURADOS ---
-
-// Dados do Bento Grid
 const bentoFeatures = [
   {
     colSpan: "md:col-span-2",
-    bgImage: xadrezImg, // >> O Cérebro Digital
+    bgImage: xadrezImg,
     icon: Brain, title: "O Cérebro Digital",
     desc: "Não aprenda ferramentas. Acesse as melhores e aprenda a navegar entre elas de forma otimizada."
   },
   {
     colSpan: "md:col-span-1",
-    bgImage: servicosIaImg, // >> Velocidade Warp
+    bgImage: servicosIaImg,
     icon: Zap, title: "Velocidade de Acesso",
     desc: "Automatize 80% do seu trabalho operacional e foque apenas no estratégico, multiplicando sua produtividade e resultados."
   },
   {
     colSpan: "md:col-span-1",
-    bgImage: promptImg, // >> Engenharia de Prompt
+    bgImage: promptImg,
     icon: Terminal, title: "Engenharia de Contexto",
     desc: "A nova linguagem de programação. Fale a língua da máquina fluentemente para obter resultados de alta precisão."
   },
   {
     colSpan: "md:col-span-2",
-    bgImage: produtividadeImg, // >> Vantagem Injusta
+    bgImage: produtividadeImg,
     icon: Target, title: "Vantagem Competitiva",
     desc: "Enquanto outros lutam com o básico, você estará implementando estratégias de nível sênior e dominando o mercado."
   },
 ]
 
-// Dados dos Depoimentos
 const testimonials = [
   {
     img: socialMan,
@@ -85,7 +80,6 @@ const testimonials = [
   }
 ]
 
-// Dados do Stack
 const stackItems = [
   { icon: Layers, title: "O Nexus Manual (E-book Premium)", value: "R$ 197" },
   { icon: Cpu, title: "Banco de Prompts 'Copy & Paste' de Alta Conversão", value: "R$ 147" },
@@ -93,7 +87,6 @@ const stackItems = [
   { icon: Shield, title: "Acesso Vitalício + Atualizações Mensais", value: "Inestimável" },
 ]
 
-// Dados de FAQ
 const faqItems = [
   { q: "Preciso saber programar para usar o Nexus?", a: "Absolutamente não. O Nexus foi desenhado para profissionais de qualquer área. Focamos na lógica e estratégia, não em código." },
   { q: "A IA muda toda semana, o material não vai ficar obsoleto?", a: "Essa é a diferença do Nexus. Focamos nos 'princípios imutáveis' da IA. Além disso, você tem atualizações vitalícias garantidas." },
@@ -102,8 +95,6 @@ const faqItems = [
 ]
 
 // --- HOOKS E FUNÇÕES AUXILIARES ---
-
-// Hook de Scroll Animation
 function useScrollAnimation(threshold = 0.1) {
   const [isVisible, setIsVisible] = useState(false)
   const ref = useRef(null)
@@ -122,7 +113,6 @@ function useScrollAnimation(threshold = 0.1) {
   return [ref, isVisible]
 }
 
-// --- FUNÇÃO DE RASTREAMENTO DO PIXEL ---
 const handleTrackCheckout = () => {
   if (typeof window !== 'undefined' && window.fbq) {
     window.fbq('track', 'InitiateCheckout')
@@ -167,8 +157,6 @@ function Header() {
             </button>
           ))}
         </nav>
-
-        {/* CTA Header com Pixel */}
         <a
           href={CHECKOUT_LINK}
           target="_blank"
@@ -195,14 +183,13 @@ function App() {
 
   const [activeFeature, setActiveFeature] = useState(bentoFeatures[0])
 
-  const AZUL_VERDE = '#22D3EE' // Cyan 400 - Azul esverdeado
-  const VERDE_AZUL = '#2DD4BF' // Teal 400 - Verde azulado
-  const AZUL_ESCURO = '#0EA5E9' // Sky 500 - Azul mais forte
+  const AZUL_VERDE = '#22D3EE'
+  const VERDE_AZUL = '#2DD4BF'
+  const AZUL_ESCURO = '#0EA5E9'
   const ORANGE = '#FF6B35'
   const CTA = '#FF4F1F'
   const BG = '#1A2A3A'
 
-  // --- INICIALIZAÇÃO DO PIXEL ---
   useEffect(() => {
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
@@ -223,7 +210,7 @@ function App() {
   return (
     <div className="min-h-screen bg-[--color-nexus-bg] font-['Poppins',sans-serif] overflow-x-hidden text-slate-100 selection:bg-[--color-nexus-cta] selection:text-white">
 
-      {/* Pixel Fallback (NoScript) */}
+      {/* Pixel Fallback */}
       <noscript>
         <img height="1" width="1" style={{ display: 'none' }}
           src={`https://www.facebook.com/tr?id=${PIXEL_ID}&ev=PageView&noscript=1`}
@@ -232,14 +219,14 @@ function App() {
 
       <Header />
 
-      {/* --- BACKGROUND DINÂMICO --- */}
+      {/* --- BACKGROUND DINÂMICO (AJUSTADO PARA DESTACAR IMAGEM DO HERO) --- */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-[--color-nexus-teal]/10 rounded-full blur-[120px] animate-pulse-slow"></div>
-        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[--color-nexus-orange]/10 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-5"></div>
+        <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-[--color-nexus-teal]/5 rounded-full blur-[120px] animate-pulse-slow"></div>
+        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[--color-nexus-orange]/5 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-3"></div>
       </div>
 
-      {/* 1. FAIXA DE URGÊNCIA - AZUL/VERDE */}
+      {/* 1. FAIXA DE URGÊNCIA */}
       <div className="horizontal-banner-wrapper">
         <div className="horizontal-banner">
           <div className="banner-content">
@@ -252,7 +239,7 @@ function App() {
         </div>
       </div>
 
-      {/* 2. HERO SECTION */}
+      {/* 2. HERO SECTION - COM IMAGEM MAIS VISÍVEL */}
       <section id="hero" ref={heroRef} className="relative z-10 pt-20 pb-32 px-4 overflow-hidden">
         <div className={`max-w-7xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 
@@ -281,7 +268,6 @@ function App() {
           </p>
 
           <div className="flex flex-col items-center gap-6 animate-scale-in">
-            {/* CTA Hero com Pixel */}
             <a
               href={CHECKOUT_LINK}
               target="_blank"
@@ -289,7 +275,6 @@ function App() {
               className="group relative inline-block"
               onClick={handleTrackCheckout}
             >
-              {/* Ajuste Mobile: h-auto e py-3 para adaptar ao texto */}
               <Button className="pulse-button relative w-full md:w-auto h-auto py-3 md:h-16 px-8 md:px-12 text-white font-bold text-sm md:text-xl rounded-xl flex items-center justify-center gap-3 whitespace-normal text-center">
                 QUERO ACESSO VITALÍCIO AGORA
                 <ChevronRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform flex-shrink-0" />
@@ -302,8 +287,27 @@ function App() {
           </div>
         </div>
 
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl opacity-30 pointer-events-none -z-10 mix-blend-screen">
-          <img src={brainNetworkImg} alt="Imagem abstrata de rede neural" className="w-full h-auto mask-radial-faded" />
+        {/* IMAGEM DE FUNDO DO HERO - MAIS VISÍVEL */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl pointer-events-none -z-10 opacity-50">
+          <div className="relative w-full h-full">
+            {/* Camada de cor para realçar a imagem */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#22D3EE]/15 via-[#2DD4BF]/15 to-transparent mix-blend-overlay"></div>
+            
+            {/* Imagem principal com ajustes otimizados */}
+            <img 
+              src={brainNetworkImg} 
+              alt="Imagem abstrata de rede neural" 
+              className="w-full h-auto contrast-125 brightness-110 saturate-110"
+              style={{
+                filter: 'contrast(1.25) brightness(1.1) saturate(1.1)',
+                maskImage: 'radial-gradient(circle at center, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, transparent 80%)',
+                WebkitMaskImage: 'radial-gradient(circle at center, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, transparent 80%)'
+              }}
+            />
+            
+            {/* Efeito de brilho sutil */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#22D3EE]/10 via-transparent to-[#2DD4BF]/10 mix-blend-soft-light"></div>
+          </div>
         </div>
       </section>
 
@@ -395,7 +399,6 @@ function App() {
                   <h3 className={`text-2xl font-bold mb-3 transition-colors ${activeFeature?.title === item.title ? 'text-[#FF4F1F]' : 'text-white group-hover:text-[#22D3EE]'}`}>{item.title}</h3>
                   <p className="text-gray-400 text-lg leading-relaxed">{item.desc}</p>
 
-                  {/* CTA Bento Grid com Pixel */}
                   {activeFeature?.title === item.title && (
                     <a
                       href={CHECKOUT_LINK}
@@ -415,7 +418,7 @@ function App() {
         </div>
       </section>
 
-      {/* --- FAIXA HORIZONTAL INTERMEDIÁRIA - AZUL/VERDE --- */}
+      {/* --- FAIXA HORIZONTAL INTERMEDIÁRIA --- */}
       <div className="relative z-20 py-6 overflow-hidden bg-[#0A0A0A] border-y border-[#333] horizontal-banner-mid-section">
         <div
           className="horizontal-banner-wrapper"
@@ -487,7 +490,6 @@ function App() {
               <p className="text-3xl md:text-5xl font-extrabold text-white mb-8">
                 Hoje por apenas: <span className="text-[#22D3EE]">R$ 19,90</span>
               </p>
-              {/* CTA Stack com Pixel e Botão Mobile Ajustado */}
               <a
                 href={CHECKOUT_LINK}
                 target="_blank"
@@ -495,7 +497,6 @@ function App() {
                 className="inline-block w-full max-w-md"
                 onClick={handleTrackCheckout}
               >
-                {/* h-auto e py-3 permitem que o botão cresça se o texto quebrar de linha */}
                 <Button className="pulse-button w-full h-auto py-3 md:h-16 text-white font-bold text-sm md:text-xl rounded-xl flex items-center justify-center gap-2 md:gap-3 whitespace-normal text-center">
                   GARANTIR MEU ARSENAL AGORA
                 </Button>
@@ -591,7 +592,6 @@ function App() {
                 </div>
               </div>
 
-              {/* CTA Oferta Final com Pixel e Botão Mobile Ajustado */}
               <a
                 href={CHECKOUT_LINK}
                 target="_blank"
@@ -599,7 +599,6 @@ function App() {
                 className="block max-w-2xl mx-auto"
                 onClick={handleTrackCheckout}
               >
-                {/* h-auto e py-4 garantem que o texto não corte */}
                 <Button className="pulse-button w-full h-auto py-4 md:h-20 text-white font-extrabold text-sm md:text-2xl rounded-2xl flex items-center justify-center gap-2 md:gap-4 hover:scale-[1.02] transition-transform whitespace-normal text-center">
                   QUERO COMEÇAR AGORA MESMO
                   <ArrowRight className="w-5 h-5 md:w-8 md:h-8 flex-shrink-0" />
