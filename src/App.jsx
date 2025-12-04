@@ -579,7 +579,7 @@ function App() {
                     <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
                         <img src={produtoImg} alt="Pack Nexus" className="w-64 rounded-xl shadow-2xl border border-[#333] rotate-[-5deg] group-hover:rotate-0 transition-all duration-500" />
                         <div className="text-left">
-                            <div className="text-6xl font-extrabold text-white mb-2">R$ 47<span className="text-2xl text-gray-400">,00</span></div>
+                            <div className="text-6xl font-extrabold text-white mb-2">R$ 19,90<span className="text-2xl text-gray-400">,00</span></div>
                             <p className="text-gray-400 mb-4">Pagamento único. Sem mensalidades.</p>
                             <div className="flex flex-col gap-2">
                                 <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[--color-nexus-teal] mr-2" /> Acesso Imediato via E-mail</div>
