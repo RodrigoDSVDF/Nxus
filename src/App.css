@@ -1,0 +1,192 @@
+/* =========================================
+   App.css - VERSÃO FINAL (DARK METAL BLUE + TEAL/ORANGE/RED CTA)
+========================================
+*/
+
+/* 1. IMPORTAÇÕES */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* 2. DEFINIÇÃO DE TEMA (Tailwind v4 - CSS-first) */
+@theme inline {
+  /* PALETA NEXUS REFINADA */
+  --color-nexus-bg: #1A2A3A;          /* AZUL METÁLICO ESCURO (Fundo) */
+  --color-nexus-teal: #2DD4BF;        /* AZUL TURQUESA (Identidade Principal) */
+  --color-nexus-orange: #FF6B35;      /* Laranja (Detalhes/Contraste) */
+  --color-nexus-cta: #FF4F1F;         /* Vermelho Alaranjado (BOTÕES DE VENDA) */
+  --color-nexus-cta-light: #FF7F50;   /* Variação CTA (para gradientes) */
+  
+  /* NOVAS CORES AZUL-VERDE */
+  --color-nexus-azul-verde: #22D3EE;  /* Azul esverdeado */
+  --color-nexus-verde-azul: #2DD4BF;  /* Verde azulado */
+  --color-nexus-azul-forte: #0EA5E9;  /* Azul forte */
+  
+  /* Variáveis Tailwind padrão */
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+}
+
+/* 3. ESTILOS DE BASE (@layer base) */
+@layer base {
+  body {
+    background-color: var(--color-nexus-bg);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+  }
+  * {
+    border-color: rgba(255, 255, 255, 0.1); 
+  }
+}
+
+/* 4. ESTILOS PARA OS COMPONENTES ESPECÍFICOS DO NEXUS */
+@layer components {
+  /* FAIXA HORIZONTAL - Gradiente Azul-Verde (NOVA) */
+  .horizontal-banner-wrapper {
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(90deg, #22D3EE 0%, #0EA5E9 50%, #2DD4BF 100%);
+    padding: 0.5rem 0;
+    position: relative;
+    z-index: 50;
+    border-bottom: 1px solid rgba(34, 211, 238, 0.2);
+  }
+
+  .horizontal-banner {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .banner-content {
+    display: flex;
+    animation: scroll-horizontal 30s linear infinite;
+    white-space: nowrap;
+  }
+
+  .banner-item {
+    display: inline-block;
+    padding: 0 3rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #020408; /* Texto escuro para contraste no banner claro */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* NOVO ESTILO PARA A SEGUNDA FAIXA HORIZONTAL (AZUL MAIS CLARO) */
+  .horizontal-banner-mid-section .banner-item {
+      color: #DBEEFF; /* Tom de azul bem claro */
+  }
+  
+  /* Imagem do produto (Sombra Azul-Verde) */
+  .product-image {
+    box-shadow: 0 25px 50px -12px rgba(34, 211, 238, 0.25);
+    transition: transform 0.3s ease;
+  }
+
+  /* Efeito de hover nos cartões (Borda Azul-Verde) */
+  .nexus-card:hover {
+    border-color: var(--color-nexus-azul-verde);
+    box-shadow: 0 10px 40px -10px rgba(34, 211, 238, 0.2); 
+    transform: translateY(-5px);
+  }
+
+  /* Efeito de brilho para o botão (Vermelho-Alaranjado) */
+  .pulse-button {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-nexus-cta);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 79, 31, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: pulse 2s infinite;
+  }
+  
+  .pulse-button:hover {
+    background: var(--color-nexus-cta-hover);
+    box-shadow: 0 0 30px rgba(255, 79, 31, 0.6);
+  }
+
+  .pulse-button::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 0.75rem;
+    background: linear-gradient(45deg, var(--color-nexus-cta), var(--color-nexus-cta-light), var(--color-nexus-cta));
+    z-index: -1;
+    animation: glow 2s ease-in-out infinite alternate;
+    opacity: 0;
+  }
+  
+  .pulse-button > * { position: relative; z-index: 2; }
+}
+
+/* 5. ANIMAÇÕES E KEYFRAMES */
+
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 79, 31, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(255, 79, 31, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 79, 31, 0); } }
+@keyframes scroll-horizontal { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes gradientX { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+/* Gradiente de Texto Azul-Verde (NOVO) */
+.text-gradient-blue-green {
+  background: linear-gradient(
+    90deg,
+    #22D3EE 0%,
+    #0EA5E9 25%,
+    #2DD4BF 50%,
+    #0EA5E9 75%,
+    #22D3EE 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradientShift 3s ease infinite;
+}
+
+/* Mantenha o gradiente original também se precisar */
+.text-gradient-teal-orange {
+  background: linear-gradient(to right, #2DD4BF, #FF6B35, #2DD4BF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: gradientX 5s linear infinite;
+}
+
+/* Classes de animação (Mantidas) */
+.animate-slide-left { animation: slideLeft 1s ease-out forwards; }
+.animate-slide-right { animation: slideRight 1s ease-out forwards; }
+.animate-slide-up { animation: slideUp 1s ease-out forwards; }
+.animate-slide-up-delay { animation: slideUp 1s ease-out 0.3s forwards; opacity: 0; }
+.animate-scale-in { animation: scaleIn 1s ease-out 0.6s forwards; opacity: 0; transform: scale(0.95); }
+.animate-fade-in { animation: fadeIn 1s ease-out forwards; }
+.animate-gradient-text { animation: gradientShift 3s ease infinite; }
+
+/* Animações específicas */
+@keyframes slideLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scaleIn { to { opacity: 1; transform: scale(1); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Animações de pulse slow */
+.animate-pulse-slow { animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+@keyframes pulse-slow { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+/* 6. UTILITÁRIOS PERSONALIZADOS */
+.mask-radial-faded {
+  mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 70%);
+}
+
+/* 7. ESTILOS GLOBAIS ADICIONAIS */
+.gradient-nexus-primary { background: linear-gradient(135deg, #FF4F1F 0%, #FF7F50 100%); } /* Red-Orange */
+.gradient-nexus-secondary { background: linear-gradient(135deg, #1A2A3A 0%, #253D50 100%); } /* Dark Metal Blue */
+.gradient-nexus-accent { background: linear-gradient(135deg, #22D3EE 0%, #2DD4BF 100%); } /* Azul-Verde */
+.shadow-nexus { box-shadow: 0 25px 50px -12px rgba(255, 79, 31, 0.25); }
