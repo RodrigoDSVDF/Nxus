@@ -252,9 +252,27 @@ function App() {
         </div>
       </div>
 
-      {/* 2. HERO SECTION */}
-      <section id="hero" ref={heroRef} className="relative z-10 pt-20 pb-32 px-4 overflow-hidden">
-        <div className={`max-w-7xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      {/* 2. HERO SECTION - IMAGEM DE FUNDO EXPANDIDA */}
+      <section id="hero" ref={heroRef} className="relative z-10 pt-20 pb-32 px-4 overflow-hidden min-h-[90vh] flex items-center">
+        {/* Imagem de fundo expandida - AJUSTADA PARA COBRIR TODA A ÁREA */}
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <img 
+            src={brainNetworkImg} 
+            alt="Imagem abstrata de rede neural" 
+            className="w-full h-full object-cover object-center scale-105"
+            style={{ 
+              minWidth: '100%', 
+              minHeight: '100%',
+              filter: 'brightness(0.7) contrast(1.1)'
+            }}
+          />
+          {/* Overlay gradiente para melhor legibilidade do texto */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/50 via-transparent to-[#0A0A0A]/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/30 via-transparent to-[#0A0A0A]/30"></div>
+        </div>
+
+        <div className={`max-w-7xl mx-auto text-center w-full transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 
           <div className="inline-flex items-center relative mb-8 group cursor-default animate-fade-in">
             <div className="absolute -inset-1 bg-gradient-to-r from-[#22D3EE] to-[#2DD4BF] rounded-full blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
@@ -276,7 +294,7 @@ function App() {
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up-delay">
+          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up-delay bg-black/30 backdrop-blur-sm p-6 rounded-2xl border border-white/10">
             Pare de correr atrás de ferramentas novas toda semana. Descubra a <span className="text-[#2DD4BF] font-semibold">ferramenta que sempre te deixará totalmente atualizado com as melhores IAs do mercado.</span>
           </p>
 
@@ -295,15 +313,12 @@ function App() {
                 <ChevronRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform flex-shrink-0" />
               </Button>
             </a>
-            <div className="flex items-center gap-4 text-sm text-gray-500">
+            <div className="flex items-center gap-4 text-sm text-gray-300 bg-black/30 backdrop-blur-sm p-4 rounded-xl">
               <span className="flex items-center"><Shield className="w-4 h-4 text-[#22D3EE] mr-2" /> Compra Segura</span>
               <span className="flex items-center"><Rocket className="w-4 h-4 text-[#22D3EE] mr-2" /> Acesso Imediato</span>
+              <span className="flex items-center"><CheckCircle className="w-4 h-4 text-[#22D3EE] mr-2" /> Garantia de 7 Dias</span>
             </div>
           </div>
-        </div>
-
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl opacity-30 pointer-events-none -z-10 mix-blend-screen">
-          <img src={brainNetworkImg} alt="Imagem abstrata de rede neural" className="w-full h-auto mask-radial-faded" />
         </div>
       </section>
 
