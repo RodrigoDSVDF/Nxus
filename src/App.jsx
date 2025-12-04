@@ -275,7 +275,7 @@ function App() {
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up-delay">
-            Pare de correr atrás de ferramentas novas toda semana. Descubra a <span className="text-[--color-nexus-teal] font-semibold">ferramenta que sempre te deixarà totalmente atualizado com as melhores IAs do mercado.
+            Pare de correr atrás de ferramentas novas toda semana. Descubra a <span className="text-[--color-nexus-teal] font-semibold">ferramenta que sempre te deixará totalmente atualizado com as melhores IAs do mercado.</span>
           </p>
 
           <div className="flex flex-col items-center gap-6 animate-scale-in">
@@ -583,7 +583,7 @@ function App() {
                   <div className="text-6xl font-extrabold text-white mb-2">R$ 19,90<span className="text-2xl text-gray-400">,00</span></div>
                   <p className="text-gray-400 mb-4">Pagamento único. Sem mensalidades.</p>
                   <div className="flex flex-col gap-2">
-                    <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[--color-nexus-teal] mr-2" /> Acesso Imediát via E-mail</div>
+                    <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[--color-nexus-teal] mr-2" /> Acesso Imediato via E-mail</div>
                     <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[--color-nexus-teal] mr-2" /> Plataforma Segura e Confiável</div>
                   </div>
                 </div>
