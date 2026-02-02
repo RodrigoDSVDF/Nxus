@@ -32,6 +32,9 @@ import socialMan from './assets/masculino_social.png'
 // Link do Checkout Centralizado
 const CHECKOUT_LINK = "https://pay.cakto.com.br/5dUKrWD";
 
+// ID do Vídeo do YouTube (CORRIGIDO)
+const YOUTUBE_VIDEO_ID = "F5fJ_56-wr8";
+
 // --- DADOS ESTRUTURADOS COM NOVA NARRATIVA ---
 
 // Dados do Bento Grid (5 PILARES ATUALIZADOS)
@@ -155,6 +158,7 @@ const handleTrackCheckout = () => {
 // --- COMPONENTE DE NAVEGAÇÃO GLOBAL ---
 const NAV_ITEMS = [
   { title: "INÍCIO", icon: Brain, id: "hero" },
+  { title: "VÍDEO", icon: PlayCircle, id: "video" },
   { title: "O QUE É?", icon: Layers, id: "about" },
   { title: "PILARES", icon: Cpu, id: "bento" },
   { title: "O QUE RECEBE", icon: Zap, id: "stack" },
@@ -215,6 +219,7 @@ function Header() {
 // --- COMPONENTE PRINCIPAL ---
 function App() {
   const [heroRef, heroVisible] = useScrollAnimation()
+  const [videoRef, videoVisible] = useScrollAnimation(0.2)
   const [aboutRef, aboutVisible] = useScrollAnimation(0.2)
   const [bentoRef, bentoVisible] = useScrollAnimation(0.1)
   const [stackRef, stackVisible] = useScrollAnimation(0.1)
@@ -238,31 +243,31 @@ function App() {
 
       <Header />
 
-      {/* --- BACKGROUND DINÂMICO COM IMAGEM MAIS EVIDENTE --- */}
+      {/* --- BACKGROUND DINÂMICO CORRIGIDO --- */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/95 to-[#0A0A0A] bg-gradient-overlay"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/95 to-[#0A0A0A]"></div>
         
-        {/* Gradientes mais sutis */}
+        {/* Gradientes ajustados */}
         <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-[#2DD4BF]/5 rounded-full blur-[120px] animate-pulse-slow"></div>
         <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#FF6B35]/5 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
         
-        {/* IMAGEM DE FUNDO PRINCIPAL - MAIS VISÍVEL */}
-        <div className="absolute inset-0 flex items-center justify-center image-container">
-          <div className="relative w-full max-w-[1800px] h-full opacity-70 hero-bg-image">
+        {/* IMAGEM DE FUNDO PRINCIPAL - CORRIGIDA (sem efeitos alaranjados) */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative w-full max-w-[1800px] h-full">
             <img
               src={brainNetworkImg}
               alt="Imagem abstrata de rede neural"
-              className="w-full h-full object-contain object-center scale-110"
+              className="w-full h-full object-contain object-center opacity-30"
               style={{
-                filter: 'contrast(1.4) brightness(1.3) saturate(1.5)',
-                mixBlendMode: 'soft-light'
+                filter: 'contrast(1.1) brightness(1.1) saturate(1.2)',
+                mixBlendMode: 'normal'
               }}
             />
           </div>
         </div>
         
         {/* Padrão de grade sutil */}
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center opacity-[0.03]"></div>
       </div>
 
       {/* 1. FAIXA DE URGÊNCIA */}
@@ -314,15 +319,15 @@ function App() {
               href={CHECKOUT_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-block"
+              className="group relative inline-block w-full max-w-md"
               onClick={handleTrackCheckout}
             >
-              <Button className="pulse-button relative w-full md:w-auto h-auto py-3 md:h-16 px-8 md:px-12 text-white font-bold text-sm md:text-xl rounded-xl flex items-center justify-center gap-3 whitespace-normal text-center">
+              <Button className="pulse-button relative w-full h-auto py-4 md:py-6 text-white font-bold text-lg md:text-xl rounded-xl flex items-center justify-center gap-3 whitespace-normal text-center">
                 QUERO INSTALAR O SISTEMA AGORA
                 <ChevronRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform flex-shrink-0" />
               </Button>
             </a>
-            <div className="flex items-center gap-4 text-sm text-gray-500">
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
               <span className="flex items-center"><Shield className="w-4 h-4 text-[#2DD4BF] mr-2" /> Compra Segura</span>
               <span className="flex items-center"><Rocket className="w-4 h-4 text-[#2DD4BF] mr-2" /> Acesso Imediato via E-mail</span>
             </div>
@@ -330,7 +335,130 @@ function App() {
         </div>
       </section>
 
-      {/* 3. SEÇÃO "O QUE É O NEXUS?" */}
+      {/* 3. SEÇÃO DE VÍDEO DO YOUTUBE (CORRIGIDA) */}
+      <section id="video" ref={videoRef} className="relative z-10 py-20 px-4">
+        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${videoVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-3 mb-6 group cursor-default">
+              <div className="relative">
+                <PlayCircle className="w-10 h-10 text-[#FF6B35] group-hover:scale-110 transition-transform" />
+                <div className="absolute inset-0 bg-[#FF6B35] rounded-full blur-md opacity-0 group-hover:opacity-30 transition-opacity"></div>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold">
+                <span className="dynamic-gradient">
+                  Veja o Sistema Nexus em Ação
+                </span>
+              </h2>
+            </div>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+              Assista esta demonstração exclusiva de <span className="text-[#2DD4BF] font-semibold">2 minutos</span> e entenda como o Nexus transforma produtividade em resultados mensuráveis.
+            </p>
+          </div>
+
+          {/* Container do Vídeo */}
+          <div className="relative group">
+            {/* Efeito de brilho ao redor */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-[#2DD4BF]/30 via-[#FF6B35]/20 to-[#2DD4BF]/30 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-700"></div>
+
+            {/* Container principal do vídeo */}
+            <div className="relative bg-gradient-to-br from-[#0A0A0A] to-[#1A1A1A] rounded-2xl overflow-hidden border-2 border-gray-800 group-hover:border-[#2DD4BF]/50 transition-all duration-500 shadow-2xl">
+
+              {/* Player do YouTube */}
+              <div className="relative aspect-video">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0F2027] to-[#203A43] flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-6xl mb-4 animate-pulse">▶️</div>
+                    <p className="text-xl font-bold text-[#2DD4BF]">Carregando Vídeo Demonstrativo</p>
+                    <p className="text-gray-400">Aguarde alguns segundos...</p>
+                  </div>
+                </div>
+
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=0&rel=0&modestbranding=1&showinfo=0`}
+                  title="Demonstração do Sistema Nexus - Transformando Produtividade"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full rounded-t-2xl"
+                  loading="lazy"
+                ></iframe>
+              </div>
+
+              {/* Rodapé do vídeo */}
+              <div className="p-6 bg-gradient-to-r from-[#0A0A0A] to-[#1A1A1A] border-t border-gray-800">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                  <div className="text-left">
+                    <h3 className="text-xl font-bold text-white mb-1">Demonstração do Sistema Nexus</h3>
+                    <p className="text-gray-400 text-sm">Duração: 2:15 • Visualizações: 20+ • Publicado: Outubro 2025</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="px-3 py-1 bg-[#2DD4BF]/10 text-[#2DD4BF] text-sm font-medium rounded-full border border-[#2DD4BF]/30">
+                      🔥 Demonstração Prática
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Estatísticas abaixo do vídeo */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-12">
+            <div className="text-center p-4 md:p-6 bg-[#111]/50 rounded-xl border border-gray-800 hover:border-[#2DD4BF]/30 transition-colors group">
+              <div className="text-2xl md:text-3xl font-bold text-[#2DD4BF] mb-2 group-hover:scale-110 transition-transform">15min</div>
+              <p className="text-gray-400 text-sm">Setup Completo</p>
+            </div>
+            <div className="text-center p-4 md:p-6 bg-[#111]/50 rounded-xl border border-gray-800 hover:border-[#2DD4BF]/30 transition-colors group">
+              <div className="text-2xl md:text-3xl font-bold text-[#2DD4BF] mb-2 group-hover:scale-110 transition-transform">72h</div>
+              <p className="text-gray-400 text-sm">Primeiros Resultados</p>
+            </div>
+            <div className="text-center p-4 md:p-6 bg-[#111]/50 rounded-xl border border-gray-800 hover:border-[#2DD4BF]/30 transition-colors group">
+              <div className="text-2xl md:text-3xl font-bold text-[#2DD4BF] mb-2 group-hover:scale-110 transition-transform">10x</div>
+              <p className="text-gray-400 text-sm">Produtividade</p>
+            </div>
+            <div className="text-center p-4 md:p-6 bg-[#111]/50 rounded-xl border border-gray-800 hover:border-[#2DD4BF]/30 transition-colors group">
+              <div className="text-2xl md:text-3xl font-bold text-[#2DD4BF] mb-2 group-hover:scale-110 transition-transform">100%</div>
+              <p className="text-gray-400 text-sm">Satisfação Garantida</p>
+            </div>
+          </div>
+
+          {/* CTA após o vídeo */}
+          <div className="text-center mt-12">
+            <a
+              href={CHECKOUT_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleTrackCheckout}
+              className="group inline-block w-full max-w-md mx-auto"
+            >
+              <Button className="bg-gradient-to-r from-[#FF6B35] to-[#FF4F1F] hover:from-[#FF4F1F] hover:to-[#FF6B35] text-white font-bold py-4 px-6 md:py-5 md:px-10 rounded-xl text-base md:text-lg transition-all hover:scale-105 cursor-pointer shadow-2xl shadow-[#FF6B35]/30 w-full">
+                <span className="flex items-center justify-center gap-2 md:gap-3 whitespace-normal text-center">
+                  QUERO APLICAR ESSE SISTEMA NA MINHA ROTINA
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-2 transition-transform flex-shrink-0" />
+                </span>
+              </Button>
+            </a>
+            <p className="text-gray-500 text-sm mt-4">Assista o vídeo completo e garanta seu acesso vitalício</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. PROVA SOCIAL */}
+      <div className="relative z-10 border-y border-[#333] bg-[#0A0A0A]/80 backdrop-blur-md py-8">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <p className="text-sm font-medium text-gray-500 mb-6 uppercase tracking-widest">Método utilizado por profissionais de:</p>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+            <div className="text-xl md:text-2xl font-bold font-mono text-white">TECH<span className="text-[#2DD4BF]">CORP</span></div>
+            <div className="text-xl md:text-2xl font-bold font-sans italic text-white">InnovateLabs</div>
+            <div className="text-lg md:text-xl font-bold uppercase tracking-tighter text-white">Future<span className="text-[#FF6B35] font-extrabold">/</span>Work</div>
+            <div className="text-xl md:text-2xl font-semibold text-white">Global<span className="font-light text-[#2DD4BF]">Systems</span></div>
+          </div>
+        </div>
+      </div>
+
+      {/* 5. SEÇÃO "O QUE É O NEXUS?" */}
       <section id="about" ref={aboutRef} className="relative z-10 py-20 px-4">
         <div className={`max-w-5xl mx-auto transition-all duration-1000 ${aboutVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           
@@ -346,78 +474,65 @@ function App() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mt-12">
-            <div className="bg-[#111]/50 border border-[#2DD4BF]/20 rounded-2xl p-8 hover:border-[#2DD4BF]/50 transition-colors group">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mt-12">
+            <div className="bg-[#111]/50 border border-[#2DD4BF]/20 rounded-2xl p-6 md:p-8 hover:border-[#2DD4BF]/50 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-[#2DD4BF]/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <CpuIcon className="w-6 h-6 text-[#2DD4BF]" />
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-[#2DD4BF]/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <CpuIcon className="w-5 h-5 md:w-6 md:h-6 text-[#2DD4BF]" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">O HARDWARE<br /><span className="text-lg text-gray-400">(Sua Biologia)</span></h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white">O HARDWARE<br /><span className="text-base md:text-lg text-gray-400">(Sua Biologia)</span></h3>
               </div>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-gray-300 leading-relaxed text-base md:text-lg">
                 Protocolos para otimizar seu cérebro, foco e energia. <span className="text-[#2DD4BF] font-medium">Sem energia, não há estratégia que funcione.</span>
               </p>
             </div>
 
-            <div className="bg-[#111]/50 border border-[#FF6B35]/20 rounded-2xl p-8 hover:border-[#FF6B35]/50 transition-colors group">
+            <div className="bg-[#111]/50 border border-[#FF6B35]/20 rounded-2xl p-6 md:p-8 hover:border-[#FF6B35]/50 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-[#FF6B35]/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Layers className="w-6 h-6 text-[#FF6B35]" />
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-[#FF6B35]/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Layers className="w-5 h-5 md:w-6 md:h-6 text-[#FF6B35]" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">O SOFTWARE<br /><span className="text-lg text-gray-400">(Sua Estratégia)</span></h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white">O SOFTWARE<br /><span className="text-base md:text-lg text-gray-400">(Sua Estratégia)</span></h3>
               </div>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-gray-300 leading-relaxed text-base md:text-lg">
                 Metodologias de aprendizado e uso de IA para amplificar sua entrega. <span className="text-[#FF6B35] font-medium">Aprenda a pensar e estruturar processos; a IA é apenas o motor.</span>
               </p>
             </div>
           </div>
 
-          <div className="mt-12 p-8 bg-gradient-to-r from-[#2DD4BF]/10 to-[#FF6B35]/10 border border-gray-700 rounded-2xl group hover:border-[#2DD4BF] transition-all duration-300">
-            <p className="text-xl font-semibold text-center pulse-subtle">
+          <div className="mt-8 md:mt-12 p-6 md:p-8 bg-gradient-to-r from-[#2DD4BF]/10 to-[#FF6B35]/10 border border-gray-700 rounded-2xl group hover:border-[#2DD4BF] transition-all duration-300">
+            <p className="text-lg md:text-xl font-semibold text-center pulse-subtle">
               Ele atua em duas frentes: <span className="animated-gradient-title font-bold">Otimizar seu cérebro (Hardware)</span> e <span className="animated-gradient-title font-bold">Amplificar seu processo (Software).</span>
             </p>
           </div>
         </div>
       </section>
 
-      {/* 4. PROVA SOCIAL */}
-      <div className="relative z-10 border-y border-[#333] bg-[#0A0A0A]/80 backdrop-blur-md py-8">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <p className="text-sm font-medium text-gray-500 mb-6 uppercase tracking-widest">Método utilizado por profissionais de:</p>
-          <div className="flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-            <div className="text-2xl font-bold font-mono text-white">TECH<span className="text-[#2DD4BF]">CORP</span></div>
-            <div className="text-2xl font-bold font-sans italic text-white">InnovateLabs</div>
-            <div className="text-xl font-bold uppercase tracking-tighter text-white">Future<span className="text-[#FF6B35] font-extrabold">/</span>Work</div>
-            <div className="text-2xl font-semibold text-white">Global<span className="font-light text-[#2DD4BF]">Systems</span></div>
-          </div>
-        </div>
-      </div>
-
-      {/* 5. OS 5 PILARES DO PROTOCOLO */}
-      <section id="bento" ref={bentoRef} className="relative z-10 pt-32 pb-16 px-4 bg-[#0A0A0A]">
+      {/* 6. OS 5 PILARES DO PROTOCOLO */}
+      <section id="bento" ref={bentoRef} className="relative z-10 pt-20 md:pt-32 pb-16 px-4 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <div className="text-center mb-12 md:mb-20">
+            <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-6">
               <span className="gradient-blue-green glow-text">
                 OS 5 PILARES DO PROTOCOLO
               </span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
               Um sistema integrado que combina neurociência, metodologia e tecnologia.
             </p>
-            <p className="md:hidden mt-8 text-lg font-bold text-[#FF6B35]">
+            <p className="md:hidden mt-8 text-base font-bold text-[#FF6B35] px-4">
               Feature Ativa: {activeFeature?.title}
             </p>
           </div>
 
-          <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-1000 delay-300 ${bentoVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+          <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 transition-all duration-1000 delay-300 ${bentoVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             {bentoFeatures.map((item, index) => (
               <div
                 key={index}
                 onClick={() => setActiveFeature(item)}
-                className={`${item.colSpan} group relative bg-[#14222E] rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 nexus-card
+                className={`${item.colSpan} group relative bg-[#14222E] rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 nexus-card
                             ${activeFeature?.title === item.title
-                    ? 'border-2 border-[#FF4F1F] shadow-xl shadow-[#FF4F1F]/20 scale-[1.03]'
+                    ? 'border-2 border-[#FF4F1F] shadow-xl shadow-[#FF4F1F]/20 scale-[1.02] md:scale-[1.03]'
                     : 'border border-[#1C2A35] hover:border-[#2DD4BF]/50'
                   }
                         `}
@@ -433,14 +548,14 @@ function App() {
                   </div>
                 )}
 
-                <div className="relative z-10 p-8 h-full flex flex-col justify-end">
-                  <div className={`w-14 h-14 bg-[#0F161E]/80 backdrop-blur-xl rounded-2xl flex items-center justify-center mb-6 transition-all duration-300
+                <div className="relative z-10 p-6 md:p-8 h-full flex flex-col justify-end">
+                  <div className={`w-10 h-10 md:w-14 md:h-14 bg-[#0F161E]/80 backdrop-blur-xl rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 transition-all duration-300
                                 ${activeFeature?.title === item.title ? 'bg-[#FF4F1F]/20 border border-[#FF4F1F]' : 'bg-[#1A2A3A] border border-[#2DD4BF]/30 group-hover:scale-110'}
                             `}>
-                    <item.icon className={`w-7 h-7 ${activeFeature?.title === item.title ? 'text-[#FF4F1F]' : 'text-[#2DD4BF]'}`} />
+                    <item.icon className={`w-5 h-5 md:w-7 md:h-7 ${activeFeature?.title === item.title ? 'text-[#FF4F1F]' : 'text-[#2DD4BF]'}`} />
                   </div>
-                  <h3 className={`text-2xl font-bold mb-3 transition-colors ${activeFeature?.title === item.title ? 'text-[#FF4F1F]' : 'text-white group-hover:text-[#2DD4BF]'}`}>{item.title}</h3>
-                  <p className="text-gray-400 text-lg leading-relaxed">{item.desc}</p>
+                  <h3 className={`text-lg md:text-2xl font-bold mb-2 md:mb-3 transition-colors ${activeFeature?.title === item.title ? 'text-[#FF4F1F]' : 'text-white group-hover:text-[#2DD4BF]'}`}>{item.title}</h3>
+                  <p className="text-gray-400 text-sm md:text-lg leading-relaxed">{item.desc}</p>
 
                   {activeFeature?.title === item.title && (
                     <a
@@ -449,8 +564,8 @@ function App() {
                       rel="noopener noreferrer"
                       onClick={handleTrackCheckout}
                     >
-                      <span className="flex items-center text-sm font-semibold text-[#FF4F1F] mt-4 hover:underline">
-                        QUERO IMPLANTAR ESTE SISTEMA <ChevronRight className="w-4 h-4 ml-1" />
+                      <span className="flex items-center text-xs md:text-sm font-semibold text-[#FF4F1F] mt-3 md:mt-4 hover:underline">
+                        QUERO IMPLANTAR ESTE SISTEMA <ChevronRight className="w-3 h-3 md:w-4 md:h-4 ml-1" />
                       </span>
                     </a>
                   )}
@@ -459,18 +574,19 @@ function App() {
             ))}
           </div>
 
-          <div className="text-center mt-16">
+          {/* BOTÃO CORRIGIDO PARA MOBILE */}
+          <div className="text-center mt-10 md:mt-16 px-4">
             <a
               href={CHECKOUT_LINK}
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleTrackCheckout}
-              className="group inline-block w-full md:w-auto"
+              className="group inline-block w-full max-w-md mx-auto"
             >
-              <Button className="bg-gradient-to-r from-[#FF6B35] to-[#FF4F1F] hover:from-[#FF4F1F] hover:to-[#FF6B35] text-white font-bold py-4 px-10 rounded-xl text-lg transition-all hover:scale-105 cursor-pointer shadow-2xl shadow-[#FF6B35]/30">
-                <span className="flex items-center justify-center gap-3 whitespace-normal text-center">
+              <Button className="w-full bg-gradient-to-r from-[#FF6B35] to-[#FF4F1F] hover:from-[#FF4F1F] hover:to-[#FF6B35] text-white font-bold py-4 px-6 md:py-4 md:px-10 rounded-xl text-base md:text-lg transition-all hover:scale-105 cursor-pointer shadow-2xl shadow-[#FF6B35]/30">
+                <span className="flex items-center justify-center gap-2 md:gap-3 whitespace-normal text-center">
                   QUERO TODOS OS 5 PILARES AGORA
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform flex-shrink-0" />
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-2 transition-transform flex-shrink-0" />
                 </span>
               </Button>
             </a>
@@ -490,137 +606,137 @@ function App() {
         >
           <div className="horizontal-banner">
             <div className="banner-content" style={{ animationDuration: '10s' }}>
-              <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
-                <BrainIcon className="w-5 h-5 mr-3 text-[#FF6B35]" /> BIOHACKING DO FOCO
+              <span className="banner-item font-mono tracking-widest flex items-center text-base md:text-lg text-white">
+                <BrainIcon className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 text-[#FF6B35]" /> BIOHACKING DO FOCO
               </span>
-              <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
-                <TargetIcon className="w-5 h-5 mr-3 text-[#FF6B35]" /> METODOLOGIAS ATIVAS
+              <span className="banner-item font-mono tracking-widest flex items-center text-base md:text-lg text-white">
+                <TargetIcon className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 text-[#FF6B35]" /> METODOLOGIAS ATIVAS
               </span>
-              <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
-                <CpuIcon className="w-5 h-5 mr-3 text-[#FF6B35]" /> DEEP WORK
+              <span className="banner-item font-mono tracking-widest flex items-center text-base md:text-lg text-white">
+                <CpuIcon className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 text-[#FF6B35]" /> DEEP WORK
               </span>
-              <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
-                <Layers className="w-5 h-5 mr-3 text-[#FF6B35]" /> INTELIGÊNCIA ESTRATÉGICA
+              <span className="banner-item font-mono tracking-widest flex items-center text-base md:text-lg text-white">
+                <Layers className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 text-[#FF6B35]" /> INTELIGÊNCIA ESTRATÉGICA
               </span>
 
-              <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
-                <BrainIcon className="w-5 h-5 mr-3 text-[#FF6B35]" /> BIOHACKING DO FOCO
+              <span className="banner-item font-mono tracking-widest flex items-center text-base md:text-lg text-white">
+                <BrainIcon className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 text-[#FF6B35]" /> BIOHACKING DO FOCO
               </span>
-              <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
-                <TargetIcon className="w-5 h-5 mr-3 text-[#FF6B35]" /> METODOLOGIAS ATIVAS
+              <span className="banner-item font-mono tracking-widest flex items-center text-base md:text-lg text-white">
+                <TargetIcon className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 text-[#FF6B35]" /> METODOLOGIAS ATIVAS
               </span>
-              <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
-                <CpuIcon className="w-5 h-5 mr-3 text-[#FF6B35]" /> DEEP WORK
+              <span className="banner-item font-mono tracking-widest flex items-center text-base md:text-lg text-white">
+                <CpuIcon className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 text-[#FF6B35]" /> DEEP WORK
               </span>
-              <span className="banner-item font-mono tracking-widest flex items-center text-lg text-white">
-                <Layers className="w-5 h-5 mr-3 text-[#FF6B35]" /> INTELIGÊNCIA ESTRATÉGICA
+              <span className="banner-item font-mono tracking-widest flex items-center text-base md:text-lg text-white">
+                <Layers className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 text-[#FF6B35]" /> INTELIGÊNCIA ESTRATÉGICA
               </span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* 6. O QUE VOCÊ VAI RECEBER EXATAMENTE */}
-      <section id="stack" ref={stackRef} className="relative z-10 py-32 px-4">
-        <div className="max-w-5xl mx-auto bg-[#1A2A3A]/80 backdrop-blur-xl border border-[#333] rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#2DD4BF]/10 rounded-full blur-[100px] pointer-events-none"></div>
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#FF6B35]/10 rounded-full blur-[100px] pointer-events-none"></div>
+      {/* 7. O QUE VOCÊ VAI RECEBER EXATAMENTE */}
+      <section id="stack" ref={stackRef} className="relative z-10 py-20 md:py-32 px-4">
+        <div className="max-w-5xl mx-auto bg-[#1A2A3A]/80 backdrop-blur-xl border border-[#333] rounded-2xl md:rounded-[2.5rem] p-6 md:p-16 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-[#2DD4BF]/10 rounded-full blur-[60px] md:blur-[100px] pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-[#FF6B35]/10 rounded-full blur-[60px] md:blur-[100px] pointer-events-none"></div>
 
           <div className={`relative z-10 transition-all duration-1000 ${stackVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-12">
               <span className="animated-gradient-title">
                 O QUE VOCÊ VAI RECEBER EXATAMENTE
               </span>
             </h2>
 
-            <div className="mb-8 text-center">
-              <div className="inline-block px-6 py-3 bg-gradient-to-r from-[#2DD4BF]/20 to-[#FF6B35]/20 rounded-xl group hover:scale-105 transition-transform duration-300 glow-border">
-                <p className="text-2xl font-bold shimmer-title">
+            <div className="mb-6 md:mb-8 text-center">
+              <div className="inline-block px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-[#2DD4BF]/20 to-[#FF6B35]/20 rounded-xl group hover:scale-105 transition-transform duration-300 glow-border">
+                <p className="text-lg md:text-2xl font-bold shimmer-title">
                   PACOTE NEXUS COMPLETO: ACESSO VITALÍCIO
                 </p>
               </div>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               {stackItems.map((item, index) => (
-                <div key={index} className="flex flex-col md:flex-row items-center justify-between p-6 bg-[#0A0A0A]/80 border border-[#333] rounded-2xl hover:border-[#2DD4BF]/50 transition-colors duration-300 group">
-                  <div className="flex items-center gap-6 mb-4 md:mb-0">
-                    <div className="w-12 h-12 bg-[#2DD4BF]/10 border border-[#2DD4BF]/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <item.icon className="w-6 h-6 text-[#2DD4BF]" />
+                <div key={index} className="flex flex-col md:flex-row items-center justify-between p-4 md:p-6 bg-[#0A0A0A]/80 border border-[#333] rounded-xl md:rounded-2xl hover:border-[#2DD4BF]/50 transition-colors duration-300 group">
+                  <div className="flex items-center gap-4 mb-3 md:mb-0">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-[#2DD4BF]/10 border border-[#2DD4BF]/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <item.icon className="w-5 h-5 md:w-6 md:h-6 text-[#2DD4BF]" />
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white">{item.title}</h3>
-                      <p className="text-gray-400">{item.desc}</p>
+                    <div className="text-left">
+                      <h3 className="text-base md:text-xl font-bold text-white">{item.title}</h3>
+                      <p className="text-gray-400 text-sm md:text-base">{item.desc}</p>
                     </div>
                   </div>
-                  <div className="px-6 py-2 bg-[#1A2A3A] rounded-full text-[#FF6B35] font-mono font-bold border border-[#FF6B35]/20">
+                  <div className="px-4 py-1 md:px-6 md:py-2 bg-[#1A2A3A] rounded-full text-[#FF6B35] font-mono font-bold border border-[#FF6B35]/20 text-sm md:text-base mt-2 md:mt-0">
                     {item.value}
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-16 text-center">
-              <div className="mb-8 p-6 bg-gradient-to-r from-[#2DD4BF]/10 to-[#FF6B35]/10 rounded-2xl border border-gray-700">
-                <p className="text-xl text-gray-400">Valor Total do Stack:</p>
-                <p className="text-2xl font-bold text-white mb-2"><span className="line-through text-red-400">R$ 641,00</span></p>
+            <div className="mt-12 md:mt-16 text-center">
+              <div className="mb-6 md:mb-8 p-4 md:p-6 bg-gradient-to-r from-[#2DD4BF]/10 to-[#FF6B35]/10 rounded-xl md:rounded-2xl border border-gray-700">
+                <p className="text-lg md:text-xl text-gray-400">Valor Total do Stack:</p>
+                <p className="text-xl md:text-2xl font-bold text-white mb-2"><span className="line-through text-red-400">R$ 641,00</span></p>
               </div>
               
-              <p className="text-3xl md:text-5xl font-extrabold text-white mb-8">
+              <p className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-white mb-6 md:mb-8">
                 Hoje por apenas: <span className="text-[#2DD4BF]">R$ 47,00</span>
-                <span className="text-xl text-gray-300 ml-2">(ou 12x de R$6,80)</span>
+                <span className="text-base md:text-xl text-gray-300 ml-2">(ou 12x de R$6,80)</span>
               </p>
-              <p className="text-[#FF6B35] font-bold mb-8">OFERTA DE LANÇAMENTO EXCLUSIVA</p>
+              <p className="text-[#FF6B35] font-bold mb-6 md:mb-8 text-sm md:text-base">OFERTA DE LANÇAMENTO EXCLUSIVA</p>
 
               <a
                 href={CHECKOUT_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block w-full max-w-md"
+                className="inline-block w-full max-w-md mx-auto"
                 onClick={handleTrackCheckout}
               >
-                <Button className="pulse-button w-full h-auto py-3 md:h-16 text-white font-bold text-sm md:text-xl rounded-xl flex items-center justify-center gap-2 md:gap-3 whitespace-normal text-center">
+                <Button className="pulse-button w-full h-auto py-3 md:py-4 text-white font-bold text-base md:text-lg rounded-xl flex items-center justify-center gap-2 md:gap-3 whitespace-normal text-center">
                   SIM, QUERO ACESSO VITALÍCIO AO SISTEMA
                 </Button>
               </a>
 
-              <div className="flex flex-wrap justify-center gap-6 mt-6 text-sm text-gray-400">
-                <div className="flex items-center gap-2"><Shield className="w-5 h-5 text-[#2DD4BF]" /> Acesso Imediato via E-mail</div>
-                <div className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-[#2DD4BF]" /> Compra 100% Segura</div>
-                <div className="flex items-center gap-2"><Rocket className="w-5 h-5 text-[#2DD4BF]" /> Garantia de 7 Dias</div>
+              <div className="flex flex-wrap justify-center gap-4 md:gap-6 mt-4 md:mt-6 text-xs md:text-sm text-gray-400">
+                <div className="flex items-center gap-1 md:gap-2"><Shield className="w-4 h-4 md:w-5 md:h-5 text-[#2DD4BF]" /> Acesso Imediato via E-mail</div>
+                <div className="flex items-center gap-1 md:gap-2"><CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-[#2DD4BF]" /> Compra 100% Segura</div>
+                <div className="flex items-center gap-1 md:gap-2"><Rocket className="w-4 h-4 md:w-5 md:h-5 text-[#2DD4BF]" /> Garantia de 7 Dias</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 7. TESTEMUNHOS */}
-      <section id="reviews" ref={reviewsRef} className="relative z-10 py-24 px-4 bg-[#0A0A0A] border-y border-[#333]">
+      {/* 8. TESTEMUNHOS */}
+      <section id="reviews" ref={reviewsRef} className="relative z-10 py-16 md:py-24 px-4 bg-[#0A0A0A] border-y border-[#333]">
         <div className={`max-w-6xl mx-auto transition-all duration-1000 ${reviewsVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12 md:mb-16">
             <span className="dynamic-gradient">
               Quem já Implementou o Sistema Nexus
             </span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {testimonials.map((item, i) => (
-              <div key={i} className="nexus-card p-8 rounded-3xl relative flex flex-col justify-between">
+              <div key={i} className="nexus-card p-6 md:p-8 rounded-2xl md:rounded-3xl relative flex flex-col justify-between">
                 <div>
-                  <div className="absolute -top-4 left-8 text-[#FF6B35] text-6xl opacity-20">"</div>
+                  <div className="absolute -top-3 md:-top-4 left-6 md:left-8 text-[#FF6B35] text-4xl md:text-6xl opacity-20">"</div>
                   <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, j) => <Star key={j} className="w-5 h-5 text-[#FF6B35] fill-current" />)}
+                    {[...Array(5)].map((_, j) => <Star key={j} className="w-4 h-4 md:w-5 md:h-5 text-[#FF6B35] fill-current" />)}
                   </div>
-                  <p className="text-gray-300 mb-6 leading-relaxed">"{item.text}"</p>
+                  <p className="text-gray-300 mb-4 md:mb-6 leading-relaxed text-sm md:text-base">"{item.text}"</p>
                 </div>
 
-                <div className="flex items-center gap-4 mt-4">
-                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#2DD4BF]">
+                <div className="flex items-center gap-3 md:gap-4 mt-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-[#2DD4BF]">
                     <img src={item.img} alt={item.name} className="w-full h-full object-cover" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white">{item.name}</h4>
-                    <p className="text-sm text-gray-500">{item.role}</p>
+                    <h4 className="font-bold text-white text-sm md:text-base">{item.name}</h4>
+                    <p className="text-xs md:text-sm text-gray-500">{item.role}</p>
                   </div>
                 </div>
               </div>
@@ -629,24 +745,24 @@ function App() {
         </div>
       </section>
 
-      {/* 8. FAQ */}
-      <section id="faq" className="relative z-10 py-24 px-4">
+      {/* 9. FAQ */}
+      <section id="faq" className="relative z-10 py-16 md:py-24 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-12">
             <span className="animated-gradient-title">
               Perguntas Frequentes (FAQ)
             </span>
           </h2>
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4">
             {faqItems.map((item, index) => (
-              <div key={index} className="bg-[#111]/50 border border-[#333] rounded-2xl overflow-hidden hover:border-[#2DD4BF]/50 transition-colors">
+              <div key={index} className="bg-[#111]/50 border border-[#333] rounded-xl md:rounded-2xl overflow-hidden hover:border-[#2DD4BF]/50 transition-colors">
                 <details className="group" open={openIndex === index} onClick={(e) => { e.preventDefault(); toggleFAQ(index); }}>
-                  <summary className="flex justify-between items-center p-6 cursor-pointer list-none">
-                    <h3 className="text-lg font-bold text-white">{item.q}</h3>
-                    <ChevronRight className="w-5 h-5 text-[#2DD4BF] transform group-open:rotate-90 transition-transform" />
+                  <summary className="flex justify-between items-center p-4 md:p-6 cursor-pointer list-none">
+                    <h3 className="text-base md:text-lg font-bold text-white pr-4">{item.q}</h3>
+                    <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-[#2DD4BF] transform group-open:rotate-90 transition-transform flex-shrink-0" />
                   </summary>
                   {openIndex === index && (
-                    <div className="px-6 pb-6 pt-2 text-gray-300 leading-relaxed border-t border-[#333] bg-[#0A0A0A]/50">
+                    <div className="px-4 pb-4 pt-2 md:px-6 md:pb-6 md:pt-2 text-gray-300 leading-relaxed text-sm md:text-base border-t border-[#333] bg-[#0A0A0A]/50">
                       {item.a}
                     </div>
                   )}
@@ -657,48 +773,48 @@ function App() {
         </div>
       </section>
 
-      {/* 9. OFERTA FINAL */}
-      <section id="offer" ref={offerRef} className="relative z-10 py-32 px-4 overflow-hidden">
+      {/* 10. OFERTA FINAL */}
+      <section id="offer" ref={offerRef} className="relative z-10 py-20 md:py-32 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-[#FF4F1F]/10 to-transparent pointer-events-none"></div>
 
         <div className={`max-w-4xl mx-auto text-center relative z-20 transition-all duration-1000 ${offerVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-          <div className="mb-12">
-            <Shield className="w-20 h-20 text-[#2DD4BF] mx-auto mb-6 animate-pulse-slow float-animation" />
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div className="mb-8 md:mb-12">
+            <Shield className="w-16 h-16 md:w-20 md:h-20 text-[#2DD4BF] mx-auto mb-4 md:mb-6 animate-pulse-slow float-animation" />
+            <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-6">
               <span className="dynamic-gradient glow-text">
                 Garantia de 7 Dias: Zero Risco
               </span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-6 md:mb-8 leading-relaxed px-4">
               <span className="text-[#2DD4BF] font-semibold">Simples: Teste o sistema por 7 dias.</span> Se você não sentir uma melhora tangível na sua clareza mental e produtividade, basta um e-mail para devolvemos 100% do seu dinheiro.
             </p>
-            <p className="text-lg text-gray-400 mb-12">
+            <p className="text-base md:text-lg text-gray-400 mb-8 md:mb-12 px-4">
               Acreditamos tanto no poder deste sistema que colocamos o risco inteiramente sobre nós. O seu único risco é continuar como está.
             </p>
           </div>
 
-          <div className="bg-[#1A2A3A] border-2 border-[#FF4F1F] rounded-[3rem] p-12 shadow-2xl shadow-[#FF4F1F]/20 relative overflow-hidden group">
+          <div className="bg-[#1A2A3A] border-2 border-[#FF4F1F] rounded-2xl md:rounded-[3rem] p-6 md:p-12 shadow-2xl shadow-[#FF4F1F]/20 relative overflow-hidden group">
             <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10 mix-blend-overlay"></div>
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#FF4F1F] to-[#FF6B35] blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-1000"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#FF4F1F] to-[#FF6B35] blur-xl md:blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-1000"></div>
 
             <div className="relative z-10">
-              <h3 className="text-3xl font-bold text-white mb-2">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2">
                 <span className="shimmer-title">
                   Última Chance para Garantir o Preço de Lançamento
                 </span>
               </h3>
-              <p className="text-[#FF6B35] font-medium mb-8 uppercase tracking-wider">Acesso Vitalício + Todos os Bônus</p>
+              <p className="text-[#FF6B35] font-medium mb-6 md:mb-8 uppercase tracking-wider text-sm md:text-base">Acesso Vitalício + Todos os Bônus</p>
 
-              <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
-                <img src={produtoImg} alt="Pack Nexus" className="w-64 rounded-xl shadow-2xl border border-[#333] rotate-[-5deg] group-hover:rotate-0 transition-all duration-500" />
+              <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 mb-8 md:mb-12">
+                <img src={produtoImg} alt="Pack Nexus" className="w-48 md:w-64 rounded-xl shadow-2xl border border-[#333] rotate-[-3deg] md:rotate-[-5deg] group-hover:rotate-0 transition-all duration-500" />
                 <div className="text-left">
-                  <div className="text-6xl font-extrabold text-white mb-2">R$ 47<span className="text-2xl text-gray-400">,00</span></div>
-                  <p className="text-gray-400 mb-4">Pagamento único. Sem mensalidades.</p>
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[#2DD4BF] mr-2" /> Corebook Digital + Vídeo-Aulas</div>
-                    <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[#2DD4BF] mr-2" /> Blueprint de Implementação (7 Dias)</div>
-                    <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[#2DD4BF] mr-2" /> Banco de Prompts Estratégicos</div>
-                    <div className="flex items-center text-sm text-gray-300"><Check className="w-4 h-4 text-[#2DD4BF] mr-2" /> Atualizações Vitalícias Inclusas</div>
+                  <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2">R$ 47<span className="text-lg md:text-2xl text-gray-400">,00</span></div>
+                  <p className="text-gray-400 mb-3 md:mb-4 text-sm md:text-base">Pagamento único. Sem mensalidades.</p>
+                  <div className="flex flex-col gap-1 md:gap-2">
+                    <div className="flex items-center text-xs md:text-sm text-gray-300"><Check className="w-3 h-3 md:w-4 md:h-4 text-[#2DD4BF] mr-2" /> Corebook Digital + Vídeo-Aulas</div>
+                    <div className="flex items-center text-xs md:text-sm text-gray-300"><Check className="w-3 h-3 md:w-4 md:h-4 text-[#2DD4BF] mr-2" /> Blueprint de Implementação (7 Dias)</div>
+                    <div className="flex items-center text-xs md:text-sm text-gray-300"><Check className="w-3 h-3 md:w-4 md:h-4 text-[#2DD4BF] mr-2" /> Banco de Prompts Estratégicos</div>
+                    <div className="flex items-center text-xs md:text-sm text-gray-300"><Check className="w-3 h-3 md:w-4 md:h-4 text-[#2DD4BF] mr-2" /> Atualizações Vitalícias Inclusas</div>
                   </div>
                 </div>
               </div>
@@ -710,9 +826,9 @@ function App() {
                 className="block max-w-2xl mx-auto"
                 onClick={handleTrackCheckout}
               >
-                <Button className="pulse-button w-full h-auto py-4 md:h-20 text-white font-extrabold text-sm md:text-2xl rounded-2xl flex items-center justify-center gap-2 md:gap-4 hover:scale-[1.02] transition-transform whitespace-normal text-center">
+                <Button className="pulse-button w-full h-auto py-3 md:py-4 text-white font-extrabold text-base md:text-xl rounded-xl md:rounded-2xl flex items-center justify-center gap-2 md:gap-4 hover:scale-[1.02] transition-transform whitespace-normal text-center">
                   INSTALAR MEU SISTEMA NEXUS AGORA →
-                  <ArrowRight className="w-5 h-5 md:w-8 md:h-8 flex-shrink-0" />
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 md:w-8 md:h-8 flex-shrink-0" />
                 </Button>
               </a>
             </div>
@@ -721,36 +837,36 @@ function App() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#0A0A0A] pt-24 pb-12 px-4 border-t border-[#111] relative z-10">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
+      <footer className="bg-[#0A0A0A] pt-12 md:pt-24 pb-8 md:pb-12 px-4 border-t border-[#111] relative z-10">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
-              <Brain className="w-8 h-8 text-[#2DD4BF]" />
-              <span className="text-2xl font-bold text-white">NEXUS MANUAL</span>
+            <div className="flex items-center gap-3 mb-4 md:mb-6">
+              <Brain className="w-6 h-6 md:w-8 md:h-8 text-[#2DD4BF]" />
+              <span className="text-xl md:text-2xl font-bold text-white">NEXUS MANUAL</span>
             </div>
-            <p className="text-gray-500 leading-relaxed max-w-sm mb-6">
+            <p className="text-gray-500 leading-relaxed max-w-sm mb-4 md:mb-6 text-sm md:text-base">
               O sistema operacional para profissionais que desejam dominar sua atenção, acelerar decisões e transformar ferramentas de IA em extensões da sua inteligência.
             </p>
           </div>
           <div>
-            <h4 className="text-white font-bold mb-6">Links Úteis</h4>
-            <ul className="space-y-3 text-gray-500">
+            <h4 className="text-white font-bold mb-4 md:mb-6 text-base md:text-lg">Links Úteis</h4>
+            <ul className="space-y-2 md:space-y-3 text-gray-500 text-sm md:text-base">
               <li><a href="#" className="hover:text-[#2DD4BF] transition-colors">Política de Privacidade</a></li>
               <li><a href="#" className="hover:text-[#2DD4BF] transition-colors">Termos de Uso</a></li>
               <li><a href="#" className="hover:text-[#2DD4BF] transition-colors">Suporte</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-bold mb-6">Contato</h4>
-            <p className="text-gray-500 mb-4">suporte@nexusorigin.com</p>
-            <a href="https://instagram.com/nexus0rigin" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-400 hover:text-[#FF6B35] transition-colors gap-2">
-              <Instagram className="w-5 h-5" />
+            <h4 className="text-white font-bold mb-4 md:mb-6 text-base md:text-lg">Contato</h4>
+            <p className="text-gray-500 mb-3 md:mb-4 text-sm md:text-base">suporte@nexusorigin.com</p>
+            <a href="https://instagram.com/nexus0rigin" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-400 hover:text-[#FF6B35] transition-colors gap-2 text-sm md:text-base">
+              <Instagram className="w-4 h-4 md:w-5 md:h-5" />
               <span>@nexus0rigin</span>
             </a>
           </div>
         </div>
-        <div className="max-w-6xl mx-auto text-center pt-8 border-t border-[#111]">
-          <p className="text-gray-600 text-sm mb-4">
+        <div className="max-w-6xl mx-auto text-center pt-6 md:pt-8 border-t border-[#111]">
+          <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4">
             &copy; 2025 Nexus Manual. Todos os direitos reservados.
           </p>
           <p className="text-gray-600 text-xs">
