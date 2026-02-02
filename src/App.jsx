@@ -289,7 +289,7 @@ function App() {
           </h2>
 
           <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up-delay">
-            Um framework neuroestratégico para profissionais que dominam a atenção,<span className="text-[--color-nexus-teal] font-semibold">aceleram decisões </span> e maximizam resultados.
+            Alta Performance na Era da Sobrecarga Cognitiva.<span className="text-[--color-nexus-teal] font-semibold">Um framework neuroestratégico para profissionais que desejam dominar a atenção, </span> acelerar decisões e transformar ferramentas de IA em extensões da sua inteligência.
           </p>
 
           <div className="flex flex-col items-center gap-6 animate-scale-in">
