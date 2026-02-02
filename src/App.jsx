@@ -386,24 +386,24 @@ function App() {
             </div>
           </div>
 
-          {/* CTA após o vídeo */}
-          <div className="text-center mt-12">
-            <a 
-              href={CHECKOUT_LINK} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              onClick={handleTrackCheckout}
-              className="group inline-block"
-            >
-              <Button className="bg-gradient-to-r from-[#FF6B35] to-[#FF4F1F] hover:from-[#FF4F1F] hover:to-[#FF6B35] text-white font-bold py-4 px-10 rounded-xl text-lg transition-all hover:scale-105 cursor-pointer shadow-2xl shadow-[#FF6B35]/30">
-                <span className="flex items-center justify-center gap-3">
-                  QUERO APLICAR ESSE SISTEMA NA MINHA ROTINA
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                </span>
-              </Button>
-            </a>
-            <p className="text-gray-500 text-sm mt-4">Assista o vídeo completo e garanta seu acesso vitalício</p>
-          </div>
+         {/* CTA após o vídeo */}
+<div className="text-center mt-12">
+  <a 
+    href={CHECKOUT_LINK} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    onClick={handleTrackCheckout}
+    className="group inline-block w-full md:w-auto"
+  >
+    <Button className="bg-gradient-to-r from-[#FF6B35] to-[#FF4F1F] hover:from-[#FF4F1F] hover:to-[#FF6B35] text-white font-bold py-3 md:py-4 px-4 md:px-10 rounded-xl text-sm md:text-lg transition-all hover:scale-105 cursor-pointer shadow-2xl shadow-[#FF6B35]/30 w-full md:w-auto">
+      <span className="flex items-center justify-center gap-2 md:gap-3 whitespace-normal text-center">
+        QUERO APLICAR ESSE SISTEMA NA MINHA ROTINA
+        <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-2 transition-transform flex-shrink-0" />
+      </span>
+    </Button>
+  </a>
+  <p className="text-gray-500 text-sm mt-4">Assista o vídeo completo e garanta seu acesso vitalício</p>
+</div>
         </div>
       </section>
 
