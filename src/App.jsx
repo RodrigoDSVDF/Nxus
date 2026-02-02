@@ -284,12 +284,12 @@ function App() {
 
           <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight animate-slide-up">
             <span className="animated-gradient-title glow-text">
-              Domine a Nova Economia da Atenção.
+              Alta Performance na Era da Sobrecarga Cognitiva.
             </span>
           </h2>
 
           <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up-delay">
-            O framework neurocientífico e estratégico para profissionais que convertem informação complexa em resultados excepcionais, <span className="text-[--color-nexus-teal] font-semibold">automatizando a operação</span> e dominando o estratégico.
+            Um framework neuroestratégico para profissionais que dominam a atenção,<span className="text-[--color-nexus-teal] font-semibold">aceleram decisões </span> e maximizam resultados.
           </p>
 
           <div className="flex flex-col items-center gap-6 animate-scale-in">
