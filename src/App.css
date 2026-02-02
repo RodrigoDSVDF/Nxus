@@ -534,3 +534,32 @@
     animation-duration: 4s !important;
   }
 }
+/* Adicione ao final do App.css */
+
+/* Melhorar visibilidade da imagem de fundo */
+.hero-bg-image {
+    opacity: 0.5 !important;
+    filter: contrast(1.3) saturate(1.4) !important;
+    mix-blend-mode: soft-light !important;
+}
+
+/* Reduzir intensidade dos gradientes de fundo */
+.bg-gradient-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 10, 10, 0.3) 0%,
+        rgba(10, 10, 10, 0.1) 30%,
+        transparent 50%,
+        rgba(10, 10, 10, 0.1) 70%,
+        rgba(10, 10, 10, 0.3) 100%
+    ) !important;
+}
+
+/* Ajustar z-index para imagem ficar acima dos gradientes */
+.image-container {
+    z-index: 1 !important;
+}
+
+.gradient-container {
+    z-index: 0 !important;
+}
