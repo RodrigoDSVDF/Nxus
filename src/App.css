@@ -1,0 +1,536 @@
+/* =========================================
+   App.css - VERSÃO FINAL (DARK METAL BLUE + TEAL/ORANGE/RED CTA)
+   COM EFEITOS DE GRADIENTE ANIMADO
+========================================
+*/
+
+/* 1. IMPORTAÇÕES */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* 2. DEFINIÇÃO DE TEMA (Tailwind v4 - CSS-first) */
+@theme inline {
+  /* PALETA NEXUS REFINADA */
+  --color-nexus-bg: #1A2A3A;          /* AZUL METÁLICO ESCURO (Fundo) */
+  --color-nexus-teal: #2DD4BF;        /* AZUL TURQUESA (Identidade Principal) */
+  --color-nexus-orange: #FF6B35;      /* Laranja (Detalhes/Contraste) */
+  --color-nexus-cta: #FF4F1F;         /* Vermelho Alaranjado (BOTÕES DE VENDA) */
+  --color-nexus-cta-light: #FF7F50;   /* Variação CTA (para gradientes) */
+  
+  /* NOVAS CORES AZUL-VERDE */
+  --color-nexus-azul-verde: #22D3EE;  /* Azul esverdeado */
+  --color-nexus-verde-azul: #2DD4BF;  /* Verde azulado */
+  --color-nexus-azul-forte: #0EA5E9;  /* Azul forte */
+  
+  /* Variáveis Tailwind padrão */
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+}
+
+/* 3. ESTILOS DE BASE (@layer base) */
+@layer base {
+  body {
+    background-color: var(--color-nexus-bg);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+  }
+  * {
+    border-color: rgba(255, 255, 255, 0.1); 
+  }
+}
+
+/* 4. ESTILOS PARA OS COMPONENTES ESPECÍFICOS DO NEXUS */
+@layer components {
+  /* FAIXA HORIZONTAL - Gradiente Azul-Verde (NOVA) */
+  .horizontal-banner-wrapper {
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(90deg, #22D3EE 0%, #0EA5E9 50%, #2DD4BF 100%);
+    padding: 0.5rem 0;
+    position: relative;
+    z-index: 50;
+    border-bottom: 1px solid rgba(34, 211, 238, 0.2);
+  }
+
+  .horizontal-banner {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .banner-content {
+    display: flex;
+    animation: scroll-horizontal 30s linear infinite;
+    white-space: nowrap;
+  }
+
+  .banner-item {
+    display: inline-block;
+    padding: 0 3rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #020408; /* Texto escuro para contraste no banner claro */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* NOVO ESTILO PARA A SEGUNDA FAIXA HORIZONTAL (AZUL MAIS CLARO) */
+  .horizontal-banner-mid-section .banner-item {
+      color: #DBEEFF; /* Tom de azul bem claro */
+  }
+  
+  /* Imagem do produto (Sombra Azul-Verde) */
+  .product-image {
+    box-shadow: 0 25px 50px -12px rgba(34, 211, 238, 0.25);
+    transition: transform 0.3s ease;
+  }
+
+  /* Efeito de hover nos cartões (Borda Azul-Verde) */
+  .nexus-card:hover {
+    border-color: var(--color-nexus-azul-verde);
+    box-shadow: 0 10px 40px -10px rgba(34, 211, 238, 0.2); 
+    transform: translateY(-5px);
+  }
+
+  /* Efeito de brilho para o botão (Vermelho-Alaranjado) */
+  .pulse-button {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-nexus-cta);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 79, 31, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: pulse 2s infinite;
+  }
+  
+  .pulse-button:hover {
+    background: var(--color-nexus-cta-hover);
+    box-shadow: 0 0 30px rgba(255, 79, 31, 0.6);
+  }
+
+  .pulse-button::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 0.75rem;
+    background: linear-gradient(45deg, var(--color-nexus-cta), var(--color-nexus-cta-light), var(--color-nexus-cta));
+    z-index: -1;
+    animation: glow 2s ease-in-out infinite alternate;
+    opacity: 0;
+  }
+  
+  .pulse-button > * { position: relative; z-index: 2; }
+
+  /* Efeito de gradiente animado para títulos */
+  .animated-gradient-title {
+    background: linear-gradient(
+      90deg,
+      #2DD4BF 0%,
+      #0EA5E9 25%,
+      #FF6B35 50%,
+      #FF4F1F 75%,
+      #2DD4BF 100%
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-flow 6s ease infinite;
+  }
+
+  /* Efeito de shimmer para títulos */
+  .shimmer-title {
+    background: linear-gradient(
+      90deg,
+      #0A0A0A 0%,
+      #2DD4BF 25%,
+      #0EA5E9 50%,
+      #2DD4BF 75%,
+      #0A0A0A 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s infinite linear;
+  }
+
+  /* Efeito de pulso sutil */
+  .pulse-subtle {
+    animation: pulse-subtle 4s ease-in-out infinite;
+  }
+
+  /* Efeito de brilho */
+  .glow-text {
+    text-shadow: 0 0 20px rgba(45, 212, 191, 0.3),
+                 0 0 40px rgba(45, 212, 191, 0.2),
+                 0 0 60px rgba(45, 212, 191, 0.1);
+  }
+
+  /* Corrige o problema do título da dor */
+  .dor-title-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+  }
+
+  .dor-title-text {
+    display: block;
+    width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Efeito de gradiente com transição */
+  .gradient-transition {
+    transition: all 0.5s ease;
+    background: linear-gradient(90deg, #FF6B35 0%, #FF4F1F 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-transition:hover {
+    background: linear-gradient(90deg, #2DD4BF 0%, #0EA5E9 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+
+  /* Gradiente dinâmico - usando as cores do tema */
+  .dynamic-gradient {
+    background: linear-gradient(
+      90deg,
+      var(--color-nexus-teal) 0%,
+      var(--color-nexus-azul-forte) 25%,
+      var(--color-nexus-orange) 50%,
+      var(--color-nexus-cta) 75%,
+      var(--color-nexus-teal) 100%
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: dynamic-gradient 8s ease infinite;
+  }
+
+  /* Efeito de gradiente azul-verde específico */
+  .gradient-blue-green {
+    background: linear-gradient(
+      90deg,
+      var(--color-nexus-azul-verde) 0%,
+      var(--color-nexus-verde-azul) 50%,
+      var(--color-nexus-azul-forte) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s infinite linear;
+  }
+
+  /* Efeito de texto neon para destaques */
+  .neon-text {
+    color: #fff;
+    text-shadow: 
+      0 0 5px var(--color-nexus-teal),
+      0 0 10px var(--color-nexus-teal),
+      0 0 15px var(--color-nexus-teal),
+      0 0 20px var(--color-nexus-orange),
+      0 0 35px var(--color-nexus-orange),
+      0 0 40px var(--color-nexus-orange),
+      0 0 50px var(--color-nexus-orange),
+      0 0 75px var(--color-nexus-orange);
+    animation: neon-pulse 2s ease-in-out infinite alternate;
+  }
+}
+
+/* 5. ANIMAÇÕES E KEYFRAMES */
+
+@keyframes pulse { 
+  0% { box-shadow: 0 0 0 0 rgba(255, 79, 31, 0.7); } 
+  70% { box-shadow: 0 0 0 15px rgba(255, 79, 31, 0); } 
+  100% { box-shadow: 0 0 0 0 rgba(255, 79, 31, 0); } 
+}
+
+@keyframes scroll-horizontal { 
+  0% { transform: translateX(0); } 
+  100% { transform: translateX(-50%); } 
+}
+
+@keyframes gradientX { 
+  0% { background-position: 0% 50%; } 
+  50% { background-position: 100% 50%; } 
+  100% { background-position: 0% 50%; } 
+}
+
+@keyframes gradientShift { 
+  0% { background-position: 0% 50%; } 
+  50% { background-position: 100% 50%; } 
+  100% { background-position: 0% 50%; } 
+}
+
+/* Novas animações para gradientes */
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes dynamic-gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes neon-pulse {
+  from {
+    text-shadow: 
+      0 0 5px var(--color-nexus-teal),
+      0 0 10px var(--color-nexus-teal),
+      0 0 15px var(--color-nexus-teal),
+      0 0 20px var(--color-nexus-orange),
+      0 0 35px var(--color-nexus-orange),
+      0 0 40px var(--color-nexus-orange);
+  }
+  to {
+    text-shadow: 
+      0 0 10px var(--color-nexus-teal),
+      0 0 20px var(--color-nexus-teal),
+      0 0 30px var(--color-nexus-teal),
+      0 0 40px var(--color-nexus-orange),
+      0 0 70px var(--color-nexus-orange),
+      0 0 80px var(--color-nexus-orange);
+  }
+}
+
+/* Gradiente de Texto Azul-Verde (NOVO) */
+.text-gradient-blue-green {
+  background: linear-gradient(
+    90deg,
+    #22D3EE 0%,
+    #0EA5E9 25%,
+    #2DD4BF 50%,
+    #0EA5E9 75%,
+    #22D3EE 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradientShift 3s ease infinite;
+}
+
+/* Mantenha o gradiente original também se precisar */
+.text-gradient-teal-orange {
+  background: linear-gradient(to right, #2DD4BF, #FF6B35, #2DD4BF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: gradientX 5s linear infinite;
+}
+
+/* Classes de animação (Mantidas) */
+.animate-slide-left { animation: slideLeft 1s ease-out forwards; }
+.animate-slide-right { animation: slideRight 1s ease-out forwards; }
+.animate-slide-up { animation: slideUp 1s ease-out forwards; }
+.animate-slide-up-delay { animation: slideUp 1s ease-out 0.3s forwards; opacity: 0; }
+.animate-scale-in { animation: scaleIn 1s ease-out 0.6s forwards; opacity: 0; transform: scale(0.95); }
+.animate-fade-in { animation: fadeIn 1s ease-out forwards; }
+.animate-gradient-text { animation: gradientShift 3s ease infinite; }
+
+/* Animações específicas */
+@keyframes slideLeft { 
+  from { opacity: 0; transform: translateX(-30px); } 
+  to { opacity: 1; transform: translateX(0); } 
+}
+
+@keyframes slideRight { 
+  from { opacity: 0; transform: translateX(30px); } 
+  to { opacity: 1; transform: translateX(0); } 
+}
+
+@keyframes slideUp { 
+  from { opacity: 0; transform: translateY(30px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
+
+@keyframes scaleIn { 
+  to { opacity: 1; transform: scale(1); } 
+}
+
+@keyframes fadeIn { 
+  from { opacity: 0; } 
+  to { opacity: 1; } 
+}
+
+/* Animações de pulse slow */
+.animate-pulse-slow { animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+@keyframes pulse-slow { 
+  0%, 100% { opacity: 1; } 
+  50% { opacity: 0.5; } 
+}
+
+/* 6. UTILITÁRIOS PERSONALIZADOS */
+.mask-radial-faded {
+  mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 70%);
+}
+
+/* 7. ESTILOS GLOBAIS ADICIONAIS */
+.gradient-nexus-primary { background: linear-gradient(135deg, #FF4F1F 0%, #FF7F50 100%); } /* Red-Orange */
+.gradient-nexus-secondary { background: linear-gradient(135deg, #1A2A3A 0%, #253D50 100%); } /* Dark Metal Blue */
+.gradient-nexus-accent { background: linear-gradient(135deg, #22D3EE 0%, #2DD4BF 100%); } /* Azul-Verde */
+.shadow-nexus { box-shadow: 0 25px 50px -12px rgba(255, 79, 31, 0.25); }
+
+/* 8. ANIMAÇÕES ADICIONAIS PARA EFEITOS ESPECIAIS */
+
+/* Efeito de partículas flutuantes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Efeito de onda */
+@keyframes wave {
+  0% { transform: translateX(0) translateZ(0) scaleY(1); }
+  50% { transform: translateX(-25%) translateZ(0) scaleY(0.55); }
+  100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+}
+
+.wave-animation {
+  animation: wave 18s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+}
+
+/* Efeito de rotação suave */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.rotate-slow {
+  animation: rotate 20s linear infinite;
+}
+
+/* 9. RESPONSIVIDADE PARA ANIMAÇÕES */
+@media (prefers-reduced-motion: reduce) {
+  .animated-gradient-title,
+  .shimmer-title,
+  .dynamic-gradient,
+  .gradient-blue-green,
+  .text-gradient-blue-green,
+  .text-gradient-teal-orange,
+  .animate-gradient-text,
+  .pulse-button,
+  .animate-pulse-slow,
+  .float-animation,
+  .wave-animation,
+  .rotate-slow {
+    animation: none !important;
+  }
+  
+  .pulse-button {
+    animation: none !important;
+    box-shadow: 0 0 10px rgba(255, 79, 31, 0.4) !important;
+  }
+}
+
+/* 10. UTILITÁRIOS DE GRADIENTE ANIMADO ADICIONAIS */
+
+/* Efeito de fundo animado para destaques */
+.animated-bg {
+  background: linear-gradient(
+    -45deg,
+    var(--color-nexus-teal),
+    var(--color-nexus-azul-forte),
+    var(--color-nexus-orange),
+    var(--color-nexus-cta)
+  );
+  background-size: 400% 400%;
+  animation: gradient-bg 15s ease infinite;
+}
+
+@keyframes gradient-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Efeito de brilho em borda */
+.glow-border {
+  position: relative;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    var(--color-nexus-teal),
+    var(--color-nexus-orange),
+    var(--color-nexus-cta),
+    var(--color-nexus-teal)
+  );
+  border-radius: inherit;
+  z-index: -1;
+  background-size: 400% 400%;
+  animation: gradient-bg 8s ease infinite;
+  opacity: 0.7;
+}
+
+/* 11. MELHORIAS DE PERFORMANCE */
+@media (max-width: 768px) {
+  .animated-gradient-title,
+  .dynamic-gradient,
+  .text-gradient-teal-orange {
+    animation-duration: 8s !important; /* Mais lento em mobile */
+  }
+  
+  .shimmer-title {
+    animation-duration: 4s !important;
+  }
+}
