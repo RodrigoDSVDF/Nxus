@@ -8,7 +8,7 @@ import {
 } from 'lucide-react'
 import './App.css'
 
-// --- IMPORTAÇÃO DE IMAGENS ---
+// --- IMPORTAÇÃO DE IMAGENS --
 import brainNetworkImg from './assets/1000393266.jpg'
 import neuralNetworkImg from './assets/1000393264.jpg'
 import laptopNeuralImg from './assets/1000393263.jpg'
