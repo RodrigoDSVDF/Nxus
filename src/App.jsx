@@ -498,11 +498,15 @@ function App() {
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="gradient-blue-green glow-text">
-                NEXUS: Seu Sistema Operacional Cognitivo
+                O QUE É O NEXUS?
               </span>
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Não é um curso. É um protocolo integrado. Uma metodologia para gerenciar sua atenção, seu aprendizado e sua produção no nível de um atleta de elite.
+              Não é apenas um curso. É o seu novo ecossistema de produtividade. O Nexus resolve o maior problema da atualidade: o excesso de informação sem um sistema para processá-la. Ele atua em duas frentes:
+
+O HARDWARE (Sua Biologia): Protocolos para otimizar seu cérebro, foco e energia.
+
+O SOFTWARE (Sua Estratégia): Metodologias de aprendizado e uso de IA para amplificar sua entrega.
             </p>
             <p className="md:hidden mt-8 text-lg font-bold text-[--color-nexus-orange]">
               Feature Ativa: {activeFeature?.title}
