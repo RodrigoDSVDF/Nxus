@@ -4,7 +4,7 @@ import {
   ArrowRight, Zap, Target, Key, Rocket, Brain,
   CheckCircle, AlertTriangle, Shield, ChevronRight,
   Terminal, Cpu, Network, Layers, Check, Sparkles, Star,
-  Instagram, Clock, BarChart, Users, TrendingUp
+  Instagram, Clock, BarChart, Users, TrendingUp, Circle
 } from 'lucide-react'
 import './App.css' 
 
@@ -103,7 +103,6 @@ const faqItems = [
   { q: "Em quanto tempo verei resultados práticos?", a: "Primeiros resultados em clareza e redução de estresse nas primeiras 72h. Resultados expressivos em produtividade e qualidade de output dentro da primeira semana de implementação consistente do blueprint." },
 ];
 
-
 // --- HOOKS E FUNÇÕES AUXILIARES ---
 
 // Hook de Scroll Animation
@@ -154,9 +153,14 @@ function Header() {
     return (
         <header className="sticky top-0 z-50 w-full bg-[#0A0A0A]/90 backdrop-blur-md border-b border-[#333] shadow-lg">
             <div className="max-w-7xl mx-auto h-20 flex items-center justify-between px-4">
-                <button onClick={() => handleScroll('hero')} className="flex items-center gap-2 cursor-pointer">
-                    <Brain className="w-7 h-7 text-[#2DD4BF]" />
-                    <span className="text-xl font-bold text-white">NEXUS MANUAL</span>
+                <button onClick={() => handleScroll('hero')} className="flex items-center gap-2 cursor-pointer group">
+                    <div className="relative">
+                        <Brain className="w-7 h-7 text-[#2DD4BF] group-hover:scale-110 transition-transform" />
+                        <div className="absolute inset-0 bg-[#2DD4BF] rounded-full blur-md opacity-0 group-hover:opacity-50 transition-opacity"></div>
+                    </div>
+                    <span className="text-xl font-bold text-white group-hover:text-[#2DD4BF] transition-colors">
+                        NEXUS MANUAL
+                    </span>
                 </button>
                 <nav className="hidden lg:flex items-center gap-6">
                     {NAV_ITEMS.map((item) => (
@@ -196,6 +200,11 @@ function App() {
   const [offerRef, offerVisible] = useScrollAnimation(0.1)
 
   const [activeFeature, setActiveFeature] = useState(bentoFeatures[0]); 
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   const TEAL = '#2DD4BF';
   const ORANGE = '#FF6B35';
@@ -227,7 +236,7 @@ function App() {
         </div>
       </div>
 
-      {/* 2. HERO SECTION (ATUALIZADO) */}
+      {/* 2. HERO SECTION */}
       <section id="hero" ref={heroRef} className="relative z-10 pt-20 pb-32 px-4 overflow-hidden">
         <div className={`max-w-7xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
@@ -244,12 +253,14 @@ function App() {
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-8 tracking-tight animate-slide-up">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-8 tracking-tight animate-slide-up neon-text">
             NEXUS MANUAL
           </h1>
 
           <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight animate-slide-up">
-            Domine a Nova Economia da Atenção.
+            <span className="animated-gradient-title glow-text">
+              Domine a Nova Economia da Atenção.
+            </span>
           </h2>
 
           <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up-delay">
@@ -294,7 +305,7 @@ function App() {
           </div>
       </div>
 
-      {/* 4. A DOR (ATUALIZADA) */}
+      {/* 4. A DOR (CORRIGIDA) */}
       <section id="pain" ref={painRef} className={`relative z-10 py-32 px-4 transition-all duration-1000 delay-200 ${painVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
         <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-5 gap-12 items-center">
@@ -302,38 +313,58 @@ function App() {
                     <div className="absolute inset-0 bg-gradient-to-br from-[--color-nexus-teal]/20 to-[--color-nexus-orange]/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700"></div>
                     <img src={fundo02} alt="Caos Digital" className="relative rounded-3xl shadow-2xl border border-[#333] z-10 rotate-3 group-hover:rotate-0 transition-all duration-700 grayscale hover:grayscale-0" />
                 </div>
+                
                 <div className="md:col-span-3 space-y-8">
-                    <h2 className="text-3xl md:text-5xl font-bold leading-tight">
-                        O VERDADEIRO CUSTO DA <span className="text-transparent bg-clip-text bg-gradient-to-r from-[--color-nexus-orange] to-[--color-nexus-cta]">SOBRECARGA COGNITIVA</span>
-                    </h2>
+                    <div className="dor-title-container">
+                      <h2 className="text-3xl md:text-5xl font-bold leading-tight dor-title-text">
+                        <span className="dynamic-gradient">
+                          O VERDADEIRO CUSTO DA SOBRECARGA COGNITIVA
+                        </span>
+                      </h2>
+                    </div>
+                    
                     <p className="text-lg text-gray-300 leading-relaxed">
-                        O volume de informações, ferramentas e demandas não para de crescer. A tentativa de acompanhar tudo manualmente consome sua energia criativa e estratégica, criando um ciclo de estagnação.
+                      O volume de informações, ferramentas e demandas não para de crescer. A tentativa de acompanhar tudo manualmente consome sua energia criativa e estratégica, criando um ciclo de estagnação.
                     </p>
+                    
                     <ul className="space-y-4">
-                        <li className="flex items-start p-4 bg-[#111]/50 border border-[--color-nexus-orange]/20 rounded-xl hover:border-[--color-nexus-orange]/50 transition-colors">
-                            <Clock className="w-6 h-6 text-[--color-nexus-orange] mr-4 flex-shrink-0 mt-1" />
-                            <span><strong className="text-white">Fadiga de Decisão:</strong> Gastar horas em tarefas operacionais que poderiam ser automatizadas, deixando você exausto para o que realmente importa.</span>
-                        </li>
-                        <li className="flex items-start p-4 bg-[#111]/50 border border-[--color-nexus-orange]/20 rounded-xl hover:border-[--color-nexus-orange]/50 transition-colors">
-                            <Brain className="w-6 h-6 text-[--color-nexus-orange] mr-4 flex-shrink-0 mt-1" />
-                            <span><strong className="text-white">Aprendizado Fragmentado:</strong> Pular de ferramenta em ferramenta sem um framework sólido, acumulando 'peças soltas' de conhecimento que não se integram.</span>
-                        </li>
+                      <li className="flex items-start p-4 bg-[#111]/50 border border-[--color-nexus-orange]/20 rounded-xl hover:border-[--color-nexus-orange]/50 transition-colors group">
+                        <Clock className="w-6 h-6 text-[--color-nexus-orange] mr-4 flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
+                        <span>
+                          <strong className="text-white group-hover:text-[--color-nexus-orange] transition-colors">Fadiga de Decisão:</strong> Gastar horas em tarefas operacionais que poderiam ser automatizadas, deixando você exausto para o que realmente importa.
+                        </span>
+                      </li>
+                      <li className="flex items-start p-4 bg-[#111]/50 border border-[--color-nexus-orange]/20 rounded-xl hover:border-[--color-nexus-orange]/50 transition-colors group">
+                        <Brain className="w-6 h-6 text-[--color-nexus-orange] mr-4 flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
+                        <span>
+                          <strong className="text-white group-hover:text-[--color-nexus-orange] transition-colors">Aprendizado Fragmentado:</strong> Pular de ferramenta em ferramenta sem um framework sólido, acumulando 'peças soltas' de conhecimento que não se integram.
+                        </span>
+                      </li>
                     </ul>
-                    <div className="p-4 bg-gradient-to-r from-[#2DD4BF]/10 to-[#FF6B35]/10 border border-gray-700 rounded-xl">
-                        <p className="text-lg font-semibold">
-                            A questão não é aprender a próxima ferramenta. É <span className="text-[--color-nexus-teal]">construir uma arquitetura mental</span> que torne qualquer ferramenta, presente ou futura, uma extensão obediente da sua vontade.
-                        </p>
+                    
+                    <div className="p-6 bg-gradient-to-r from-[#2DD4BF]/10 to-[#FF6B35]/10 border border-gray-700 rounded-2xl group hover:border-[#2DD4BF] transition-all duration-300">
+                      <p className="text-xl font-semibold text-center pulse-subtle">
+                        A questão não é aprender a próxima ferramenta. É{" "}
+                        <span className="animated-gradient-title font-bold">
+                          construir uma arquitetura mental
+                        </span>{" "}
+                        que torne qualquer ferramenta, presente ou futura, uma extensão obediente da sua vontade.
+                      </p>
                     </div>
                 </div>
             </div>
         </div>
       </section>
 
-      {/* 5. BENTO GRID (ATUALIZADO) */}
+      {/* 5. BENTO GRID */}
       <section id="bento" ref={bentoRef} className="relative z-10 pt-32 pb-16 px-4 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
-                <h2 className="text-4xl md:text-6xl font-bold mb-6">NEXUS: Seu <span className="text-[--color-nexus-teal]">Sistema Operacional Cognitivo</span></h2>
+                <h2 className="text-4xl md:text-6xl font-bold mb-6">
+                  <span className="gradient-blue-green glow-text">
+                    NEXUS: Seu Sistema Operacional Cognitivo
+                  </span>
+                </h2>
                 <p className="text-xl text-gray-400 max-w-3xl mx-auto">
                     Não é um curso. É um protocolo integrado. Uma metodologia para gerenciar sua atenção, seu aprendizado e sua produção no nível de um atleta de elite.
                 </p>
@@ -391,7 +422,6 @@ function App() {
                 ))}
             </div>
             
-            {/* Módulo 5 (Painel de Controle) */}
             <div className={`mt-12 transition-all duration-1000 delay-500 ${bentoVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 <div className="bg-gradient-to-br from-[#3A1C71] to-[#D76D77] rounded-3xl p-8 border border-gray-800 hover:border-[#2DD4BF] transition-all">
                     <div className="flex flex-col md:flex-row items-center gap-8">
@@ -408,7 +438,7 @@ function App() {
         </div>
       </section>
 
-      {/* --- FAIXA HORIZONTAL INTERMEDIÁRIA (ATUALIZADA) --- */}
+      {/* --- FAIXA HORIZONTAL INTERMEDIÁRIA --- */}
       <div className="relative z-20 py-6 overflow-hidden bg-[#0A0A0A] border-y border-[#333] horizontal-banner-mid-section">
         <div 
           className="horizontal-banner-wrapper" 
@@ -450,19 +480,25 @@ function App() {
         </div>
       </div>
 
-      {/* 6. O STACK (ATUALIZADO) */}
+      {/* 6. O STACK */}
       <section id="stack" ref={stackRef} className="relative z-10 py-32 px-4">
         <div className="max-w-5xl mx-auto bg-[#1A2A3A]/80 backdrop-blur-xl border border-[#333] rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[--color-nexus-teal]/10 rounded-full blur-[100px] pointer-events-none"></div>
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[--color-nexus-orange]/10 rounded-full blur-[100px] pointer-events-none"></div>
 
             <div className={`relative z-10 transition-all duration-1000 ${stackVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Construa Sua <span className="text-[--color-nexus-orange]">Vantagem Competitiva Definitiva</span></h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                  <span className="animated-gradient-title">
+                    Construa Sua Vantagem Competitiva Definitiva
+                  </span>
+                </h2>
                 
                 <div className="mb-8 text-center">
-                    <div className="inline-block px-6 py-3 bg-gradient-to-r from-[#2DD4BF]/20 to-[#FF6B35]/20 rounded-xl">
-                        <p className="text-2xl font-bold">PACOTE NEXUS COMPLETO: ACESSO VITALÍCIO</p>
-                    </div>
+                  <div className="inline-block px-6 py-3 bg-gradient-to-r from-[#2DD4BF]/20 to-[#FF6B35]/20 rounded-xl group hover:scale-105 transition-transform duration-300 glow-border">
+                    <p className="text-2xl font-bold shimmer-title">
+                      PACOTE NEXUS COMPLETO: ACESSO VITALÍCIO
+                    </p>
+                  </div>
                 </div>
                 
                 <div className="space-y-6">
@@ -514,10 +550,14 @@ function App() {
         </div>
       </section>
 
-      {/* 7. TESTEMUNHOS (ATUALIZADOS) */}
+      {/* 7. TESTEMUNHOS */}
       <section id="reviews" ref={reviewsRef} className="relative z-10 py-24 px-4 bg-[#0A0A0A] border-y border-[#333]">
         <div className={`max-w-6xl mx-auto transition-all duration-1000 ${reviewsVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Quem já Implementou o <span className="text-[--color-nexus-teal]">Sistema Nexus</span></h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+              <span className="dynamic-gradient">
+                Quem já Implementou o Sistema Nexus
+              </span>
+            </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {testimonials.map((item, i) => (
@@ -545,21 +585,27 @@ function App() {
         </div>
       </section>
 
-      {/* 8. FAQ (ATUALIZADO) */}
+      {/* 8. FAQ */}
       <section id="faq" className="relative z-10 py-24 px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Perguntas Frequentes</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+              <span className="animated-gradient-title">
+                Perguntas Frequentes
+              </span>
+            </h2>
             <div className="space-y-4">
                 {faqItems.map((item, index) => (
                     <div key={index} className="bg-[#111]/50 border border-[#333] rounded-2xl overflow-hidden hover:border-[--color-nexus-teal]/50 transition-colors">
-                        <details className="group">
+                        <details className="group" open={openIndex === index} onClick={(e) => {e.preventDefault(); toggleFAQ(index);}}>
                             <summary className="flex justify-between items-center p-6 cursor-pointer list-none">
                                 <h3 className="text-lg font-bold text-white">{item.q}</h3>
                                 <ChevronRight className="w-5 h-5 text-[--color-nexus-teal] transform group-open:rotate-90 transition-transform" />
                             </summary>
-                            <div className="px-6 pb-6 pt-2 text-gray-300 leading-relaxed border-t border-[#333] bg-[#0A0A0A]/50">
-                                {item.a}
-                            </div>
+                            {openIndex === index && (
+                              <div className="px-6 pb-6 pt-2 text-gray-300 leading-relaxed border-t border-[#333] bg-[#0A0A0A]/50">
+                                  {item.a}
+                              </div>
+                            )}
                         </details>
                     </div>
                 ))}
@@ -567,14 +613,18 @@ function App() {
           </div>
       </section>
 
-      {/* 9. OFERTA FINAL (ATUALIZADA) */}
+      {/* 9. OFERTA FINAL */}
       <section id="offer" ref={offerRef} className="relative z-10 py-32 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-[--color-nexus-cta]/10 to-transparent pointer-events-none"></div>
         
         <div className={`max-w-4xl mx-auto text-center relative z-20 transition-all duration-1000 ${offerVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             <div className="mb-12">
-                 <Shield className="w-20 h-20 text-[--color-nexus-teal] mx-auto mb-6 animate-pulse-slow" />
-                 <h2 className="text-4xl md:text-5xl font-bold mb-6">Teste Drive de 7 Dias: Zero Risco, Apenas Resultados.</h2>
+                 <Shield className="w-20 h-20 text-[--color-nexus-teal] mx-auto mb-6 animate-pulse-slow float-animation" />
+                 <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                   <span className="dynamic-gradient glow-text">
+                     Teste Drive de 7 Dias: Zero Risco, Apenas Resultados.
+                   </span>
+                 </h2>
                  <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed">
                      Acesse todo o sistema Nexus, estude os protocolos, implemente o blueprint e use os prompts. Se em 7 dias você não sentir uma <span className="text-[--color-nexus-teal]">clareza mental tangível</span>, um aumento na sua produtividade profunda e uma sensação de controle sobre o fluxo de informação, devolvemos 100% do seu investimento.
                  </p>
@@ -588,7 +638,11 @@ function App() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-[--color-nexus-cta] to-[--color-nexus-orange] blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-1000"></div>
                 
                 <div className="relative z-10">
-                    <h3 className="text-3xl font-bold text-white mb-2">Última Chance para Garantir o Preço de Lançamento</h3>
+                    <h3 className="text-3xl font-bold text-white mb-2">
+                      <span className="shimmer-title">
+                        Última Chance para Garantir o Preço de Lançamento
+                      </span>
+                    </h3>
                     <p className="text-[--color-nexus-orange] font-medium mb-8 uppercase tracking-wider">Acesso Vitalício + Bônus Exclusivos</p>
                     
                     <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
