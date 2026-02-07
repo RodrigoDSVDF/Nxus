@@ -82,7 +82,7 @@ const testimonials = [
     img: socialMan,
     name: "Rafael C.",
     role: "Consultor de Estratégia",
-    text: "O Nexus não é mais um curso, é um ecossistema. Em 7 dias eu já tinha implementado o sistema completo e minha produtividade multiplicou."
+    text: "O Nexus não é mais um curso, é um ecossistema. O hub de ferramentas atualizadas melhorou minha produtividade, e o e-book me ajudou muito  no processo de autoconsciência sobre a tecnologia."
   },
   {
     img: socialWoman1,
@@ -92,9 +92,9 @@ const testimonials = [
   },
   {
     img: socialWoman2,
-    name: "Pedro M.",
-    role: "Empreendedor Digital",
-    text: "Do caos ao controle em 72h. O blueprint de implementação é o diferencial que faltava em todos os outros materiais."
+    name: "Sandra M.",
+    role: "Empreendedora Digital",
+    text: "Do caos ao controle. O Projeto de implementação é o diferencial que faltava em todos os outros materiais, me auxilia muito no meu trabalho do dia dia, não preciso ficar igual uma louca buscando por ferramentas."
   }
 ];
 
