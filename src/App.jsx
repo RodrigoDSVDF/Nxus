@@ -44,14 +44,14 @@ const bentoFeatures = [
     bgImage: xadrezImg,
     icon: Brain,
     title: "🧠 O Manaual: Seu mapa de Orientação",
-    desc: "Este manual estabelece os protocolos fundamentais para dominar o próprio hardware, regulando seu foco e sua atenção, porque sem energia estável não existe estratégia nem estado de Flow sustentável."
+    desc: "Este manual estabelece os protocolos fundamentais para dominar o próprio hardware seu cérebro, regulando seu foco e sua atenção, porque sem energia estável não existe estratégia nem estado de Flow sustentável."
   },
   {
     colSpan: "md:col-span-1",
     bgImage: servicosIaImg,
     icon: Target,
     title: "⚔️ O ARSENAL: Metodologias Ativas",
-    desc: "Aprenda como um Atleta de Elite. Implementação de Active Recall e Repetição Espaçada para que você nunca mais esqueça o que estuda."
+    desc: "Aprenda como um Atleta de Elite. Implementação de palácio da memória e metodologia de revisão para que você nunca mais esqueça o que estuda."
   },
   {
     colSpan: "md:col-span-1",
