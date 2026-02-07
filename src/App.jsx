@@ -811,7 +811,7 @@ function App() {
                   <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2">R$ 47<span className="text-lg md:text-2xl text-gray-400">,00</span></div>
                   <p className="text-gray-400 mb-3 md:mb-4 text-sm md:text-base">Pagamento único. Sem mensalidades.</p>
                   <div className="flex flex-col gap-1 md:gap-2">
-                    <div className="flex items-center text-xs md:text-sm text-gray-300"><Check className="w-3 h-3 md:w-4 md:h-4 text-[#2DD4BF] mr-2" /> Corebook Digital + Vídeo-Aulas</div>
+                    <div className="flex items-center text-xs md:text-sm text-gray-300"><Check className="w-3 h-3 md:w-4 md:h-4 text-[#2DD4BF] mr-2" /> E-book Digital + Vídeo-Aulas</div>
                     <div className="flex items-center text-xs md:text-sm text-gray-300"><Check className="w-3 h-3 md:w-4 md:h-4 text-[#2DD4BF] mr-2" /> Blueprint de Implementação (7 Dias)</div>
                     <div className="flex items-center text-xs md:text-sm text-gray-300"><Check className="w-3 h-3 md:w-4 md:h-4 text-[#2DD4BF] mr-2" /> Banco de Prompts Estratégicos</div>
                     <div className="flex items-center text-xs md:text-sm text-gray-300"><Check className="w-3 h-3 md:w-4 md:h-4 text-[#2DD4BF] mr-2" /> Atualizações Vitalícias Inclusas</div>
@@ -827,7 +827,7 @@ function App() {
                 onClick={handleTrackCheckout}
               >
                 <Button className="pulse-button w-full h-auto py-3 md:py-4 text-white font-extrabold text-base md:text-xl rounded-xl md:rounded-2xl flex items-center justify-center gap-2 md:gap-4 hover:scale-[1.02] transition-transform whitespace-normal text-center">
-                  INSTALAR MEU SISTEMA NEXUS AGORA →
+                  ACESSAR MEU SISTEMA NEXUS AGORA →
                   <ArrowRight className="w-4 h-4 md:w-5 md:h-5 md:w-8 md:h-8 flex-shrink-0" />
                 </Button>
               </a>
