@@ -43,8 +43,8 @@ const bentoFeatures = [
     colSpan: "md:col-span-2",
     bgImage: xadrezImg,
     icon: Brain,
-    title: "🧠 O PILOTO: Biohacking do Foco",
-    desc: "Domine seu Hardware. Protocolos de gestão neuroquímica e sono para acessar estados de Flow sob demanda. Sem energia, não há estratégia que funcione."
+    title: "🧠 O Manaual: Seu mapa de Orientação",
+    desc: "Este manual estabelece os protocolos fundamentais para dominar o próprio hardware, regulando seu foco e sua atenção, porque sem energia estável não existe estratégia nem estado de Flow sustentável."
   },
   {
     colSpan: "md:col-span-1",
@@ -57,8 +57,8 @@ const bentoFeatures = [
     colSpan: "md:col-span-1",
     bgImage: promptImg,
     icon: Cpu,
-    title: "⚡ O PROCESSADOR: Deep Work",
-    desc: "A Arte da Atenção Plena. Blindagem contra distrações e protocolos de 90-120 minutos para realizar em 4 horas o que a maioria leva 2 dias."
+    title: "⚡ O PROCESSADOR: Hub de Ferramentas",
+    desc: "Acesso as principais ferramentas por meio de um clique. Ecossistema de IAs atualizadas sobre demanda"
   },
   {
     colSpan: "md:col-span-1",
@@ -72,7 +72,7 @@ const bentoFeatures = [
     bgImage: neuralNetworkImg,
     icon: BarChart3,
     title: "📊 O PAINEL: Análise e Iteração",
-    desc: "O que é medido, é melhorado. Ciclos semanais de revisão e Logbook de performance para garantir que você está evoluindo 1% todos os dias."
+    desc: "O que é medido, é melhorado. Revisão e Logbook de performance para garantir que você está evoluindo 1% todos os dias."
   }
 ];
 
@@ -100,11 +100,11 @@ const testimonials = [
 
 // Dados do Stack (ATUALIZADOS COM NOVA NARRATIVA)
 const stackItems = [
-  { icon: Layers, title: "Nexus Manual (Corebook Digital)", value: "R$ 197", desc: "O guia mestre com toda a teoria e protocolos do sistema." },
-  { icon: Network, title: "Blueprint de Implementação (7 Dias)", value: "R$ 297", desc: "Um plano passo a passo para sair do caos e instalar o sistema na sua rotina." },
+  { icon: Layers, title: "Nexus Manual (E-Book Digital)", value: "R$ 197", desc: "O guia mestre com toda a teoria e protocolos do sistema." },
+  { icon: Network, title: "Blueprint de Implementação (7 Dias)", value: "R$ 97", desc: "Um plano passo a passo para sair do caos e instalar o sistema na sua rotina." },
   { icon: Cpu, title: "Banco de Prompts Estratégicos", value: "R$ 147", desc: "Modelos prontos para delegar tarefas operacionais para a IA e focar no que é estratégico." },
   { icon: Shield, title: "Acesso Vitalício + Atualizações", value: "Inestimável", desc: "Todas as futuras atualizações do framework incluídas sem custo adicional." },
-  { icon: Users, title: "Workshop Gravado", value: "Bônus", desc: "'Do Caos ao Controle: As Primeiras 72h'. Demonstração prática da montagem do seu painel de bordo." },
+  { icon: Users, title: "Workshop Gravado", value: "Bônus", desc: "'Do Caos ao Controle'. Demonstração prática da montagem do seu painel de bordo." },
 ];
 
 // Dados de FAQ (ATUALIZADOS COM NOVA NARRATIVA)
