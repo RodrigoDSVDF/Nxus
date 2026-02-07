@@ -44,7 +44,7 @@ const bentoFeatures = [
     bgImage: xadrezImg,
     icon: Brain,
     title: "🧠 O Manaual: Seu mapa de Orientação",
-    desc: "Este manual estabelece os protocolos fundamentais para dominar o próprio hardware seu cérebro, regulando seu foco e sua atenção, porque sem energia estável não existe estratégia nem estado de Flow sustentável."
+    desc: "Este manual sistematiza mecanismos de autorregulação neural voltados à gestão de foco e atenção, reconhecendo que a estabilidade metabólica e cognitiva é pré-requisito para desempenho estratégico consistente e estados prolongados de flow."
   },
   {
     colSpan: "md:col-span-1",
