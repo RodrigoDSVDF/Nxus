@@ -860,7 +860,7 @@ function App() {
           </div>
           <div>
             <h4 className="text-white font-bold mb-4 md:mb-6 text-base md:text-lg">Contato</h4>
-            <p className="text-gray-500 mb-3 md:mb-4 text-sm md:text-base">suporte@nexusorigin.com</p>
+            <p className="text-gray-500 mb-3 md:mb-4 text-sm md:text-base">rodrigoeng857@gmail.com</p>
             <a href="https://instagram.com/nexus0rigin" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-400 hover:text-[#FF6B35] transition-colors gap-2 text-sm md:text-base">
               <Instagram className="w-4 h-4 md:w-5 md:h-5" />
               <span>@nexus0rigin</span>
