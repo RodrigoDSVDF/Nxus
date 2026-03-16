@@ -44,7 +44,7 @@ const bentoFeatures = [
     bgImage: xadrezImg,
     icon: Brain,
     title: "🧠 O Manaual: Seu mapa de Orientação",
-    desc: "Este manual sistematiza mecanismos de autorregulação neural voltados à gestão de foco e atenção, reconhecendo que a estabilidade metabólica e cognitiva é pré-requisito para desempenho estratégico consistente e estados prolongados de flow."
+    desc: "Este manual sistematiza o uso de inteligência artificial voltados à gestão de foco atenção e produtividade, nosso objetivo é te oferecer um sistema de orientação e atualização de tecnologias emergentes."
   },
   {
     colSpan: "md:col-span-1",
@@ -100,26 +100,26 @@ const testimonials = [
 
 // Dados do Stack (ATUALIZADOS COM NOVA NARRATIVA)
 const stackItems = [
-  { icon: Layers, title: "Nexus Manual (E-Book Digital)", value: "R$ 197", desc: "O guia mestre com toda a teoria e protocolos do sistema." },
-  { icon: Network, title: "Blueprint de Implementação (7 Dias)", value: "R$ 97", desc: "Um plano passo a passo para sair do caos e instalar o sistema na sua rotina." },
-  { icon: Cpu, title: "Banco de Prompts Estratégicos", value: "R$ 147", desc: "Modelos prontos para delegar tarefas operacionais para a IA e focar no que é estratégico." },
-  { icon: Shield, title: "Acesso Vitalício + Atualizações", value: "Inestimável", desc: "Todas as futuras atualizações do framework incluídas sem custo adicional." },
-  { icon: Users, title: "Workshop Gravado", value: "Bônus", desc: "'Do Caos ao Controle'. Demonstração prática da montagem do seu painel de bordo." },
+  { icon: Layers, title: "Nexus Manual (E-Book Digital)", value: "R$ 57", desc: "O guia mestre com toda a teoria e protocolos do sistema." },
+  { icon: Network, title: "HUB de produtividade (7 Dias)", value: "R$ 49", desc: "Um plano passo a passo para sair do caos e instalar o sistema na sua rotina." },
+  { icon: Cpu, title: "Banco de Prompts Estratégicos", value: "R$ 19", desc: "Modelos prontos para delegar tarefas operacionais para a IA e focar no que é estratégico." },
+  { icon: Shield, title: "Acesso Vitalício + Atualizações vitalícias", value: "Inestimável", desc: "Todas as futuras atualizações do framework incluídas sem custo adicional." },
+  { icon: Users, title: "Aulas Gravadas", value: "Bônus", desc: "'Do Caos ao Controle'. Demonstração prática da montagem do seu painel de bordo." },
 ];
 
 // Dados de FAQ (ATUALIZADOS COM NOVA NARRATIVA)
 const faqItems = [
   { 
     q: "Isso é mais um curso de ChatGPT/IA?", 
-    a: "Não. Ferramentas mudam toda semana. O Nexus é focado em Metodologia. Ensinamos você a pensar e estruturar processos; a IA é apenas o motor que acelera o que você já desenhou." 
+    a: "Não. Ferramentas mudam toda semana. O Nexus é focado em produtividade, o objetivo é facilitar a sua vida e parar de procurar ferramentas de IA, te entregamos um HUB das ferramentas mais atuais do mercado. Ensinamos você a pensar e estruturar processos; a IA é apenas o motor que acelera o que você já desenhou." 
   },
   { 
     q: "Sou iniciante em produtividade. Serve para mim?", 
-    a: "Sim. O Nexus foi desenhado para ser um sistema 'Plug & Play'. O Blueprint de 7 Dias guia você desde os fundamentos básicos até as táticas mais avançadas." 
+    a: "Sim. O Nexus foi desenhado para ser um sistema de orientação. O objetivo [e guiar você desde os fundamentos básicos até formas  mais avançadas de uso da IA ." 
   },
   { 
     q: "O material é em vídeo ou texto?", 
-    a: "Você recebe o Corebook (Manual Estratégico) para consulta rápida e uma série de Vídeo-Aulas práticas de implementação, além dos templates de prompts." 
+    a: "Você recebe o E-book (Manual Estratégico) para consulta rápida e uma série de Vídeo-Aulas práticas de implementação, além dos templates de prompts e um HUB de ferramentas de IA." 
   },
   { 
     q: "Como funciona a garantia?", 
@@ -468,7 +468,7 @@ function App() {
               <span className="dynamic-gradient">O QUE É O NEXUS?</span>
             </h2>
             <p className="text-xl text-gray-400 max-w-4xl mx-auto mb-8">
-              Não é apenas um curso. É o seu novo <span className="text-[#2DD4BF] font-semibold">ecossistema de produtividade</span>.
+              Não é apenas um e-book. É o seu novo <span className="text-[#2DD4BF] font-semibold">ecossistema de produtividade</span>.
             </p>
             <p className="text-lg text-gray-400 max-w-4xl mx-auto mb-12">
               O Nexus resolve o maior problema da atualidade: <span className="text-[#FF6B35] font-semibold">o excesso de informação sem um sistema para processá-la</span>.
@@ -484,7 +484,7 @@ function App() {
                 <h3 className="text-xl md:text-2xl font-bold text-white">O HARDWARE<br /><span className="text-base md:text-lg text-gray-400">(Sua Biologia)</span></h3>
               </div>
               <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-                Protocolos para otimizar seu cérebro, foco e energia. <span className="text-[#2DD4BF] font-medium">Sem energia, não há estratégia que funcione.</span>
+                HUB de ferramentas para otimizar seus processos, ganhe tempo e foco. <span className="text-[#2DD4BF] font-medium">Sem direção, não há estratégia que funcione.</span>
               </p>
             </div>
 
@@ -496,14 +496,14 @@ function App() {
                 <h3 className="text-xl md:text-2xl font-bold text-white">O SOFTWARE<br /><span className="text-base md:text-lg text-gray-400">(Sua Estratégia)</span></h3>
               </div>
               <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-                Metodologias de aprendizado e uso de IA para amplificar sua entrega. <span className="text-[#FF6B35] font-medium">Aprenda a pensar e estruturar processos; a IA é apenas o motor.</span>
+                Metodologias de aprendizado e uso de IA para amplificar sua entrega. <span className="text-[#FF6B35] font-medium">Aprenda a pensar melhor usando IA; dicas valiosas, prompts, comunicação direcionada a produtividade .</span>
               </p>
             </div>
           </div>
 
           <div className="mt-8 md:mt-12 p-6 md:p-8 bg-gradient-to-r from-[#2DD4BF]/10 to-[#FF6B35]/10 border border-gray-700 rounded-2xl group hover:border-[#2DD4BF] transition-all duration-300">
             <p className="text-lg md:text-xl font-semibold text-center pulse-subtle">
-              Ele atua em duas frentes: <span className="animated-gradient-title font-bold">Otimizar seu cérebro (Hardware)</span> e <span className="animated-gradient-title font-bold">Amplificar seu processo (Software).</span>
+              Ele atua em duas frentes: <span className="animated-gradient-title font-bold">Otimizar seus processos (Hardware)</span> e <span className="animated-gradient-title font-bold">Amplificar seu entendimento (Software).</span>
             </p>
           </div>
         </div>
@@ -519,7 +519,7 @@ function App() {
               </span>
             </h2>
             <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
-              Um sistema integrado que combina neurociência, metodologia e tecnologia.
+              Um sistema integrado que combina produtividade, metodologia e tecnologia.
             </p>
             <p className="md:hidden mt-8 text-base font-bold text-[#FF6B35] px-4">
               Feature Ativa: {activeFeature?.title}
