@@ -4,7 +4,7 @@ name: Deploy static content to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ['main'] # Mude para o nome da sua branch principal se for diferente
+    branches: ['main']
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -15,8 +15,7 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Allow only one concurrent deployment
 concurrency:
   group: 'pages'
   cancel-in-progress: false
@@ -29,22 +28,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # --- ALTERAÇÃO APLICADA AQUI ---
       - name: Set up pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v4
         with:
-          version: 8
+          version: 9  # Obrigatório para lockfileVersion 9.0
 
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '18.x' # Usar '18.x' é uma boa prática
-          cache: 'pnpm'
-      # --- FIM DA ALTERAÇÃO ---
+          node-version: 20 # Recomendado para Tailwind 4 e Vite 6
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install
-        
+        # --frozen-lockfile garante que ele use exatamente o que está no seu lockfile
+        run: pnpm install --frozen-lockfile
+
       - name: Build
         run: pnpm run build
         
@@ -54,7 +64,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload a pasta 'dist' que o Vite gera
+          # Pasta padrão de build do Vite
           path: './dist'
           
       - name: Deploy to GitHub Pages
