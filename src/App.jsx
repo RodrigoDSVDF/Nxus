@@ -311,7 +311,7 @@ function App() {
           </h2>
 
           <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up-delay">
-            Um framework neuroestratégico para profissionais que desejam <span className="text-[#2DD4BF] font-semibold">dominar a atenção</span>, <span className="text-[#2DD4BF] font-semibold">acelerar decisões</span> e transformar ferramentas de IA em extensões da sua inteligência.
+            Um framework estratégico para profissionais que desejam <span className="text-[#2DD4BF] font-semibold">serem mais produtivos</span>, <span className="text-[#2DD4BF] font-semibold">acelerar decisões</span> e transformar ferramentas de IA em extensões da sua inteligência.
           </p>
 
           <div className="flex flex-col items-center gap-6 animate-scale-in">
@@ -323,7 +323,7 @@ function App() {
               onClick={handleTrackCheckout}
             >
               <Button className="pulse-button relative w-full h-auto py-4 md:py-6 text-white font-bold text-lg md:text-xl rounded-xl flex items-center justify-center gap-3 whitespace-normal text-center">
-                QUERO INSTALAR O SISTEMA AGORA
+                QUERO ACESSAR O SISTEMA AGORA
                 <ChevronRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform flex-shrink-0" />
               </Button>
             </a>
