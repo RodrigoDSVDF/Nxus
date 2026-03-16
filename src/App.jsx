@@ -484,7 +484,7 @@ function App() {
                 <h3 className="text-xl md:text-2xl font-bold text-white">O HARDWARE<br /><span className="text-base md:text-lg text-gray-400">(Sua Biologia)</span></h3>
               </div>
               <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-                HUB de ferramentas para otimizar seus processos, ganhe tempo e foco. <span className="text-[#2DD4BF] font-medium">Sem direção, não há estratégia que funcione.</span>
+                Seu estado, sua energia, seu foco no dia a dia é algo extremamente importante. <span className="text-[#2DD4BF] font-medium">Sem isso, nenhuma estratégia se sustenta.</span>
               </p>
             </div>
 
@@ -496,7 +496,7 @@ function App() {
                 <h3 className="text-xl md:text-2xl font-bold text-white">O SOFTWARE<br /><span className="text-base md:text-lg text-gray-400">(Sua Estratégia)</span></h3>
               </div>
               <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-                Metodologias de aprendizado e uso de IA para amplificar sua entrega. <span className="text-[#FF6B35] font-medium">Aprenda a pensar melhor usando IA; dicas valiosas, prompts, comunicação direcionada a produtividade .</span>
+                Sua direção, suas decisões, sua forma de pensar. <span className="text-[#FF6B35] font-medium">É isso que transforma esforço em resultado.</span>
               </p>
             </div>
           </div>
