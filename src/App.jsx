@@ -43,8 +43,8 @@ const bentoFeatures = [
     colSpan: "md:col-span-2",
     bgImage: xadrezImg,
     icon: Brain,
-    title: "🧠 O Manual: Seu mapa de Orientação",
-    desc: "Este manual sistematiza o uso de inteligência artificial voltados à gestão de foco atenção e produtividade, nosso objetivo é te oferecer um sistema de orientação e atualização de tecnologias emergentes."
+    title: "⚙️ O Manual: Seu mapa de Orientação",
+    desc: "Este manual apresenta uma abordagem sistematizada do uso da inteligência artificial para potencializar foco, atenção e produtividade, oferecendo um sistema contínuo de orientação e atualização em tecnologias emergentes."
   },
   {
     colSpan: "md:col-span-1",
