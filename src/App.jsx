@@ -685,7 +685,7 @@ function App() {
               </div>
               
               <p className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-white mb-6 md:mb-8">
-                Hoje por apenas: <span className="text-[#2DD4BF]">R$ 47,00</span>
+                Hoje por apenas: <span className="text-[#2DD4BF]">R$ 19:90,00</span>
                 <span className="text-base md:text-xl text-gray-300 ml-2">(ou 12x de R$6,80)</span>
               </p>
               <p className="text-[#FF6B35] font-bold mb-6 md:mb-8 text-sm md:text-base">OFERTA DE LANÇAMENTO EXCLUSIVA</p>
