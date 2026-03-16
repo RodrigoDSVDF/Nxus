@@ -471,7 +471,7 @@ function App() {
               Não é apenas um e-book. É o seu novo <span className="text-[#2DD4BF] font-semibold">ecossistema de produtividade</span>.
             </p>
             <p className="text-lg text-gray-400 max-w-4xl mx-auto mb-12">
-              O Nexus resolve o maior problema da atualidade: <span className="text-[#FF6B35] font-semibold">o excesso de informação sem um sistema para processá-la</span>.
+              O Nexus resolve um dos maiores desafios da atualidade: <span className="text-[#FF6B35] font-semibold"> acompanhar o ritmo acelerado das tecnologias emergentes.</span>.
             </p>
           </div>
 
