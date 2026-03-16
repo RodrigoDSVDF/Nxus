@@ -685,7 +685,7 @@ function App() {
               </div>
               
               <p className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-white mb-6 md:mb-8">
-                Hoje por apenas: <span className="text-[#2DD4BF]">R$ 19:90,00</span>
+                Hoje por apenas: <span className="text-[#2DD4BF]">R$ 19:,90</span>
                 <span className="text-base md:text-xl text-gray-300 ml-2">(ou 12x de R$6,80)</span>
               </p>
               <p className="text-[#FF6B35] font-bold mb-6 md:mb-8 text-sm md:text-base">OFERTA DE LANÇAMENTO EXCLUSIVA</p>
@@ -810,7 +810,7 @@ function App() {
               <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 mb-8 md:mb-12">
                 <img src={produtoImg} alt="Pack Nexus" className="w-48 md:w-64 rounded-xl shadow-2xl border border-[#333] rotate-[-3deg] md:rotate-[-5deg] group-hover:rotate-0 transition-all duration-500" />
                 <div className="text-left">
-                  <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2">R$ 19:90<span className="text-lg md:text-2xl text-gray-400">,00</span></div>
+                  <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2">R$ 19<span className="text-lg md:text-2xl text-gray-400">,90</span></div>
                   <p className="text-gray-400 mb-3 md:mb-4 text-sm md:text-base">Pagamento único. Sem mensalidades.</p>
                   <div className="flex flex-col gap-1 md:gap-2">
                     <div className="flex items-center text-xs md:text-sm text-gray-300"><Check className="w-3 h-3 md:w-4 md:h-4 text-[#2DD4BF] mr-2" /> E-book Digital + Vídeo-Aulas</div>
