@@ -311,7 +311,7 @@ function App() {
           </h2>
 
           <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up-delay">
-            Um framework estratégico para profissionais que desejam <span className="text-[#2DD4BF] font-semibold">serem mais produtivos</span>, <span className="text-[#2DD4BF] font-semibold">acelerar decisões</span> e transformar ferramentas de IA em extensões da sua inteligência.
+            Um framework estratégico desenvolvido para profissionais que desejam <span className="text-[#2DD4BF] font-semibold">alta performance</span>, <span className="text-[#2DD4BF] font-semibold">decisões mais precisas e a integração da IA como extensão natural da inteligência.
           </p>
 
           <div className="flex flex-col items-center gap-6 animate-scale-in">
