@@ -43,7 +43,7 @@ const bentoFeatures = [
     colSpan: "md:col-span-2",
     bgImage: xadrezImg,
     icon: Brain,
-    title: "🧠 O Manaual: Seu mapa de Orientação",
+    title: "🧠 O Manual: Seu mapa de Orientação",
     desc: "Este manual sistematiza o uso de inteligência artificial voltados à gestão de foco atenção e produtividade, nosso objetivo é te oferecer um sistema de orientação e atualização de tecnologias emergentes."
   },
   {
