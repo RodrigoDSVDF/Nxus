@@ -11,10 +11,9 @@ const CHECKOUT_LINK = "https://pay.cakto.com.br/5dUKrWD";
 const YOUTUBE_VIDEO_ID = "F5fJ_56-wr8";
 
 /**
- * NOTA DE COMPATIBILIDADE:
- * Para evitar erros de compilação no ambiente de preview, as importações de arquivos locais
- * foram convertidas em caminhos de string. No seu ambiente local (Vite/Webpack),
- * estas imagens serão carregadas corretamente se os arquivos estiverem na pasta public ou assets.
+ * AJUSTE PONTUAL DE COMPATIBILIDADE:
+ * Os arquivos abaixo permanecem referenciando sua estrutura local de pastas.
+ * A mudança para strings evita o erro "Could not resolve" no preview do Canvas.
  */
 const logoNexusHorizontal = './assets/nxus.webp';
 const brainNetworkImg = './assets/1000393266.jpg';
