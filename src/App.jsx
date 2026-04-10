@@ -1,80 +1,78 @@
 import { useState, useEffect, useRef } from 'react'
-import { 
-  ArrowRight, Zap, Target, Rocket, Brain,
-  CheckCircle, Shield, ChevronRight,
-  Cpu, Network, Layers, PlayCircle,
-  BarChart3, Users
+// Simulação do componente Button caso não esteja no ambiente
+const Button = ({ children, className, ...props }) => (
+  <button className={`px-6 py-2 rounded-lg font-bold transition-all ${className}`} {...props}>{children}</button>
+);
+
+import {
+  ArrowRight, Zap, Target, Key, Rocket, Brain,
+  CheckCircle, AlertTriangle, Shield, ChevronRight,
+  Terminal, Cpu, Network, Layers, Check, Sparkles, Star,
+  Instagram, Clock, BarChart, Users, TrendingUp, Circle, PlayCircle,
+  Cpu as CpuIcon, Brain as BrainIcon, Target as TargetIcon,
+  Zap as ZapIcon, BarChart3
 } from 'lucide-react'
 
-// --- CONFIGURAÇÕES E LINKS ---
+// --- IMPORTAÇÃO DE IMAGENS ---
+// Nota: No ambiente de preview, as importações de arquivos locais podem falhar se os arquivos não existirem fisicamente.
+// Mantendo as importações conforme seu código original.
+const brainNetworkImg = './assets/1000393266.jpg'
+const neuralNetworkImg = './assets/1000393264.jpg'
+const laptopNeuralImg = './assets/1000393263.jpg'
+const brainAIImg = './assets/1000393262.jpg'
+const produtoImg = './assets/produto.jpg'
+const fundo02 = './assets/fundo02.jpg'
+const logoNexus = './assets/nxus.webp' // Definição da logo
+
+// --- IMAGENS BENTO GRID ---
+const produtividadeImg = './assets/produtividade.jpg'
+const servicosIaImg = './assets/servicos-ia.jpg'
+const xadrezImg = './assets/xadrez-estrategia.jpg'
+const promptImg = './assets/engenharia_prompt.png'
+
+// --- IMAGENS PROVA SOCIAL ---
+const socialWoman2 = './assets/femele_social02.png'
+const socialWoman1 = './assets/femele_social.png'
+const socialMan = './assets/masculino_social.png'
+
 const CHECKOUT_LINK = "https://pay.cakto.com.br/5dUKrWD";
 const YOUTUBE_VIDEO_ID = "F5fJ_56-wr8";
-
-/**
- * AJUSTE PONTUAL DE COMPATIBILIDADE:
- * Os arquivos abaixo permanecem referenciando sua estrutura local de pastas.
- * A mudança para strings evita o erro "Could not resolve" no preview do Canvas.
- */
-const logoNexusHorizontal = './assets/nxus.webp';
-const brainNetworkImg = './assets/1000393266.jpg';
-const neuralNetworkImg = './assets/1000393264.jpg';
-const laptopNeuralImg = './assets/1000393263.jpg';
-const brainAIImg = './assets/1000393262.jpg';
-const produtoImg = './assets/produto.jpg';
-
-// IMAGENS BENTO GRID
-const produtividadeImg = './assets/produtividade.jpg';
-const servicosIaImg = './assets/servicos-ia.jpg';
-const xadrezImg = './assets/xadrez-estrategia.jpg';
-const promptImg = './assets/engenharia_prompt.png';
-
-// IMAGENS PROVA SOCIAL
-const socialWoman2 = './assets/femele_social02.png';
-const socialWoman1 = './assets/femele_social.png';
-const socialMan = './assets/masculino_social.png';
-
-// --- DADOS DO SISTEMA ---
 
 const bentoFeatures = [
   {
     colSpan: "md:col-span-2",
-    icon: Brain,
     bgImage: xadrezImg,
+    icon: Brain,
     title: "⚙️ O Manual: Seu mapa de Orientação",
-    desc: "Este manual apresenta uma abordagem sistematizada do uso da inteligência artificial para potencializar foco, atenção e produtividade.",
-    color: "from-[#2DD4BF]/20 to-transparent"
+    desc: "Este manual apresenta uma abordagem sistematizada do uso da inteligência artificial para potencializar foco, atenção e produtividade."
   },
   {
     colSpan: "md:col-span-1",
-    icon: Target,
     bgImage: servicosIaImg,
+    icon: Target,
     title: "⚔️ O ARSENAL: Metodologias Ativas",
-    desc: "Aprenda como um Atleta de Elite. Implementação de palácio da memória e metodologia de revisão.",
-    color: "from-[#FF6B35]/20 to-transparent"
+    desc: "Aprenda como um Atleta de Elite. Implementação de palácio da memória e metodologia de revisão."
   },
   {
     colSpan: "md:col-span-1",
-    icon: Cpu,
     bgImage: promptImg,
+    icon: Cpu,
     title: "⚡ O PROCESSADOR: Hub de Ferramentas",
-    desc: "Acesso às principais ferramentas por meio de um clique. Ecossistema de IAs atualizadas.",
-    color: "from-blue-500/20 to-transparent"
+    desc: "Acesso as principais ferramentas por meio de um clique. Ecossistema de IAs atualizadas sobre demanda"
   },
   {
     colSpan: "md:col-span-1",
-    icon: Layers,
     bgImage: produtividadeImg,
+    icon: Layers,
     title: "🤖 O CO-PILOTO: Inteligência Estratégica",
-    desc: "Sua Mente Amplificada por IA. Aprenda a usar a IA como um braço direito executivo.",
-    color: "from-purple-500/20 to-transparent"
+    desc: "Sua Mente Amplificada por IA. Não é sobre 'prompts mágicos', é sobre engenharia de contexto."
   },
   {
     colSpan: "md:col-span-2",
-    icon: BarChart3,
     bgImage: neuralNetworkImg,
+    icon: BarChart3,
     title: "📊 O PAINEL: Análise e Iteração",
-    desc: "O que é medido, é melhorado. Revisão e Logbook de performance para evolução constante.",
-    color: "from-green-500/20 to-transparent"
+    desc: "O que é medido, é melhorado. Revisão e Logbook de performance para garantir evolução."
   }
 ];
 
@@ -85,44 +83,48 @@ const NAV_ITEMS = [
   { title: "PILARES", icon: Cpu, id: "bento" },
 ];
 
-// --- COMPONENTES AUXILIARES ---
-
-function Button({ children, className, ...props }) {
-  return (
-    <button 
-      className={`px-6 py-3 rounded-xl font-bold transition-all active:scale-95 disabled:opacity-50 ${className}`}
-      {...props}
-    >
-      {children}
-    </button>
-  );
+function useScrollAnimation(threshold = 0.1) {
+  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef(null)
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) setIsVisible(true) }, { threshold });
+    if (ref.current) observer.observe(ref.current);
+    return () => ref.current && observer.unobserve(ref.current);
+  }, [threshold]);
+  return [ref, isVisible];
 }
+
+const handleTrackCheckout = () => {
+  if (typeof window !== 'undefined' && window.fbq) window.fbq('track', 'InitiateCheckout');
+};
 
 function Header() {
   const handleScroll = (id) => {
     const targetElement = document.getElementById(id);
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop - 80,
-        behavior: 'smooth'
-      });
-    }
+    if (targetElement) window.scrollTo({ top: targetElement.offsetTop - 80, behavior: 'smooth' });
   };
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-[#0A0A0A]/90 backdrop-blur-md border-b border-white/10 shadow-lg">
+    <header className="sticky top-0 z-50 w-full bg-[#0A0A0A]/90 backdrop-blur-md border-b border-[#333] shadow-lg">
       <div className="max-w-7xl mx-auto h-20 flex items-center justify-between px-6">
-        <button onClick={() => handleScroll('hero')} className="flex items-center group">
-          <img 
-            src={logoNexusHorizontal} 
-            alt="Nexus Logo" 
-            className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105" 
-            onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }}
-          />
-          <span style={{ display: 'none' }} className="text-[#2DD4BF] font-black text-2xl tracking-tighter">NEXUS</span>
+        {/* AJUSTE DA LOGO: Substituído Ícone por Imagem do Asset */}
+        <button onClick={() => handleScroll('hero')} className="flex items-center gap-3 cursor-pointer group">
+          <div className="relative h-10 w-auto overflow-hidden">
+            <img 
+              src={logoNexus} 
+              alt="Nexus Logo" 
+              className="h-full w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+              onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }}
+            />
+            {/* Fallback caso a imagem não carregue no preview */}
+            <Brain style={{ display: 'none' }} className="w-8 h-8 text-[#2DD4BF]" />
+          </div>
+          <span className="text-xl font-black text-white group-hover:text-[#2DD4BF] transition-colors tracking-tighter">
+            NEXUS MANUAL
+          </span>
         </button>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-6">
           {NAV_ITEMS.map((item) => (
             <button
               key={item.id}
@@ -134,8 +136,8 @@ function Header() {
           ))}
         </nav>
 
-        <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer">
-          <Button className="bg-[#FF6B35] text-white text-xs tracking-widest hover:bg-[#FF4F1F] shadow-[0_0_20px_rgba(255,107,53,0.3)]">
+        <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" onClick={handleTrackCheckout}>
+          <Button className="bg-[#FF6B35] hover:bg-[#FF4F1F] text-white text-xs tracking-widest shadow-[0_0_15px_rgba(255,107,53,0.3)]">
             ACESSO IMEDIATO
           </Button>
         </a>
@@ -144,153 +146,77 @@ function Header() {
   );
 }
 
-// --- APP PRINCIPAL ---
-
 export default function App() {
-  const handleTrackCheckout = () => {
-    if (typeof window !== 'undefined' && window.fbq) {
-      window.fbq('track', 'InitiateCheckout');
-    }
-  };
+  const [heroRef, heroVisible] = useScrollAnimation();
+  const [videoRef, videoVisible] = useScrollAnimation(0.2);
+  const [bentoRef, bentoVisible] = useScrollAnimation(0.1);
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-slate-100 selection:bg-[#FF6B35] selection:text-white font-sans">
+    <div className="min-h-screen bg-[#0A0A0A] font-sans text-slate-100 selection:bg-[#FF6B35] selection:text-white">
       <Header />
 
-      {/* BACKGROUND EFFECTS */}
-      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#2DD4BF]/10 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#FF6B35]/10 rounded-full blur-[120px]"></div>
-        <img 
-          src={brainNetworkImg} 
-          className="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-overlay"
-          alt=""
-          onError={(e) => e.target.style.display = 'none'}
-        />
+      {/* BACKGROUND */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#2DD4BF]/5 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#FF6B35]/5 rounded-full blur-[120px]"></div>
+        <img src={brainNetworkImg} className="absolute inset-0 w-full h-full object-cover opacity-10" alt="" />
       </div>
 
-      {/* HERO SECTION */}
-      <section id="hero" className="relative z-10 pt-40 pb-20 px-6">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-block px-4 py-1.5 mb-8 rounded-full border border-[#2DD4BF]/30 bg-[#2DD4BF]/5">
-            <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-[#2DD4BF] uppercase">
-              O Sistema Operacional para Alta Performance
-            </span>
+      {/* HERO */}
+      <section id="hero" ref={heroRef} className="relative z-10 pt-32 pb-20 px-6 text-center">
+        <div className={`max-w-5xl mx-auto transition-all duration-1000 ${heroVisible ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>
+          <div className="inline-block px-4 py-1 border border-[#2DD4BF]/30 rounded-full bg-[#2DD4BF]/5 mb-8">
+            <span className="text-[10px] font-bold tracking-widest text-[#2DD4BF] uppercase">SISTEMA DE ALTA PERFORMANCE</span>
           </div>
-
-          <h1 className="text-5xl md:text-8xl font-black mb-8 leading-[0.9] tracking-tighter uppercase">
-            Domine a sua <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2DD4BF] to-[#FF6B35]">
-              Capacidade Cognitiva
-            </span>
+          <h1 className="text-5xl md:text-8xl font-black mb-8 leading-none tracking-tighter">
+            DOMINE SUA <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2DD4BF] to-[#FF6B35]">CAPACIDADE COGNITIVA</span>
           </h1>
-
-          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-            Um framework estratégico desenvolvido para profissionais que desejam <span className="text-white font-semibold">alta performance</span> e a integração inteligente da IA.
+          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12">
+            O framework estratégico para quem busca clareza mental e integração total com inteligência artificial.
           </p>
-
           <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" onClick={handleTrackCheckout}>
-            <Button className="bg-white text-black hover:bg-gray-200 px-10 py-5 text-lg flex items-center gap-3 mx-auto shadow-[0_0_30px_rgba(255,255,255,0.1)]">
-              QUERO ACESSAR O SISTEMA
-              <ChevronRight className="w-5 h-5" />
+            <Button className="bg-white text-black hover:bg-gray-200 px-10 py-5 text-lg flex items-center gap-3 mx-auto">
+              QUERO ACESSAR O SISTEMA <ChevronRight className="w-5 h-5" />
             </Button>
           </a>
         </div>
       </section>
 
-      {/* VÍDEO SECTION */}
-      <section id="video" className="relative z-10 py-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-[#111] rounded-3xl overflow-hidden border border-white/10 shadow-2xl group">
-            <div className="aspect-video relative">
-               <iframe
-                width="100%"
-                height="100%"
-                src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?rel=0`}
-                title="Nexus Demo"
-                frameBorder="0"
-                allowFullScreen
-              ></iframe>
-            </div>
+      {/* VÍDEO */}
+      <section id="video" ref={videoRef} className="relative z-10 py-20 px-6">
+        <div className={`max-w-4xl mx-auto transition-all duration-1000 ${videoVisible ? 'opacity-100' : 'opacity-0 scale-95'}`}>
+          <div className="aspect-video bg-[#111] rounded-3xl border border-white/10 overflow-hidden shadow-2xl">
+            <iframe
+              width="100%" height="100%"
+              src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}`}
+              title="Nexus Video" frameBorder="0" allowFullScreen
+            ></iframe>
           </div>
         </div>
       </section>
 
-      {/* BENTO GRID */}
-      <section id="bento" className="relative z-10 py-24 px-6">
+      {/* BENTO */}
+      <section id="bento" ref={bentoRef} className="relative z-10 py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-16 text-center">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight uppercase">Os Pilares do Protocolo</h2>
-            <div className="w-20 h-1 bg-[#2DD4BF] mx-auto rounded-full"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <h2 className="text-3xl md:text-5xl font-black text-center mb-16 uppercase">Os Pilares do Protocolo</h2>
+          <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-1000 ${bentoVisible ? 'opacity-100' : 'opacity-0'}`}>
             {bentoFeatures.map((item, idx) => (
-              <div 
-                key={idx} 
-                className={`${item.colSpan} bg-[#111] border border-white/5 rounded-[2rem] p-8 md:p-12 hover:border-[#2DD4BF]/30 transition-all group overflow-hidden relative`}
-              >
-                {item.bgImage && (
-                  <img 
-                    src={item.bgImage} 
-                    className="absolute inset-0 w-full h-full object-cover opacity-5 group-hover:opacity-10 transition-opacity" 
-                    alt="" 
-                    onError={(e) => e.target.style.display = 'none'}
-                  />
-                )}
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+              <div key={idx} className={`${item.colSpan} bg-[#111] border border-white/5 p-8 rounded-3xl group relative overflow-hidden`}>
                 <div className="relative z-10">
-                  <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <item.icon className="w-7 h-7 text-[#2DD4BF]" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4 tracking-tight">{item.title}</h3>
-                  <p className="text-gray-400 leading-relaxed text-sm md:text-base">{item.desc}</p>
+                  <item.icon className="w-10 h-10 text-[#2DD4BF] mb-6" />
+                  <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+                  <p className="text-gray-400">{item.desc}</p>
                 </div>
+                {item.bgImage && <img src={item.bgImage} className="absolute inset-0 w-full h-full object-cover opacity-5 group-hover:opacity-10 transition-opacity" alt="" />}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="relative z-10 py-24 px-6 border-t border-white/5">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-           {[socialWoman1, socialMan, socialWoman2].map((img, i) => (
-             <div key={i} className="bg-white/5 p-6 rounded-2xl border border-white/10">
-                <img 
-                  src={img} 
-                  className="w-12 h-12 rounded-full mb-4 border border-[#2DD4BF] object-cover" 
-                  alt="User" 
-                  onError={(e) => { e.target.src = "https://ui-avatars.com/api/?name=User&background=random"; }}
-                />
-                <p className="text-sm text-gray-400 italic">"O Nexus mudou a minha forma de encarar o trabalho diário com IA."</p>
-             </div>
-           ))}
-        </div>
-      </section>
-
-      {/* CTA FINAL */}
-      <section className="relative z-10 py-32 px-6 bg-[#0F0F0F]">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-black mb-8 uppercase">Pronto para o próximo nível?</h2>
-          <p className="text-xl text-gray-500 mb-12">Entre para o ecossistema Nexus e transforme sua rotina produtiva hoje.</p>
-          <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" onClick={handleTrackCheckout}>
-            <Button className="bg-[#FF6B35] text-white px-12 py-6 text-xl hover:scale-105 shadow-2xl shadow-[#FF6B35]/20">
-              GARANTIR MINHA VAGA
-            </Button>
-          </a>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="relative z-10 py-20 border-t border-white/5 text-center px-6">
-        <img 
-          src={logoNexusHorizontal} 
-          alt="Nexus Logo" 
-          className="h-8 mx-auto mb-6 opacity-50" 
-          onError={(e) => e.target.style.display = 'none'}
-        />
-        <p className="text-gray-600 text-xs tracking-widest uppercase">© 2025 ECOSSISTEMA NEXUS. TECNOLOGIA DE ALTA PERFORMANCE.</p>
+      <footer className="relative z-10 py-12 border-t border-white/5 text-center">
+        <p className="text-gray-600 text-[10px] tracking-widest uppercase">© 2025 ECOSSISTEMA NEXUS. TECNOLOGIA DE ALTA PERFORMANCE.</p>
       </footer>
     </div>
   );
