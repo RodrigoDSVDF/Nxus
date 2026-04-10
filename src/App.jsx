@@ -212,7 +212,7 @@ function Header() {
           onClick={handleTrackCheckout}
         >
           <Button className="h-10 px-6 text-sm font-semibold bg-[#FF6B35] hover:bg-red-600 transition-colors">
-            ACESSO IMEDIATO
+            ACESSO 
           </Button>
         </a>
       </div>
