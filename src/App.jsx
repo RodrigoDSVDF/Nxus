@@ -22,7 +22,7 @@ import fundo02 from './assets/fundo02.jpg'
 // --- IMAGENS BENTO GRID ---
 import produtividadeImg from './assets/produtividade.jpg'
 import servicosIaImg from './assets/servicos-ia.jpg'
-import xadrezImg from './assets/xadrez-estrategia.jpg'
+import xadrezImg from './assets/xadrez-estrategia.webp'
 import promptImg from './assets/engenharia_prompt.png'
 
 // --- IMAGENS PROVA SOCIAL ---
