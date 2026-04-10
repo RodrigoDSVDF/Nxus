@@ -186,7 +186,7 @@ function Header() {
             <img 
               src={logoImg} 
               alt="Nexus Logo" 
-              className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 object-contain group-hover:scale-110 transition-transform"
+              className="w-10 h-10 md:w-12 md:h-12 object-contain group-hover:scale-110 transition-transform"
             />
             <div className="absolute inset-0 bg-[#2DD4BF] rounded-full blur-md opacity-0 group-hover:opacity-50 transition-opacity"></div>
           </div>
