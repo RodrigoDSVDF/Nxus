@@ -873,7 +873,7 @@ function App() {
         </div>
         <div className="max-w-6xl mx-auto text-center pt-6 md:pt-8 border-t border-[#111]">
           <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4">
-            &copy; 2025 Nexus Manual. Todos os direitos reservados.
+            &copy; 2026 Nexus Manual. Todos os direitos reservados.
           </p>
           <p className="text-gray-600 text-xs">
             Este produto não garante resultados específicos. Os resultados variam de acordo com a dedicação e aplicação de cada indivíduo.
