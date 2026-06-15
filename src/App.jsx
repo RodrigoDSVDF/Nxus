@@ -144,33 +144,41 @@ function Header({ onOpenManual }) {
   }
   return (
     <header style={{ position:'sticky', top:0, zIndex:50, background:'rgba(5,8,16,0.92)', backdropFilter:'blur(16px)', borderBottom:`1px solid ${C.steel}` }}>
-      <div style={{ maxWidth:'1280px', margin:'0 auto', height:'72px', display:'flex', alignItems:'center', justifyContent:'space-between', padding:'0 1.5rem' }}>
-        <button onClick={()=>scrollTo('hero')} style={{ background:'none', border:'none', cursor:'pointer' }}>
-          <img src={logoImg} alt="Nexus Manual" style={{ maxWidth:'200px', height:'auto', objectFit:'contain' }} />
+      <div style={{ maxWidth:'1280px', margin:'0 auto', height:'64px', display:'flex', alignItems:'center', justifyContent:'space-between', padding:'0 1rem', gap:'12px' }}>
+
+        {/* LOGO — limitado para não vazar em mobile */}
+        <button onClick={()=>scrollTo('hero')} style={{ background:'none', border:'none', cursor:'pointer', flexShrink:0, minWidth:0 }}>
+          <img
+            src={logoImg}
+            alt="Nexus Manual"
+            style={{ width:'auto', height:'36px', maxWidth:'140px', objectFit:'contain', display:'block' }}
+          />
         </button>
 
-        <nav style={{ display:'flex', alignItems:'center', gap:'1.5rem' }} className="hidden lg:flex">
+        {/* NAV — só aparece em desktop (lg:) */}
+        <nav className="hidden lg:flex" style={{ alignItems:'center', gap:'1.25rem', flex:1, justifyContent:'center' }}>
           {NAV_ITEMS.map(item => (
             <button key={item.id} onClick={()=>scrollTo(item.id)}
-              style={{ background:'none', border:'none', cursor:'pointer', display:'flex', alignItems:'center', gap:'4px', fontSize:'0.72rem', fontWeight:600, color:C.silver, letterSpacing:'0.1em', textTransform:'uppercase', transition:'color 0.2s' }}
+              style={{ background:'none', border:'none', cursor:'pointer', display:'flex', alignItems:'center', gap:'4px', fontSize:'0.68rem', fontWeight:600, color:C.silver, letterSpacing:'0.08em', textTransform:'uppercase', transition:'color 0.2s', whiteSpace:'nowrap' }}
               onMouseEnter={e=>e.currentTarget.style.color=C.ice}
               onMouseLeave={e=>e.currentTarget.style.color=C.silver}
             >
-              <item.icon size={13} color={C.sapphire2} />
+              <item.icon size={12} color={C.sapphire2} />
               {item.title}
             </button>
           ))}
           <button onClick={onOpenManual}
-            style={{ display:'flex', alignItems:'center', gap:'6px', padding:'6px 14px', borderRadius:'6px', border:`1px solid ${C.steel}`, background:'transparent', color:C.sapphire2, fontSize:'0.72rem', fontWeight:600, letterSpacing:'0.08em', cursor:'pointer', transition:'border-color 0.2s, color 0.2s' }}
+            style={{ display:'flex', alignItems:'center', gap:'5px', padding:'5px 12px', borderRadius:'6px', border:`1px solid ${C.steel}`, background:'transparent', color:C.sapphire2, fontSize:'0.68rem', fontWeight:600, letterSpacing:'0.06em', cursor:'pointer', whiteSpace:'nowrap' }}
             onMouseEnter={e=>{e.currentTarget.style.borderColor=C.sapphire2; e.currentTarget.style.color=C.ice}}
             onMouseLeave={e=>{e.currentTarget.style.borderColor=C.steel; e.currentTarget.style.color=C.sapphire2}}
           >
-            <BookOpen size={13} /> MANUAL GRÁTIS
+            <BookOpen size={12} /> MANUAL GRÁTIS
           </button>
         </nav>
 
+        {/* BOTÃO CTA — compacto em mobile */}
         <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" onClick={trackCheckout}
-          style={{ padding:'10px 22px', borderRadius:'7px', background:C.sapphire, color:'#fff', fontWeight:700, fontSize:'0.78rem', letterSpacing:'0.06em', textDecoration:'none', border:'1px solid rgba(255,255,255,0.15)', transition:'background 0.2s' }}
+          style={{ flexShrink:0, padding:'9px 16px', borderRadius:'7px', background:C.sapphire, color:'#fff', fontWeight:700, fontSize:'0.72rem', letterSpacing:'0.05em', textDecoration:'none', border:'1px solid rgba(255,255,255,0.15)', whiteSpace:'nowrap' }}
           onMouseEnter={e=>e.currentTarget.style.background=C.sapphire2}
           onMouseLeave={e=>e.currentTarget.style.background=C.sapphire}
         >
@@ -397,7 +405,7 @@ export default function App() {
             </p>
           </div>
 
-          <div style={{ ...trans(bentoV), display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:'14px' }} className="grid-cols-1 md:grid-cols-3">
+          <div style={{ ...trans(bentoV) }} className="bento-grid">
             {bentoFeatures.map((item,i)=>(
               <div key={i}
                 onClick={()=>setActiveFeature(item)}
@@ -644,7 +652,7 @@ export default function App() {
 
       {/* ── FOOTER ── */}
       <footer style={{ background:C.ink, borderTop:`1px solid ${C.steel}`, padding:'64px 1.5rem 32px' }}>
-        <div style={{ maxWidth:'1100px', margin:'0 auto', display:'grid', gridTemplateColumns:'2fr 1fr 1fr', gap:'40px', marginBottom:'48px' }} className="grid-cols-1 md:grid-cols-3">
+        <div style={{ maxWidth:'1100px', margin:'0 auto', marginBottom:'48px' }} className="footer-grid">
           <div>
             <div style={{ display:'flex', alignItems:'center', gap:'10px', marginBottom:'16px' }}>
               <Brain size={22} color={C.sapphire2}/>
@@ -691,4 +699,3 @@ export default function App() {
     </div>
   )
 }
-
