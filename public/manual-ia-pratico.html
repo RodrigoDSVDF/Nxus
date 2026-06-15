@@ -23,13 +23,14 @@
     color: var(--ink);
     font-size: 15px;
     line-height: 1.7;
+    overflow-x: hidden;
   }
 
   /* HERO */
   .hero {
     background: var(--ink);
     color: #fff;
-    padding: 80px 32px 72px;
+    padding: 64px 20px 60px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -50,12 +51,15 @@
   }
   .hero h1 {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-size: clamp(1.8rem, 8vw, 4rem);
     font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
     position: relative;
     margin-bottom: 18px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
   .hero h1 span { color: var(--accent); }
   .hero-sub {
@@ -673,4 +677,3 @@
 
 </body>
 </html>
-
