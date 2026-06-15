@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA no Dia a Dia — Manual Prático</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0f0f;
+    --page: #f7f5f0;
+    --mid: #e8e4dc;
+    --accent: #1a56ff;
+    --muted: #6b6760;
+    --card: #ffffff;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--page);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--ink);
+    color: #fff;
+    padding: 80px 32px 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 0%, #1a56ff22 0%, transparent 70%);
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    position: relative;
+    margin-bottom: 18px;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero-sub {
+    font-size: 1rem;
+    color: #ffffffaa;
+    max-width: 520px;
+    margin: 0 auto 32px;
+    position: relative;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff12;
+    border: 1px solid #ffffff20;
+    border-radius: 100px;
+    padding: 8px 20px;
+    font-size: 13px;
+    color: #fff;
+    position: relative;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+  /* INTRO BAR */
+  .intro-bar {
+    background: var(--accent);
+    color: #fff;
+    padding: 20px 32px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .intro-bar strong { font-weight: 700; }
+
+  /* LAYOUT */
+  .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  /* PASSOS */
+  .steps-section { padding: 64px 0 48px; }
+  .section-label {
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+  }
+  .section-title em { font-style: normal; color: var(--accent); }
+
+  .steps-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  @media(max-width:620px){ .steps-grid { grid-template-columns: 1fr; } }
+
+  .step-card {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 16px;
+    padding: 28px 22px;
+    position: relative;
+  }
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 12px;
+    opacity: .9;
+  }
+  .step-card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+  .step-card p { font-size: 13px; color: #ffffffbb; }
+  .step-card .example {
+    margin-top: 14px;
+    background: #ffffff10;
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    font-size: 12px;
+    color: #ffffffcc;
+    font-style: italic;
+  }
+
+  .formula-bar {
+    background: var(--accent);
+    color: #fff;
+    border-radius: 12px;
+    padding: 16px 24px;
+    text-align: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  /* SECTION */
+  .section { padding: 56px 0 0; }
+
+  /* CARDS */
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:580px){ .cards { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px 24px;
+    border: 1px solid var(--mid);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow .2s, transform .2s;
+  }
+  .card:hover { box-shadow: 0 8px 32px #0f0f0f12; transform: translateY(-2px); }
+  .card-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
+  .card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .card ul {
+    padding-left: 18px;
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+  .card ul li { margin-bottom: 2px; }
+  .card-tip {
+    margin-top: 14px;
+    background: var(--page);
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    font-size: 12.5px;
+    color: var(--ink);
+  }
+  .card-tip strong { color: var(--accent); }
+  .card-save {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: #dcfce7;
+    color: #166534;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+  .card-warn {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: #fff8ed;
+    color: #92400e;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+
+  /* BOLETO FEATURED */
+  .featured {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .featured::after {
+    content: '📷';
+    position: absolute;
+    right: 28px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 3.5rem;
+    opacity: .15;
+  }
+  .featured .card-title { font-size: 1.2rem; color: #fff; }
+  .featured ul { color: #ffffffaa; }
+  .featured .card-tip { background: #ffffff12; border-left-color: #60a5fa; color: #fff; }
+  .featured .card-tip strong { color: #60a5fa; }
+  .featured .card-save { background: #22c55e; color: #fff; }
+
+  /* SEGURANÇA */
+  .security-box {
+    background: var(--ink);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-top: 48px;
+  }
+  .security-box h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+  .security-items { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:560px){ .security-items { grid-template-columns: 1fr; } }
+  .sec-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: #ffffff0c;
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .sec-item span { font-size: 1.3rem; flex-shrink: 0; }
+  .sec-item p { font-size: 13px; color: #ffffffbb; }
+
+  /* FOOTER */
+  .closing {
+    background: var(--page);
+    border-top: 1px solid var(--mid);
+    padding: 48px 32px;
+    text-align: center;
+    margin-top: 64px;
+  }
+  .closing-quote {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    max-width: 560px;
+    margin: 0 auto 12px;
+    line-height: 1.4;
+  }
+  .closing-quote em { font-style: normal; color: var(--accent); }
+  .closing-sub { font-size: 13.5px; color: var(--muted); }
+
+  /* CTA SECTION */
+  .cta-section {
+    background: var(--ink);
+    padding: 80px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 50% 100%, #1a56ff18 0%, transparent 70%);
+  }
+  .cta-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .cta-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    position: relative;
+  }
+  .cta-title em { font-style: normal; color: var(--accent); }
+  .cta-sub {
+    font-size: 15px;
+    color: #ffffffaa;
+    max-width: 480px;
+    margin: 0 auto 40px;
+    position: relative;
+  }
+
+  .ia-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    max-width: 700px;
+    margin: 0 auto 48px;
+    position: relative;
+  }
+  @media(max-width:600px){ .ia-table { grid-template-columns: 1fr; } }
+
+  .ia-row {
+    background: #ffffff0d;
+    border: 1px solid #ffffff14;
+    border-radius: 12px;
+    padding: 18px 16px;
+    text-align: left;
+  }
+  .ia-function {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ffffff55;
+    margin-bottom: 6px;
+  }
+  .ia-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .ia-desc { font-size: 12px; color: #ffffff77; }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 18px 44px;
+    border-radius: 100px;
+    text-decoration: none;
+    position: relative;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 0 0 0 #1a56ff44;
+    animation: glow 2.5s infinite;
+  }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px #1a56ff55; }
+  @keyframes glow {
+    0%,100% { box-shadow: 0 0 0 0 #1a56ff44; }
+    50% { box-shadow: 0 0 0 12px #1a56ff00; }
+  }
+  .cta-btn-sub {
+    display: block;
+    margin-top: 14px;
+    font-size: 12px;
+    color: #ffffff55;
+    position: relative;
+  }
+
+  footer {
+    background: var(--ink);
+    color: #ffffff55;
+    text-align: center;
+    padding: 28px 24px;
+    font-size: 12.5px;
+  }
+  footer strong { color: #ffffffaa; }
+
+  hr.divider { border: none; border-top: 1px solid var(--mid); margin: 56px 0 0; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Manual Prático</div>
+  <h1>Inteligência Artificial<br>no seu <span>dia a dia</span></h1>
+  <p class="hero-sub">Mais tempo, menos custos e mais praticidade — sem precisar saber programar nada.</p>
+  <div class="hero-badge"><span class="dot"></span> Guia prático 2025</div>
+</div>
+
+<!-- INTRO BAR -->
+<div class="intro-bar">
+  A IA pode ajudar você a <strong>economizar tempo, reduzir erros e diminuir gastos</strong> com serviços simples do cotidiano.
+</div>
+
+<div class="container">
+
+  <!-- PASSOS -->
+  <div class="steps-section">
+    <div class="section-label">Ponto de partida</div>
+    <div class="section-title">A regra dos <em>3 passos</em></div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Explique o contexto</h3>
+        <p>Descreva rapidamente a situação.</p>
+        <div class="example">"Recebi um boleto físico com o código de barras danificado."</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Diga o que deseja</h3>
+        <p>Informe qual tarefa a IA deve realizar.</p>
+        <div class="example">"Extraia a linha digitável a partir da foto."</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Informe o formato</h3>
+        <p>Defina como quer receber a resposta.</p>
+        <div class="example">"Apresente apenas os números, separados em grupos, sem explicações."</div>
+      </div>
+    </div>
+
+    <div class="formula-bar">Contexto + Objetivo + Formato = respostas melhores</div>
+  </div>
+
+  <!-- SEÇÃO 1 — LEITURA DE DOCUMENTOS (DESTAQUE) -->
+  <div class="section">
+    <div class="section-label">Capítulo 1</div>
+    <div class="section-title"><em>Leitura</em> de documentos e imagens</div>
+
+    <div class="featured">
+      <span class="card-save">✓ Economiza tempo</span>
+      <span class="card-icon">🧾</span>
+      <div class="card-title">Do boleto ilegível à planilha — tudo com uma foto</div>
+      <ul>
+        <li>Extrair a linha digitável de boletos com código de barras danificado</li>
+        <li>Copiar textos de documentos, recibos, placas e cartazes</li>
+        <li>Digitalizar anotações escritas à mão</li>
+        <li>Organizar informações de notas fiscais e comprovantes</li>
+        <li>Converter tabelas fotografadas em planilhas editáveis</li>
+        <li>Traduzir textos presentes em imagens</li>
+      </ul>
+      <div class="card-tip"><strong>⚠️ Importante:</strong> sempre confira os dados antes de realizar pagamentos.</div>
+    </div>
+  </div>
+
+  <!-- DEMAIS SEÇÕES EM CARDS -->
+  <div class="section" style="padding-top: 48px;">
+    <div class="section-label">Capítulos 2 a 9</div>
+    <div class="section-title">Tudo que a IA faz <em>por você</em></div>
+
+    <div class="cards">
+
+      <div class="card">
+        <span class="card-save">Economiza $$$</span>
+        <span class="card-icon">✍️</span>
+        <div class="card-title">Escrita e comunicação</div>
+        <ul>
+          <li>Corrigir ortografia e gramática</li>
+          <li>Revisar e-mails, mensagens e documentos</li>
+          <li>Adaptar textos para tom formal ou informal</li>
+          <li>Resumir conteúdos extensos</li>
+          <li>Traduzir textos para outros idiomas</li>
+          <li>Criar apresentações, relatórios e currículos</li>
+        </ul>
+        <div class="card-tip"><strong>Dica:</strong> "Reescreva esse e-mail com tom mais formal e sem erros."</div>
+      </div>
+
+      <div class="card">
+        <span class="card-save">Economiza $$$</span>
+        <span class="card-icon">📚</span>
+        <div class="card-title">Estudos e aprendizado</div>
+        <ul>
+          <li>Explicar assuntos complexos de forma simples</li>
+          <li>Criar resumos, mapas mentais e flashcards</li>
+          <li>Elaborar exercícios e simulados</li>
+          <li>Organizar planos de estudo personalizados</li>
+          <li>Tirar dúvidas sobre conteúdos acadêmicos e profissionais</li>
+        </ul>
+        <div class="card-tip"><strong>Dica:</strong> "Explique juros compostos como se eu tivesse 14 anos."</div>
+      </div>
+
+      <div class="card">
+        <span class="card-save">Economiza $$$</span>
+        <span class="card-icon">🖥️</span>
+        <div class="card-title">Manutenção e suporte tecnológico</div>
+        <ul>
+          <li>Identificar mensagens de erro em computadores e celulares</li>
+          <li>Orientar sobre instalação e configuração de programas</li>
+          <li>Auxiliar na solução de problemas de internet</li>
+          <li>Explicar procedimentos de manutenção básica</li>
+          <li>Ajudar na organização de arquivos e backups</li>
+          <li>Orientar sobre automação de tarefas repetitivas</li>
+        </ul>
+        <div class="card-tip"><strong>Dica:</strong> "Meu Windows exibe erro 0x80070002. O que faço passo a passo?"</div>
+      </div>
+
+      <div class="card">
+        <span class="card-warn">⚠️ Nunca compartilhe senhas</span>
+        <span class="card-icon">💰</span>
+        <div class="card-title">Finanças pessoais</div>
+        <ul>
+          <li>Organizar despesas e receitas</li>
+          <li>Criar orçamentos mensais</li>
+          <li>Comparar preços e condições de compra</li>
+          <li>Identificar gastos recorrentes</li>
+          <li>Explicar termos financeiros e bancários</li>
+          <li>Auxiliar no planejamento financeiro</li>
+        </ul>
+        <div class="card-tip"><strong>Dica:</strong> "Organize essas despesas por categoria e mostre o total de cada uma."</div>
+      </div>
+
+      <div class="card">
+        <span class="card-save">Economiza $$$</span>
+        <span class="card-icon">🛒</span>
+        <div class="card-title">Compras inteligentes</div>
+        <ul>
+          <li>Comparar produtos e especificações técnicas</li>
+          <li>Encontrar alternativas mais econômicas</li>
+          <li>Avaliar custo-benefício antes de comprar</li>
+          <li>Criar listas de compras</li>
+          <li>Identificar promoções e oportunidades</li>
+        </ul>
+        <div class="card-tip"><strong>Dica:</strong> "Qual a diferença entre esses dois modelos? Qual vale mais para uso básico?"</div>
+      </div>
+
+      <div class="card">
+        <span class="card-icon">📋</span>
+        <div class="card-title">Organização pessoal</div>
+        <ul>
+          <li>Criar listas de tarefas</li>
+          <li>Planejar viagens e roteiros</li>
+          <li>Organizar agendas e compromissos</li>
+          <li>Montar cardápios semanais</li>
+          <li>Gerar checklists para atividades importantes</li>
+        </ul>
+        <div class="card-tip"><strong>Dica:</strong> "Monte um roteiro de 4 dias em Brasília para família com criança pequena."</div>
+      </div>
+
+      <div class="card">
+        <span class="card-warn">⚠️ Não substitui médico</span>
+        <span class="card-icon">🩺</span>
+        <div class="card-title">Saúde e bem-estar</div>
+        <ul>
+          <li>Explicar termos médicos e resultados de exames</li>
+          <li>Organizar perguntas para consultas</li>
+          <li>Sugerir hábitos saudáveis</li>
+          <li>Criar planos básicos de exercícios e alimentação</li>
+        </ul>
+        <div class="card-tip"><strong>Dica:</strong> "Explique o que significa 'TSH elevado' num exame de tireoide, em linguagem simples."</div>
+      </div>
+
+      <div class="card">
+        <span class="card-save">Economiza $$$</span>
+        <span class="card-icon">🍳</span>
+        <div class="card-title">Consumo doméstico</div>
+        <ul>
+          <li>Sugerir receitas com ingredientes disponíveis em casa</li>
+          <li>Calcular quantidades para refeições</li>
+          <li>Orientar sobre limpeza e organização</li>
+          <li>Identificar formas de economizar energia e água</li>
+          <li>Criar listas de compras mais eficientes</li>
+        </ul>
+        <div class="card-tip"><strong>Dica:</strong> "Tenho ovo, tomate e queijo. Que pratos rápidos posso fazer?"</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SEGURANÇA -->
+  <div class="security-box">
+    <h2>🔒 Boas práticas de segurança</h2>
+    <div class="security-items">
+      <div class="sec-item">
+        <span>🚫</span>
+        <p>Nunca compartilhe senhas, códigos de verificação ou dados pessoais sensíveis com a IA.</p>
+      </div>
+      <div class="sec-item">
+        <span>✅</span>
+        <p>Sempre revise informações relacionadas a pagamentos, contratos e finanças antes de agir.</p>
+      </div>
+      <div class="sec-item">
+        <span>🔍</span>
+        <p>Verifique informações importantes em fontes confiáveis. A IA pode cometer erros.</p>
+      </div>
+      <div class="sec-item">
+        <span>🧠</span>
+        <p>A IA não substitui seu julgamento — use-a como ferramenta para decidir melhor.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+</div>
+
+<!-- CTA FINAL -->
+<div class="cta-section">
+  <div class="cta-eyebrow">Próximo passo</div>
+  <div class="cta-title">Qual IA usar em <em>cada situação</em> — e como tirar o máximo delas</div>
+  <p class="cta-sub">Este guia mostrou o que é possível. O Nexus mostra exatamente como fazer — com as ferramentas certas para cada tarefa do seu dia.</p>
+
+  <div class="ia-table">
+    <div class="ia-row">
+      <div class="ia-function">Textos e escrita</div>
+      <div class="ia-name">Claude / ChatGPT</div>
+      <div class="ia-desc">Redação, correção, resumos e e-mails profissionais</div>
+    </div>
+    <div class="ia-row">
+      <div class="ia-function">Imagens e fotos</div>
+      <div class="ia-name">ChatGPT / Gemini</div>
+      <div class="ia-desc">Leitura de boletos, laudos, documentos fotografados</div>
+    </div>
+    <div class="ia-row">
+      <div class="ia-function">Pesquisa e dados</div>
+      <div class="ia-name">Perplexity / Gemini</div>
+      <div class="ia-desc">Comparar produtos, buscar informações atualizadas</div>
+    </div>
+    <div class="ia-row">
+      <div class="ia-function">Organização</div>
+      <div class="ia-name">Notion AI</div>
+      <div class="ia-desc">Agendas, listas, planejamento pessoal e profissional</div>
+    </div>
+    <div class="ia-row">
+      <div class="ia-function">Suporte técnico</div>
+      <div class="ia-name">Claude / ChatGPT</div>
+      <div class="ia-desc">Erros de computador, configurações e manutenção</div>
+    </div>
+    <div class="ia-row">
+      <div class="ia-function">Finanças</div>
+      <div class="ia-name">ChatGPT / Claude</div>
+      <div class="ia-desc">Orçamentos, análise de gastos e planejamento</div>
+    </div>
+  </div>
+
+  <a class="cta-btn" href="https://pay.cakto.com.br/5dUKrWD" target="_blank">
+    Quero o Nexus: Manual de Alta Performance →
+  </a>
+  <span class="cta-btn-sub">Aprenda a usar cada IA no lugar certo — e transforme seu dia a dia</span>
+</div>
+
+<footer>
+  <strong>Manual Prático de Inteligência Artificial no Dia a Dia</strong><br>
+  Mais tempo, menos custos e mais praticidade.
+</footer>
+
+</body>
+</html>
