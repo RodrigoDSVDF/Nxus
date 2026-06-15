@@ -218,6 +218,36 @@
     50%      { background-position: 100% 50%; }
   }
 
+  /* ── BENTO GRID ── */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;   /* mobile: 1 coluna, card largo */
+    gap: 14px;
+  }
+
+  /* Em desktop, volta ao layout de 3 colunas com col-span funcionando */
+  @media (min-width: 768px) {
+    .bento-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .bento-grid .md\:col-span-2 { grid-column: span 2; }
+    .bento-grid .md\:col-span-1 { grid-column: span 1; }
+  }
+
+  /* ── FOOTER GRID ── */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+    }
+  }
+
   /* ── LINHA ASSINATURA (hero rule) ── */
   .hero-rule {
     width: 100%;
@@ -288,4 +318,3 @@
     transition-duration: 0.01ms !important;
   }
 }
-
