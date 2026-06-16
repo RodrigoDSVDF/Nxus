@@ -86,7 +86,7 @@ const faqItems = [
   { q:"Sou iniciante. Serve para mim?",           a:"Sim. O sistema foi desenhado como guia progressivo: do básico até formas avançadas de uso estratégico da IA, sem pressupor experiência prévia." },
   { q:"O material é vídeo ou texto?",             a:"Você recebe o E-book (consulta rápida), Vídeo-Aulas práticas de implementação, banco de prompts e acesso ao HUB de ferramentas." },
   { q:"Como funciona a garantia de 7 dias?",      a:"Teste o sistema por 7 dias. Se não sentir melhora tangível na sua clareza e produtividade, um e-mail devolve 100% do investimento. Sem burocracia." },
-  { q:"Por que o preço está tão baixo?",          a:"O Nexus está em fase de lançamento e queremos que os primeiros usuários ajudem a moldar o produto. Em troca, você acessa tudo por R$ 19,90 e recebe todas as atualizações futuras sem pagar nada a mais. O preço sobe conforme novos módulos forem adicionados." },
+  { q:"Por que o preço está tão baixo?",          a:"O Nexus está em fase de lançamento e queremos que os primeiros usuários ajudem a moldar o produto. Em troca, você acessa tudo por R$ 47,00 e recebe todas as atualizações futuras sem pagar nada a mais. O preço sobe conforme novos módulos forem adicionados." },
 ]
 
 const NAV_ITEMS = [
