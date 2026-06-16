@@ -558,7 +558,7 @@ export default function App() {
 
             <div style={{ marginBottom:'28px' }}>
               <div style={{ fontFamily:'Space Grotesk, sans-serif', fontSize:'clamp(2rem,5vw,3rem)', fontWeight:800, color:C.ice, letterSpacing:'-0.03em' }}>
-                R$ 19<span style={{ fontSize:'1.2rem', color:C.silver }}>,90</span>
+                R$ 47<span style={{ fontSize:'1.2rem', color:C.silver }}>,00</span>
               </div>
               <div style={{ color:C.silver, fontSize:'0.85rem', marginTop:'4px' }}>ou 12× de R$ 6,80 · pagamento único, sem mensalidades</div>
               <div className="eyebrow" style={{ marginTop:'10px', color:C.sapphire2 }}>Preço de acesso antecipado</div>
