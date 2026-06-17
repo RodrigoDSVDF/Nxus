@@ -691,7 +691,7 @@ export default function App() {
               <img src={produtoImg} alt="Nexus Pack" style={{ width:'180px', borderRadius:'10px', border:`1px solid ${C.steel}`, boxShadow:`0 20px 48px rgba(0,0,0,0.5)`, transform:'rotate(-2deg)' }} className="product-image"/>
               <div>
                 <div style={{ fontFamily:'Space Grotesk, sans-serif', fontSize:'3.5rem', fontWeight:900, color:C.ice, lineHeight:1, letterSpacing:'-0.04em' }}>
-                  R$ 19<span style={{ fontSize:'1.5rem', color:C.silver }}>,90</span>
+                  R$ 47<span style={{ fontSize:'1.5rem', color:C.silver }}>,00</span>
                 </div>
                 <div style={{ color:C.silver, fontSize:'0.85rem', marginTop:'6px' }}>Pagamento único · Sem mensalidades</div>
                 <div style={{ display:'flex', flexDirection:'column', gap:'6px', marginTop:'16px', textAlign:'left' }}>
