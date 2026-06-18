@@ -199,10 +199,8 @@ function Header({ onOpenManual }) {
         </nav>
 
         {/* BOTÃO CTA — compacto em mobile */}
-        <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" onClick={trackCheckout}
-          style={{ flexShrink:0, padding:'9px 16px', borderRadius:'7px', background:C.sapphire, color:'#fff', fontWeight:700, fontSize:'0.72rem', letterSpacing:'0.05em', textDecoration:'none', border:'1px solid rgba(255,255,255,0.15)', whiteSpace:'nowrap' }}
-          onMouseEnter={e=>e.currentTarget.style.background=C.sapphire2}
-          onMouseLeave={e=>e.currentTarget.style.background=C.sapphire}
+        <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" onClick={trackCheckout} className="pulse-button"
+          style={{ flexShrink:0, padding:'9px 16px', color:'#fff', fontWeight:700, fontSize:'0.72rem', letterSpacing:'0.05em', textDecoration:'none', whiteSpace:'nowrap' }}
         >
           ACESSO
         </a>
@@ -230,6 +228,8 @@ export default function App() {
   return (
     <div style={{ minHeight:'100vh', background:C.ink, color:C.ice, fontFamily:'Inter, sans-serif', overflowX:'hidden' }}>
 
+      <div className="grain-overlay" aria-hidden="true" />
+
       {showManual && <ManualModal onClose={()=>setShowManual(false)} />}
 
       <Header onOpenManual={()=>setShowManual(true)} />
@@ -248,10 +248,12 @@ export default function App() {
 
       {/* ── HERO ── */}
       <section id="hero" ref={heroRef} style={{ position:'relative', zIndex:10, paddingTop:'100px', paddingBottom:'120px', textAlign:'center', overflow:'hidden' }}>
-        {/* fundo sutil */}
+        {/* fundo — imagem com tratamento duotone sutil */}
         <div style={{ position:'absolute', inset:0, pointerEvents:'none' }}>
-          <div style={{ position:'absolute', top:'-20%', left:'50%', transform:'translateX(-50%)', width:'800px', height:'600px', background:'radial-gradient(ellipse, rgba(37,99,235,0.08) 0%, transparent 70%)', borderRadius:'50%' }}/>
-          <img src={brainNetworkImg} alt="" aria-hidden style={{ position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', objectPosition:'center', opacity:0.06, filter:'grayscale(80%) contrast(1.2)' }}/>
+          <div style={{ position:'absolute', top:'-20%', left:'50%', transform:'translateX(-50%)', width:'800px', height:'600px', background:'radial-gradient(ellipse, rgba(37,99,235,0.10) 0%, transparent 70%)', borderRadius:'50%' }}/>
+          <img src={brainNetworkImg} alt="" aria-hidden style={{ position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', objectPosition:'center', opacity:0.14, filter:'grayscale(55%) contrast(1.3) brightness(0.85)' }}/>
+          <div style={{ position:'absolute', inset:0, background:'linear-gradient(165deg, rgba(37,99,235,0.22) 0%, transparent 45%, rgba(5,8,16,0.55) 100%)', mixBlendMode:'color' }}/>
+          <div style={{ position:'absolute', inset:0, background:`linear-gradient(180deg, ${C.ink} 0%, transparent 20%, transparent 72%, ${C.ink} 100%)` }}/>
         </div>
 
         <div style={{ ...trans(heroV), maxWidth:'800px', margin:'0 auto', padding:'0 1.5rem', position:'relative' }}>
@@ -279,10 +281,8 @@ export default function App() {
           </p>
 
           <div style={{ display:'flex', flexDirection:'column', alignItems:'center', gap:'14px' }}>
-            <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" onClick={trackCheckout}
-              style={{ display:'inline-flex', alignItems:'center', gap:'10px', padding:'16px 36px', borderRadius:'8px', background:C.sapphire, color:'#fff', fontWeight:700, fontSize:'0.95rem', letterSpacing:'0.06em', textDecoration:'none', border:'1px solid rgba(255,255,255,0.15)', transition:'background 0.2s, box-shadow 0.2s', width:'100%', maxWidth:'420px', justifyContent:'center' }}
-              onMouseEnter={e=>{e.currentTarget.style.background=C.sapphire2; e.currentTarget.style.boxShadow=`0 0 32px rgba(37,99,235,0.35)`}}
-              onMouseLeave={e=>{e.currentTarget.style.background=C.sapphire; e.currentTarget.style.boxShadow='none'}}
+            <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" onClick={trackCheckout} className="pulse-button"
+              style={{ display:'inline-flex', alignItems:'center', gap:'10px', padding:'16px 36px', color:'#fff', fontWeight:700, fontSize:'0.95rem', letterSpacing:'0.06em', textDecoration:'none', width:'100%', maxWidth:'420px', justifyContent:'center' }}
             >
               ACESSAR O SISTEMA AGORA <ArrowRight size={18}/>
             </a>
@@ -358,10 +358,8 @@ export default function App() {
           </div>
 
           <div style={{ textAlign:'center', marginTop:'40px' }}>
-            <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" onClick={trackCheckout}
-              style={{ display:'inline-flex', alignItems:'center', gap:'10px', padding:'15px 36px', borderRadius:'8px', background:C.sapphire, color:'#fff', fontWeight:700, fontSize:'0.9rem', letterSpacing:'0.05em', textDecoration:'none', border:'1px solid rgba(255,255,255,0.1)' }}
-              onMouseEnter={e=>e.currentTarget.style.background=C.sapphire2}
-              onMouseLeave={e=>e.currentTarget.style.background=C.sapphire}
+            <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" onClick={trackCheckout} className="pulse-button"
+              style={{ display:'inline-flex', alignItems:'center', gap:'10px', padding:'15px 36px', color:'#fff', fontWeight:700, fontSize:'0.9rem', letterSpacing:'0.05em', textDecoration:'none' }}
             >
               APLICAR O SISTEMA NA MINHA ROTINA <ArrowRight size={17}/>
             </a>
@@ -482,10 +480,8 @@ export default function App() {
           </div>
 
           <div style={{ textAlign:'center', marginTop:'48px' }}>
-            <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" onClick={trackCheckout}
-              style={{ display:'inline-flex', alignItems:'center', gap:'10px', padding:'16px 40px', borderRadius:'8px', background:C.sapphire, color:'#fff', fontWeight:700, fontSize:'0.9rem', letterSpacing:'0.05em', textDecoration:'none', border:'1px solid rgba(255,255,255,0.12)' }}
-              onMouseEnter={e=>e.currentTarget.style.background=C.sapphire2}
-              onMouseLeave={e=>e.currentTarget.style.background=C.sapphire}
+            <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" onClick={trackCheckout} className="pulse-button"
+              style={{ display:'inline-flex', alignItems:'center', gap:'10px', padding:'16px 40px', color:'#fff', fontWeight:700, fontSize:'0.9rem', letterSpacing:'0.05em', textDecoration:'none' }}
             >
               QUERO OS 5 PILARES AGORA <ArrowRight size={17}/>
             </a>
@@ -495,7 +491,7 @@ export default function App() {
 
       {/* ── BANNER MID ── */}
       <div className="horizontal-banner-mid-section">
-        <div className="horizontal-banner-wrapper" style={{ background:C.steel, opacity:1, borderColor:`rgba(37,99,235,0.2)` }}>
+        <div className="horizontal-banner-wrapper">
           <div className="horizontal-banner">
             <div className="banner-content" style={{ animationDuration:'20s' }}>
               {['BIOHACKING DO FOCO','METODOLOGIAS ATIVAS','DEEP WORK','INTELIGÊNCIA ESTRATÉGICA'].flatMap((t,i)=>[
@@ -513,9 +509,9 @@ export default function App() {
           <div style={{ textAlign:'center', marginBottom:'52px' }}>
             <div className="eyebrow" style={{ marginBottom:'14px' }}>Conteúdo</div>
             <h2 style={{ fontFamily:'Space Grotesk, sans-serif', fontSize:'clamp(1.6rem,4vw,2.4rem)', fontWeight:700, color:C.ice, letterSpacing:'-0.03em', marginBottom:'14px' }}>
-              <span className="animated-gradient-title">O que você recebe</span>
+              <span className="dynamic-gradient">O que você recebe</span>
             </h2>
-            <div style={{ display:'inline-block', padding:'10px 24px', border:`1px solid ${C.steel}`, borderRadius:'8px', background:C.navy }}>
+            <div style={{ display:'inline-block', padding:'10px 24px', border:'1px solid rgba(148,163,184,0.3)', borderRadius:'8px', background:C.navy }}>
               <span className="shimmer-title" style={{ fontSize:'1rem', fontWeight:700 }}>PACOTE NEXUS — ACESSO VITALÍCIO</span>
             </div>
           </div>
@@ -564,10 +560,8 @@ export default function App() {
               <div className="eyebrow" style={{ marginTop:'10px', color:C.sapphire2 }}>Preço de acesso antecipado</div>
             </div>
 
-            <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" onClick={trackCheckout}
-              style={{ display:'inline-flex', alignItems:'center', justifyContent:'center', gap:'10px', padding:'18px 44px', borderRadius:'8px', background:C.sapphire, color:'#fff', fontWeight:700, fontSize:'0.95rem', letterSpacing:'0.05em', textDecoration:'none', border:'1px solid rgba(255,255,255,0.12)', width:'100%', maxWidth:'480px' }}
-              onMouseEnter={e=>e.currentTarget.style.background=C.sapphire2}
-              onMouseLeave={e=>e.currentTarget.style.background=C.sapphire}
+            <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" onClick={trackCheckout} className="pulse-button"
+              style={{ display:'inline-flex', alignItems:'center', justifyContent:'center', gap:'10px', padding:'18px 44px', color:'#fff', fontWeight:700, fontSize:'0.95rem', letterSpacing:'0.05em', textDecoration:'none', width:'100%', maxWidth:'480px' }}
             >
               GARANTIR MEU ACESSO ANTECIPADO <ArrowRight size={18}/>
             </a>
@@ -602,7 +596,7 @@ export default function App() {
                   <div style={{ display:'flex', gap:'3px', marginBottom:'16px' }}>
                     {[...Array(5)].map((_,j)=><Star key={j} size={14} color={C.sapphire2} fill={C.sapphire2}/>)}
                   </div>
-                  <p style={{ color:C.silver, fontSize:'0.9rem', lineHeight:1.75, marginBottom:'20px' }}>"{item.text}"</p>
+                  <p style={{ color:C.silver, fontSize:'0.9rem', lineHeight:1.75, marginBottom:'20px' }}>“{item.text}”</p>
                 </div>
                 <div style={{ display:'flex', alignItems:'center', gap:'12px', paddingTop:'16px', borderTop:`1px solid ${C.steel}` }}>
                   {/* Avatar com iniciais — sem foto de banco */}
@@ -643,7 +637,7 @@ export default function App() {
           <div style={{ textAlign:'center', marginBottom:'48px' }}>
             <div className="eyebrow" style={{ marginBottom:'12px' }}>FAQ</div>
             <h2 style={{ fontFamily:'Space Grotesk, sans-serif', fontSize:'clamp(1.6rem,4vw,2.2rem)', fontWeight:700, color:C.ice, letterSpacing:'-0.03em' }}>
-              <span className="animated-gradient-title">Perguntas Frequentes</span>
+              <span className="dynamic-gradient">Perguntas Frequentes</span>
             </h2>
           </div>
           <div style={{ display:'flex', flexDirection:'column', gap:'8px' }}>
@@ -679,8 +673,8 @@ export default function App() {
             <strong style={{ color:C.ice }}>um e-mail devolve 100% do investimento.</strong> O risco é inteiramente nosso.
           </p>
 
-          <div style={{ background:C.ink, border:`1px solid ${C.sapphire}55`, borderRadius:'16px', padding:'48px 40px', position:'relative', overflow:'hidden' }}>
-            <div style={{ position:'absolute', top:0, left:0, right:0, height:'2px', background:`linear-gradient(90deg, transparent, ${C.sapphire}, transparent)` }}/>
+          <div style={{ background:C.ink, border:'1px solid rgba(148,163,184,0.25)', borderRadius:'16px', padding:'48px 40px', position:'relative', overflow:'hidden', boxShadow:'inset 0 1px 0 rgba(232,240,254,0.06)' }}>
+            <div style={{ position:'absolute', top:0, left:0, right:0, height:'2px', background:`linear-gradient(90deg, transparent, ${C.silver}, ${C.sapphire2}, ${C.silver}, transparent)` }}/>
             
             <h3 style={{ fontFamily:'Space Grotesk, sans-serif', fontSize:'1.4rem', fontWeight:700, color:C.ice, marginBottom:'6px' }}>
               <span className="shimmer-title">Preço de Lançamento — Acesso Vitalício</span>
@@ -704,10 +698,8 @@ export default function App() {
               </div>
             </div>
 
-            <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" onClick={trackCheckout}
-              style={{ display:'flex', alignItems:'center', justifyContent:'center', gap:'10px', padding:'18px 44px', borderRadius:'8px', background:C.sapphire, color:'#fff', fontWeight:700, fontSize:'1rem', letterSpacing:'0.05em', textDecoration:'none', border:'1px solid rgba(255,255,255,0.12)', maxWidth:'480px', margin:'0 auto', width:'100%' }}
-              onMouseEnter={e=>e.currentTarget.style.background=C.sapphire2}
-              onMouseLeave={e=>e.currentTarget.style.background=C.sapphire}
+            <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" onClick={trackCheckout} className="pulse-button"
+              style={{ display:'flex', alignItems:'center', justifyContent:'center', gap:'10px', padding:'18px 44px', color:'#fff', fontWeight:700, fontSize:'1rem', letterSpacing:'0.05em', textDecoration:'none', maxWidth:'480px', margin:'0 auto', width:'100%' }}
             >
               ACESSAR MEU SISTEMA NEXUS AGORA <ArrowRight size={18}/>
             </a>
